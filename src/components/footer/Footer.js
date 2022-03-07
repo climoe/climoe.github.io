@@ -1,28 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
-import Colors from '../common/Colors';
-import { Content } from '../layout/Layout';
-import { media } from '../common/MediaQueries';
 import { Atom, HeartStraight } from 'phosphor-react';
 
-const FooterWrapper = styled.div`
-  background: ${Colors.DARKEST};
-  color: ${Colors.WHITE};
-  padding: ${props => (props.big ? '21rem' : props.medium ? '10rem' : '8rem')} 0 6rem 0;
-  ${media.tablet`
-    padding: ${props => (props.big ? '15rem' : props.medium ? '10rem' : '12.8rem')} 2rem 5rem 2rem;`
-  }
-`;
+import Colors from '../common/Colors';
+import { contentMax } from '../common/Mixins';
+import { media } from '../common/MediaQueries';
+
+import waves from '../../static/images/waves.svg';
 
 const Copyright = styled.p`
-  text-align: center;
+  text-align: right;
   box-align: initial;
 `;
+
+const Content = styled.div`
+  ${contentMax}
+`;
+
+const FooterWrapper = styled.div`
+  //background: ${Colors.ORANGE_LIGHTER};
+  background-image: url('${waves}');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  //color: ${Colors.WHITE};
+  padding: ${props => (props.big ? '21rem' : props.medium ? '10rem' : '8rem')} 0 6rem 0;
+  ${media.tablet`
+    padding: ${props => (props.big ? '15rem' : props.medium ? '10rem' : '12rem')} 2rem 5rem 2rem;`
+  }
+`;  
+
 
 const Footer = ({ big, medium }) => (
   <FooterWrapper {...big && { big }} {...medium && { medium }}>
     <Content>
-      <Copyright white align="center">
+      <Copyright align="right">
         Content made with  <Atom size= {24}/> and <HeartStraight weight= "fill" color="red" size={24} alignmentBaseline="center"/>
       </Copyright>
       <Copyright>

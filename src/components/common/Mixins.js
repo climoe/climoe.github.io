@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { LargeParagraph } from '../common/Typography';
 
 export const center = css`
   display: block;
@@ -16,8 +15,8 @@ export const bold = css`
 
 export const contentMax = css`
   max-width: 100%;
-  margin: 0 2rem;
-  padding: 0 3rem;
+  margin: 0 1rem;
+  padding: 0 1rem;
 `;
 
 export const wideContentMixin = css`
@@ -27,17 +26,6 @@ export const wideContentMixin = css`
 
 export const fullWidth = css`
   width: 100%;
-`;
-
-export const aboveFoldMixin = css`
-  padding: 11rem 0 18rem 0;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top -7rem,;
-  text-align: center;
-  ${LargeParagraph} {
-    padding: 0 3rem;
-  }
 `;
 
 export const block = css`

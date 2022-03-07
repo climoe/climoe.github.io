@@ -7,16 +7,12 @@ const style = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-around",
-    alignItems: "stretch",
-    //top: "10rem",
-   //right: 0,    
-    padding: "20.5rem",
-    //zIndex: "1000"
+    alignItems: "stretch"
 }
 
 const variants = {
   open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+    transition: { staggerChildren: 0.07, delayChildren: 0.5 }
   },
   closed: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 }

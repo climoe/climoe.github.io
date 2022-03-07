@@ -1,59 +1,66 @@
-import { graphql } from 'gatsby';
-import { darken } from 'polished';
 import React from 'react';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import * as Mixins from '../components/common/Mixins';
-import {Header1, Header2, Paragraph, LargeParagraph} from  '../components/common/Typography';
-import Layout, { Content } from '../components/layout/Layout';
-import AnimatedSection from '../components/content/DivWrapper';
-import { TitleQuestion } from '../components/content/TitleQuestion';
-import { LifetimeEvent } from '../components/content/LifetimeEvent';
-import { HireMe, LinkButton } from '../components/button/Button.js';
-import HireMePopup from '../components/about/HireMePopup.js';
-import { media } from '../components/common/MediaQueries';
-import Colors from '../components/common/Colors';
-import programming from '../images/programming-ilustration.svg'
-import prototyping from '../images/prototyping-ilustration.svg'
 
-const AboveFold = styled.div`
-  ${Mixins.aboveFoldMixin}
-  padding: 14rem 0 6rem 0;
+import { wrapper, contentMax } from '../components/common/Mixins';
+import { Header1, Header2, Paragraph, LargeParagraph } from  '../components/common/Typography';
+import { media } from '../components/common/MediaQueries';
+import { FlexSection } from '../components/common/FlexBox';
+import Colors from '../components/common/Colors';
+import PageStructure from '../components/layout/Layout';
+import { ViteSection } from '../components/layout/ViteSection';
+import HireMePopup from '../components/about/HireMePopup';
+import { LinkButton } from '../components/button/Button';
+import { AnimatedSection } from '../components/content/AnimatedSection';
+import { TitleQuestion } from '../components/content/TitleQuestion';
+import { MainTitle } from '../components/content/MainTitle';
+import { LifetimeEvent } from '../components/content/LifetimeEvent';
+
+import splash from '../static/images/splash.svg';
+import splash2 from '../static/images/splash2.svg';
+import Dev from '../static/images/dev.inline.svg';
+
+
+
+//------------------------------------------------------
+const IntroSection = styled.section`
+  padding: 6rem 0;
+  margin: 0 auto;
+  
+  background-image: url("${splash}");
+  background-size: contain;
+  background-position: right top;
+  background-repeat: no-repeat;
+
   ${Header1} {
     color: ${Colors.DARKEST};
   }
-`;
 
-const Block = styled.div`
-  &:nth-child(odd) {
-    border: solid 1px ${darken(0.1, Colors.LIGHT)};
-    background-color: ${Colors.LIGHT};
+  ${LargeParagraph} {
+    padding: 0 3rem;
   }
 `;
 
-const BlockContent = styled(Content)`
-  ${Mixins.block}
-  padding: 10rem 4rem;
-  ${media.tablet`
-    flex-direction: column;
-    align-items: baseline;
-  `};
-  ${media.phone`
-    padding: 4rem 1rem;
-  `};
-  ${Paragraph} {
-    margin-top: 1rem;
-  }
-  ${Header2} {
-    margin-top: 0;
-  }
-  img {
-    width: 100%;
-    height: auto;
-  }
+const CareerSection = styled.section`
+
+  background-image: url("${splash2}");
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+
 `;
 
-const HomepageWrapper = styled.div`
-  ${Mixins.wrapper}
+export const Content = styled.div`
+  ${contentMax}
+`;
+
+const Hompage = styled.div`
+  ${wrapper}
+
+  background-attachment: fixed;
+  background-color: rgb(217, 228, 245);
+  background-image: linear-gradient(315deg, rgb(217, 228, 245) 0%, rgb(245, 227, 230) 74%);
+
   .who-desc {
     display: block;
     margin: 0 auto 6rem auto;
@@ -87,44 +94,11 @@ const HomepageWrapper = styled.div`
   }
 `;
 
-const WorkWithMe = styled.div`
-  padding: 8rem;
-  width: 73%;
-  border-radius: 0.6rem;
-  box-shadow: 0 0.2px 2.6rem 0 rgba(57, 55, 55, 0.08);
-  background-color: #ffffff;
-  text-align: center;
-  position: relative;
-  margin: 100px auto -15rem auto;
-  ${LargeParagraph} {
-    max-width: 80%;
-    margin: 0 auto 2.8rem auto;
-  }
-  ${media.tablet`
-    width: auto;
-    padding: 4rem;
-    margin: 5rem 3rem -10rem 3rem;
-  `};
-`;
-
-
-
-
-const StyledImage = styled.img`
-  width: 40%;
-  padding: 0 2rem;
-  height: 24rem;
-  ${media.phone
-    `display: none;`
-  }
-  ${media.sphone
-    `display: none;`
-  }
-`;
-
 const RelativeDiv = styled.div`
   position: relative;
 `;
+
+//---------------------------------------
 
 class Homepage extends React.Component {
   state = {
@@ -146,27 +120,19 @@ class Homepage extends React.Component {
   render() {
     const { openHireMePopup } = this.state;
     return (
-          <HomepageWrapper>
-            <Layout theme="white" bigFooter openContactPopup={this.openContactPopup}>
-              <AboveFold>
-                <RelativeDiv>
-                  <StyledImage src={programming} alt="programming"/>
-                  <StyledImage src={prototyping} alt="prototyping"/>
-                </RelativeDiv>
-                <RelativeDiv>
-                  <TitleQuestion/>
-                </RelativeDiv>
-                <Header2 bold primary align="center">
-                  Kamil Klimczak
-                </Header2>
+          <Hompage>
+            <PageStructure theme="white"  openContactPopup={this.openContactPopup}>
+              <IntroSection>
+                <FlexSection>
+                  <MainTitle/>
+                  <Dev/>
+                </FlexSection>
+                </IntroSection>
+              <Content>
+                <TitleQuestion/>
                 <RelativeDiv align="center" max45>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </RelativeDiv>
-                <HireMe large onClick={this.openContactPopup} book>
-                  Hire me
-                </HireMe>
-              </AboveFold>
-              <Content>
                 <Header2 primary align="center" bold>
                   Lorem ipsum
                 </Header2>
@@ -177,54 +143,51 @@ class Homepage extends React.Component {
                   Lifetime Events
                 </Header2>
               </Content>
-              <Block>
-                <BlockContent>
+              
+              <CareerSection>
+              <AnimatedSection>
+                <ViteSection>
                   <LifetimeEvent/>
-                </BlockContent>
-              </Block>
-              <Block>
-                <BlockContent>
-                  <AnimatedSection>
-                    <Header2 bold>Placeholder website</Header2>
-                    <Paragraph>Lorem ipsum</Paragraph>
-                    <Paragraph>Dolor sit amet</Paragraph>
-                    <LinkButton primary bold className="link" as="a"
-                      target="_blank"
-                      href="#">
-                        Lorem ipsum
-                    </LinkButton>
-                  </AnimatedSection>
-                </BlockContent>
-              </Block>
-              <Block>
-                <BlockContent>
-                  <AnimatedSection>
-                    <Header2 bold>Placeholder website</Header2>
-                    <Paragraph>Lorem ipsum</Paragraph>
-                    <Paragraph>Dolor sit amet</Paragraph>
-                    <LinkButton primary bold className="link" as="a"
-                      target="_blank"
-                      href="#">
+                </ViteSection>
+              </AnimatedSection>
+              <AnimatedSection>
+                <ViteSection>
+                  <Header2 bold>Placeholder website</Header2>
+                  <Paragraph>Lorem ipsum</Paragraph>
+                  <Paragraph>Dolor sit amet</Paragraph>
+                  <LinkButton primary bold className="link" as="a"
+                    target="_blank"
+                    href="#">
                       Lorem ipsum
-                    </LinkButton>
-                  </AnimatedSection>
-                </BlockContent>
-              </Block>
-              <Block>
-                <BlockContent>
-                  <AnimatedSection>
-                    <Header2 bold>Placeholder website</Header2>
-                    <Paragraph>Lorem ipsum</Paragraph>
-                    <Paragraph>Dolor sit amet</Paragraph>
-                    <LinkButton primary bold className="link" as="a"
-                      target="_blank"
-                      href="#">
-                      Lorem ipsum
-                    </LinkButton>
-                  </AnimatedSection>
-                </BlockContent>
-              </Block>
-              <WorkWithMe>
+                  </LinkButton>
+                </ViteSection>    
+              </AnimatedSection>              
+              <AnimatedSection>
+                <ViteSection>
+                  <Header2 bold>Placeholder website</Header2>
+                  <Paragraph>Lorem ipsum</Paragraph>
+                  <Paragraph>Dolor sit amet</Paragraph>
+                  <LinkButton primary bold className="link" as="a"
+                    target="_blank"
+                    href="#">
+                    Lorem ipsum
+                  </LinkButton>
+                </ViteSection>
+              </AnimatedSection>
+              <AnimatedSection>
+                <ViteSection>
+                  <Header2 bold>Placeholder website</Header2>
+                  <Paragraph>Lorem ipsum</Paragraph>
+                  <Paragraph>Dolor sit amet</Paragraph>
+                  <LinkButton primary bold className="link" as="a"
+                    target="_blank"
+                    href="#">
+                    Lorem ipsum
+                  </LinkButton>
+                </ViteSection>
+              </AnimatedSection>
+              </CareerSection>
+              {/* <WorkWithMe>
                 <Header1 green>Get in touch with me</Header1>
                 <LargeParagraph>
                     Fancy working with me? Contact me for more info!{' '}
@@ -232,10 +195,10 @@ class Homepage extends React.Component {
                 <HireMe onClick={this.openContactPopup} book>
                     Contact me
                 </HireMe>
-              </WorkWithMe>
-            </Layout>
+              </WorkWithMe> */}
+            </PageStructure>
             <HireMePopup open={openHireMePopup} handleClose={this.handleRequestDemoClose} />
-          </HomepageWrapper>
+          </Hompage>
         );
   }
 }

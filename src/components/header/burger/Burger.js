@@ -11,17 +11,16 @@ const navStyle = {
     top: "-1rem",
     right: "-1rem",
     bottom: 0,
-    width: "132rem",
-    height: "132rem",
 }
 
 
 const divStyle = { 
     position: "absolute",
-    top: 0,
-    right: 0,
+    top: "-1rem",
+    right: "-4rem",
     bottom: 0,
-    width: "132rem",
+    width: "140rem",
+    height: "140rem",
     background: "rgba(255,255,255,0.5)",
     backdropFilter: "saturate(180%) blur(10px)"
 }
@@ -34,13 +33,14 @@ const sidebar = {
     transition: {
       type: "spring",
       stiffness: 20,
+      delay: 0.1,
       restDelta: 2
     }
   }),
   closed: {
     clipPath: "circle(4rem at 164rem 4rem)",
     transition: {
-      delay: 0.3,
+      delay: 0.1,
       type: "spring",
       stiffness: 400,
       damping: 40
@@ -48,7 +48,7 @@ const sidebar = {
   }
 };
 
-export const Burger = () => {
+export const Burger = ({scrolled}) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
@@ -60,9 +60,10 @@ export const Burger = () => {
         custom={height}
         ref={containerRef}>
         
-        <motion.div style={divStyle} variants={sidebar} />
-        <MenuList />
-        <MenuToggle toggle={() => toggleOpen()} />
+        <motion.div style={divStyle} variants={sidebar}>
+          <MenuList />
+        </motion.div>
+        <MenuToggle opened={isOpen} scrolled={scrolled} toggle={() => toggleOpen()} />
     </motion.nav>
   );
 };

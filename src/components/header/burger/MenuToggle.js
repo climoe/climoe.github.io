@@ -1,6 +1,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import  styled  from "styled-components";
+import Colors from "../../common/Colors";
 
 const Button = styled.button`
     position: absolute;
@@ -14,7 +15,8 @@ const Button = styled.button`
     padding: 0;
     height: 8rem;
     border-radius: 50%;
-    background-color: #fff;
+    background-color:${props => props.scroll ? `${Colors.WHITE};` :  
+                                        props.opening ? `transparent` : `${Colors.ORANGE_LIGHTER};`};
 `;
  
 
@@ -28,9 +30,9 @@ const Path = props => (
   />
 );
 
-export const MenuToggle = ({ toggle }) => (
-    <Button onClick={toggle}>
-        <svg width="8rem" height="8rem" viewBox="0 0 8rem 8rem">
+export const MenuToggle = ({ toggle, scrolled, opened }) => (
+    <Button opening={opened} scroll={scrolled} onClick={toggle}>
+        <svg width="8rem" height="8rem" viewBox="0 0 80 80">
             <Path
                 variants={{
                 closed: { d: "M 2 10 L 78 10" },

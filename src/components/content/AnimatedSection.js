@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { media } from '../common/MediaQueries';
 
 
-const DivWrapperStyle = styled.div`
+const AnimatedSectionStyle = styled.div`
   padding: 8rem 3rem;
   ${media.tablet`
     padding: 5rem 0;
@@ -18,31 +18,39 @@ const DivWrapperStyle = styled.div`
 `;
 
 const squareVariants = {
-    visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
-    hidden: { opacity: 0, scale: 0 }
+    visible: { 
+      opacity: 1, 
+      transition: { 
+        duration: 1 ,
+        type: "tween",
+        velocity: 5  
+      } 
+    },
+    hidden: { 
+      opacity: 0, 
+    }
 }
 
-export default function AnimatedSection({children}){
+export function AnimatedSection({children}){
     
     const controls = useAnimation();
     const [ref, inView] = useInView();
+    
     useEffect(()=>{
-        if(inView) {
-            controls.start("visible");
-        }
+      if(inView) {
+        controls.start("visible");
+      }
     }, [controls, inView]);
 
     return (
-        <DivWrapperStyle>
+        <AnimatedSectionStyle>
             <motion.div 
                 ref={ref}
                 animate={controls}
                 initial="hidden"
-                variants={squareVariants}
-                >{children}</motion.div>
-        </DivWrapperStyle>    
-
-
+                variants={squareVariants}>
+                  {children}
+            </motion.div>
+        </AnimatedSectionStyle>    
     )
-
 }

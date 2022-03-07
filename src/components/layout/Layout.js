@@ -6,25 +6,13 @@ import styled from 'styled-components';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import GlobalStyles from '../common/GlobalStyles';
-import * as Mixins from '../common/Mixins';
 
-
-export const Content = styled.div`
-  ${Mixins.contentMax}
-`;
 
 export const LayoutWrapper = styled.div`
-  position: relative;
+  position: relative; 
 `;
 
-const Layout = ({
-  children,
-  theme,
-  bigFooter,
-  mediumFooter,
-  openContactPopup
-  
-}) => (
+const PageStructure = ({ children, theme, bigFooter, mediumFooter, openContactPopup}) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -60,11 +48,11 @@ const Layout = ({
   />
 );
 
-Layout.propTypes = {
+PageStructure.propTypes = {
   children: PropTypes.node.isRequired,
   theme: PropTypes.string,
   bigFooter: PropTypes.bool,
   mediumFooter: PropTypes.bool
 };
 
-export default Layout;
+export default PageStructure;

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { lighten, darken } from 'polished';
 import { Header3 } from '../common/Typography';
 import Colors from '../common/Colors';
-import LN from '../../images/ln.png';
 import { media } from '../common/MediaQueries';
 import Helmet from 'react-helmet';
 import {X} from 'phosphor-react';
@@ -97,7 +96,6 @@ class HireMePopup extends React.Component {
           <Link primary bold
             target="_blank"
             href="https://www.linkedin.com/">
-            <img src={LN} alt="Your Linkedin profile" />
           </Link>
         </ContentWrapper>
       </HireMePopupWrapper>
