@@ -1,7 +1,15 @@
 ---
 id: identity
-title: Test post
-description: Test post description
+content: {
+    language: en,
+    name: Kamil Klimczak,
+    job-position: Web Developer
+
+}, {
+    
+}
+name: Kamil Klimczak
+job-position: Web Developer
 tags: 
     [
         {
