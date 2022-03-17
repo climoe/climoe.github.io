@@ -6,14 +6,27 @@ import { media } from '../common/MediaQueries';
 
 
 const AnimatedSectionStyle = styled.div`
-  padding: 8rem 3rem;
+
+  margin: 4rem 4rem 4rem 4rem;
   ${media.tablet`
-    padding: 5rem 0;
+    margin: 0;
   `}
   &:first-child {
     ${media.tablet`
       margin-bottom: 4rem;
     `};
+  }
+
+  .controls{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    ${media.tablet`
+        flex-direction: column;
+    `};
+
   }
 `;
 
@@ -24,10 +37,12 @@ const squareVariants = {
         duration: 1 ,
         type: "tween",
         velocity: 5  
-      } 
+      },
+      transfrom: "matrix(1,0,0,1,0,0)"
     },
     hidden: { 
       opacity: 0, 
+      transform: "matrix(1,0,0,1,0,20)"
     }
 }
 
@@ -44,7 +59,7 @@ export function AnimatedSection({children}){
 
     return (
         <AnimatedSectionStyle>
-            <motion.div 
+            <motion.div className="controls"
                 ref={ref}
                 animate={controls}
                 initial="hidden"

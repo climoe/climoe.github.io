@@ -12,7 +12,8 @@ export const LayoutWrapper = styled.div`
   position: relative; 
 `;
 
-const PageStructure = ({ children, theme, bigFooter, mediumFooter, openContactPopup}) => (
+export default function PageStructure({children}){
+  return(
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -40,13 +41,14 @@ const PageStructure = ({ children, theme, bigFooter, mediumFooter, openContactPo
         >
           <html lang="en" />
         </Helmet>
-        <Header theme={theme} openContactPopup={openContactPopup} />
+        <Header/>
         <LayoutWrapper>{children}</LayoutWrapper>
-        <Footer big={bigFooter} medium={mediumFooter} openContactPopup={openContactPopup}/>
+        <Footer/>
       </>
     )}
   />
-);
+  )
+}
 
 PageStructure.propTypes = {
   children: PropTypes.node.isRequired,
@@ -55,4 +57,3 @@ PageStructure.propTypes = {
   mediumFooter: PropTypes.bool
 };
 
-export default PageStructure;

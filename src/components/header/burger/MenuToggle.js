@@ -15,8 +15,7 @@ const Button = styled.button`
     padding: 0;
     height: 8rem;
     border-radius: 50%;
-    background-color:${props => props.scroll ? `${Colors.WHITE};` :  
-                                        props.opening ? `transparent` : `${Colors.ORANGE_LIGHTER};`};
+    background-color:${props => props.scroll ? `${Colors.WHITE};` :`transparent;`};
 `;
  
 

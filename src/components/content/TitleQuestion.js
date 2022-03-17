@@ -1,19 +1,17 @@
 import  React  from "react";
 import  styled  from "styled-components";
-import { media } from "../common/MediaQueries";
+
 import  Colors  from "../common/Colors";
 
 const TitleQuestionStyle = styled.div`
     
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: left;
 
+    font-weight: 500;
 
-    font-weight: 700;
-
-    font-size: 4rem;
-    width: 150rem;
+    font-size: 3.5rem;
     position: relative;
     overflow: hidden;
 
@@ -54,29 +52,10 @@ const TitleQuestionStyle = styled.div`
         
         .word {    
             overflow: hidden;
-            background-color: ${Colors.PINK};
+            background: linear-gradient(90deg, #FF6633 0%, #FF33CC 100%);
             font-weight: 700;
         }
     }
-
-
-    /* ${media.phone`
-        font-size: 1.5rem;
-        margin-left: 0.3rem;
-        margin-right: 0.3rem;
-    `}
-
-    ${media.tablet`
-        font-size: 2rem;
-        margin-left: 0.4rem;
-        margin-right: 0.4rem;
-    `}
-
-    ${media.laptop`
-        font-size: 2.5rem;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-    `} */
 `;
 
 export const TitleQuestion = () => {
@@ -87,7 +66,7 @@ export const TitleQuestion = () => {
                     <span className="message">
                         <div className="word">FAST?</div>
                         <div className="word">CLEAN?</div>
-                        <div className="word">RIGHT?</div>
+                        <div className="word">RIGHT</div>
                     </span>    
                 </span>
             </span>

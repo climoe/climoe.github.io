@@ -1,7 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 674.38 397.257">
     <defs>
-        <style>.a{fill:url(#a);}.b{fill:#fbbebe;}.c{fill:#464353;}.d,.i{opacity:0.1;}.e{fill:#6c63ff;}.f{opacity:0.05;}.g{fill:#3f3d56;}.h{fill:#fff;}.j{opacity:0.8;}.k{fill:none;stroke:#3f3d56;stroke-miterlimit:10;stroke-width:3px;}.l{fill:#fbbebe;}.m{fill:#ff33cc;}    
+        <style>
+        .a{fill:none;stroke:url(#a);stroke-width:3}
+        .b{fill:none;stroke:#fbbebe;stroke-width:3}
+        .c{fill:#464353;stroke-width:3}
+        .d,.i{opacity:0.1;}
+        .e{fill:none;stroke:#6c63ff;stroke-width:3}
+        .f{opacity:1;}
+        .g{fill:#3f3d56;stroke-width:3}
+        .h{fill:none;stroke:#fff;stroke-width:3}
+        .j{opacity:1;}
+        .k{fill:none;stroke:#3f3d56;stroke-width:3;}
+        .l{fill:none;stroke:#fbbebe;stroke-width:3}
+        .m{fill:none;stroke:#ff33cc;stroke-width:3}    
         </style>
         <linearGradient id="a" x1="0.5" y1="1" x2="0.5" gradientUnits="objectBoundingBox">
             <stop offset="0" stop-color="gray" stop-opacity="0.251"/>

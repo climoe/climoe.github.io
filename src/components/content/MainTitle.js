@@ -7,14 +7,13 @@ const StyledMainTitle = styled.p`
     font-size: 5rem;
     overflow: hidden;
     color: ${Colors.DARKEST};
-    font-weight: 900;
-    flex-grow: 1;
+    font-weight: 700;
+    flex: 1 1 50%;
 
     span  {
-        /* display: block; */
-        font-size: 4rem;
-        font-weight: 100;
-        background-color: ${Colors.PINK};
+        font-size: 5rem;
+        font-weight: 500;
+        background: linear-gradient(90deg, #FF6633 0%, #FF33CC 100%);
     }
 `;            
     

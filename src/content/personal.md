@@ -1,5 +1,5 @@
 ---
-id: test
+id: identity
 title: Test post
 description: Test post description
 tags: 
@@ -14,6 +14,3 @@ tags:
     ]
 tech: ["test", "test"]    
 ---
-
-# Test
-<section> Test section </section>

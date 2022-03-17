@@ -1,25 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
-import InterMedium from '../../static/fonts/inter/Inter-Medium.ttf';
-import InterSemiBold from '../../static/fonts/inter/Inter-SemiBold.ttf';
-import InterBold from '../../static/fonts/inter/Inter-Bold.ttf';
+import Inter from '../../static/fonts/inter/Inter.ttf';
 
 const GlobalStyles = createGlobalStyle`
   
   @font-face {
-    font-family: 'InterMedium';
-    src: url('${InterMedium}'); 
+    font-family: 'Inter';
+    src: url('${Inter}'); 
   };
-
-  @font-face {
-    font-family: 'InterSemiBold';
-    src: url('${InterSemiBold}'); 
-  };
-
-  @font-face {
-    font-family: 'InterBold';
-    src: url('${InterBold}'); 
-  };
-
   html {
 
     font-size: 62.5%; // 1rem - 10px - 10/16
@@ -28,9 +15,12 @@ const GlobalStyles = createGlobalStyle`
 
     height: 100%;
 
+    @media screen and (max-width: 20em){
+      font-size: 0%;
+    }
 
-    @media screen and (max-width: 30em) { // to 480px -> sphone
-      font-size: 35%; // 35% * 16px -> 1rem - 6px
+    @media screen and (min-width: 20em ) and (max-width: 30em) {// to 480px -> sphone
+      font-size: 35%
     }
 
     @media screen and (min-width: 30em) and (max-width: 37.5em){ //480px - 600px -> phone
@@ -61,7 +51,7 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     font-size: 1.4rem;
     
-    font-family: 'InterMedium', sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: #eff4f7;
   }
 
@@ -81,38 +71,6 @@ const GlobalStyles = createGlobalStyle`
     }
     to {
       background-color: transparent;
-    }
-  }
-
-  @keyframes slidein {
-    from {
-      left: 100%;
-    }
-    to {
-      left: 0;
-    }
-  }
-  
-  @keyframes slideout {
-    from {
-      left: 0;
-    }
-    to {
-      left: 100%;
-    }
-  }
-
-  @keyframes move-text {
-    0% {
-      opacity: 0;
-    }
-    
-    50% {
-      opacity: 0.7;
-    }
-
-    100% {
-      opacity: 1;
     }
   }
 

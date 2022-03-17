@@ -3,12 +3,17 @@ module.exports = {
     title: 'Kamil Klimczak - CV Portfolio'
   },
   flags: {
-    FAST_REFRESH: true,
+    FAST_REFRESH: false,
     FAST_DEV: true
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
+    { 
+      resolve: 'gatsby-plugin-styled-components',
+      options: {
+        displayName: true
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -20,7 +25,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown-pages`,
-        path: `${__dirname}/src/static/content`
+        path: `${__dirname}/src/content`
       }
     },
     'gatsby-transformer-remark',
@@ -38,12 +43,12 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'gatsby-portfolio-cv',
-        short_name: 'starter',
+        short_name: 'portfolio',
         start_url: '/',
         background_color: '#f6f1ed',
         theme_color: '#f6f1ed',
         display: 'minimal-ui',
-        icon: 'src/static/images/icons/favicon.png'
+        icon: 'src/static/images/icons/social.JPG'
       }
     }
   ]

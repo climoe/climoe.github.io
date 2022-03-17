@@ -1,10 +1,30 @@
 import * as React from "react";
 import { useRef } from "react";
 import { motion, useCycle } from "framer-motion";
+import styled from "styled-components";
+
 import { useDimensions } from "./use-dimensions";
 import { MenuToggle } from "./MenuToggle";
-import { MenuList } from "./MenuList";
+import { Menu } from "./Menu";
+import { mediaMin } from "../../common/MediaQueries";
 
+
+const StyledOptionDiv = styled.div`
+
+    .options {
+      position: absolute;
+      top: -1vh;
+      right: -1vw;
+      bottom: 0;
+      width: 100vw;
+      height: 101vh;
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: saturate(180%) blur(20px);
+      ${mediaMin.desktop`
+        width: 90vw;
+      `}
+    }
+`;
 
 const navStyle = {
     position: "relative",
@@ -14,22 +34,23 @@ const navStyle = {
 }
 
 
-const divStyle = { 
-    position: "absolute",
-    top: "-1rem",
-    right: "-4rem",
-    bottom: 0,
-    width: "140rem",
-    height: "140rem",
-    background: "rgba(255,255,255,0.5)",
-    backdropFilter: "saturate(180%) blur(10px)"
-}
+// const divStyle = { 
+//     position: "absolute",
+//     top: "-1vh",
+//     right: "-1vw",
+//     bottom: 0,
+//     width: "100vw",
+//     //${mediaMin.xlaptop`width: 90vw;`}
+//     height: "101vh",
+//     background: "rgba(255,255,255,0.5)",
+//     backdropFilter: "saturate(180%) blur(20px)"
+// }
 
 
 
 const sidebar = {
   open: (height = 1000) => ({
-    clipPath: `circle(${(height * 2 + 200)/10}rem at 164rem 4rem)`,
+    clipPath: `circle(${(height * 2 + 400)/10}rem at 164rem 4rem)`,
     transition: {
       type: "spring",
       stiffness: 20,
@@ -60,9 +81,12 @@ export const Burger = ({scrolled}) => {
         custom={height}
         ref={containerRef}>
         
-        <motion.div style={divStyle} variants={sidebar}>
-          <MenuList />
-        </motion.div>
+        <StyledOptionDiv>
+          <motion.div className="options" variants={sidebar}>
+            <Menu/>
+          </motion.div>
+        </StyledOptionDiv>
+
         <MenuToggle opened={isOpen} scrolled={scrolled} toggle={() => toggleOpen()} />
     </motion.nav>
   );
