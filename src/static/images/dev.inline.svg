@@ -5,7 +5,7 @@
         .a{fill:none;stroke:url(#a);stroke-width:3}
         .b{fill:none;stroke:#fbbebe;stroke-width:3}
         .c{fill:#464353;stroke-width:3}
-        .d,.i{opacity:0.1;}
+        .d,.i{opacity:0;}
         .e{fill:none;stroke:#6c63ff;stroke-width:3}
         .f{opacity:1;}
         .g{fill:#3f3d56;stroke-width:3}

@@ -5,7 +5,6 @@ export const FlexRowSection = styled.section`
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 2rem 2rem;
 
     justify-content: space-around;
     margin: 1rem 4rem;
@@ -39,4 +38,18 @@ export const FlexColumnDiv = styled.div`
     justify-content: space-between;
 `;
 
+export const FlexRow = styled.section`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
+    justify-content: space-around;
+`;    
+
+export const FlexRowReverse = styled(FlexRow)`
+    
+    flex-direction: row-reverse;
+    margin: 2rem 2rem;
+    justify-content: flex-start;
+    align-content: flex-start;
+`;

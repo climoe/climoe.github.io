@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 //import { MenuItem } from "./MenuItem";
 import  Colors  from "../../common/Colors";
-import { Identity } from "../../about/Identity";
+import { Identity } from "../../identity/Identity";
 
 const StyledMenu = styled.div`
     margin: 10rem 5rem 0;

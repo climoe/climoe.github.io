@@ -51,7 +51,7 @@ const LifetimeEventStyle = styled.ul`
 
     strong {
       display: block;
-      font-weight: bolder;
+      font-weight: 900;
     }
 `;
 

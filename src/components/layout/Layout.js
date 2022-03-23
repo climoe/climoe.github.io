@@ -1,59 +1,55 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
 import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
+
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import GlobalStyles from '../common/GlobalStyles';
+import { LanguageContextProvider } from '../context/LanguageContext';
 
 
-export const LayoutWrapper = styled.div`
-  position: relative; 
-`;
+export const LayoutWithRef = React.forwardRef((props, ref) => {
+  const {children} = props
+  return (
+    <div ref={ref}>
+      {children}
+    </div>
+  )
+})
 
-export default function PageStructure({children}){
+
+export default function PageStructure({children}){  
+  
+  const componentRef = useRef()
+  
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current
+  })
+
   return(
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <GlobalStyles />
-        <Helmet
-          title={data.site.siteMetadata.title}
+    <>
+      <GlobalStyles />
+      <Helmet
+          title={"Kamil Klimczak - CV Portfolio"}
           meta={[
             {
               name: 'Kamil',
-              content:'Portfolio built using Gatsby and React'
+              content: 'Portfolio built using Gatsby and React'
             },
-            { name: 'keywords',
-              content: 'portfolio' 
+            {
+              name: 'keywords',
+              content: 'portfolio'
             }
           ]}
-        >
-          <html lang="en" />
-        </Helmet>
+      >
+        <html lang="en" />
+      </Helmet>
+      <LanguageContextProvider>
         <Header/>
-        <LayoutWrapper>{children}</LayoutWrapper>
-        <Footer/>
-      </>
-    )}
-  />
+        <LayoutWithRef ref={componentRef}>{children}</LayoutWithRef>
+        <button onClick={handlePrint}>Print this out!</button>
+        <Footer />
+      </LanguageContextProvider>
+    </>
   )
 }
-
-PageStructure.propTypes = {
-  children: PropTypes.node.isRequired,
-  theme: PropTypes.string,
-  bigFooter: PropTypes.bool,
-  mediumFooter: PropTypes.bool
-};
-

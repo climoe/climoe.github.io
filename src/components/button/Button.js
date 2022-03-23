@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Colors from '../common/Colors';
-import { lighten, darken } from 'polished';
 import { Link } from 'gatsby';
 
 export const Button = styled(Link)`
@@ -20,14 +19,14 @@ export const Button = styled(Link)`
   &:hover {
     color: ${props =>
       props.theme === 'white'
-        ? `${lighten(0.3, Colors.DARKEST)};`
-        : `${darken(0.1, Colors.WHITE)};`};
+        ? `${Colors.DARKEST};`
+        : `${Colors.WHITE};`};
     text-decoration: none;
     background: transparent;
     border: 1px solid ${props =>
       props.theme === 'white'
-        ? `${lighten(0.3, Colors.DARKEST)};`
-        : `${darken(0.1, Colors.WHITE)};`};
+        ? `${Colors.DARKEST};`
+        : `${Colors.WHITE};`};
   }
 `;
 
@@ -47,7 +46,7 @@ export const HireMe = styled.div`
   &:hover {
     color: #3c3b3b;
     background: linear-gradient(90deg, #FF6633 0%, #FF33CC 100%);
-    border: 1px solid ${darken(0.2, Colors.LIGHT)};
+    border: 1px solid ${Colors.LIGHT};
   }
 `;
 

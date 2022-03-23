@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { wrapper, contentMax } from '../components/common/Mixins';
 import { Header1, Header2, Paragraph, LargeParagraph } from  '../components/common/Typography';
-import { FlexRowSection } from '../components/common/FlexBox';
+import { FlexRowReverse, FlexRowSection } from '../components/common/FlexBox';
 import Colors from '../components/common/Colors';
 import PageStructure from '../components/layout/Layout';
 import { ViteSection } from '../components/layout/ViteSection';
@@ -18,6 +18,7 @@ import splash from '../static/images/splash.svg';
 import splash2 from '../static/images/splash2.svg';
 import Consult from '../components/content/Consult';
 import Analyze from '../components/content/Analyze';
+import { LanguageSwitch } from '../components/button/LanguageSwitch';
 
 
 
@@ -108,8 +109,11 @@ export default function Homepage(){
             <MainTitle/>
             <Dev/>
           </FlexRowSection>
-          </IntroSection>
+        </IntroSection>
         <Content>
+          <FlexRowReverse>
+              <LanguageSwitch/>
+          </FlexRowReverse>
           <TitleQuestion/>
           <RelativeDiv align="center" max45>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

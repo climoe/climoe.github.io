@@ -34,7 +34,7 @@ const Footer = () => (
   <FooterWrapper>
     <Content>
       <Copyright align="right" >
-        Content made with  <Atom size= {"2rem"}/> and <HeartStraight weight= "fill" color="magenta" size={"2rem"} alignmentBaseline="center"/>
+        Content made with  <Atom size= {"2rem"} color="#38ACF5"/> and <HeartStraight weight= "fill" color="#FF33CC" size={"2rem"} alignmentBaseline="center"/>
       </Copyright>
       <Copyright>
         ©climoe 2022. All rights reserved.

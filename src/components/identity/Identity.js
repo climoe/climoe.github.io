@@ -5,13 +5,14 @@ import styled from "styled-components";
 import { Envelope, PhoneCall, HouseLine} from "phosphor-react";
 
 
-import { FlexRowSection, FlexColumnSection, FlexColumnDiv, FlexRowDiv } from "../common/FlexBox";
+import { FlexColumnSection, FlexColumnDiv, FlexRowDiv, FlexRow } from "../common/FlexBox";
 import { Header2, Header3, Paragraph } from "../common/Typography";
 import Colors from "../common/Colors";
+import { media } from "../common/MediaQueries";
 
 import Pin from "../../static/images/location.inline.svg";
 
-const Personal = () => {
+const Personal = ({personal, image}) => {
     
     const StyledPersonal = styled(FlexColumnSection)`
         flex: 1 0 50%;
@@ -84,25 +85,12 @@ const Personal = () => {
         borderStyle: "solid"
     }    
 
-    const avatarQuery = graphql`  
-        query AvatarQuery {
-            file(relativePath: {regex: "images//social.JPG/"}) {
-                childImageSharp{
-                    fixed{
-                        src
-                    }                 
-                }
-            }
-        }`
-      
-    const data = useStaticQuery(avatarQuery)
-
     return (
         <StyledPersonal>
-            <StyledName>Kamil Klimczak<span>Web Developer</span></StyledName>
+            <StyledName>{personal.name}<span> |{personal.position}</span></StyledName>
             <StyledAvatar>
                 <AvatarBackground/>
-                <GatsbyImage style={imageStyle} fixed={data.file.childImageSharp.fixed} />
+                <GatsbyImage style={imageStyle} fixed={image.childImageSharp.fixed} />
             </StyledAvatar>
             <StyledLocation>
                 <StyledPinDiv>
@@ -110,19 +98,13 @@ const Personal = () => {
                         <Pin/>
                     </StyledPin>
                 </StyledPinDiv>
-                <StyledCity>Wrocław, PL</StyledCity>
+                <StyledCity>{personal.city}, {personal.country}</StyledCity>
             </StyledLocation>
-            {/* <Paragraph>1.Testowy tekst na tyle długi żeby mógł się złamać w linii</Paragraph> */}
-            {/* <LargeParagraph>2.Testowy tekst na tyle długi żeby mógł się złamać w linii</LargeParagraph>
-            <Header4>3.Testowy tekst na tyle długi żeby mógł się złamać w linii</Header4>
-            <Header3>4.Testowy tekst na tyle długi żeby mógł się złamać w linii</Header3>
-            <Header2>5.Testowy tekst na tyle długi żeby mógł się złamać w linii</Header2>
-            <Header1>6.Testowy tekst na tyle długi żeby mógł się złamać w linii</Header1> */}
         </StyledPersonal>    
     );
 }
 
-const About = () => {
+const About = ({about}) => {
     const StyledAbout = styled(FlexColumnDiv)`
         flex: 1 0 50%;
         align-self: flex-start;
@@ -147,24 +129,22 @@ const About = () => {
     `;
     return (
         <StyledAbout>
-            <Header2>About</Header2>
-            <Header3>
-                I'm a JVM Software Developer living in Wrocław. 
-                I have 8 years of experience in creating web application.
-                Had working with largest polish bank through all these years
-                realizing a dozen of projects.
-            </Header3>
+            <Header2>{about.header}</Header2>
+            <Header3>{about.content}</Header3>
         </StyledAbout>    
     )
 }
 
 
 const StyledParagraph = styled(Paragraph)`
+    
+    display: inline-block;
     font-weight: 300;
+    
     margin: 0;
 `;
 
-const Address = () => {  
+const Address = ({address}) => {  
     
     const StyledAddress = styled.span`
         
@@ -185,33 +165,31 @@ const Address = () => {
         }
     `;
     
-    const StyledIconSpan = styled.span`
-        border-right: 1rem solid transparent;
-    `;
 
     const StyledIcon = styled.span`
 
         display: inline-block;
+        border-right: 1rem solid transparent;
         width: 2.4rem;
         height: 2.4rem;
+        padding-bottom: 0;
+        margin-bottom: 0;
     `;
-
 
     return(
         <StyledAddress>
-            <Header2>Exact address</Header2>
+            <Header2>{address.header}</Header2>
             <StyledParagraph>
-                <StyledIconSpan>
                 <StyledIcon>
                     <HouseLine size={"2.4rem"} color="magenta"/>
                 </StyledIcon>
-            </StyledIconSpan>
-            ul. Wilczycka 30/2, 51-361 Wilczyce</StyledParagraph>
+                {address.content}
+            </StyledParagraph>
         </StyledAddress>
     )
 }
 
-const Contact = () => {
+const Contact = ({contact}) => {
     
     const StyledContact = styled.span`
         
@@ -219,9 +197,6 @@ const Contact = () => {
         flex-direction: column;
         align-items: center;
         align-content: flex-start;
-        margin-top: 2rem;
-
-        //text-indent: 4rem;
 
     h3 {
       margin-top: 1rem;
@@ -235,40 +210,35 @@ const Contact = () => {
     }
     `;
 
-    const StyledIconSpan = styled.span`
-        border-right: 1rem solid transparent;
-    `;
-
     const StyledIcon = styled.span`
 
         display: inline-block;
+        border-right: 1rem solid transparent;
         width: 2.4rem;
         height: 2.4rem;
+        padding-bottom: 0;
+        margin-bottom: 0;
     `;
 
     return (
         <StyledContact>
-            <Header2>Contact details</Header2>
+            <Header2>{contact.header}</Header2>
             <StyledParagraph>
-                <StyledIconSpan>
-                    <StyledIcon>
-                        <Envelope size={"2.4rem"} color={"magenta"}/>
-                    </StyledIcon>
-                </StyledIconSpan>
-                klimczak.kamill@gmail.com
+                <StyledIcon>
+                    <Envelope size={"2.4rem"} color={"#FF33CC"}/>
+                </StyledIcon>
+                {contact.mail}
             </StyledParagraph>
             <StyledParagraph>
-            <StyledIconSpan>
-                    <StyledIcon>
-                        <PhoneCall size={"2.4rem"} color={"magenta"}/>
-                    </StyledIcon>
-                </StyledIconSpan>
-                509-405-890</StyledParagraph>
+                <StyledIcon>
+                    <PhoneCall size={"2.4rem"} color={"#FF33CC"}/>
+                </StyledIcon>
+                {contact.phone}</StyledParagraph>
         </StyledContact>
     )
 }
 
-const SocialTags = () => {
+const SocialTags = ({social}) => {
     
     const StyledSocialTags = styled.div`
 
@@ -302,17 +272,17 @@ const SocialTags = () => {
     
     return (
         <StyledSocialTags>
-            <Header2>Socials</Header2>
+            <Header2>{social.header}</Header2>
             <Paragraph>
-                <StyledSpans>LINKEDIN</StyledSpans>
-                <StyledSpans>TWITTER</StyledSpans>
-                <StyledSpans>DEV.TO</StyledSpans>
+                {social.accounts.map((account) => (
+                    <StyledSpans><a href={account.url}>{account.label}</a></StyledSpans>   
+                ))}
             </Paragraph>
         </StyledSocialTags>
     )
 }
 
-const LifeSentence = () => {
+const LifeSentence = ({sentence}) => {
 
     const ItalicParagraph = styled(Paragraph)`
         margin-top: .5rem;
@@ -336,32 +306,135 @@ const LifeSentence = () => {
     
     return(
         <StyledLifeSentence>
-            <Header2>Life Sentence</Header2>
-            <ItalicParagraph>"Don't try to be better from others today, be better version of yourself from yesterday!"</ItalicParagraph>
+            <Header2>{sentence.header}</Header2>
+            <ItalicParagraph>{sentence.content}</ItalicParagraph>
         </StyledLifeSentence>
     )
 }
 
-const GappedFlexRowSection = styled(FlexRowSection)`
+const GappedFlexRowSection = styled(FlexRow)`
     gap: 2rem 20rem;
+    margin: 1rem 4rem;
+
+    ${media.tablet`
+        gap: 2rem 10rem;
+    `}
+
+    ${media.phone`
+        flex-direction: column;
+        margin: 4rem 4rem;
+    `}
 `;
 
 export const Identity = () => {
+    
+    const identityQuery = graphql`
+    fragment identityFieldsEn on MarkdownRemarkFrontmatterLanguageEn {
+        contact {
+          header
+          mail
+          phone
+        }
+        address {
+          header
+          content
+        }
+        about {
+          header
+          content
+        }
+        personal {
+          position
+          name
+          country
+          city
+        }
+        social {
+          header
+          accounts {
+            label
+            url
+          }
+        }
+        sentence {
+          header
+          content
+        }
+      }
+      fragment identityFieldsPl on MarkdownRemarkFrontmatterLanguagePl {
+        contact {
+          header
+          mail
+          phone
+        }
+        address {
+          header
+          content
+        }
+        about {
+          header
+          content
+        }
+        personal {
+          position
+          name
+          country
+          city
+        }
+        social {
+          header
+          accounts {
+              label
+            url
+          }
+        }
+        sentence {
+            header
+            content
+        }
+      }
+        query AvatarAndIdentity($isEn: Boolean! = false) {
+            file(relativePath: {regex: "images//social.JPG/"}) {
+                childImageSharp{
+                    fixed{
+                        src
+                    }                 
+                }
+            }
+            markdownRemark(frontmatter: {id: {eq: "personal"}}) {
+              frontmatter {
+                id
+                language {
+                    pl @skip(if: $isEn) {
+                        ...identityFieldsPl
+                    }
+                    en @include(if: $isEn) {
+                        ...identityFieldsEn		
+                       }
+                  }
+                }
+              }
+          }  
+        `;
+
+    const data  = useStaticQuery(identityQuery);
+    const { contact, address, about, personal, social, sentence} = data.markdownRemark.frontmatter.language.pl;
+    const  image  = data.file;
     return (
         <FlexColumnSection>
             <FlexRowDiv>
-                <Personal/>
-                <About/>
+                <Personal personal={personal} image={image}/>
+                <About about={about}/>
             </FlexRowDiv>
             <GappedFlexRowSection>
-                <Address/>
-                <Contact/>
+                <Address address={address}/>
+                <Contact contact={contact}/>
             </GappedFlexRowSection>
             <FlexRowDiv>
-                <SocialTags/>
+                <SocialTags social={social}/>
             </FlexRowDiv>
             <FlexColumnSection>
-                <LifeSentence/>
+                <LifeSentence sentence={sentence}/>
             </FlexColumnSection>
         </FlexColumnSection>
     )

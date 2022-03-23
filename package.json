@@ -24,6 +24,7 @@
     "react-dom": "^16.14.0",
     "react-helmet": "^5.2.1",
     "react-intersection-observer": "^8.33.1",
+    "react-to-print": "^2.14.4",
     "styled-components": "^4.4.1",
     "styled-props": "^1.1.2"
   },

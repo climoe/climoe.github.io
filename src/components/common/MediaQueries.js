@@ -27,3 +27,9 @@ export const mediaMin = Object.keys(sizes).reduce((acc, label) => {
   `
   return acc
 }, {})
+
+export const print = (...args) => css`
+    @media print {  
+      ${css(...args)}
+    }
+  `
