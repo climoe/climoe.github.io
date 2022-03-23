@@ -7,8 +7,9 @@ import { motion } from "framer-motion";
 
 import { LanguageContextProvider, useLanguageContext } from "../context/LanguageContext";
 
+import Colors from "../common/Colors";
 
-export const LanguageSwitch = () => {
+export const LanguageSwitch = ({scrolled}) => {
     
     const [isEn, setIsEn] = useState(true);
 
@@ -22,16 +23,20 @@ export const LanguageSwitch = () => {
     )
 
     const LanguageSwitchStyle = styled.div`
-        display: flex;
-        justify-content: flex-start;
 
-        height: 2.5rem;
-        width: 5rem;
+        display: flex;
+        visibility: ${props => (props.scrolled ? 'visible;' : 'hidden;')};
+        justify-content: flex-start;
+        align-self: center;
+
+        height: 5rem;
+        width: 8rem;
         padding: .5rem;
 
-        background-color: rgba(255, 255, 255, 0.4);
-        border-radius: 2.5rem;
-        border: 1px solid rgba(255, 255, 255, 1);
+        background-color: ${props => (props.scrolled ? `${Colors.WHITE};` : 'transparent')};
+        animation: ${props => (props.scrolled ? 'fadein' : 'fadeout')} 0.2s;
+        border-radius: 5rem;
+        border: 1px solid ${Colors.PINK};
 
         cursor: pointer;
 
@@ -41,17 +46,19 @@ export const LanguageSwitch = () => {
 
         .handle {
             display: flex;
-            width: 2.5rem;
-            height: 2.5rem;
-            background-color: #FF33CC;
-            border-radius: 2.5rem;
-            font-size: 0.8rem;
+            width: 5rem;
+            height: 5rem;
+            background-color: ${Colors.PINK};
+            border-radius: 5rem;
+            font-size: 1.6rem;
             font-weight: 700;
+            color: ${Colors.DARKEST};
 
             align-items: center;
             align-content: center;
             justify-content: space-around;
             text-align: center;
+            
         }
     `;
     
@@ -63,7 +70,7 @@ export const LanguageSwitch = () => {
 
     return (
         <LanguageContextProvider>
-                <LanguageSwitchStyle data-isen={isEn} onClick={toggleSwitch}> 
+                <LanguageSwitchStyle scrolled={scrolled} data-isen={isEn} onClick={toggleSwitch}> 
                     <motion.div className="handle" layout transition={spring}>PL\EN</motion.div>
                 </LanguageSwitchStyle>   
          </LanguageContextProvider>

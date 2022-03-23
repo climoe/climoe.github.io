@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Helmet from 'react-helmet';
 import { TerminalWindow } from 'phosphor-react'
 import styled  from 'styled-components';
+
+import { LanguageSwitch } from '../button/LanguageSwitch';
+import { Print } from '../button/Button';
 import { Burger } from './burger/Burger';
 import Colors from '../common/Colors';
 import { contentMax } from '../common/Mixins';
+import { useLanguageContext } from '../context/LanguageContext';
 
 const HeaderWrapper = styled.div`
   max-width: 140rem;
@@ -40,10 +44,13 @@ const HeaderNav = styled.div`
 `;
 
 
-export default function Header(){
+export default function Header({handlePrint}){
   
   const [scrolled, setScrolled] = useState(false)
 
+  const languageContext = useLanguageContext()
+  const printLabel = languageContext?.language === 'en' ? "PRINT" : "DRUKUJ";
+  
   useEffect(() => {
     
     const handleScroll = (event) => {
@@ -69,6 +76,8 @@ export default function Header(){
         <Logo href="/">
           <TerminalWindow size={"8rem"}/>
         </Logo>
+        <Print scrolled={scrolled} onClick={handlePrint}>{printLabel}</Print>
+        <LanguageSwitch scrolled={scrolled}/>
         <Burger scrolled={scrolled}/>
       </HeaderNav>
     </HeaderWrapper>

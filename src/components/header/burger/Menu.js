@@ -36,7 +36,7 @@ const variants = {
 export const Menu = () => (
   <StyledMenu>
     <motion.ul style={style} variants={variants}>
-      <Identity/>
+      <Identity printing={false}/>
     </motion.ul>
   </StyledMenu>
 );

@@ -3,22 +3,22 @@ import styled from 'styled-components';
 
 import { wrapper, contentMax } from '../components/common/Mixins';
 import { Header1, Header2, Paragraph, LargeParagraph } from  '../components/common/Typography';
-import { FlexRowReverse, FlexRowSection } from '../components/common/FlexBox';
+import { FlexRowSection } from '../components/common/FlexBox';
 import Colors from '../components/common/Colors';
 import PageStructure from '../components/layout/Layout';
 import { ViteSection } from '../components/layout/ViteSection';
-import { LinkButton } from '../components/button/Button';
 import { AnimatedSection } from '../components/content/AnimatedSection';
 import { TitleQuestion } from '../components/content/TitleQuestion';
 import { MainTitle } from '../components/content/MainTitle';
 import { LifetimeEvent } from '../components/content/LifetimeEvent';
 import Dev from '../components/content/Dev';
+import { print } from '../components/common/MediaQueries';
 
 import splash from '../static/images/splash.svg';
 import splash2 from '../static/images/splash2.svg';
 import Consult from '../components/content/Consult';
 import Analyze from '../components/content/Analyze';
-import { LanguageSwitch } from '../components/button/LanguageSwitch';
+import { Identity } from '../components/identity/Identity';
 
 
 
@@ -39,6 +39,10 @@ const IntroSection = styled.section`
   ${LargeParagraph} {
     padding: 0 3rem;
   }
+
+  ${print`
+       background: white;
+  `}
 `;
 
 
@@ -48,6 +52,10 @@ const CareerSection = styled.section`
   background-size: contain;
   background-position: right center;
   background-repeat: no-repeat;
+
+  ${print`
+       background: white;
+  `}
 
 `;
 
@@ -108,22 +116,11 @@ export default function Homepage(){
           <FlexRowSection>
             <MainTitle/>
             <Dev/>
+            <Identity printing={true}/>
           </FlexRowSection>
         </IntroSection>
         <Content>
-          <FlexRowReverse>
-              <LanguageSwitch/>
-          </FlexRowReverse>
           <TitleQuestion/>
-          <RelativeDiv align="center" max45>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </RelativeDiv>
-          <Header2 primary align="center" bold>
-            Lorem ipsum
-          </Header2>
-          <Paragraph align="center" max70 className="who-desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </Paragraph>
           <Header2 primary align="center" bold className="portfolio">
             Lifetime Events
           </Header2>
@@ -131,7 +128,7 @@ export default function Homepage(){
         
         <CareerSection>
           <AnimatedSection>
-            <ViteSection>
+            <ViteSection title={"Lifetime Events"}>
               <LifetimeEvent/>
             </ViteSection>
           </AnimatedSection>
@@ -140,11 +137,6 @@ export default function Homepage(){
               <Header2 bold>Placeholder website</Header2>
               <Paragraph>Lorem ipsum</Paragraph>
               <Paragraph>Dolor sit amet</Paragraph>
-              <LinkButton primary bold className="link" as="a"
-                target="_blank"
-                href="#">
-                  Lorem ipsum
-              </LinkButton>
             </ViteSection>    
           </AnimatedSection>              
           <AnimatedSection>
@@ -161,11 +153,6 @@ export default function Homepage(){
               <Paragraph>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</Paragraph>
               <Paragraph>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</Paragraph>
               <Paragraph>Dolor sit amet</Paragraph>
-              <LinkButton primary bold className="link" as="a"
-                target="_blank"
-                href="#">
-                Lorem ipsum
-              </LinkButton>
             </ViteSection>
           </AnimatedSection>
           <AnimatedSection>
@@ -184,11 +171,6 @@ export default function Homepage(){
               <Paragraph>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</Paragraph>
               <Paragraph>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</Paragraph>
               <Paragraph>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</Paragraph>
-              <LinkButton primary bold className="link" as="a"
-                target="_blank"
-                href="#">
-                Lorem ipsum
-              </LinkButton>
             </ViteSection>
             <Analyze/>
           </AnimatedSection>

@@ -4,11 +4,11 @@ import GatsbyImage  from "gatsby-image";
 import styled from "styled-components";
 import { Envelope, PhoneCall, HouseLine} from "phosphor-react";
 
-
+import { useLanguageContext } from "../context/LanguageContext";
 import { FlexColumnSection, FlexColumnDiv, FlexRowDiv, FlexRow } from "../common/FlexBox";
 import { Header2, Header3, Paragraph } from "../common/Typography";
 import Colors from "../common/Colors";
-import { media } from "../common/MediaQueries";
+import { media, print } from "../common/MediaQueries";
 
 import Pin from "../../static/images/location.inline.svg";
 
@@ -90,7 +90,7 @@ const Personal = ({personal, image}) => {
             <StyledName>{personal.name}<span> |{personal.position}</span></StyledName>
             <StyledAvatar>
                 <AvatarBackground/>
-                <GatsbyImage style={imageStyle} fixed={image.childImageSharp.fixed} />
+                <GatsbyImage style={imageStyle} fadeIn={true} loading={"eager"} fixed={image.childImageSharp.fixed} />
             </StyledAvatar>
             <StyledLocation>
                 <StyledPinDiv>
@@ -268,6 +268,7 @@ const SocialTags = ({social}) => {
         
         background: linear-gradient(90deg, #FF6633 0%, #FF33CC 100%);
         color: ${Colors.DARKEST};
+        text-decoration: none;
     `;
     
     return (
@@ -326,74 +327,19 @@ const GappedFlexRowSection = styled(FlexRow)`
     `}
 `;
 
-export const Identity = () => {
+export const Identity = ({printing}) => {
     
+    
+    const IdentityStyle = styled.div`
+        display: ${props => props.printing === true ? `none` : `block`};
+        
+        ${print`
+           display: ${props => props.printing  === true ? `block;` : `none;`}
+        `} 
+    `;
+
     const identityQuery = graphql`
-    fragment identityFieldsEn on MarkdownRemarkFrontmatterLanguageEn {
-        contact {
-          header
-          mail
-          phone
-        }
-        address {
-          header
-          content
-        }
-        about {
-          header
-          content
-        }
-        personal {
-          position
-          name
-          country
-          city
-        }
-        social {
-          header
-          accounts {
-            label
-            url
-          }
-        }
-        sentence {
-          header
-          content
-        }
-      }
-      fragment identityFieldsPl on MarkdownRemarkFrontmatterLanguagePl {
-        contact {
-          header
-          mail
-          phone
-        }
-        address {
-          header
-          content
-        }
-        about {
-          header
-          content
-        }
-        personal {
-          position
-          name
-          country
-          city
-        }
-        social {
-          header
-          accounts {
-              label
-            url
-          }
-        }
-        sentence {
-            header
-            content
-        }
-      }
-        query AvatarAndIdentity($isEn: Boolean! = false) {
+        query AvatarAndIdentity {
             file(relativePath: {regex: "images//social.JPG/"}) {
                 childImageSharp{
                     fixed{
@@ -402,40 +348,101 @@ export const Identity = () => {
                 }
             }
             markdownRemark(frontmatter: {id: {eq: "personal"}}) {
-              frontmatter {
-                id
-                language {
-                    pl @skip(if: $isEn) {
-                        ...identityFieldsPl
-                    }
-                    en @include(if: $isEn) {
-                        ...identityFieldsEn		
-                       }
-                  }
-                }
-              }
-          }  
-        `;
+                frontmatter {
+                    id
+                    language {
+                        pl {
+                            contact {
+                                header
+                                mail
+                                phone
+                            }
+                            address {
+                                header
+                                content
+                            }
+                            about {
+                                header
+                                content
+                            }
+                            personal {
+                                position
+                                name
+                                country
+                                city
+                            }
+                            social {
+                                header
+                                accounts {
+                                    label
+                                    url
+                                }
+                            }
+                            sentence {
+                                header
+                                content
+                            }
+                        }
+                        en {
+                            contact {
+                                header
+                                mail
+                                phone
+                            }
+                            address {
+                                header
+                                content
+                            }
+                            about {
+                                header
+                                content
+                            }
+                            personal {
+                                position
+                                name
+                                country
+                                city
+                            }
+                            social {
+                                header
+                                accounts {
+                                    label
+                                    url
+                                }
+                            }
+                            sentence {
+                                header
+                                content
+                            }
+                        }
+                    }                      
+                }              
+            }   
+        }
+    `;
 
+    const languageContext = useLanguageContext()
     const data  = useStaticQuery(identityQuery);
-    const { contact, address, about, personal, social, sentence} = data.markdownRemark.frontmatter.language.pl;
+    const { contact, address, about, personal, social, sentence} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
     const  image  = data.file;
     return (
-        <FlexColumnSection>
-            <FlexRowDiv>
-                <Personal personal={personal} image={image}/>
-                <About about={about}/>
-            </FlexRowDiv>
-            <GappedFlexRowSection>
-                <Address address={address}/>
-                <Contact contact={contact}/>
-            </GappedFlexRowSection>
-            <FlexRowDiv>
-                <SocialTags social={social}/>
-            </FlexRowDiv>
+        <IdentityStyle printing = {printing}>
             <FlexColumnSection>
-                <LifeSentence sentence={sentence}/>
+                <FlexRowDiv>
+                    <Personal personal={personal} image={image}/>
+                    <About about={about}/>
+                </FlexRowDiv>
+                <GappedFlexRowSection>
+                    <Address address={address}/>
+                    <Contact contact={contact}/>
+                </GappedFlexRowSection>
+                <FlexRowDiv>
+                    <SocialTags social={social}/>
+                </FlexRowDiv>
+                <FlexColumnSection>
+                    <LifeSentence sentence={sentence}/>
+                </FlexColumnSection>
             </FlexColumnSection>
-        </FlexColumnSection>
+        </IdentityStyle>
     )
 }

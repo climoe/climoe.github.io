@@ -1,10 +1,13 @@
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
+
 import Colors from "../common/Colors";
 
 const LifetimeEventStyle = styled.ul`
   
-    font-size: 2rem;
+    font-size: 1.6rem;
     width: 100%; 
     list-style: none;
     padding-left: 0;
@@ -17,7 +20,8 @@ const LifetimeEventStyle = styled.ul`
     time { 
       position: relative;
       font-weight: bold;
-      padding: 0 1.5rem;
+      min-width: 20rem;
+      padding: 0 .3rem;
       border-right: .2rem ${Colors.DARKEST} solid ;
 
       &::after {
@@ -26,12 +30,12 @@ const LifetimeEventStyle = styled.ul`
         z-index: 2;
         right: 0;
         top: 0;
-        transform: translateX(50%);
+        transform: translateX(60%);
         border-radius: 50%;
         background: ${Colors.DARKEST};
-        border: .2rem ${Colors.DARKEST} solid;
-        width: .8em;
-        height: .8em;                
+        border: .3rem ${Colors.DARKEST} solid;
+        width: .5em;
+        height: .5em;                
       }
     }
 
@@ -56,32 +60,41 @@ const LifetimeEventStyle = styled.ul`
 `;
 
 export const LifetimeEvent = () => {
+    const lifeTimeEventsQuery = graphql`
+      query LifeTimeEvents{
+        markdownRemark(frontmatter: {id: {eq: "lifetime"}}) {
+          frontmatter {
+            id
+            language {
+              pl  {
+                events {
+                  time{
+                    from 
+                    to
+                  }
+                  title
+                  description
+                }	
+              }
+            }
+          }
+        }
+      }  
+    `;
+  
+    const data  = useStaticQuery(lifeTimeEventsQuery)
+    console.log("Data from lifetime", {data})
+    const events = data.markdownRemark.frontmatter.language.pl.events  
+    console.log("Events", {events})
     return (
         <LifetimeEventStyle>
-                <li>
-                  <time>08.2013 - 09.2021</time> 
-                  <span><strong>Bat Ball Lorem ipsum dolor sit amet </strong> Lorem ipsum dolor sit amet</span>
-                </li>  
-                <li>
-                  <time>08.2013 - 09.2021</time> 
-                  <span><strong>Bat Ball Lorem ipsum dolor sit amet </strong> Lorem ipsum dolor sit amet</span>
-                </li>
-                <li>
-                  <time>08.2013 - 09.2021</time> 
-                  <span><strong>Bat Ball Lorem ipsum dolor sit amet </strong> Lorem ipsum dolor sit amet</span>
-                </li>                
-                <li>
-                  <time>08.2013 - 09.2021</time> 
-                  <span><strong>Bat Ball Lorem ipsum dolor sit amet </strong> Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</span>
-                </li>
-                <li>
-                  <time>08.2013 - 09.2021</time> 
-                  <span><strong>Bat Ball Lorem ipsum dolor sit amet </strong> Lorem ipsum dolor sit amet</span>
-                </li>
-                <li>
-                  <time>08.2013 - 09.2021</time> 
-                  <span><strong>Bat Ball Lorem ipsum dolor sit amet </strong> Lorem ipsum dolor sit amet</span>
-                </li>
-        </LifetimeEventStyle>
+              {events.map((ev, index) => 
+                { return <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} key={index}>
+                    <time>{ev.time.from} - {ev.time.to}</time> 
+                    <span><strong>{ev.title}</strong>{ev.description}</span>
+                  </motion.li>  
+                })
+              }  
+       </LifetimeEventStyle>
     );
 }

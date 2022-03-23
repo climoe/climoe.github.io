@@ -35,11 +35,11 @@ const StyledSectionTitle = styled.h1`
     font-weight: 700;
 `;
 
-export function ViteSection({children}){
+export function ViteSection({children, title}){
     return(
         <StyledViteSection>
             <StyledSectionTitle>
-                Testowy tytuł 
+                {title}
             </StyledSectionTitle>
             {children}
         </StyledViteSection>

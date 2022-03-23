@@ -1,60 +1,31 @@
 import styled from 'styled-components';
 import Colors from '../common/Colors';
-import { Link } from 'gatsby';
 
-export const Button = styled(Link)`
-  background: ${props => props.theme.bg};
-  color: ${props =>props.theme === 'white' ? `${Colors.DARKEST};` : `${Colors.WHITE};`};
-  line-height: 1.05;
-  font-size: 16px;
-  font-weight: bold;
-  padding: ${props => (props.large ? '15px 34px;' : '12px 30px;')};
-  border: 1px solid ${props =>
-    props.theme === 'white' ? `${Colors.DARKEST};` : `${Colors.WHITE};`};
-  border-radius: 100px;
+export const Print = styled.button`
+
+  display: flex;
+  visibility: ${props => (props.scrolled ? 'visible;' : 'hidden;')};
+  
+
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  justify-content: space-around;
+  text-align: center;
+
+  height: 6rem;
+  width: 8rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: 'Inter';
+
   cursor: pointer;
-  display: inline-block;
-  text-decoration: none;
-  ${props => props.book && 'margin-left: 15px;'}
-  &:hover {
-    color: ${props =>
-      props.theme === 'white'
-        ? `${Colors.DARKEST};`
-        : `${Colors.WHITE};`};
-    text-decoration: none;
-    background: transparent;
-    border: 1px solid ${props =>
-      props.theme === 'white'
-        ? `${Colors.DARKEST};`
-        : `${Colors.WHITE};`};
-  }
-`;
+  color: ${Colors.DARKEST};
 
-export const HireMe = styled.div`
-  line-height: 1.05;
-  font-size: ${props => (props.large ? '24px' : '16px')};
-  padding: ${props => (props.large ? '12px 50px 12px' : '12px 30px 12px')};
-  border-radius: 100px;
-  cursor: pointer;
-  display: inline-block;
-  text-decoration: none;
-  background: ${Colors.LIGHT};
-  color: #3c3b3b;
-  font-weight: bold;
-  border: 1px solid ${Colors.LIGHT};
-  transition-duration: 0.3s;
-  &:hover {
-    color: #3c3b3b;
-    background: linear-gradient(90deg, #FF6633 0%, #FF33CC 100%);
-    border: 1px solid ${Colors.LIGHT};
-  }
-`;
+  background-color: ${props => (props.scrolled ? `${Colors.WHITE};` : 'transparent')};
+  animation: ${props => (props.scrolled ? 'fadein' : 'fadeout')} 0.2s;
+  border-radius: 3rem;
+  border: 1px solid ${Colors.PINK};
 
-export const LinkButton = styled(Button)`
-  font-size: 0.9;
-  border: none;
-  text-decoration: underline;
-  &:hover {
-    border: none;
-  }
 `;
