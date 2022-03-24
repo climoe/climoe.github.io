@@ -6,7 +6,6 @@ import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import GlobalStyles from '../common/GlobalStyles';
 import { LanguageContextProvider } from '../context/LanguageContext';
-import { Print } from '../button/Button';
 
 
 export const LayoutWithRef = React.forwardRef((props, ref) => {

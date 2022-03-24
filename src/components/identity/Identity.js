@@ -269,6 +269,12 @@ const SocialTags = ({social}) => {
         background: linear-gradient(90deg, #FF6633 0%, #FF33CC 100%);
         color: ${Colors.DARKEST};
         text-decoration: none;
+
+        a{
+            color: ${Colors.DARKEST};
+            cursor: pointer;
+            text-decoration: none;
+        }
     `;
     
     return (

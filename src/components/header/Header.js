@@ -5,7 +5,7 @@ import styled  from 'styled-components';
 
 import { LanguageSwitch } from '../button/LanguageSwitch';
 import { Print } from '../button/Button';
-import { Burger } from './burger/Burger';
+import { Burger } from '../burger/Burger';
 import Colors from '../common/Colors';
 import { contentMax } from '../common/Mixins';
 import { useLanguageContext } from '../context/LanguageContext';
@@ -33,6 +33,9 @@ const Logo = styled.a`
   height: 8rem;
   border-radius: 50%;
   background: linear-gradient(90deg, #FF6633 0%, #FF33CC 100%);
+  color: ${Colors.DARKEST};
+  cursor: pointer;
+  text-decoration: none;
 `;
 
 

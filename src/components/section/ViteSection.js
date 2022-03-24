@@ -17,6 +17,7 @@ const StyledViteSection = styled.section`
     border-radius: .8rem;
 
     ${media.tablet`
+        margin-top: 2rem;
         flex: 1 1 100%;
     `};
 

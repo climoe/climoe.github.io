@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 //import { MenuItem } from "./MenuItem";
-import  Colors  from "../../common/Colors";
-import { Identity } from "../../identity/Identity";
+import  Colors  from "../common/Colors";
+import { Identity } from "../identity/Identity";
 
 const StyledMenu = styled.div`
     margin: 10rem 5rem 0;

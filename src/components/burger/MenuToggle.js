@@ -1,7 +1,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import  styled  from "styled-components";
-import Colors from "../../common/Colors";
+import Colors from "../common/Colors";
 
 const Button = styled.button`
     position: absolute;

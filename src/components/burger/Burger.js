@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { useDimensions } from "./use-dimensions";
 import { MenuToggle } from "./MenuToggle";
 import { Menu } from "./Menu";
-import { mediaMin } from "../../common/MediaQueries";
+import { mediaMin } from "../common/MediaQueries";
 
 
 const StyledOptionDiv = styled.div`

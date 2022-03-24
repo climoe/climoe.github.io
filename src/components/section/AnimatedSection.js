@@ -8,10 +8,13 @@ import { media } from '../common/MediaQueries';
 const AnimatedSectionStyle = styled.div`
 
   margin: 4rem 4rem 4rem 4rem;
+  
   ${media.tablet`
     margin: 0;
   `}
+  
   &:first-child {
+  
     ${media.tablet`
       margin-bottom: 4rem;
     `};

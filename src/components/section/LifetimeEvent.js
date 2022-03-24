@@ -1,9 +1,11 @@
-import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+import { useLanguageContext } from "../context/LanguageContext";
 import Colors from "../common/Colors";
+import { ViteSection } from "./ViteSection";
 
 const LifetimeEventStyle = styled.ul`
   
@@ -67,6 +69,7 @@ export const LifetimeEvent = () => {
             id
             language {
               pl  {
+                title
                 events {
                   time{
                     from 
@@ -76,6 +79,18 @@ export const LifetimeEvent = () => {
                   description
                 }	
               }
+              en  {
+                title
+                events {
+                  time{
+                    from 
+                    to
+                  }
+                  title
+                  description
+                }	
+              }
+ 
             }
           }
         }
@@ -83,11 +98,13 @@ export const LifetimeEvent = () => {
     `;
   
     const data  = useStaticQuery(lifeTimeEventsQuery)
+    const languageContext = useLanguageContext()
     console.log("Data from lifetime", {data})
-    const events = data.markdownRemark.frontmatter.language.pl.events  
+    const {title, events} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
     console.log("Events", {events})
     return (
-        <LifetimeEventStyle>
+        <ViteSection title={title}>
+          <LifetimeEventStyle>
               {events.map((ev, index) => 
                 { return <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} key={index}>
                     <time>{ev.time.from} - {ev.time.to}</time> 
@@ -95,6 +112,8 @@ export const LifetimeEvent = () => {
                   </motion.li>  
                 })
               }  
-       </LifetimeEventStyle>
+          </LifetimeEventStyle>
+        </ViteSection>
+
     );
 }
