@@ -5,11 +5,11 @@ import styled from "styled-components";
 //import { MenuItem } from "./MenuItem";
 import  Colors  from "../common/Colors";
 import { Identity } from "../identity/Identity";
+import { LanguageSwitch } from "../button/LanguageSwitch";
 
 const StyledMenu = styled.div`
-    margin: 10rem 5rem 0;
+    margin: 2rem 5rem 0;
     color: ${Colors.DARKEST};
-    overflow-y: scroll;
 
 `;
 
@@ -36,6 +36,7 @@ const variants = {
 export const Menu = () => (
   <StyledMenu>
     <motion.ul style={style} variants={variants}>
+      <LanguageSwitch/>
       <Identity printing={false}/>
     </motion.ul>
   </StyledMenu>

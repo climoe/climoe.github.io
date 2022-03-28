@@ -99,9 +99,7 @@ export const LifetimeEvent = () => {
   
     const data  = useStaticQuery(lifeTimeEventsQuery)
     const languageContext = useLanguageContext()
-    console.log("Data from lifetime", {data})
     const {title, events} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
-    console.log("Events", {events})
     return (
         <ViteSection title={title}>
           <LifetimeEventStyle>

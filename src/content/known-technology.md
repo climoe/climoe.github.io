@@ -185,7 +185,7 @@ language: {
                         description: "Expert"  
                     },
                     {                    
-                        name: MQ/Messaging,
+                        name: JMS/MQ,
                         rate: 3,
                         description: "Regular"  
                     },

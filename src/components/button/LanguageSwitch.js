@@ -9,7 +9,7 @@ import { LanguageContextProvider, useLanguageContext } from "../context/Language
 
 import Colors from "../common/Colors";
 
-export const LanguageSwitch = ({scrolled}) => {
+export const LanguageSwitch = () => {
     
     const [isEn, setIsEn] = useState(true);
 
@@ -25,16 +25,14 @@ export const LanguageSwitch = ({scrolled}) => {
     const LanguageSwitchStyle = styled.div`
 
         display: flex;
-        visibility: ${props => (props.scrolled ? 'visible;' : 'hidden;')};
         justify-content: flex-start;
-        align-self: center;
+        align-self: flex-start;
 
         height: 5rem;
         width: 8rem;
         padding: .5rem;
 
-        background-color: ${props => (props.scrolled ? `${Colors.WHITE};` : 'transparent')};
-        animation: ${props => (props.scrolled ? 'fadein' : 'fadeout')} 0.2s;
+        background-color: transparent;
         border-radius: 5rem;
         border: 1px solid ${Colors.PINK};
 
@@ -70,7 +68,7 @@ export const LanguageSwitch = ({scrolled}) => {
 
     return (
         <LanguageContextProvider>
-                <LanguageSwitchStyle scrolled={scrolled} data-isen={isEn} onClick={toggleSwitch}> 
+                <LanguageSwitchStyle data-isen={isEn} onClick={toggleSwitch}> 
                     <motion.div className="handle" layout transition={spring}>PL\EN</motion.div>
                 </LanguageSwitchStyle>   
          </LanguageContextProvider>

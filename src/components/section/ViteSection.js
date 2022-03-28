@@ -9,7 +9,7 @@ const StyledViteSection = styled.section`
     
     flex: 1 0 50%;
 
-    margin: 0 5rem;
+    margin: 0 2rem;
     padding: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.5);
     background-color: rgba(255, 255, 255, 0.3);

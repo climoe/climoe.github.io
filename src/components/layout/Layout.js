@@ -45,9 +45,9 @@ export default function PageStructure({children}){
         <html lang="en" />
       </Helmet>
       <LanguageContextProvider>
-        <Header handlePrint = {handlePrint}/>
+        <Header/>
         <LayoutWithRef ref={componentRef}>{children}</LayoutWithRef>
-        <Footer />
+        <Footer handlePrint={handlePrint} />
       </LanguageContextProvider>
     </>
   )

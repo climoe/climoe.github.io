@@ -1,8 +1,11 @@
 import  React  from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import  styled  from "styled-components";
 
 import  Colors  from "../common/Colors";
 import { print } from "../common/MediaQueries"
+
+import { useLanguageContext } from "../context/LanguageContext";
 
 const StyledMainTitle = styled.p`
     
@@ -21,12 +24,39 @@ const StyledMainTitle = styled.p`
     ${print`
         display: none;
     `} 
-`;            
+`;           
+
+
     
 export const MainTitle = () => {
+
+    const mainTitleQuery = graphql`
+        query MainTitle{
+            markdownRemark(frontmatter: {id: {eq: "main-title"}}) {
+                frontmatter {
+                    id
+                    language{
+                        pl{
+                            first
+                            second
+                        }
+                        en{
+                            first
+                            second
+                        }
+                    }
+                }
+            }   
+        }
+    `;
+
+    const languageContext = useLanguageContext()
+    const data  = useStaticQuery(mainTitleQuery);
+    const { first, second} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
+
     return (
         <StyledMainTitle>
-            Hi, there! My name is Kamil. <span>I'm Software Engineer living in  Wrocław.</span>
+            {first}<span>{second}</span>
         </StyledMainTitle>
     );
 };

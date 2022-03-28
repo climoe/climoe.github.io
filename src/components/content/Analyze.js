@@ -28,7 +28,7 @@ const StyledAnalyzed = styled.div`
     `}
 `;
 
-export default function Analaze(){
+export default function Analyze(){
 
     return (
         <StyledAnalyzed>

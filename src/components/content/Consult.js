@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { media } from "../common/MediaQueries";
+import { media, print } from "../common/MediaQueries";
 
 import ConsultSvg from "../../static/images/consult.inline.svg";
 
@@ -25,6 +25,10 @@ const StyledConsult = styled.div`
     `}
 
     ${media.sphone`
+        display: none;
+    `}
+
+    ${print`
         display: none;
     `}
 `;

@@ -181,7 +181,7 @@ const Address = ({address}) => {
             <Header2>{address.header}</Header2>
             <StyledParagraph>
                 <StyledIcon>
-                    <HouseLine size={"2.4rem"} color="magenta"/>
+                    <HouseLine size={"2.4rem"} color="magenta" weight="duotone"/>
                 </StyledIcon>
                 {address.content}
             </StyledParagraph>
@@ -225,67 +225,16 @@ const Contact = ({contact}) => {
             <Header2>{contact.header}</Header2>
             <StyledParagraph>
                 <StyledIcon>
-                    <Envelope size={"2.4rem"} color={"#FF33CC"}/>
+                    <Envelope size={"2.4rem"} color={"#FF33CC"} weight="duotone"/>
                 </StyledIcon>
                 {contact.mail}
             </StyledParagraph>
             <StyledParagraph>
                 <StyledIcon>
-                    <PhoneCall size={"2.4rem"} color={"#FF33CC"}/>
+                    <PhoneCall size={"2.4rem"} color={"#FF33CC"} weight="duotone"/>
                 </StyledIcon>
                 {contact.phone}</StyledParagraph>
         </StyledContact>
-    )
-}
-
-const SocialTags = ({social}) => {
-    
-    const StyledSocialTags = styled.div`
-
-        display: flex;
-        flex-direction: column;
-
-        align-items: center;
-
-        h2 {
-            font-weight: 900;
-            margin-bottom: 1rem;
-        }
-
-        p { 
-            margin-top: 1rem;
-        }
-    `;
-    
-    const StyledSpans = styled.span`
-        display: inline-flex;
-        padding: 1.5rem;
-        border-radius: 1rem;
-        
-        font-weight: 700;
-        font-size: 2rem;
-        margin-left: 1rem;
-        
-        background: linear-gradient(90deg, #FF6633 0%, #FF33CC 100%);
-        color: ${Colors.DARKEST};
-        text-decoration: none;
-
-        a{
-            color: ${Colors.DARKEST};
-            cursor: pointer;
-            text-decoration: none;
-        }
-    `;
-    
-    return (
-        <StyledSocialTags>
-            <Header2>{social.header}</Header2>
-            <Paragraph>
-                {social.accounts.map((account) => (
-                    <StyledSpans><a href={account.url}>{account.label}</a></StyledSpans>   
-                ))}
-            </Paragraph>
-        </StyledSocialTags>
     )
 }
 
@@ -377,13 +326,6 @@ export const Identity = ({printing}) => {
                                 country
                                 city
                             }
-                            social {
-                                header
-                                accounts {
-                                    label
-                                    url
-                                }
-                            }
                             sentence {
                                 header
                                 content
@@ -409,13 +351,6 @@ export const Identity = ({printing}) => {
                                 country
                                 city
                             }
-                            social {
-                                header
-                                accounts {
-                                    label
-                                    url
-                                }
-                            }
                             sentence {
                                 header
                                 content
@@ -429,7 +364,7 @@ export const Identity = ({printing}) => {
 
     const languageContext = useLanguageContext()
     const data  = useStaticQuery(identityQuery);
-    const { contact, address, about, personal, social, sentence} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
+    const { contact, address, about, personal, sentence} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
     const  image  = data.file;
     return (
         <IdentityStyle printing = {printing}>
@@ -442,9 +377,6 @@ export const Identity = ({printing}) => {
                     <Address address={address}/>
                     <Contact contact={contact}/>
                 </GappedFlexRowSection>
-                <FlexRowDiv>
-                    <SocialTags social={social}/>
-                </FlexRowDiv>
                 <FlexColumnSection>
                     <LifeSentence sentence={sentence}/>
                 </FlexColumnSection>

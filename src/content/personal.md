@@ -22,23 +22,6 @@ language: {
             mail: "klimczak.kamill@gmail.com",
             phone: "+48 509-405-890"
         },
-        social: {
-            header: Socials,
-            accounts: [
-                {
-                    label: "LINKEDIN",
-                    url: "https://www.linkedin.com/in/kamil-k-a21b55157/"
-                }, 
-                {
-                    label: "TWITTER",
-                    url: "https://twitter.com/laserteg"
-                },
-                {
-                    label: "DEV.TO",
-                    url: "https://dev.to/climoe"
-                }
-            ],
-        },
         sentence: { 
             header: "Life sentence",
             content: "Don't try to be better from others today, be better version of yourself from yesterday!"
@@ -63,23 +46,6 @@ language: {
             header: Kontakt,
             mail: "klimczak.kamill@gmail.com",
             phone: "+48 509-405-890"
-        },
-        social: {
-            header: Media społecznościowe,
-            accounts: [
-                {
-                    label: "LINKEDIN",
-                    url: "https://www.linkedin.com/in/kamil-k-a21b55157/"
-                }, 
-                {
-                    label: "TWITTER",
-                    url: "https://twitter.com/laserteg"
-                },
-                {
-                    label: "DEV.TO",
-                    url: "https://dev.to/climoe"
-                }
-            ]
         },
         sentence: {
             header: Sentencja życiowa,

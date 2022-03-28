@@ -18,6 +18,7 @@ import Consult from '../components/content/Consult';
 import Analyze from '../components/content/Analyze';
 import { Identity } from '../components/identity/Identity';
 import { Skills } from '../components/skills/Skills';
+import { Experience } from '../components/experience/Experience';
 
 
 export default function Hompage(){
@@ -56,13 +57,17 @@ export default function Hompage(){
                 </IntroSection>
                 <CareerSection>
                     <AnimatedSection>
-                        <LifetimeEvent/>
+                        <TitleQuestion/>
+                    </AnimatedSection>
+                    <AnimatedSection>
+                        <Experience/>
                     </AnimatedSection>             
                     <AnimatedSection>
                         <Consult/>
-                        <Skills/>
+                        <LifetimeEvent/>
                     </AnimatedSection>
                     <AnimatedSection>
+                        <Skills/>
                         <Analyze/>
                     </AnimatedSection>
                 </CareerSection>

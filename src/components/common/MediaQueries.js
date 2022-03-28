@@ -3,6 +3,7 @@ import { css } from 'styled-components'
 const sizes = {
   desktop: 1880,
   xlaptop: 1700,
+  mlaptop: 1500,
   laptop: 1200,
   tablet: 900,
   phone: 600,

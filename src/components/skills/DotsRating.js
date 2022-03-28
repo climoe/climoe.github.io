@@ -10,10 +10,10 @@ export const DotsRating = ({range}) => {
     return (
         <div>
             {[...Array(range)].map(() => {
-                return <CircleWavy size={"1.6rem"} color={pinkColor} weight="duotone"/>}
+                return <CircleWavy size={"1rem"} color={pinkColor} weight="duotone"/>}
             )}
             {[...Array(5 - range)].map(() => {
-                return <CircleWavy size={"1.6rem"} color={greyColor} weight="duotone"/>}
+                return <CircleWavy size={"1rem"} color={greyColor} weight="duotone"/>}
             )}
         </div>
     )
