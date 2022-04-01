@@ -5,16 +5,16 @@ import { UserCircle } from "phosphor-react";
 import Colors from "../common/Colors";
 
 const Button = styled.button`
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+    position: relative;
+    top: 0;
+    right: 0;
     outline: none;
     border: none;
     z-index: 5;
     cursor: pointer;
-    width: 8rem;
+    width: 9rem;
     padding: 0;
-    height: 8rem;
+    height: 9rem;
     border-radius: 50%;
     background-color:${props => props.scroll ? `${Colors.WHITE};` :`transparent;`};
 `;

@@ -2,6 +2,7 @@ import  React  from "react";
 import  styled  from "styled-components";
 
 import  Colors  from "../common/Colors";
+import { print } from "../common/MediaQueries";
 
 const TitleQuestionStyle = styled.div`
     
@@ -19,6 +20,10 @@ const TitleQuestionStyle = styled.div`
     color: ${Colors.DARKEST};
 
     border-bottom: 2rem;
+
+    ${print`
+        display: none;
+    `}
 
 
     & .sentence {

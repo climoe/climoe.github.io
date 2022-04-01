@@ -22,8 +22,9 @@ const LifetimeEventStyle = styled.ul`
     time { 
       position: relative;
       font-weight: bold;
-      min-width: 20rem;
-      padding: 0 .3rem;
+      writing-mode: vertical-rl;
+      text-orientation: sideways;       
+      padding: 1rem 1rem;
       border-right: .2rem ${Colors.DARKEST} solid ;
 
       &::after {

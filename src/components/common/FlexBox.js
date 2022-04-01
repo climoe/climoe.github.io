@@ -24,6 +24,10 @@ export const FlexColumnSection = styled.section`
 
 `;
 
+export const FlexColumnJustifiedEnd = styled(FlexColumnSection)`
+    align-items: flex-end;
+`;
+
 export const FlexRowDiv = styled.div`
     display: flex;
     flex-direction: row;
@@ -52,4 +56,13 @@ export const FlexRowReverse = styled(FlexRow)`
     margin: 2rem 2rem;
     justify-content: flex-start;
     align-content: flex-start;
+`;
+
+export const GridSection = styled.section`
+    display: grid;
+    grid-template-columns: 50% 50%;
+    row-gap: 2rem;
+    justify-items: center;
+    align-items: center;
+
 `;

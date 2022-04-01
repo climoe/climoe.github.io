@@ -2,13 +2,13 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImage  from "gatsby-image";
 import styled from "styled-components";
-import { Envelope, PhoneCall, HouseLine} from "phosphor-react";
+import { Envelope, PhoneCall, HouseLine, LinkedinLogo, MediumLogo, TwitterLogo} from "phosphor-react";
 
 import { useLanguageContext } from "../context/LanguageContext";
-import { FlexColumnSection, FlexColumnDiv, FlexRowDiv, FlexRow } from "../common/FlexBox";
+import { FlexColumnSection, FlexColumnDiv, GridSection } from "../common/FlexBox";
 import { Header2, Header3, Paragraph } from "../common/Typography";
 import Colors from "../common/Colors";
-import { media, print } from "../common/MediaQueries";
+import { print } from "../common/MediaQueries";
 
 import Pin from "../../static/images/location.inline.svg";
 
@@ -105,15 +105,15 @@ const Personal = ({personal, image}) => {
 }
 
 const About = ({about}) => {
+    
     const StyledAbout = styled(FlexColumnDiv)`
-        flex: 1 0 50%;
-        align-self: flex-start;
+    
+        align-self: center;
+        justify-self: center;
         
-        align-content: flex-start;
-        justify-content: flex-start;
         flex-direction: column;
-
-        text-indent: 4rem;
+        align-content: flex-start;
+        justify-content: center;
 
         h3 {
             margin-top: 1rem;
@@ -150,18 +150,13 @@ const Address = ({address}) => {
         
         display: inline-flex;
         flex-direction: column;
-        align-items: center;
-        align-content: flex-start;
-
-        h3 {
-            margin-top: 1rem;
-            margin-left: 1rem;
-            font-weight: 300;
-        }
+        justify-self: center;
+        align-self: center;
 
         h2 {
             font-weight: 900;
             margin-bottom: 1rem;
+            align-self: center;
         }
     `;
     
@@ -199,8 +194,6 @@ const Contact = ({contact}) => {
         align-content: flex-start;
 
     h3 {
-      margin-top: 1rem;
-      margin-left: 1rem;
       font-weight: 300;
     }
 
@@ -238,11 +231,45 @@ const Contact = ({contact}) => {
     )
 }
 
-const LifeSentence = ({sentence}) => {
+const Accesibility = ({socialAccounts, printing}) => {
+    
+    const openInNewTab = (url) => {
+      const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+      if (newWindow) newWindow.opener = null
+    }
+  
+    const onClickUrl = (url) => {
+      return () => openInNewTab(url)
+    }  
+
+    const AccesibilityStyle = styled.p`
+
+        grid-column: 1 / span 2;
+        grid-row:  3 / 4;
+
+        display: ${props => props.printing === true ? "none;" :"flex;"};
+
+        text-align: center;
+        font-weight: 700;
+        box-align: initial;
+    `;
+
+
+    return (
+        <AccesibilityStyle printing={printing}>
+            <LinkedinLogo size={"5rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts[0].url)}/>
+            <TwitterLogo size={"5rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts[1].url)}/>
+            <MediumLogo size={"5rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts[2].url)}/>
+        </AccesibilityStyle>
+    )
+
+}
+
+const LifeSentence = ({sentence, printing}) => {
 
     const ItalicParagraph = styled(Paragraph)`
         margin-top: .5rem;
-        font-size: 2rem;
+        font-size: 1.6rem;
         font-style: italic;
         font-weight: 300;
         text-align: center;
@@ -250,7 +277,10 @@ const LifeSentence = ({sentence}) => {
 
     const StyledLifeSentence = styled.div`
 
-        display: flex;
+        grid-column: 1 / span 2;
+        grid-row:  4 / 5;
+
+        display: ${props => props.printing === true ? "none;" :"flex;"};
         flex-direction: column;
         align-items: center;
 
@@ -261,26 +291,12 @@ const LifeSentence = ({sentence}) => {
     `;
     
     return(
-        <StyledLifeSentence>
+        <StyledLifeSentence printing={printing}>
             <Header2>{sentence.header}</Header2>
             <ItalicParagraph>{sentence.content}</ItalicParagraph>
         </StyledLifeSentence>
     )
 }
-
-const GappedFlexRowSection = styled(FlexRow)`
-    gap: 2rem 20rem;
-    margin: 1rem 4rem;
-
-    ${media.tablet`
-        gap: 2rem 10rem;
-    `}
-
-    ${media.phone`
-        flex-direction: column;
-        margin: 4rem 4rem;
-    `}
-`;
 
 export const Identity = ({printing}) => {
     
@@ -326,6 +342,11 @@ export const Identity = ({printing}) => {
                                 country
                                 city
                             }
+                            social{
+                                accounts{
+                                  url
+                                }
+                            }    
                             sentence {
                                 header
                                 content
@@ -351,6 +372,11 @@ export const Identity = ({printing}) => {
                                 country
                                 city
                             }
+                            social{
+                                accounts{
+                                  url
+                                }  
+                            }                    
                             sentence {
                                 header
                                 content
@@ -364,23 +390,18 @@ export const Identity = ({printing}) => {
 
     const languageContext = useLanguageContext()
     const data  = useStaticQuery(identityQuery);
-    const { contact, address, about, personal, sentence} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
+    const { contact, address, about, personal, social, sentence} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
     const  image  = data.file;
     return (
         <IdentityStyle printing = {printing}>
-            <FlexColumnSection>
-                <FlexRowDiv>
+            <GridSection>
                     <Personal personal={personal} image={image}/>
                     <About about={about}/>
-                </FlexRowDiv>
-                <GappedFlexRowSection>
                     <Address address={address}/>
                     <Contact contact={contact}/>
-                </GappedFlexRowSection>
-                <FlexColumnSection>
-                    <LifeSentence sentence={sentence}/>
-                </FlexColumnSection>
-            </FlexColumnSection>
+                    <LifeSentence sentence={sentence} printing={printing}/>
+                    <Accesibility socialAccounts={social.accounts} printing={printing}/>
+            </GridSection>
         </IdentityStyle>
     )
 }

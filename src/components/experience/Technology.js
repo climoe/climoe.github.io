@@ -12,6 +12,7 @@ export const Technology = ({name}) => {
         font-size: 1.2rem;
         font-weight: 700;
         margin-left: .5rem;
+        margin-top: .5rem;
         padding: .5rem;
         line-height: 1.6;
     `;

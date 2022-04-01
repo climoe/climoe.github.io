@@ -25,7 +25,7 @@ export const Experience = () => {
             writing-mode: vertical-rl;
             text-orientation: sideways;            
             font-weight: bold;
-            padding: 0 1rem;
+            padding: 1rem 1rem;
             border-right: .2rem ${Colors.DARKEST} solid ;
 
             &::after {

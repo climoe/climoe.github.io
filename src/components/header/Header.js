@@ -6,6 +6,7 @@ import styled  from 'styled-components';
 import { Burger } from '../burger/Burger';
 import Colors from '../common/Colors';
 import { contentMax } from '../common/Mixins';
+import { LanguageSwitch } from '../button/LanguageSwitch';
 
 const HeaderWrapper = styled.div`
   max-width: 140rem;
@@ -38,9 +39,14 @@ const Logo = styled.a`
 
 const HeaderNav = styled.div`
   ${contentMax}
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
+
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  /* column-gap: 2rem; */
+  align-items: center;
+  justify-items: stretch;
+  justify-content: stretch;
+  align-content: center;
 `;
 
 
@@ -74,6 +80,7 @@ export default function Header(){
         <Logo href="/">
           <TerminalWindow size={"8rem"}/>
         </Logo>
+        <LanguageSwitch scrolled={scrolled}/>
         <Burger scrolled={scrolled}/>
       </HeaderNav>
     </HeaderWrapper>

@@ -1,26 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Atom, HeartStraight, Printer, TwitterLogo, LinkedinLogo, MediumLogo } from 'phosphor-react';
+import { Atom, HeartStraight, Printer } from 'phosphor-react';
 
 import { contentMax } from '../common/Mixins';
 import { media } from '../common/MediaQueries';
 import Colors from '../common/Colors';
 
 import waves from '../../static/images/waves.svg';
-import { graphql, useStaticQuery } from 'gatsby';
 
 const Copyright = styled.p`
-  text-align: right;
+  text-align: center;
   font-weight: 700;
   box-align: initial;
 `;
-
-const Accesibility = styled.p`
-  text-align: right;
-  font-weight: 700;
-  box-align: initial;
-`;
-
 
 
 const Content = styled.div`
@@ -33,40 +25,14 @@ const FooterWrapper = styled.div`
   background-position: center top;
   background-repeat: no-repeat;
 
-  padding: 8rem 2rem 2rem 0;
+  padding: 10rem 2rem 0rem 0;
   ${media.tablet`
-    padding: 12rem 2rem 5rem 2rem;`
+    padding: 12rem 2rem 0rem 2rem;`
   }
 `;  
 
 
 export const Footer = ({handlePrint}) => {
-  const socialsQuery = graphql`
-    query Socials{
-      markdownRemark(frontmatter: {id: {eq: "socials"}}) {
-        frontmatter {
-          id
-          social{
-            accounts{
-              url
-            }
-          }
-        }
-      }   
-    }  
-  `;
-
-  const data = useStaticQuery(socialsQuery);
-  const { accounts } = data.markdownRemark.frontmatter.social
-  
-  const openInNewTab = (url) => {
-    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
-    if (newWindow) newWindow.opener = null
-  }
-
-  const onClickUrl = (url) => {
-    return () => openInNewTab(url)
-  }
   
   return (
     <FooterWrapper>
@@ -76,13 +42,8 @@ export const Footer = ({handlePrint}) => {
         </Copyright>
         <Copyright>
           ©climoe 2022. All rights reserved.
+          <Printer size={"5rem"} color={`${Colors.PINK}`} weight="duotone" onClick={handlePrint}/>
         </Copyright>
-        <Accesibility>
-          <LinkedinLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(accounts[0].url)}/>
-          <TwitterLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(accounts[1].url)}/>
-          <MediumLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(accounts[2].url)}/>
-          <Printer size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={handlePrint}/>
-        </Accesibility>
       </Content>
     </FooterWrapper>)
 };

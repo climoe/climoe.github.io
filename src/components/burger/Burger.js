@@ -27,25 +27,8 @@ const StyledOptionDiv = styled.div`
 `;
 
 const navStyle = {
-    position: "relative",
-    top: "-1rem",
-    right: "-1rem",
-    bottom: 0,
+    justifySelf: "end"
 }
-
-
-// const divStyle = { 
-//     position: "absolute",
-//     top: "-1vh",
-//     right: "-1vw",
-//     bottom: 0,
-//     width: "100vw",
-//     //${mediaMin.xlaptop`width: 90vw;`}
-//     height: "101vh",
-//     background: "rgba(255,255,255,0.5)",
-//     backdropFilter: "saturate(180%) blur(20px)"
-// }
-
 
 
 const sidebar = {
@@ -82,11 +65,13 @@ export const Burger = ({scrolled}) => {
         ref={containerRef}>
         
         <StyledOptionDiv>
+        
           <motion.div className="options" variants={sidebar}>
             <Menu/>
           </motion.div>
+        
         </StyledOptionDiv>
-
+        
         <MenuToggle opened={isOpen} scrolled={scrolled} toggle={() => toggleOpen()} />
     </motion.nav>
   );

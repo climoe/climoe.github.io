@@ -10,8 +10,10 @@ import { AnimatedSection } from '../components/section/AnimatedSection';
 import { TitleQuestion } from '../components/content/TitleQuestion';
 import { MainTitle } from '../components/content/MainTitle';
 import { LifetimeEvent } from '../components/section/LifetimeEvent';
-import { FlexRowSection } from '../components/common/FlexBox';
+import { FlexColumnJustifiedEnd, FlexRow, FlexRowSection } from '../components/common/FlexBox';
 import { Header1, LargeParagraph } from  '../components/common/Typography';
+import { LanguageSwitch } from '../components/button/LanguageSwitch';
+
 
 import Dev from '../components/content/Dev';
 import Consult from '../components/content/Consult';
@@ -19,6 +21,7 @@ import Analyze from '../components/content/Analyze';
 import { Identity } from '../components/identity/Identity';
 import { Skills } from '../components/skills/Skills';
 import { Experience } from '../components/experience/Experience';
+import { CourseList } from '../components/courses/CoursesList';
 
 
 export default function Hompage(){
@@ -55,10 +58,10 @@ export default function Hompage(){
                         <Identity printing={true}/>
                     </FlexRowSection>
                 </IntroSection>
+                <FlexColumnJustifiedEnd>
+                    <LanguageSwitch label="Język"/>
+                </FlexColumnJustifiedEnd>
                 <CareerSection>
-                    <AnimatedSection>
-                        <TitleQuestion/>
-                    </AnimatedSection>
                     <AnimatedSection>
                         <Experience/>
                     </AnimatedSection>             
@@ -69,6 +72,14 @@ export default function Hompage(){
                     <AnimatedSection>
                         <Skills/>
                         <Analyze/>
+                    </AnimatedSection>
+                    <AnimatedSection>
+                        <FlexRow>
+                            <TitleQuestion/>
+                        </FlexRow>
+                    </AnimatedSection>
+                    <AnimatedSection>
+                        <CourseList/>
                     </AnimatedSection>
                 </CareerSection>
             </PageStructure>

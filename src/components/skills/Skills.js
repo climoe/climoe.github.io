@@ -22,11 +22,11 @@ export const Skills = () => {
         row-gap: 0.2rem;
 
         ${media.mlaptop`
-            grid-template-columns: 25% 25% 25% 25%;
+            grid-template-columns: 20% 20% 20% 20% 20%;
         `}
 
         ${media.tablet`
-            grid-template-columns: 20% 20% 20% 20% 20%;
+            grid-template-columns: 25% 25% 25% 25%;
         `}
 
         ${print`

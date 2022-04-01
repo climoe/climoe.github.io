@@ -36,6 +36,7 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
+    "deploy" : "",
     "prettier-format": "prettier --write 'src/components/**/*.js'",
     "prettier-check": "prettier --check 'src/components/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"

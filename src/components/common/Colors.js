@@ -9,7 +9,8 @@ const Colors = {
     PINK: '#ff33cc',
     PINK_LIGHTER: '#ff8ae2',
     ORANGE: '#ff6633', 
-    ORANGE_LIGHTER: '#ff9c7a'
+    ORANGE_LIGHTER: '#ff9c7a',
+    GREEN_LIGHTER: "#81FE71"
   }
   
   export default Colors;

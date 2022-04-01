@@ -10,7 +10,7 @@ export const Project = ({name, details, technologies}) => {
         padding: 1rem .5rem;
 
     `;
-
+    
     const ProjectName = styled.h5`
         font-size: 1.6rem;
         font-weight: 700;
@@ -26,6 +26,9 @@ export const Project = ({name, details, technologies}) => {
     `;
     
     const ProjectTechnologies = styled.p`
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
         padding: 0;
     `;
 
