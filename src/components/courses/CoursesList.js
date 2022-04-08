@@ -46,15 +46,13 @@ export const CourseList = () => {
     const data = useStaticQuery(coursesList)   
     const languageContext = useLanguageContext()
     const {label, items} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
-    console.log("label", {label})
-    console.log("Items", {items})
 
 
     return (
         <ViteSection title= {label}>
             <CourseListStyle>                
-                {items.map((item) => {
-                    return <Course name={item.name} owner={item.owner} realized={item.realized}/>
+                {items.map((item, index) => {
+                    return <Course name={item.name} owner={item.owner} realized={item.realized} key={index}/>
                 })}
             </CourseListStyle>
         </ViteSection>

@@ -13,6 +13,10 @@ import { useLanguageContext } from "../context/LanguageContext";
 export const Skills = () => {
 
     const SkillsStyle = styled.div`
+
+        /* ${print`
+            font-size: 1rem !important;
+        `} */
     `;
 
     const SkillsGridStyle = styled.section`
@@ -39,7 +43,7 @@ export const Skills = () => {
 
     const CategoryGridStyle = styled.section`
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 100%;
         padding: 0;
         margin: 0;
     `;
@@ -47,10 +51,13 @@ export const Skills = () => {
     const CategoryStyle = styled.section`
         padding:0;
         margin: 0;
+        ${print`
+          page-break-inside: avoid;
+        `}
     `;
 
     const SkillsCategory = styled.h4`
-        font-size: 1.rem;
+        font-size: 1rem;
         color: ${Colors.GREY};
         margin: 1.5rem 0 0;
         padding-left: 1rem;
@@ -59,6 +66,7 @@ export const Skills = () => {
         ` font-size: 1.2rem;
           margin: 1rem 0 0;
           padding-left: 0.5rem;
+          page-break-inside: avoid;
         `}
     `;
 
@@ -67,7 +75,7 @@ export const Skills = () => {
         font-weight: 300;
         color: ${Colors.GREY};
         ${print`
-            font-size:
+            font-size: 1rem;
         `}
     `;    
 
@@ -115,13 +123,13 @@ export const Skills = () => {
         <ViteSection title={description}>
             <SkillsStyle>
                 <CategoryGridStyle>
-                {skills.map((skill) => {
+                {skills.map((skill, index) => {
                     return (
                         <CategoryStyle>
-                            <SkillsCategory>{skill.category}</SkillsCategory>
+                            <SkillsCategory key={index}>{skill.category}</SkillsCategory>
                             <SkillsGridStyle>
-                                {skill.items.map((item) => {
-                                    return <SkillRating skillName={item.name} skillRate={item.rate} skillDesc={item.description} />;
+                                {skill.items.map((item, index) => {
+                                    return <SkillRating skillName={item.name} skillRate={item.rate} skillDesc={item.description} key={index}/>;
                                 })}
                             </SkillsGridStyle>
                         </CategoryStyle>                        

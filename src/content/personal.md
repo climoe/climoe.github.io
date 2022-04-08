@@ -37,7 +37,7 @@ language: {
         },        
         sentence: { 
             header: "Life sentence",
-            content: "Don't try to be better from others today, be better version of yourself from yesterday!"
+            content: "Don't try to compare to others today, compare to progress you've made from yesterday!"
         }
     }, 
     pl: {
@@ -75,7 +75,7 @@ language: {
         },
         sentence: {
             header: Sentencja życiowa,
-            content: "Nie staraj się być dziś lepszym od innych, staraj się być lepszym od wczorajszego siebie!"
+            content: "Nie staraj się porównywać do innych, staraj się mierzyć postęp jaki zrobiłeś od wczoraj!"
         }
     }
 }

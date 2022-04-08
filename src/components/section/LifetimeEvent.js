@@ -23,8 +23,9 @@ const LifetimeEventStyle = styled.ul`
       position: relative;
       font-weight: bold;
       writing-mode: vertical-rl;
+      font-size: 1.4rem;
       text-orientation: sideways;       
-      padding: 1rem 1rem;
+      padding-right: 1rem;
       border-right: .2rem ${Colors.DARKEST} solid ;
 
       &::after {
@@ -52,13 +53,12 @@ const LifetimeEventStyle = styled.ul`
         z-index: 1;
         left: 0;
         height: 100%;
-        /* border-left: 0.2rem ${Colors.DARKEST} solid; */
       }
     }
 
     strong {
       display: block;
-      font-weight: 900;
+      font-weight: 500;
     }
 `;
 
@@ -105,7 +105,7 @@ export const LifetimeEvent = () => {
         <ViteSection title={title}>
           <LifetimeEventStyle>
               {events.map((ev, index) => 
-                { return <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} key={index}>
+                { return <motion.li whileTap={{ scale: 0.95 }} key={index}>
                     <time>{ev.time.from} - {ev.time.to}</time> 
                     <span><strong>{ev.title}</strong>{ev.description}</span>
                   </motion.li>  

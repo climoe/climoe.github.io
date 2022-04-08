@@ -18,20 +18,15 @@ export const LanguageSwitch = ({scrolled}) => {
     const toggleSwitch = useCallback(() => {
             setIsEn(!isEn); 
             languageContext.update()
-            console.log("useCallback of toggleSwitch called")
         },[isEn, languageContext]
     )
 
-    const LanguageSwitchWrapper = styled.div`
-        display: grid;
-    `;
-
     const LanguageSwitchStyle = styled.div`
 
-        display: ${props => props.scrolled ? `flex;` : `none;`};
-        justify-content: flex-start;
-
+        display: flex;
+        visibility: ${props => props.scrolled ? `visible` : `hidden`};
         justify-self: flex-end;
+        align-self: center;
 
         height: 5rem;
         width: 8rem;
@@ -39,7 +34,7 @@ export const LanguageSwitch = ({scrolled}) => {
 
         background-color: transparent;
         border-radius: 5rem;
-        border: 2px solid ${Colors.PINK};
+        border: 1px solid ${Colors.PINK};
 
         cursor: pointer;
 
@@ -54,7 +49,7 @@ export const LanguageSwitch = ({scrolled}) => {
             background-color: ${Colors.PINK};
             border-radius: 5rem;
             font-size: 1.6rem;
-            font-weight: 700;
+            font-weight: 500;
             color: ${Colors.DARKEST};
 
             align-items: center;
@@ -69,15 +64,13 @@ export const LanguageSwitch = ({scrolled}) => {
         type: "spring",
         stiffness: 700,
         damping: 30
-    } 
+    }
 
     return (
         <LanguageContextProvider>
-            <LanguageSwitchWrapper>
                 <LanguageSwitchStyle scrolled={scrolled} data-isen={isEn} onClick={toggleSwitch}> 
                     <motion.div className="handle" layout transition={spring}>PL\EN</motion.div>
                 </LanguageSwitchStyle>   
-            </LanguageSwitchWrapper>    
          </LanguageContextProvider>
     )
 }

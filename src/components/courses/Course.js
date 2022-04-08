@@ -16,7 +16,7 @@ export const Course = ({ name, owner, realized}) => {
 
     const CourseName = styled.p`
         font-size: 1.4rem;
-        font-weight: 700;
+        font-weight: 500;
         padding-left: .8rem;
     `;
 

@@ -19,7 +19,7 @@ export const SkillRating = ({skillName, skillRate, skillDesc}) => {
 
     const SkillNameStyle = styled.h5`
         font-size: 1.2rem;
-        font-weight: 700;
+        font-weight: 500;
         margin: 0 0 .4rem;
         
         ${print`

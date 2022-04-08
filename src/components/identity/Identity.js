@@ -12,7 +12,7 @@ import { print } from "../common/MediaQueries";
 
 import Pin from "../../static/images/location.inline.svg";
 
-const Personal = ({personal, image}) => {
+export const Personal = ({personal, image}) => {
     
     const StyledPersonal = styled(FlexColumnSection)`
         flex: 1 0 50%;
@@ -74,7 +74,7 @@ const Personal = ({personal, image}) => {
     const StyledCity = styled.span`
         font-size: 2.25rem;
         color: ${Colors.WHITE};
-        font-weight: 700;
+        font-weight: 500;
         padding: .5rem 1.25rem .5rem .5rem;
     `;
 
@@ -250,8 +250,13 @@ const Accesibility = ({socialAccounts, printing}) => {
         display: ${props => props.printing === true ? "none;" :"flex;"};
 
         text-align: center;
-        font-weight: 700;
+        font-weight: 500;
         box-align: initial;
+
+        ${print`
+            overflow: hidden;
+            height: 0;
+        `}
     `;
 
 
@@ -281,6 +286,12 @@ const LifeSentence = ({sentence, printing}) => {
         grid-row:  4 / 5;
 
         display: ${props => props.printing === true ? "none;" :"flex;"};
+
+        ${print`
+            overflow: hidden;
+            height: 0;
+        `}
+
         flex-direction: column;
         align-items: center;
 
@@ -305,6 +316,7 @@ export const Identity = ({printing}) => {
         display: ${props => props.printing === true ? `none` : `block`};
         
         ${print`
+           margin: 0; 
            display: ${props => props.printing  === true ? `block;` : `none;`}
         `} 
     `;

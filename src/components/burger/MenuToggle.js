@@ -5,6 +5,7 @@ import { UserCircle } from "phosphor-react";
 import Colors from "../common/Colors";
 
 const Button = styled.button`
+    justify-self: flex-end;
     position: relative;
     top: 0;
     right: 0;

@@ -33,7 +33,7 @@ const StyledSectionTitle = styled.h1`
     margin-bottom: 1rem;
     
     font-size: 4rem;
-    font-weight: 700;
+    font-weight: 500;
 `;
 
 export function ViteSection({children, title}){

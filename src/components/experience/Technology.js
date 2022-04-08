@@ -7,10 +7,10 @@ export const Technology = ({name}) => {
 
     const TechnologyStyle = styled.span`
     
-        border: 2px solid ${Colors.PINK};
+        border: 1px solid ${Colors.PINK};
         border-radius: 1rem;
         font-size: 1.2rem;
-        font-weight: 700;
+        font-weight: 500;
         margin-left: .5rem;
         margin-top: .5rem;
         padding: .5rem;

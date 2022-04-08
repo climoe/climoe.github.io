@@ -3,17 +3,23 @@ import styled from "styled-components";
 import { Technology } from "./Technology";
 
 import Colors from "../common/Colors";
+import { print } from "../common/MediaQueries";
 
 export const Project = ({name, details, technologies}) => {
 
     const ProjectStyle = styled.section`
         padding: 1rem .5rem;
 
+        ${print`
+        
+        `}
+
+
     `;
     
     const ProjectName = styled.h5`
         font-size: 1.6rem;
-        font-weight: 700;
+        font-weight: 500;
         margin-bottom: 0;
         margin-top: 1rem;
 
@@ -37,8 +43,8 @@ export const Project = ({name, details, technologies}) => {
             <ProjectName>{name}</ProjectName>
             <ProjectDetails>{details}</ProjectDetails>
             <ProjectTechnologies>
-                {technologies.map((tech) => {
-                    return (<Technology name={tech.name}/>)
+                {technologies.map((tech, index) => {
+                    return (<Technology name={tech.name} key={index}/>)
                 })}
             </ProjectTechnologies>
         </ProjectStyle>

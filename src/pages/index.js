@@ -10,9 +10,8 @@ import { AnimatedSection } from '../components/section/AnimatedSection';
 import { TitleQuestion } from '../components/content/TitleQuestion';
 import { MainTitle } from '../components/content/MainTitle';
 import { LifetimeEvent } from '../components/section/LifetimeEvent';
-import { FlexColumnJustifiedEnd, FlexRow, FlexRowSection } from '../components/common/FlexBox';
+import { FlexRow, FlexRowSection } from '../components/common/FlexBox';
 import { Header1, LargeParagraph } from  '../components/common/Typography';
-import { LanguageSwitch } from '../components/button/LanguageSwitch';
 
 
 import Dev from '../components/content/Dev';
@@ -58,9 +57,6 @@ export default function Hompage(){
                         <Identity printing={true}/>
                     </FlexRowSection>
                 </IntroSection>
-                <FlexColumnJustifiedEnd>
-                    <LanguageSwitch label="Język"/>
-                </FlexColumnJustifiedEnd>
                 <CareerSection>
                     <AnimatedSection>
                         <Experience/>

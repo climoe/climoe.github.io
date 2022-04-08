@@ -10,8 +10,15 @@ import waves from '../../static/images/waves.svg';
 
 const Copyright = styled.p`
   text-align: center;
-  font-weight: 700;
+  font-weight: 500;
   box-align: initial;
+  margin-top: 0;
+`;
+
+const ContentBy = styled.p`
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 0;
 `;
 
 
@@ -37,12 +44,12 @@ export const Footer = ({handlePrint}) => {
   return (
     <FooterWrapper>
       <Content>
-        <Copyright align="right" >
+        <ContentBy align="right" >
           Content made with <HeartStraight weight= "duotone" color={`${Colors.PINK}`} size={"2rem"} alignmentBaseline="center"/> and <Atom size= {"2rem"} color="#38ACF5" weight='duotone'/> 
-        </Copyright>
+        </ContentBy>
         <Copyright>
           ©climoe 2022. All rights reserved.
-          <Printer size={"5rem"} color={`${Colors.PINK}`} weight="duotone" onClick={handlePrint}/>
+          <Printer size={"2rem"} color={`${Colors.PINK}`} weight="duotone" onClick={handlePrint}/>
         </Copyright>
       </Content>
     </FooterWrapper>)

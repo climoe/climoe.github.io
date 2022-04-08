@@ -2,7 +2,8 @@ import React, {useEffect} from "react";
 import styled  from 'styled-components';
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { media } from '../common/MediaQueries';
+
+import { media, print } from '../common/MediaQueries';
 
 
 const AnimatedSectionStyle = styled.div`
@@ -31,6 +32,11 @@ const AnimatedSectionStyle = styled.div`
     `};
 
   }
+
+  ${print`
+      margin:0;
+      padding:0;
+  `}
 `;
 
 const squareVariants = {

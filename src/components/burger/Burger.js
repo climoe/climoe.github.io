@@ -13,6 +13,7 @@ const StyledOptionDiv = styled.div`
 
     .options {
       position: absolute;
+      z-index: 3;
       top: -1vh;
       right: -1vw;
       bottom: 0;
@@ -27,6 +28,7 @@ const StyledOptionDiv = styled.div`
 `;
 
 const navStyle = {
+    display: "flex",
     justifySelf: "end"
 }
 

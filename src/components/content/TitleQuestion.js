@@ -58,7 +58,7 @@ const TitleQuestionStyle = styled.div`
         .word {    
             overflow: hidden;
             background: linear-gradient(90deg, #FF6633 0%, #FF33CC 100%);
-            font-weight: 700;
+            font-weight: 500;
         }
     }
 `;

@@ -25,28 +25,28 @@ export const LargeParagraph = styled.p`
 export const Header4 = styled.h4`
 	font-size: ${Sizes.S};
     color: ${Colors.DARKEST};
-    font-weight: 700;
+    font-weight: 500;
     text-align: left;
 `;
 
 export const Header3 = styled.h3`
 	font-size: ${Sizes.S};
     color: ${Colors.DARKEST};
-    font-weight: 700;
+    font-weight: 500;
     text-align: left;
 `;
 
 export const Header2 = styled.h2`
 	font-size: ${Sizes.M};
     color: ${Colors.DARKEST};
-    font-weight: 700;
+    font-weight: 500;
     text-align: left;
 `;
 
 export const Header1 = styled.h1`
 	font-size: ${Sizes.XL};
     color: ${Colors.DARKEST};
-    font-weight: 700;
+    font-weight: 500;
     text-align: left;
 `;
 

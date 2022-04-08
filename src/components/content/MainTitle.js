@@ -12,7 +12,7 @@ const StyledMainTitle = styled.p`
     font-size: 5rem;
     overflow: hidden;
     color: ${Colors.DARKEST};
-    font-weight: 700;
+    font-weight: 500;
     flex: 1 1 50%;
 
     span  {
