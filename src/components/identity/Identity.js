@@ -237,7 +237,7 @@ const LifeSentence = ({sentence, printing}) => {
         align-items: center;
 
         h2 {
-            font-weight: 900;
+            font-weight: 500;
             margin-bottom: 1rem;
         }
     `;

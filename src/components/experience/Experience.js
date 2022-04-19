@@ -73,7 +73,7 @@ export const Experience = () => {
 
         strong {
             display: inline-block;
-            font-weight: 700;
+            font-weight: 500;
         }
         
     `;

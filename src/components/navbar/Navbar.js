@@ -22,7 +22,7 @@ const StyledNavbar = styled.nav`
     align-items: center;
     list-style-type: none;
 
-    font-weight: 700;
+    font-weight: 500;
 
     padding: 0;
     margin: 5rem 0;
