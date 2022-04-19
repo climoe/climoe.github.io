@@ -8,7 +8,7 @@ import splash from "../../static/images/splash.svg"
 
 export const IntroSection = styled.section`
 
-    padding: 6rem 0;
+    padding: 10rem 0;
     margin: 0 auto;
 
     background-image: url("${splash}");

@@ -21,6 +21,8 @@ const StyledOptionDiv = styled.div`
       height: 101vh;
       background: rgba(255,255,255,0.5);
       backdrop-filter: saturate(180%) blur(20px);
+      --moz-back
+      --moz-backdrop-filter: saturate(180%) blur(20px);
       ${mediaMin.desktop`
         width: 90vw;
       `}

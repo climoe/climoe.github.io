@@ -10,6 +10,7 @@ const StyledViteSection = styled.section`
     flex: 1 0 50%;
 
     margin: 0 2rem;
+    margin-top: 4rem;
     padding: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.5);
     background-color: rgba(255, 255, 255, 0.3);
@@ -24,7 +25,6 @@ const StyledViteSection = styled.section`
     &:hover{
         background-color: rgba(255, 255, 255, 0.5);
     }
-
 `;
 
 const StyledSectionTitle = styled.h1`
@@ -36,9 +36,9 @@ const StyledSectionTitle = styled.h1`
     font-weight: 500;
 `;
 
-export function ViteSection({children, title}){
+export function ViteSection({children, title, id}){
     return(
-        <StyledViteSection>
+        <StyledViteSection id={id}>
             <StyledSectionTitle>
                 {title}
             </StyledSectionTitle>

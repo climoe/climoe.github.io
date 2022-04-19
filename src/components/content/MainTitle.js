@@ -9,6 +9,7 @@ import { useLanguageContext } from "../context/LanguageContext";
 
 const StyledMainTitle = styled.p`
     
+    margin-top: 2rem;
     font-size: 5rem;
     overflow: hidden;
     color: ${Colors.DARKEST};

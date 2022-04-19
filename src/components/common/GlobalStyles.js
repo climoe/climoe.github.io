@@ -6,7 +6,8 @@ const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'Inter';
     src: url('${Inter}'); 
-  };
+  }
+
   html {
 
     font-size: 62.5%; // 1rem - 10px - 10/16
@@ -23,11 +24,11 @@ const GlobalStyles = createGlobalStyle`
       font-size: 35%
     }
 
-    @media screen and (min-width: 30em) and (max-width: 37.5em){ //480px - 600px -> phone
+    @media screen and (min-width: 30em) and (max-width: 40em){ //480px - 650px -> phone
       font-size: 50%; //50% * 16px -> 1rem - 8px 
     }
 
-    @media screen and (min-width: 37.5em) and (max-width: 56.25em){ //600px - 900px -> tablet
+    @media screen and (min-width: 40em) and (max-width: 56.25em){ //650px - 900px -> tablet
       font-size: 62.5%; // 62.5% * 16px -> 1rem - 10px
     }
     
@@ -137,6 +138,25 @@ const GlobalStyles = createGlobalStyle`
       width: 0;
       text-indent: 0;
     }
-}
-`
+  }
+
+  @keyframes moveDown {
+    from {
+      transform: translateY(-5rem);
+    }
+    to {
+      transform: translateY(0rem);
+    }
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotateY(360deg);
+    }
+    100% {
+      transform: rotateY(0rem);
+    }
+  }  
+`;
+
 export default GlobalStyles;

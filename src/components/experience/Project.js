@@ -8,34 +8,34 @@ import { print } from "../common/MediaQueries";
 export const Project = ({name, details, technologies}) => {
 
     const ProjectStyle = styled.section`
-        padding: 1rem .5rem;
+ 
+        padding-left: .5rem;
+        padding-right: .5rem;
+        margin-top: .5rem;
 
         ${print`
-        
+            page-break-inside: avoid;
         `}
-
-
     `;
     
     const ProjectName = styled.h5`
         font-size: 1.6rem;
         font-weight: 500;
         margin-bottom: 0;
-        margin-top: 1rem;
-
     `;
 
     const ProjectDetails = styled.article`
         font-size: 1.4rem;
         font-weight: 300;
         color: ${Colors.GREY};
+        
     `;
     
     const ProjectTechnologies = styled.p`
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
-        padding: 0;
+        margin-top: .5rem;
     `;
 
     return (
@@ -49,5 +49,4 @@ export const Project = ({name, details, technologies}) => {
             </ProjectTechnologies>
         </ProjectStyle>
     )
-
 }

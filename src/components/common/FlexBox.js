@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 import { media } from './MediaQueries'
 
+import Colors from './Colors'
+
 export const FlexRowSection = styled.section`
+    
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -13,6 +16,7 @@ export const FlexRowSection = styled.section`
         margin: 4rem 4rem;
         flex-direction: column;
     `};
+
 `;
 
 export const FlexColumnSection = styled.section`
@@ -37,7 +41,7 @@ export const FlexRowDiv = styled.div`
 
 export const FlexColumnDiv = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
 `;
@@ -60,9 +64,21 @@ export const FlexRowReverse = styled(FlexRow)`
 
 export const GridSection = styled.section`
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40% 40%;
     row-gap: 2rem;
     justify-items: center;
+    justify-content: center;
     align-items: center;
 
+`;
+
+export const StyledParagraph = styled.p`
+    
+    font-size: 1.6rem;
+    color: ${Colors.DARKEST};
+    font-weight: 300;
+    text-align: left;
+
+    padding: 0;
+    margin: 0;
 `;

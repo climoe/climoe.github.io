@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { media } from '../common/MediaQueries';
+import { media, print } from '../common/MediaQueries';
 
 import AnalyzeSvg from '../../static/images/analyze.inline.svg';
 
@@ -24,6 +24,10 @@ const StyledAnalyzed = styled.div`
     `}
 
     ${media.sphone`
+        display: none;
+    `}
+
+    ${print`
         display: none;
     `}
 `;

@@ -11,7 +11,7 @@ export const Technology = ({name}) => {
         border-radius: 1rem;
         font-size: 1.2rem;
         font-weight: 500;
-        margin-left: .5rem;
+        margin-right: .5rem;
         margin-top: .5rem;
         padding: .5rem;
         line-height: 1.6;

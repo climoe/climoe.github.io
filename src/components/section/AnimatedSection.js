@@ -8,23 +8,17 @@ import { media, print } from '../common/MediaQueries';
 
 const AnimatedSectionStyle = styled.div`
 
-  margin: 4rem 4rem 4rem 4rem;
+  margin: 0;
   
   ${media.tablet`
     margin: 0;
+    margin-bottom: 2rem;
   `}
-  
-  &:first-child {
-  
-    ${media.tablet`
-      margin-bottom: 4rem;
-    `};
-  }
 
   .controls{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
 
     ${media.tablet`
@@ -34,8 +28,7 @@ const AnimatedSectionStyle = styled.div`
   }
 
   ${print`
-      margin:0;
-      padding:0;
+      margin: 0;
   `}
 `;
 

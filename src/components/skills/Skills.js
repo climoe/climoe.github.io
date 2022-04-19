@@ -120,7 +120,7 @@ export const Skills = () => {
     const {description, legend, skills} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
 
     return (
-        <ViteSection title={description}>
+        <ViteSection id="technology" title={description}>
             <SkillsStyle>
                 <CategoryGridStyle>
                 {skills.map((skill, index) => {

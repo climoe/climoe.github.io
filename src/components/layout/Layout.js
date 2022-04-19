@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import Helmet from 'react-helmet';
-import styled from 'styled-components';
 
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
@@ -23,13 +22,8 @@ export default function PageStructure({children}){
   
   const componentRef = useRef()
 
-  const Wrapper = styled.div`
-    margin-top: 0;
-    
-  
-  `;
-
   const pageStyle = `
+      
       @page {
         size: A4;
         margin: .5in 0 .5in !important;
@@ -38,6 +32,8 @@ export default function PageStructure({children}){
       @page:first{
         margin-top: 0;
       }
+
+      
 `; 
 
   const handlePrint = useReactToPrint({
@@ -48,18 +44,14 @@ export default function PageStructure({children}){
   })
 
   return(
-    <Wrapper>
-      <GlobalStyles />
+    <>
+      <GlobalStyles/>
       <Helmet
           title={"Kamil Klimczak - CV Portfolio"}
           meta={[
             {
               name: 'Kamil',
               content: 'Portfolio built using Gatsby and React'
-            },
-            {
-              name: 'keywords',
-              content: 'portfolio'
             }
           ]}
       >
@@ -72,6 +64,6 @@ export default function PageStructure({children}){
         </LayoutWithRef>
         <Footer handlePrint={handlePrint} />
       </LanguageContextProvider>
-    </Wrapper>
+    </>
   )
 }

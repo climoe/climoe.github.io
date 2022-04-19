@@ -13,16 +13,13 @@ language: {
             header: About me,
             content: "I'm JVM technology software engineer from about 8 years. Through all these years i've been working in largest polish bank realizing dozen of projects. Most of them where in backend position but I also learned and worked with frontend technologies like React and Typescript. Currently looking for place in project where I  could sharpen my skills as well as backend and frontend engineer."
         },
-        address: {
-            header: Exact address,
-            content: "ul. Wilczycka 30/2, 51-361 Wilczyce"
-        },
         contact: {
             header: Contact details,
             mail: "klimczak.kamill@gmail.com",
             phone: "+48 509-405-890"
         },
         social: {
+            header: Social accounts,
             accounts: [
                 {
                     url: "https://www.linkedin.com/in/kamil-k-a21b55157/"
@@ -32,7 +29,11 @@ language: {
                 },
                 {
                     url: "https://dev.to/climoe"
+                },
+                {
+                    url: "https://github.com/climoe"
                 }
+
             ]
         },        
         sentence: { 
@@ -51,16 +52,13 @@ language: {
             header: O mnie,
             content: "Jestem developerem Java/JVM, mieszkam we Wrocławiu. Mam 8 lat doświadczenia komercyjnego w tworzeniu aplikacji webowych. Pracowałem w największym polskim banku przez te wszystkie lata realizując wiele projektów.",
         },
-        address: {
-            header: Adres,
-            content: "ul. Wilczycka 30/2, 51-361 Wilczyce"
-        },
         contact: {
             header: Kontakt,
             mail: "klimczak.kamill@gmail.com",
             phone: "+48 509-405-890"
         },
         social: {
+            header: Konta społecznościowe,
             accounts: [
                 {
                     url: "https://www.linkedin.com/in/kamil-k-a21b55157/"
@@ -70,6 +68,9 @@ language: {
                 },
                 {
                     url: "https://dev.to/climoe"
+                },
+                {
+                    url: "https://github.com/climoe"
                 }
             ]
         },

@@ -6,7 +6,7 @@ const sizes = {
   mlaptop: 1500,
   laptop: 1200,
   tablet: 900,
-  phone: 600,
+  phone: 650,
   sphone: 480,
   xsphone: 320 
 }

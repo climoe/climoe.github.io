@@ -48,8 +48,24 @@ module.exports = {
         background_color: '#f6f1ed',
         theme_color: '#f6f1ed',
         display: 'minimal-ui',
-        icon: 'src/static/images/icons/social.JPG'
+        icon: 'src/static/images/icons/favicon.svg'
       }
-    }
+    },
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -200,
+        duration: 2000
+      }
+    },
+    {
+      resolve: `gatsby-plugin-scroll-indicator`,
+      options: {
+        color: "linear-gradient(90deg, #FF6633 0%, #FF33CC 100%)",
+        height: "2px",
+        paths: ["/"],
+        zIndex: `1000`,
+      },
+    },
   ]
 };

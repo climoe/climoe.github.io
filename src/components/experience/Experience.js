@@ -12,9 +12,16 @@ import { useLanguageContext } from "../context/LanguageContext";
 
 export const Experience = () => {
 
-    const ExperienceStyle = styled.div`
+    const ExperienceStyle = styled.ul`
 
         font-size: 1.8rem;
+        padding-left: 0;
+        margin-top: 0;
+        
+        ${print`
+            padding-left: 0;
+            margin-top: 0;
+        `}
 
         li {
             display: flex; 
@@ -31,6 +38,8 @@ export const Experience = () => {
             padding-right: 1rem;
             border-right: .2rem ${Colors.DARKEST} solid;
             ${print`
+                margin-left: 0;
+                padding-left: 0;
                 padding-right: 1rem;
             `}
 
@@ -64,7 +73,7 @@ export const Experience = () => {
 
         strong {
             display: inline-block;
-            font-weight: 500;
+            font-weight: 700;
         }
         
     `;
@@ -122,21 +131,22 @@ export const Experience = () => {
     const {label, experience} = languageContext.language  === "en" ?  data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl
 
     return (
-        <ViteSection title={label}>
+        <ViteSection id="experience" title={label}>
             <ExperienceStyle>
               {experience.map((exp, index) => 
-                { return <motion.li whileTap={{ scale: 0.95 }} key={index}>
-                    <time>{exp.time.from} - {exp.time.to}</time> 
-                    <span className="position">
-                        <strong>{exp.position}</strong>
-                        { exp.projects.map((p, index) => 
-                            {return <Project name={p.name} details={p.description} technologies={p.technology} key={index}/>}
-                        )}
-                    </span>
-                  </motion.li>  
+                { return (
+                    <motion.li whileTap={{scale: 0.95}} key={index}>
+                        <time>{exp.time.from} - {exp.time.to}</time> 
+                        <span className="position">
+                            <strong>{exp.position}</strong>
+                            { exp.projects.map((p, index) => 
+                                {return <Project name={p.name} details={p.description} technologies={p.technology} key={index}/>}
+                            )}
+                        </span>
+                  </motion.li>)  
                 })
               }  
             </ExperienceStyle>
-        </ViteSection>
+         </ViteSection>
     )
 }

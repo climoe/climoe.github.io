@@ -3,9 +3,15 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 import  Colors  from "../common/Colors";
+import { print } from "../common/MediaQueries";
 import { Identity } from "../identity/Identity";
 
 const StyledMenu = styled.div`
+    margin: 10rem 5rem 0;
+    ${print`
+      margin: 0;
+    `}
+
     margin: 10rem 5rem 0;
     color: ${Colors.DARKEST};
 

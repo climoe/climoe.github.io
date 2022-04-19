@@ -49,7 +49,7 @@ export const CourseList = () => {
 
 
     return (
-        <ViteSection title= {label}>
+        <ViteSection id="courses" title= {label}>
             <CourseListStyle>                
                 {items.map((item, index) => {
                     return <Course name={item.name} owner={item.owner} realized={item.realized} key={index}/>

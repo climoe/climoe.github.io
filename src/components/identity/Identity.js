@@ -2,17 +2,18 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImage  from "gatsby-image";
 import styled from "styled-components";
-import { Envelope, PhoneCall, HouseLine, LinkedinLogo, MediumLogo, TwitterLogo} from "phosphor-react";
+import { Envelope, PhoneCall, LinkedinLogo, MediumLogo, TwitterLogo, GithubLogo} from "phosphor-react";
 
 import { useLanguageContext } from "../context/LanguageContext";
-import { FlexColumnSection, FlexColumnDiv, GridSection } from "../common/FlexBox";
+import { FlexColumnSection, FlexColumnDiv, GridSection, StyledParagraph } from "../common/FlexBox";
 import { Header2, Header3, Paragraph } from "../common/Typography";
+import { ViteSection } from "../section/ViteSection";
 import Colors from "../common/Colors";
 import { print } from "../common/MediaQueries";
 
 import Pin from "../../static/images/location.inline.svg";
 
-export const Personal = ({personal, image}) => {
+const Personal = ({personal, image, id}) => {
     
     const StyledPersonal = styled(FlexColumnSection)`
         flex: 1 0 50%;
@@ -86,7 +87,7 @@ export const Personal = ({personal, image}) => {
     }    
 
     return (
-        <StyledPersonal>
+        <StyledPersonal id={id}>
             <StyledName>{personal.name}<span> |{personal.position}</span></StyledName>
             <StyledAvatar>
                 <AvatarBackground/>
@@ -104,16 +105,14 @@ export const Personal = ({personal, image}) => {
     );
 }
 
-const About = ({about}) => {
+const Contact = ({contact, socialAccounts}) => {
     
-    const StyledAbout = styled(FlexColumnDiv)`
-    
-        align-self: center;
-        justify-self: center;
-        
+    const StyledContact = styled(FlexColumnDiv)`
+
+        justify-content: space-between;
+
         flex-direction: column;
         align-content: flex-start;
-        justify-content: center;
 
         h3 {
             margin-top: 1rem;
@@ -127,6 +126,82 @@ const About = ({about}) => {
         }
 
     `;
+    const StyledMedium = styled.p`
+
+        display: inline-flex;
+        margin-bottom: 1.4rem;
+    `;
+
+    const AccesibilityStyle = styled(FlexColumnDiv)`
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        text-align: center;
+        font-weight: 500;
+        box-align: initial;
+    `;
+
+
+    const openInNewTab = (url) => {
+        const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
+    }
+
+    const onClickUrl = (url) => {
+        return () => openInNewTab(url)
+    }  
+
+
+    return (
+        <StyledContact>
+            <Header2>{contact.header}</Header2>
+            <StyledParagraph>
+                <Envelope size={"2.4rem"} color={"#FF33CC"} weight="duotone"/>
+                <StyledMedium>{contact.mail}</StyledMedium>
+            </StyledParagraph>
+            <StyledParagraph>
+                <PhoneCall size={"2.4rem"} color={"#FF33CC"} weight="duotone"/>
+                <StyledMedium>{contact.phone}</StyledMedium>
+            </StyledParagraph>
+            <Header2>{socialAccounts.header}</Header2>
+            <AccesibilityStyle>
+                <LinkedinLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[0].url)}/>
+                <TwitterLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[1].url)}/>
+                <MediumLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[2].url)}/>
+                <GithubLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[3].url)}/>
+            </AccesibilityStyle>
+        </StyledContact>
+    )
+}
+
+
+const About = ({about}) => {
+    
+    const StyledAbout = styled(FlexColumnDiv)`
+            
+        align-content: flex-start;
+        justify-content: center;
+
+        grid-column: 1 / span 2;
+        grid-row: 2 / 3;
+
+
+        h3 {
+            margin-top: 1rem;
+            margin-left: 1rem;
+            text-indent: 10rem;
+            font-weight: 300;
+        }
+
+        h2 {
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+    `;
+
     return (
         <StyledAbout>
             <Header2>{about.header}</Header2>
@@ -136,139 +211,6 @@ const About = ({about}) => {
 }
 
 
-const StyledParagraph = styled(Paragraph)`
-    
-    display: inline-block;
-    font-weight: 300;
-    
-    margin: 0;
-`;
-
-const Address = ({address}) => {  
-    
-    const StyledAddress = styled.span`
-        
-        display: inline-flex;
-        flex-direction: column;
-        justify-self: center;
-        align-self: center;
-
-        h2 {
-            font-weight: 900;
-            margin-bottom: 1rem;
-            align-self: center;
-        }
-    `;
-    
-
-    const StyledIcon = styled.span`
-
-        display: inline-block;
-        border-right: 1rem solid transparent;
-        width: 2.4rem;
-        height: 2.4rem;
-        padding-bottom: 0;
-        margin-bottom: 0;
-    `;
-
-    return(
-        <StyledAddress>
-            <Header2>{address.header}</Header2>
-            <StyledParagraph>
-                <StyledIcon>
-                    <HouseLine size={"2.4rem"} color="magenta" weight="duotone"/>
-                </StyledIcon>
-                {address.content}
-            </StyledParagraph>
-        </StyledAddress>
-    )
-}
-
-const Contact = ({contact}) => {
-    
-    const StyledContact = styled.span`
-        
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        align-content: flex-start;
-
-    h3 {
-      font-weight: 300;
-    }
-
-    h2 {
-      font-weight: 900;
-      margin-bottom: 1rem;
-    }
-    `;
-
-    const StyledIcon = styled.span`
-
-        display: inline-block;
-        border-right: 1rem solid transparent;
-        width: 2.4rem;
-        height: 2.4rem;
-        padding-bottom: 0;
-        margin-bottom: 0;
-    `;
-
-    return (
-        <StyledContact>
-            <Header2>{contact.header}</Header2>
-            <StyledParagraph>
-                <StyledIcon>
-                    <Envelope size={"2.4rem"} color={"#FF33CC"} weight="duotone"/>
-                </StyledIcon>
-                {contact.mail}
-            </StyledParagraph>
-            <StyledParagraph>
-                <StyledIcon>
-                    <PhoneCall size={"2.4rem"} color={"#FF33CC"} weight="duotone"/>
-                </StyledIcon>
-                {contact.phone}</StyledParagraph>
-        </StyledContact>
-    )
-}
-
-const Accesibility = ({socialAccounts, printing}) => {
-    
-    const openInNewTab = (url) => {
-      const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
-      if (newWindow) newWindow.opener = null
-    }
-  
-    const onClickUrl = (url) => {
-      return () => openInNewTab(url)
-    }  
-
-    const AccesibilityStyle = styled.p`
-
-        grid-column: 1 / span 2;
-        grid-row:  3 / 4;
-
-        display: ${props => props.printing === true ? "none;" :"flex;"};
-
-        text-align: center;
-        font-weight: 500;
-        box-align: initial;
-
-        ${print`
-            overflow: hidden;
-            height: 0;
-        `}
-    `;
-
-
-    return (
-        <AccesibilityStyle printing={printing}>
-            <LinkedinLogo size={"5rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts[0].url)}/>
-            <TwitterLogo size={"5rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts[1].url)}/>
-            <MediumLogo size={"5rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts[2].url)}/>
-        </AccesibilityStyle>
-    )
-
-}
 
 const LifeSentence = ({sentence, printing}) => {
 
@@ -283,7 +225,7 @@ const LifeSentence = ({sentence, printing}) => {
     const StyledLifeSentence = styled.div`
 
         grid-column: 1 / span 2;
-        grid-row:  4 / 5;
+        grid-row:  3 / 4;
 
         display: ${props => props.printing === true ? "none;" :"flex;"};
 
@@ -309,15 +251,16 @@ const LifeSentence = ({sentence, printing}) => {
     )
 }
 
-export const Identity = ({printing}) => {
+export const Identity = () => {
     
     
     const IdentityStyle = styled.div`
-        display: ${props => props.printing === true ? `none` : `block`};
+        display: block;
+        margin-top: 4rem;
         
         ${print`
-           margin: 0; 
-           display: ${props => props.printing  === true ? `block;` : `none;`}
+           margin: 0;
+           padding: 0; 
         `} 
     `;
 
@@ -340,10 +283,6 @@ export const Identity = ({printing}) => {
                                 mail
                                 phone
                             }
-                            address {
-                                header
-                                content
-                            }
                             about {
                                 header
                                 content
@@ -355,6 +294,7 @@ export const Identity = ({printing}) => {
                                 city
                             }
                             social{
+                                header
                                 accounts{
                                   url
                                 }
@@ -370,10 +310,6 @@ export const Identity = ({printing}) => {
                                 mail
                                 phone
                             }
-                            address {
-                                header
-                                content
-                            }
                             about {
                                 header
                                 content
@@ -385,6 +321,7 @@ export const Identity = ({printing}) => {
                                 city
                             }
                             social{
+                                header
                                 accounts{
                                   url
                                 }  
@@ -402,17 +339,14 @@ export const Identity = ({printing}) => {
 
     const languageContext = useLanguageContext()
     const data  = useStaticQuery(identityQuery);
-    const { contact, address, about, personal, social, sentence} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
+    const { contact, about, personal, social, sentence} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
     const  image  = data.file;
     return (
-        <IdentityStyle printing = {printing}>
+        <IdentityStyle>
             <GridSection>
-                    <Personal personal={personal} image={image}/>
+                    <Personal id="about" personal={personal} image={image}/>
+                    <Contact contact={contact} socialAccounts={social}/>
                     <About about={about}/>
-                    <Address address={address}/>
-                    <Contact contact={contact}/>
-                    <LifeSentence sentence={sentence} printing={printing}/>
-                    <Accesibility socialAccounts={social.accounts} printing={printing}/>
             </GridSection>
         </IdentityStyle>
     )

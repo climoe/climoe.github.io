@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { media } from "../common/MediaQueries" 
+import { media, print } from "../common/MediaQueries" 
 
 import DevSvg from "../../static/images/dev.inline.svg"
 
@@ -10,22 +10,26 @@ const StyledDev = styled.div`
     min-height: 25rem;
     align-self: center;
     padding-top: 1rem;
+    
+    ${print`
+        display: none;
+    `}
 
-${media.tablet`
-    flex: 1 0 50%;
-    min-height: 35rem;
-    min-width: 55rem;
-`}
+    ${media.tablet`
+        flex: 1 0 50%;
+        min-height: 35rem;
+        min-width: 55rem;
+    `}
 
-${media.phone`
-    flex: 1 0 50%;
-    min-height: 30rem;
-    min-width: 50rem;
-`}
+    ${media.phone`
+        flex: 1 0 50%;
+        min-height: 30rem;
+        min-width: 50rem;
+    `}
 
-${media.sphone`
-    display: none;
-`}
+    ${media.sphone`
+        display: none;
+    `}
 `;
 
 export default function Dev(){

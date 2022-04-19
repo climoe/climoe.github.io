@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 import { useLanguageContext } from "../context/LanguageContext";
 import Colors from "../common/Colors";
-import { ViteSection } from "./ViteSection";
+import { ViteSection } from "../section/ViteSection";
 
 const LifetimeEventStyle = styled.ul`
   
@@ -62,7 +62,7 @@ const LifetimeEventStyle = styled.ul`
     }
 `;
 
-export const LifetimeEvent = () => {
+export const Education = () => {
     const lifeTimeEventsQuery = graphql`
       query LifeTimeEvents{
         markdownRemark(frontmatter: {id: {eq: "lifetime"}}) {
@@ -102,7 +102,7 @@ export const LifetimeEvent = () => {
     const languageContext = useLanguageContext()
     const {title, events} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
     return (
-        <ViteSection title={title}>
+        <ViteSection id="education" title={title}>
           <LifetimeEventStyle>
               {events.map((ev, index) => 
                 { return <motion.li whileTap={{ scale: 0.95 }} key={index}>

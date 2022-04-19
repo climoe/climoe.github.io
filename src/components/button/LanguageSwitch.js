@@ -9,7 +9,7 @@ import { LanguageContextProvider, useLanguageContext } from "../context/Language
 
 import Colors from "../common/Colors";
 
-export const LanguageSwitch = ({scrolled}) => {
+export const LanguageSwitch = ({sticky}) => {
     
     const [isEn, setIsEn] = useState(true);
 
@@ -23,18 +23,17 @@ export const LanguageSwitch = ({scrolled}) => {
 
     const LanguageSwitchStyle = styled.div`
 
-        display: flex;
-        visibility: ${props => props.scrolled ? `visible` : `hidden`};
+        display: ${props => props.sticky === true ? 'flex' : 'none'};
         justify-self: flex-end;
         align-self: center;
 
-        height: 5rem;
-        width: 8rem;
-        padding: .5rem;
+        height: 4rem;
+        width: 8.4rem;
+        padding: .4rem;
 
         background-color: transparent;
-        border-radius: 5rem;
-        border: 1px solid ${Colors.PINK};
+        border-radius: 4.4rem;
+        border: 2px solid ${Colors.DARKEST};
 
         cursor: pointer;
 
@@ -44,13 +43,13 @@ export const LanguageSwitch = ({scrolled}) => {
 
         .handle {
             display: flex;
-            width: 5rem;
-            height: 5rem;
-            background-color: ${Colors.PINK};
-            border-radius: 5rem;
-            font-size: 1.6rem;
+            width: 4rem;
+            height: 4rem;
+            background-color: ${Colors.DARKEST};
+            border-radius: 50%;
+            font-size: 1.2rem;
             font-weight: 500;
-            color: ${Colors.DARKEST};
+            color: ${Colors.WHITE};
 
             align-items: center;
             align-content: center;
@@ -68,7 +67,7 @@ export const LanguageSwitch = ({scrolled}) => {
 
     return (
         <LanguageContextProvider>
-                <LanguageSwitchStyle scrolled={scrolled} data-isen={isEn} onClick={toggleSwitch}> 
+                <LanguageSwitchStyle sticky={sticky} data-isen={isEn} onClick={toggleSwitch}> 
                     <motion.div className="handle" layout transition={spring}>PL\EN</motion.div>
                 </LanguageSwitchStyle>   
          </LanguageContextProvider>

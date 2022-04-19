@@ -32,12 +32,27 @@ const FooterWrapper = styled.div`
   background-position: center top;
   background-repeat: no-repeat;
 
-  padding: 10rem 2rem 0rem 0;
+  padding: 10rem 2rem 2rem 0;
   ${media.tablet`
-    padding: 12rem 2rem 0rem 2rem;`
+    padding: 12rem 2rem 2rem 2rem;`
   }
 `;  
 
+const RotatingAtom = ({size, color}) => {
+  return (
+    <Atom size= {size} color={color}>
+      <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      dur="2s"
+      from="0 0 0"
+      to="360 0 0"
+      repeatCount="indefinite"
+      ></animateTransform>
+    </Atom>  
+  )
+}
 
 export const Footer = ({handlePrint}) => {
   
@@ -45,7 +60,7 @@ export const Footer = ({handlePrint}) => {
     <FooterWrapper>
       <Content>
         <ContentBy align="right" >
-          Content made with <HeartStraight weight= "duotone" color={`${Colors.PINK}`} size={"2rem"} alignmentBaseline="center"/> and <Atom size= {"2rem"} color="#38ACF5" weight='duotone'/> 
+          Content made with <HeartStraight size={"2rem"} color={`${Colors.PINK}`}/> and <RotatingAtom size= {"2rem"} color="#38ACF5"/> 
         </ContentBy>
         <Copyright>
           ©climoe 2022. All rights reserved.

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState }  from 'react';
 import styled from 'styled-components';
 
 import Colors from '../components/common/Colors';
@@ -9,9 +9,8 @@ import { CareerSection } from '../components/section/CareerSection';
 import { AnimatedSection } from '../components/section/AnimatedSection';
 import { TitleQuestion } from '../components/content/TitleQuestion';
 import { MainTitle } from '../components/content/MainTitle';
-import { LifetimeEvent } from '../components/section/LifetimeEvent';
+import { Education } from '../components/education/Education';
 import { FlexRow, FlexRowSection } from '../components/common/FlexBox';
-import { Header1, LargeParagraph } from  '../components/common/Typography';
 
 
 import Dev from '../components/content/Dev';
@@ -21,16 +20,19 @@ import { Identity } from '../components/identity/Identity';
 import { Skills } from '../components/skills/Skills';
 import { Experience } from '../components/experience/Experience';
 import { CourseList } from '../components/courses/CoursesList';
+import Navbar from '../components/navbar/Navbar';
+import Preloader from '../components/common/Preloader';
 
 
-export default function Hompage(){
+const Hompage = () => {
+
+    const [loaded, isLoaded] = useState(false)
 
     const StyledHompage = styled.div`
 
         position: relative;
         margin: auto;
         max-width: 140rem;
-        overflow: hidden;
         background-color: ${Colors.WHITE};
         z-index: 0;
         box-shadow: 0 0.0625rem 0.25rem 0 rgba(61, 66, 80, 0.18);
@@ -38,32 +40,38 @@ export default function Hompage(){
         background-attachment: fixed;
         background-color: rgb(217, 228, 245);
         background-image: linear-gradient(315deg, rgb(217, 228, 245) 0%, rgb(245, 227, 230) 74%);
-
-        ${LargeParagraph} {
-            margin-bottom: 2.8rem;
-        }
-        ${Header1} {
-            margin: 0 0 2rem 0;
-        }
     `;
 
+    useEffect(() => {
+        setTimeout(() => {
+            isLoaded(true)
+        }, 3000)
+    }, []);
+
     return (
+        <>
+        {!loaded ? (
+        <Preloader/>
+        ):(
         <StyledHompage>
             <PageStructure>
                 <IntroSection>
                     <FlexRowSection>
                         <MainTitle/>
-                        <Dev/>
-                        <Identity printing={true}/>
+                        <Dev/>                        
                     </FlexRowSection>
                 </IntroSection>
+                <Navbar/>
                 <CareerSection>
+                    <AnimatedSection>
+                        <Identity printing={false}/>
+                    </AnimatedSection>
                     <AnimatedSection>
                         <Experience/>
                     </AnimatedSection>             
                     <AnimatedSection>
                         <Consult/>
-                        <LifetimeEvent/>
+                        <Education/>
                     </AnimatedSection>
                     <AnimatedSection>
                         <Skills/>
@@ -80,5 +88,8 @@ export default function Hompage(){
                 </CareerSection>
             </PageStructure>
         </StyledHompage>
+        )}
+        </>
     )
 }
+export default Hompage;
