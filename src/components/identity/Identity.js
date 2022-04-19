@@ -7,7 +7,6 @@ import { Envelope, PhoneCall, LinkedinLogo, MediumLogo, TwitterLogo, GithubLogo}
 import { useLanguageContext } from "../context/LanguageContext";
 import { FlexColumnSection, FlexColumnDiv, GridSection, StyledParagraph } from "../common/FlexBox";
 import { Header2, Header3, Paragraph } from "../common/Typography";
-import { ViteSection } from "../section/ViteSection";
 import Colors from "../common/Colors";
 import { print } from "../common/MediaQueries";
 
@@ -266,7 +265,7 @@ export const Identity = () => {
 
     const identityQuery = graphql`
         query AvatarAndIdentity {
-            file(relativePath: {regex: "images//social.JPG/"}) {
+            file(relativePath: {regex: "images//social.jpg/"}) {
                 childImageSharp{
                     fixed{
                         src
