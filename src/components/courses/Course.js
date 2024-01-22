@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import {Check, Checks} from "phosphor-react";
+import { Check, CheckCircle, Hourglass } from "phosphor-react";
 
 import Colors from "../common/Colors";
+import { print } from "../common/MediaQueries"
 
-export const Course = ({ name, owner, realized}) => {
+export const Course = ({ name, owner, description, realized}) => {
 
     const CourseStyle = styled.article`
         display: flex;
@@ -12,6 +13,9 @@ export const Course = ({ name, owner, realized}) => {
         font-weight: 500;
         align-items: flex-end;
         
+        ${print`
+            page-break-inside: avoid;
+        `}
     `;
 
     const CourseName = styled.p`
@@ -20,22 +24,38 @@ export const Course = ({ name, owner, realized}) => {
         padding-left: .8rem;
     `;
 
-    const CourseOwner = styled.span`
+    const CourseDescription = styled.span`
         font-size: 1rem;
-        font-style: italic;
         padding-left: .8rem;
         margin-bottom: 1.5rem;
     `;
+
+    const CourseOwner = styled.span`
+        font-size: 1rem;
+        font-style: italic;
+        font-weight: bold;
+        padding-left: .8rem;
+        margin-bottom: 1.5rem;
+    `;
+
+    const CourseRealization = styled.i`
+        border: 1px ${Colors.GREEN_LIGHTER};
+        font-size: 2rem;
+        margin-bottom: .8rem;
+    `
 
 
     return (
         <CourseStyle>
             {realized === true ? 
-                <Checks size={"4rem"} color={`${Colors.PINK}`} weight="duotone"/> : 
-                <Check size={"4rem"} color={`${Colors.PINK}`} weight="duotone"/>
-            }            
-            <CourseName>{name}</CourseName>
-            <CourseOwner>{owner}</CourseOwner>
+                <CourseRealization><CheckCircle size={"2rem"} color={`${Colors.PINK}`}/></CourseRealization> : 
+                <CourseRealization><Hourglass size={"2rem"} color={`${Colors.PINK}`}/></CourseRealization>
+            }
+            <CourseName>
+                {name} - 
+                <CourseDescription>{description}</CourseDescription>
+                <CourseOwner>{owner}</CourseOwner>
+            </CourseName>
         </CourseStyle>
     )
 

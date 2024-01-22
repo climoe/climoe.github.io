@@ -76,69 +76,90 @@ const GlobalStyles = createGlobalStyle`
   }
 
   @keyframes openclose {
+  
     0% {
-      top: 0rem;
+      top: 0;
       width: 0;
     }
+  
     5% {
       width: 0;
     }
+  
     15% {
-      width: 18rem;
+      width: 12rem;
+      text-indent:.8rem;
     }
+  
     30% {
       top: 0rem;
-      width: 18rem;
+      width: 12rem;
     }
+  
     33% {
       top: 0rem;
       width: 0;
     }
+    
     35% {
       top: 0rem;
       width: 0;
     }
+
     38% {
-      top: -5rem;
-      
+      top: -4.4rem;
+      width: 0;  
     }
+  
     48% {
-      top: -5rem;
-      width: 18rem;
+      top: -4.4rem;
+      width: 15rem;
+      text-indent: .8rem;
     }
-    62% {
-      top: -5rem;
-      width: 18rem;
+  
+    63% {
+      top: -4.4rem;
+      width: 15rem;
     }
+  
     66% {
-      top: -5rem;
+      top: -4.4rem;
       width: 0;
-      text-indent: 0;
     }
+
+    68%{
+      top: -4.4rem;
+      width: 0;
+    }
+
     71% {
-      top: -10rem;
+      top: -8.8rem;
       width: 0;
-      text-indent: 5px;
     }
-    86% {
-      top: -10rem;
-      width: 18rem;
+
+    81% {
+      top: -8.8rem;
+      width: 14rem;
+      text-indent:.8rem;
     }
-    95% {
-      top: -10rem;
-      width: 18rem;
+
+    96% {
+      top: -8.8rem;
+      width: 14rem;
     }
-    98% {
-      top: -10rem;
+
+    99% {
+      top: -8.8rem;
       width: 0;
-      text-indent: 5px;
+      text-indent:.8rem;
     }
+    
     100% {
       top: 0;
       width: 0;
-      text-indent: 0;
     }
   }
+
 
   @keyframes moveDown {
     from {

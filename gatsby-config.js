@@ -67,5 +67,6 @@ module.exports = {
         zIndex: `1000`,
       },
     },
+    "gatsby-plugin-sass"
   ]
 };

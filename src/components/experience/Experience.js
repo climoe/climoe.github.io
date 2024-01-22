@@ -96,6 +96,7 @@ export const Experience = () => {
                                 projects{
                                     name
                                     description
+                                    role
                                     technology{
                                         name
                                     }
@@ -113,6 +114,7 @@ export const Experience = () => {
                                 projects{
                                     name
                                     description
+                                    role
                                     technology{
                                         name
                                     }
@@ -140,7 +142,7 @@ export const Experience = () => {
                         <span className="position">
                             <strong>{exp.position}</strong>
                             { exp.projects.map((p, index) => 
-                                {return <Project name={p.name} details={p.description} technologies={p.technology} key={index}/>}
+                                {return <Project name={p.name} details={p.description} role={p.role} technologies={p.technology} key={index}/>}
                             )}
                         </span>
                   </motion.li>)  

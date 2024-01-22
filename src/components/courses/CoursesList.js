@@ -26,6 +26,7 @@ export const CourseList = () => {
                             label
                             items{
                                 name
+                                description
                                 owner
                                 realized
                             }
@@ -34,6 +35,7 @@ export const CourseList = () => {
                             label
                             items{
                                 name
+                                description
                                 owner
                                 realized
                             }
@@ -52,7 +54,7 @@ export const CourseList = () => {
         <ViteSection id="courses" title= {label}>
             <CourseListStyle>                
                 {items.map((item, index) => {
-                    return <Course name={item.name} owner={item.owner} realized={item.realized} key={index}/>
+                    return <Course name={item.name} owner={item.owner} description={item.description} realized={item.realized} key={index}/>
                 })}
             </CourseListStyle>
         </ViteSection>

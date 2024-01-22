@@ -36,7 +36,7 @@ language: {
                 ]
             },
             {   
-                category: "Frameworki",
+                category: "Frameworki i biblioteki",
                 items: [
                     {
                         name: "Spring",
@@ -67,6 +67,16 @@ language: {
                         name: Apache Camel,
                         rate: 4,
                         description: "Zaawansowany"  
+                    },
+                    {
+                        name: Spring Cloud,
+                        rate: 3,
+                        description: "Regularny"    
+                    },
+                    {
+                        name: React,
+                        rate: 3,
+                        description: "Regularny"
                     }
                 ]
             },            
@@ -77,6 +87,11 @@ language: {
                        name: OracleSQL,
                        rate: 4,
                        description: "Zaawansowany" 
+                    },
+                    {
+                       name: PostgreSQL,
+                       rate: 3,
+                       description: "Regular"                     
                     },
                     {
                        name: MongoDB,
@@ -162,7 +177,7 @@ language: {
                 ]
             },
             {   
-                category: "Frameworks",
+                category: "Frameworks & Libraries",
                 items: [
                     {
                         name: "Spring",
@@ -193,6 +208,16 @@ language: {
                         name: Apache Camel,
                         rate: 4,
                         description: "Advanced"  
+                    },
+                    {
+                        name: Spring Cloud,
+                        rate: 3,
+                        description: "Regular"    
+                    },
+                    {
+                        name: React,
+                        rate: 3, 
+                        description: "Regular"
                     }
                     
                 ]
@@ -204,6 +229,11 @@ language: {
                         name: OracleSQL,
                         rate: 4,
                         description: "Advanced"
+                    },
+                    {
+                       name: PostgreSQL,
+                       rate: 3,
+                       description: "Regular"                     
                     },
                     {
                        name: MongoDB,

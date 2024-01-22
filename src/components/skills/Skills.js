@@ -14,9 +14,11 @@ export const Skills = () => {
 
     const SkillsStyle = styled.div`
 
-        /* ${print`
+        page-break-inside:  avoid;
+        ${print`
             font-size: 1rem !important;
-        `} */
+        `}
+
     `;
 
     const SkillsGridStyle = styled.section`
@@ -51,9 +53,7 @@ export const Skills = () => {
     const CategoryStyle = styled.section`
         padding:0;
         margin: 0;
-        ${print`
-          page-break-inside: avoid;
-        `}
+        page-break-inside: avoid;
     `;
 
     const SkillsCategory = styled.h4`
@@ -61,12 +61,12 @@ export const Skills = () => {
         color: ${Colors.GREY};
         margin: 1.5rem 0 0;
         padding-left: 1rem;
+        page-break-inside: avoid;
 
         ${print
         ` font-size: 1.2rem;
           margin: 1rem 0 0;
           padding-left: 0.5rem;
-          page-break-inside: avoid;
         `}
     `;
 

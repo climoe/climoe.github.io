@@ -11,7 +11,7 @@ language: {
         },
         about: {
             header: About me,
-            content: "I'm JVM technology software engineer from about 8 years. Through all these years i've been working in largest polish bank realizing dozen of projects. Most of them where in backend position but I also learned and worked with frontend technologies like React and Typescript. Currently looking for place in project where I  could sharpen my skills as well as backend and frontend engineer."
+            content: "Java developer, recently a Kotlin fanboy. Open to full-stack roles, as I am familiar with JS/TS and React. Also interested in widely understood system architecture. My goal is to be a part of a development team focused on using best practices daily, motivating each other, and knowledge-sharing. I consider programming not only as my job, but also one of my greatest interests."
         },
         contact: {
             header: Contact details,
@@ -50,7 +50,7 @@ language: {
         },
         about: {
             header: O mnie,
-            content: "Jestem developerem Java/JVM, mieszkam we Wrocławiu. Mam 8 lat doświadczenia komercyjnego w tworzeniu aplikacji webowych. Pracowałem w największym polskim banku przez te wszystkie lata realizując wiele projektów.",
+            content: "Senior Java Developer, ostatnio zapalony miłośnik języka Kotlin. Specjalizuje się w tworzeniu aplikacji webowych w technologiach JVM, ale jestem otwarty na rolę fullstack, gdyż nie są mi obce JS/TS oraz React. Interesuje się również szeroko pojętą architekturą systemów oraz rozwiązaniami chmurowymi. Chciałbym być częścią zespołu, którego członkowie motywują się nawzajem i stosują na co dzień dobre praktyki w wytwarzaniu oprogramowania jak DDD czy Clean Architecture. Zdobytej wiedzy nie zostawiam dla siebie, lubię się nią dzielić z innymi. Programowanie uważam nie tylko za moją pracę, ale też jedno z największych zainteresowań.",
         },
         contact: {
             header: Kontakt,

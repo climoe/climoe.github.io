@@ -7,7 +7,7 @@ export const FlexRowSection = styled.section`
     
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
 
     justify-content: space-around;
     margin: 1rem 4rem;

@@ -8,57 +8,39 @@ const TitleQuestionStyle = styled.div`
     
     display: flex;
     align-items: flex-start;
-    justify-content: left;
-
-    font-weight: 500;
-
-    font-size: 3.5rem;
-    position: relative;
-    overflow: hidden;
-
-    margin:  2.5rem 1rem;
-    color: ${Colors.DARKEST};
-
-    border-bottom: 2rem;
+    justify-content: flex-start;
+    font-size: 2.4rem;
 
     ${print`
         display: none;
     `}
 
-
-    & .sentence {
-        color: ${Colors.DARKEST};
-        display: inline-block;
-        
-    }
-
-    & .quote {
-
-        height: 5rem;
-        width: 18rem;
-        padding-left: 2rem;
-        
-        display: inline;
+    h1 {
         position: relative;
         overflow: hidden;
+        
+        width: 70rem;
+        font-weight: 100;
+        color: ${Colors.DARKEST};
     }
-    
-    & .message {
-        
-        display: inline-block;
-        position: absolute;
-        overflow: hidden;
-        z-index: 5;
 
+    .message {
+        display: block;
+        padding-left: 0.5rem;
         
-        top: 0;
+        overflow: hidden;
+        
+        position: absolute;
+        top: 0rem;
+        left: 42rem;
+        
+        font-weight: 900;
+        color: ${Colors.DARKEST};
+        background: linear-gradient(90deg, #FF6633 0%, #FF33CC 100%);
         
         animation: openclose 5s ease-in-out infinite;
-        
-        .word {    
-            overflow: hidden;
-            background: linear-gradient(90deg, #FF6633 0%, #FF33CC 100%);
-            font-weight: 500;
+
+        .word {
         }
     }
 `;
@@ -66,15 +48,14 @@ const TitleQuestionStyle = styled.div`
 export const TitleQuestion = () => {
     return (
         <TitleQuestionStyle>
-            <span className="sentence">Want to get things done 
-                <span className="quote">
-                    <span className="message">
-                        <div className="word">FAST?</div>
-                        <div className="word">CLEAN?</div>
-                        <div className="word">RIGHT</div>
-                    </span>    
-                </span>
-            </span>
+            <h1>
+                <span>Want to get things done</span>
+                <div className="message">
+                    <div className="word">FAST?</div>
+                    <div className="word">CLEAN?</div>
+                    <div className="word">RIGHT?</div>
+                </div>    
+            </h1>
         </TitleQuestionStyle>
     );
 };

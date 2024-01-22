@@ -27,7 +27,7 @@ const StyledDev = styled.div`
         min-width: 50rem;
     `}
 
-    ${media.sphone`
+    ${media.sphone2`
         display: none;
     `}
 `;

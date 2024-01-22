@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 import Colors from "../common/Colors";
-import { LanguageSwitch } from "../button/LanguageSwitch";
+import { LanguageSwitch } from "../button/switch/LanguageSwitch";
 import useSticky from "./use-sticky";
 
 const StyledNavbar = styled.nav`
@@ -13,8 +13,6 @@ const StyledNavbar = styled.nav`
     left: 0;
     z-index: 99;
 
-    height: 10vh;
-    width: 100%;
 
     display: flex;
     flex-wrap: wrap;
@@ -24,7 +22,7 @@ const StyledNavbar = styled.nav`
 
     font-weight: 500;
 
-    padding: 0;
+    padding: 3rem;
     margin: 5rem 0;
 
     background-color: ${props => props.sticky === true ? Colors.WHITE : 'transparent'};

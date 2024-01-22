@@ -8,6 +8,7 @@ import splash from "../../static/images/splash.svg"
 
 export const IntroSection = styled.section`
 
+    //height: 80vh;
     padding: 10rem 0;
     margin: 0 auto;
 

@@ -2,10 +2,10 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImage  from "gatsby-image";
 import styled from "styled-components";
-import { Envelope, PhoneCall, LinkedinLogo, MediumLogo, TwitterLogo, GithubLogo} from "phosphor-react";
+import { At, PhoneCall, LinkedinLogo, MediumLogo, TwitterLogo, GithubLogo} from "phosphor-react";
 
 import { useLanguageContext } from "../context/LanguageContext";
-import { FlexColumnSection, FlexColumnDiv, GridSection, StyledParagraph } from "../common/FlexBox";
+import { FlexColumnSection, FlexColumnDiv, GridSection} from "../common/FlexBox";
 import { Header2, Header3, Paragraph } from "../common/Typography";
 import Colors from "../common/Colors";
 import { print } from "../common/MediaQueries";
@@ -107,32 +107,39 @@ const Personal = ({personal, image, id}) => {
 const Contact = ({contact, socialAccounts}) => {
     
     const StyledContact = styled(FlexColumnDiv)`
-
-        justify-content: space-between;
+        
+        align-self: start;
 
         flex-direction: column;
-        align-content: flex-start;
+        justify-content: flex-start;
+        align-items: center;
+
+
+        h2 {
+            font-weight: 900;
+            align-self: center;
+        }
 
         h3 {
             margin-top: 1rem;
             margin-left: 1rem;
             font-weight: 300;
         }
+    `;
 
-        h2 {
-            font-weight: 900;
-            margin-bottom: 1rem;
-        }
+    const StyledIcon = styled.span`
+        display: inline-flex;
 
     `;
     const StyledMedium = styled.p`
 
+        align-self: center;
         display: inline-flex;
-        margin-bottom: 1.4rem;
     `;
 
     const AccesibilityStyle = styled(FlexColumnDiv)`
 
+        align-self: center;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -156,19 +163,23 @@ const Contact = ({contact, socialAccounts}) => {
     return (
         <StyledContact>
             <Header2>{contact.header}</Header2>
-            <StyledParagraph>
-                <Envelope size={"2.4rem"} color={"#FF33CC"} weight="duotone"/>
-                <StyledMedium>{contact.mail}</StyledMedium>
-            </StyledParagraph>
-            <StyledParagraph>
-                <PhoneCall size={"2.4rem"} color={"#FF33CC"} weight="duotone"/>
-                <StyledMedium>{contact.phone}</StyledMedium>
-            </StyledParagraph>
+            <StyledMedium>
+                <StyledIcon>
+                    <At size={"2.4rem"} color={"#FF33CC"} weight="duotone"/>
+                </StyledIcon>
+                {contact.mail}
+            </StyledMedium>
+            <StyledMedium>
+                <StyledIcon>
+                    <PhoneCall size={"2.4rem"} color={"#FF33CC"} weight="duotone"/>
+                </StyledIcon>
+                {contact.phone}
+            </StyledMedium>
             <Header2>{socialAccounts.header}</Header2>
             <AccesibilityStyle>
                 <LinkedinLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[0].url)}/>
                 <TwitterLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[1].url)}/>
-                <MediumLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[2].url)}/>
+                {/* <MediumLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[2].url)}/> */}
                 <GithubLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[3].url)}/>
             </AccesibilityStyle>
         </StyledContact>
@@ -338,7 +349,7 @@ export const Identity = () => {
 
     const languageContext = useLanguageContext()
     const data  = useStaticQuery(identityQuery);
-    const { contact, about, personal, social, sentence} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
+    const { contact, about, personal, social} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
     const  image  = data.file;
     return (
         <IdentityStyle>

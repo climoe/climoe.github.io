@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Colors from '../common/Colors';
+import Colors from '../../common/Colors';
 
-export const Print = styled.button`
+const Print = styled.button`
 
   display: flex;
   visibility: ${props => (props.scrolled ? 'visible;' : 'hidden;')};
@@ -29,3 +29,5 @@ export const Print = styled.button`
   border: 1px solid ${Colors.PINK};
 
 `;
+
+export default Print;

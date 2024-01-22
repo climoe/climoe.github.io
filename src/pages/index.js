@@ -10,7 +10,7 @@ import { AnimatedSection } from '../components/section/AnimatedSection';
 import { TitleQuestion } from '../components/content/TitleQuestion';
 import { MainTitle } from '../components/content/MainTitle';
 import { Education } from '../components/education/Education';
-import { FlexRow, FlexRowSection } from '../components/common/FlexBox';
+import { FlexRowSection } from '../components/common/FlexBox';
 
 
 import Dev from '../components/content/Dev';
@@ -22,6 +22,10 @@ import { Experience } from '../components/experience/Experience';
 import { CourseList } from '../components/courses/CoursesList';
 import Navbar from '../components/navbar/Navbar';
 import Preloader from '../components/common/Preloader';
+import LayoutCards from '../components/experimental/cardlayout/LayoutCards';
+import { ViteSection } from '../components/section/ViteSection';
+import Experience2 from '../components/experience/Experience2';
+import Skills2 from '../components/skills/Skills2';
 
 
 const Hompage = () => {
@@ -67,23 +71,21 @@ const Hompage = () => {
                         <Identity printing={false}/>
                     </AnimatedSection>
                     <AnimatedSection>
-                        <Experience/>
+                        <Experience2/>
                     </AnimatedSection>             
                     <AnimatedSection>
                         <Consult/>
                         <Education/>
                     </AnimatedSection>
                     <AnimatedSection>
-                        <Skills/>
+                        <Skills2/>
                         <Analyze/>
                     </AnimatedSection>
                     <AnimatedSection>
-                        <FlexRow>
-                            <TitleQuestion/>
-                        </FlexRow>
+                        <CourseList/>
                     </AnimatedSection>
                     <AnimatedSection>
-                        <CourseList/>
+                        <TitleQuestion/>
                     </AnimatedSection>
                 </CareerSection>
             </PageStructure>

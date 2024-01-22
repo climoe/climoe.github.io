@@ -5,7 +5,7 @@ import { Technology } from "./Technology";
 import Colors from "../common/Colors";
 import { print } from "../common/MediaQueries";
 
-export const Project = ({name, details, technologies}) => {
+export const Project = ({name, details, role, technologies}) => {
 
     const ProjectStyle = styled.section`
  
@@ -31,17 +31,30 @@ export const Project = ({name, details, technologies}) => {
         
     `;
     
+    const ProjectRole = styled.article`
+        font-size: 1.4rem;
+        font-weight: 300;
+        color: ${Colors.GREY};
+        
+    `;
+
     const ProjectTechnologies = styled.p`
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
         margin-top: .5rem;
+        page-break-inside: avoid;
+
+        ${print`
+            page-break-inside: avoid;
+        `}
     `;
 
     return (
         <ProjectStyle>
             <ProjectName>{name}</ProjectName>
             <ProjectDetails>{details}</ProjectDetails>
+            <ProjectRole>{role}</ProjectRole>
             <ProjectTechnologies>
                 {technologies.map((tech, index) => {
                     return (<Technology name={tech.name} key={index}/>)

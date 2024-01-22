@@ -38,33 +38,17 @@ const FooterWrapper = styled.div`
   }
 `;  
 
-const RotatingAtom = ({size, color}) => {
-  return (
-    <Atom size= {size} color={color}>
-      <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="rotate"
-      dur="2s"
-      from="0 0 0"
-      to="360 0 0"
-      repeatCount="indefinite"
-      ></animateTransform>
-    </Atom>  
-  )
-}
 
-export const Footer = ({handlePrint}) => {
+export const Footer = () => {
   
   return (
     <FooterWrapper>
       <Content>
         <ContentBy align="right" >
-          Content made with <HeartStraight size={"2rem"} color={`${Colors.PINK}`}/> and <RotatingAtom size= {"2rem"} color="#38ACF5"/> 
+          Content made with <HeartStraight size={"2rem"} color={`${Colors.PINK}`}/> and <Atom size= {"2rem"} color="#38ACF5"/> 
         </ContentBy>
         <Copyright>
           ©climoe 2022. All rights reserved.
-          <Printer size={"2rem"} color={`${Colors.PINK}`} weight="duotone" onClick={handlePrint}/>
         </Copyright>
       </Content>
     </FooterWrapper>)

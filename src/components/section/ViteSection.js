@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { media } from "../common/MediaQueries";
+import { print, media } from "../common/MediaQueries";
 
 const StyledViteSection = styled.section`
     display: flex;
@@ -9,10 +9,11 @@ const StyledViteSection = styled.section`
     
     flex: 1 0 50%;
 
-    margin: 0 2rem;
+
+    margin: 0 4rem;
     margin-top: 4rem;
     padding: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
     border-radius: .8rem;
@@ -21,6 +22,11 @@ const StyledViteSection = styled.section`
         margin-top: 2rem;
         flex: 1 1 100%;
     `};
+
+    ${print`
+        margin-top: 0;
+        padding: 0;
+    `}
 
     &:hover{
         background-color: rgba(255, 255, 255, 0.5);
@@ -34,6 +40,8 @@ const StyledSectionTitle = styled.h1`
     
     font-size: 4rem;
     font-weight: 500;
+
+    page-break-inside: avoid;
 `;
 
 export function ViteSection({children, title, id}){

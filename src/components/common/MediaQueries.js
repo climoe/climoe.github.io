@@ -8,6 +8,7 @@ const sizes = {
   tablet: 900,
   phone: 650,
   sphone: 480,
+  sphone2: 400,
   xsphone: 320 
 }
 
