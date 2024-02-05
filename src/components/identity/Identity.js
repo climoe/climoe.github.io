@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import GatsbyImage  from "gatsby-image";
+import { GatsbyImage }  from "gatsby-plugin-image";
 import styled from "styled-components";
-import { At, PhoneCall, LinkedinLogo, MediumLogo, TwitterLogo, GithubLogo} from "phosphor-react";
+import { At, PhoneCall, LinkedinLogo, TwitterLogo, GithubLogo} from "phosphor-react";
 
 import { useLanguageContext } from "../context/LanguageContext";
 import { FlexColumnSection, FlexColumnDiv, GridSection} from "../common/FlexBox";
@@ -90,7 +90,7 @@ const Personal = ({personal, image, id}) => {
             <StyledName>{personal.name}<span> |{personal.position}</span></StyledName>
             <StyledAvatar>
                 <AvatarBackground/>
-                <GatsbyImage style={imageStyle} fadeIn={true} loading={"eager"} fixed={image.childImageSharp.fixed} />
+                <GatsbyImage style={imageStyle} fadeIn={true} alt={"Avatar image"} loading={"eager"} fixed={image?.childImageSharp?.gatsbyImageData} />
             </StyledAvatar>
             <StyledLocation>
                 <StyledPinDiv>

@@ -1,10 +1,10 @@
-import React, { useRef } from 'react';
-import Helmet from 'react-helmet';
+import React from 'react';
 
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import GlobalStyles from '../common/GlobalStyles';
 import { LanguageContextProvider } from '../context/LanguageContext';
+import {Head} from "../common/Head";
 
 
 const PageStructure = ({children}) => {  
@@ -12,17 +12,7 @@ const PageStructure = ({children}) => {
   return(
     <>
       <GlobalStyles/>
-      <Helmet
-          title={"climoe | IT  Software Engineer"}
-          meta={[
-            {
-              name: 'climoe',
-              content: 'Portfolio for my IT experience'
-            }
-          ]}
-      >
-      <html lang="en" />
-      </Helmet>
+      <Head/>
       <LanguageContextProvider>
         <Header/>
         {children}

@@ -7,8 +7,8 @@ module.exports = {
     FAST_DEV: true
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    { 
+    'gatsby-plugin-image',
+    {
       resolve: 'gatsby-plugin-styled-components',
       options: {
         displayName: true

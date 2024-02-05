@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import { Helmet } from "react-helmet";
 import { Printer } from "phosphor-react";
 import { useReactToPrint } from 'react-to-print';
 
@@ -15,6 +14,7 @@ import { Education } from "../components/education/Education";
 import { Experience } from "../components/experience/Experience";
 import { Identity } from "../components/identity/Identity";
 import { Skills } from "../components/skills/Skills";
+import {Head} from "../components/common/Head";
 
 
 const Printable = styled.main`
@@ -71,10 +71,8 @@ const CV = () => {
     return (
         <>
             <GlobalStyles/>
-            <Helmet title={"Kamil Klimczak | CV"}>
-                <html lang="en" />
-            </Helmet>
-            <LanguageContextProvider> 
+            <Head/>
+            <LanguageContextProvider>
                 <LayoutWithRef ref={printRef}>
                     <Printable>
                         <LanguageSwitch sticky={true}/>
