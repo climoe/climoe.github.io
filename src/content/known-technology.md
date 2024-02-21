@@ -49,32 +49,57 @@ language: {
                         description: "Regularny" 
                     },
                     {
-                        name: Hibernate,
+                        name: "Hibernate",
                         rate: 4,
                         description: "Zaawansowany"  
                     },
                     {
-                        name: Grails,
+                        name: "Grails",
                         rate: 5,
                         description: "Ekspert"  
                     },
                     {
-                        name: MQ/Messaging,
+                        name: "MQ/Messaging",
                         rate: 3,
                         description: "Regularny"  
                     },
                     {
-                        name: Apache Camel,
+                        name: "Apache Camel",
                         rate: 4,
                         description: "Zaawansowany"  
                     },
                     {
-                        name: Spring Cloud,
+                        name: "Spring Cloud",
                         rate: 3,
                         description: "Regularny"    
                     },
                     {
-                        name: React,
+                        name: "ELK",
+                        rate: 3,
+                        description: "Regularny"
+                    },
+                    {
+                        name: "React",
+                        rate: 3,
+                        description: "Regularny"
+                    },
+                    {
+                        name: "Angular 15",
+                        rate: 3,
+                        description: "Regularny"
+                    },
+                    {
+                        name: "Spock",
+                        rate: 4,
+                        description: "Zaawansowany"
+                    },
+                    {
+                        name: "JUnit",
+                        rate: 4,
+                        description: "Zaawansowany"
+                    },
+                    {
+                        name: "Testcontainers",
                         rate: 3,
                         description: "Regularny"
                     }
@@ -84,22 +109,22 @@ language: {
                 category: "Bazy danych",
                 items: [
                     {
-                       name: OracleSQL,
+                       name: "OracleSQL",
                        rate: 4,
                        description: "Zaawansowany" 
                     },
                     {
-                       name: PostgreSQL,
+                       name: "PostgreSQL",
                        rate: 3,
                        description: "Regular"                     
                     },
                     {
-                       name: MongoDB,
+                       name: "MongoDB",
                        rate: 3,
                        description: "Regularny"                     
                     }, 
                     {
-                       name: Redis,
+                       name: "Redis",
                        rate: 2,
                        description: "Początkujący"
                     }
@@ -109,41 +134,71 @@ language: {
                 category: "Paradygmaty",
                 items: [
                     {
-                       name: OOP,
+                       name: "OOP",
                        rate: 4,
                        description: "Zaawansowany"                     
                     },
                     {
-                        name: FP,
+                        name: "FP",
                         rate: 3,
                         description: "Regularny"
                     }
                 ]
             },
             {
-                category: "Technologie cloud",
+                category: "Architektura",
                 items: [
                     {
-                       name: AWS,
-                       rate: 2,
-                       description: "Początkujący"                     
+                        name: "Czysta/Heksagonalna Architektura",
+                        rate: 4,
+                        description: "Zaawansowany"
                     },
                     {
-                        name: Docker,
+                        name: "DDD",
                         rate: 3,
                         description: "Regularny"
                     },
                     {
-                        name: Kubernetes,
+                        name: "CQRS",
+                        rate: 3,
+                        description: "Regularny"
+                    },
+                    {
+                        name: "Mikroserwisy",
+                        rate: 4,
+                        description: "Zaawansowany"
+                    }
+                ]
+            },
+            {
+                category: "Technologie chmurowe",
+                items: [
+                    {
+                       name: "AWS",
+                       rate: 3,
+                       description: "Regularny"                     
+                    },
+                    {
+                        name: "Docker",
+                        rate: 4,
+                        description: "Zaawansowany"
+                    },
+                    {
+                        name: "Kubernetes",
                         rate: 2,
                         description: "Początkujący"
+                    },
+                    {
+                        name: "CloudFormation/Terraform",
+                        rate: 2,
+                        description: "Począttkujący"
                     }
                 ]    
             }
         ]
     },
     en: {
-        description: Known technologies,
+        description: "Known technologies",
         legend: "Intro - just started learning about this technology; Junior - still introductory learn this area of knowledge, knows basic terms; Regular - don't have any problems in work with this technology, can find its specific application; Advanced - knows the subject fluently, can share the acquired knowledge with others; Expert - explored the field of knowledge to a level where it is considered a role model",
         skills: [
             {
@@ -190,75 +245,135 @@ language: {
                         description: "Regular" 
                     },
                     {
-                        name: Hibernate,
+                        name: "Hibernate",
                         rate: 4,
                         description: "Advanced"  
                     },
                     {
-                        name: Grails,
+                        name: "JOOQ",
+                        rate: 3,
+                        description: "Regular"
+                    },
+                    {
+                        name: "Grails",
                         rate: 5,
                         description: "Expert"  
                     },
                     {                    
-                        name: JMS/MQ,
+                        name: "JMS/MQ",
                         rate: 3,
                         description: "Regular"  
                     },
                     {
-                        name: Apache Camel,
+                        name: "Apache Camel",
                         rate: 4,
                         description: "Advanced"  
                     },
                     {
-                        name: Spring Cloud,
+                        name: "Spring Cloud",
                         rate: 3,
                         description: "Regular"    
+                    }, 
+                    {
+                        name: "ELK",
+                        rate: 3,
+                        description: "Regular"
                     },
                     {
-                        name: React,
+                        name: "React",
                         rate: 3, 
                         description: "Regular"
+                    },
+                    {
+                        name: "Angular 15",
+                        rate: 3,
+                        description: "Regular"
+                    },
+                    {
+                        name: "Spock",
+                        rate: 4,
+                        description: "Advanced"
+                    },
+                    {
+                        name: "JUnit",
+                        rate: 4,
+                        description: "Advanced"
+                    },
+                    {
+                        name: "Testcontainers",
+                        rate: 3,
+                        description: "Regular"
                     }
-                    
                 ]
             },            
             {
                 category: "Databases",
                 items: [
                     {
-                        name: OracleSQL,
+                        name: "OracleSQL",
                         rate: 4,
                         description: "Advanced"
                     },
                     {
-                       name: PostgreSQL,
+                       name: "PostgreSQL",
                        rate: 3,
                        description: "Regular"                     
                     },
                     {
-                       name: MongoDB,
+                       name: "MYSQL",
+                       rate: 4,
+                       description: "Advance"
+                    },
+                    {
+                       name: "MongoDB",
                        rate: 3,
                        description: "Regular"                     
                     },
                     {
-                       name: Redis,
+                       name: "Redis",
                        rate: 2,
                        description: "Junior"
-                    }
+                    },
+                         
                 ]
             },
             {
                 category: "Paradigms",
                 items: [
                     {
-                       name: OOP,
+                       name: "OOP",
                        rate: 4,
                        description: "Advanced"                     
                     },
                     {
-                        name: FP,
+                        name: "FP",
                         rate: 3,
                         description: "Regular"
+                    }
+                ]
+            },
+            {
+                category: "Architecture",
+                items: [
+                    {
+                        name: "Clean/Hexagonal Architecture",
+                        rate: 4,
+                        description: "Advanced"
+                    },
+                    {
+                        name: "DDD",
+                        rate: 3,
+                        description: "Regular"
+                    }, 
+                    {
+                        name: "CQRS", 
+                        rate: 3,
+                        description: "Regular"
+                    },
+                    {
+                        name: "Microservices",
+                        rate: 4,
+                        description: "Advanced"
                     }
                 ]
             },
@@ -266,17 +381,27 @@ language: {
                 category: "Cloud technologies",
                 items: [
                     {
-                       name: AWS,
-                       rate: 2,
-                       description: "Junior"                     
+                       name: "AWS",
+                       rate: 3,
+                       description: "Regular"                     
                     },
                     {
-                        name: Docker,
+                       name: "Azure",
+                       rate: 2,
+                       description: "Junior"
+                    },     
+                    {
+                        name: "Docker",
+                        rate: 4,
+                        description: "Advanced"
+                    },
+                    {
+                        name: "Kubernetes",
                         rate: 3,
                         description: "Regular"
                     },
                     {
-                        name: Kubernetes,
+                        name: "CloudFormation/Terraform",
                         rate: 2,
                         description: "Junior"
                     }

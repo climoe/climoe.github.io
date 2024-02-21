@@ -1,13 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { Check, CheckCircle, Hourglass } from "phosphor-react";
+import { CheckCircle, Hourglass } from "phosphor-react";
 
 import Colors from "../common/Colors";
 import { print } from "../common/MediaQueries"
 
-export const Course = ({ name, owner, description, realized}) => {
-
-    const CourseStyle = styled.article`
+const CourseStyle = styled.article`
         display: flex;
         font-size: 1.2rem;
         font-weight: 500;
@@ -18,19 +16,19 @@ export const Course = ({ name, owner, description, realized}) => {
         `}
     `;
 
-    const CourseName = styled.p`
+const CourseName = styled.p`
         font-size: 1.4rem;
         font-weight: 500;
         padding-left: .8rem;
     `;
 
-    const CourseDescription = styled.span`
+const CourseDescription = styled.span`
         font-size: 1rem;
         padding-left: .8rem;
         margin-bottom: 1.5rem;
     `;
 
-    const CourseOwner = styled.span`
+const CourseOwner = styled.span`
         font-size: 1rem;
         font-style: italic;
         font-weight: bold;
@@ -38,12 +36,14 @@ export const Course = ({ name, owner, description, realized}) => {
         margin-bottom: 1.5rem;
     `;
 
-    const CourseRealization = styled.i`
+const CourseRealization = styled.i`
         border: 1px ${Colors.GREEN_LIGHTER};
         font-size: 2rem;
         margin-bottom: .8rem;
     `
 
+
+export const Course = ({ name, owner, description, realized}) => {
 
     return (
         <CourseStyle>
@@ -58,5 +58,4 @@ export const Course = ({ name, owner, description, realized}) => {
             </CourseName>
         </CourseStyle>
     )
-
 } 

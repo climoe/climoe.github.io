@@ -6,9 +6,7 @@ import Colors from "../common/Colors";
 import { print } from "../common/MediaQueries"
 
 
-export const SkillRating = ({skillName, skillRate, skillDesc}) => {
-    
-    const SkillRatingStyle = styled.article`
+const SkillRatingStyle = styled.article`
         border-radius: 3rem;
         padding: 2rem 1rem;
 
@@ -17,7 +15,7 @@ export const SkillRating = ({skillName, skillRate, skillDesc}) => {
         `}
     `;
 
-    const SkillNameStyle = styled.h5`
+const SkillNameStyle = styled.h5`
         font-size: 1.2rem;
         font-weight: 500;
         margin: 0 0 .4rem;
@@ -28,7 +26,7 @@ export const SkillRating = ({skillName, skillRate, skillDesc}) => {
         `}
     `;
 
-    const SkillDescStyle = styled.p`
+const SkillDescStyle = styled.p`
         font-size: 1.2rem;
         font-weight: 300;
         color: ${Colors.GREY};
@@ -38,6 +36,8 @@ export const SkillRating = ({skillName, skillRate, skillDesc}) => {
             font-size: .8rem;
         `}
     `;
+
+export const SkillRating = ({skillName, skillRate, skillDesc}) => {
 
     return (
         <SkillRatingStyle>

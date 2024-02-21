@@ -19,7 +19,7 @@ const MenuItem = ({ text, selected, onClick }) => (
     )}
   </motion.div>
 )
-const UnderlinedMenu = () => {
+export const UnderlinedMenu = () => {
   const [selected, setSelected] = useState(0);
   return (
     <div className="underlined-menu">
@@ -38,5 +38,3 @@ const UnderlinedMenu = () => {
     </div>
   )
 }
-
-export default UnderlinedMenu;

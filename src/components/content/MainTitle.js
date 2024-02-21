@@ -25,13 +25,9 @@ const StyledMainTitle = styled.p`
     ${print`
         display: none;
     `} 
-`;           
+`;
 
-
-    
-export const MainTitle = () => {
-
-    const mainTitleQuery = graphql`
+const mainTitleQuery = graphql`
         query MainTitle{
             markdownRemark(frontmatter: {id: {eq: "main-title"}}) {
                 frontmatter {
@@ -50,6 +46,11 @@ export const MainTitle = () => {
             }   
         }
     `;
+
+
+    
+export const MainTitle = () => {
+
 
     const languageContext = useLanguageContext()
     const data  = useStaticQuery(mainTitleQuery);

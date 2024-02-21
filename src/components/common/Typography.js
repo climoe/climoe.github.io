@@ -4,7 +4,7 @@ import Colors from '../common/Colors'
 
 export const Sizes = {
 	XL:'4.8rem',
-    L: '3.6rem',
+	L: '3.6rem',
 	M: '2.4rem',
 	S: '1.6rem'
 };

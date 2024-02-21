@@ -3,9 +3,7 @@ import styled from "styled-components";
 
 import Colors from "../common/Colors";
 
-export const Technology = ({name}) => {
-
-    const TechnologyStyle = styled.span`
+const TechnologyStyle = styled.span`
     
         border: 1px solid ${Colors.PINK};
         border-radius: 1rem;
@@ -16,6 +14,8 @@ export const Technology = ({name}) => {
         padding: .5rem;
         line-height: 1.6;
     `;
+
+export const Technology = ({name}) => {
 
     return (
         <TechnologyStyle>{name}</TechnologyStyle>

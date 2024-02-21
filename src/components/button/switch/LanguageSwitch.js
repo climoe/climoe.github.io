@@ -20,11 +20,15 @@ export const LanguageSwitch = ({sticky}) => {
 
     return (
         <LanguageContextProvider>
-            <div className="switch-container" 
-                data-sticky={sticky}  
+            <div
+                role={"button"}
+                className="switch-container"
+                data-sticky={sticky}
                 data-darkmode={isEn}
                 style={{ justifyContent: isEn ? 'flex-end' : 'flex-start' }}
-                onClick={toggleSwitch}> 
+                onClick={toggleSwitch}
+                onKeyDown={toggleSwitch}
+                tabIndex={0}>
                 <motion.div 
                     layout 
                     className="handle"

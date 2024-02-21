@@ -4,16 +4,13 @@ import { graphql, useStaticQuery } from "gatsby";
 import { X } from "phosphor-react";
 
 import { useLanguageContext } from "../context/LanguageContext";
-import { SkillRating } from "./SkillRating";
+import { SkillRating } from "../skills/SkillRating";
 
-import "../experimental/clippath/styles.scss"
+import "./clippath/styles.scss"
 
-const Skills2 = () => {
 
-  const [selectedSquare, setSelectedSquare] = useState(null);
-  
-  const knownTechnologies2Query = graphql`
-      query KnownTechnologies2{
+export const knownTechnologies2Query = graphql`
+      query KnownTechnologies2 {
           markdownRemark(frontmatter: {id: {eq: "known-technologies"}}) {
               frontmatter {
                   id
@@ -48,70 +45,78 @@ const Skills2 = () => {
       }
   `;
 
-    const data = useStaticQuery(knownTechnologies2Query);
-    const languageContext = useLanguageContext()
-    const {description, legend, skills} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
-    console.log(Skills, {skills})
-    const categories = skills.reduce((acc, curr) => acc.push(curr.category), new Array())
-    
-    const wrapperVariants = {
-      initial: {
-        clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)", 
-        transition: { duration: .4 }
-      },
-      animate: {
-        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-        transition: { duration: .4, staggerChildren: .1 }
-      },
-      exit: {
-        clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
-        transition: { duration: .4 }
-      }
-    }
-  
-    const definedCategories = (categories) => {
-      return categories.map((category) => {
-       return  <SkillCategory category={category} selectingHandler={() => setSelectedSquare(category)}/> 
-      });
-    }
+const Skills2 = () => {
 
-    const skillsInCategory = (skills) => {
-      return skills.map((skill) => {
-        return <Skills items={skill.items} category={skills.category} legend={legend} closeHandler= {() => setSelectedSquare(null)}/>
-      })
-    }
+  const [selectedSquare, setSelectedSquare] = useState(null);
 
-    return (
-      <div className={`cp-transition cp-transition__container`}>
-        <AnimatePresence exitBeforeEnter initial={false}>
-          {selectedSquare 
-            ? (<motion.div 
-                className={`card card_wrapper`}
-                key="card"
-                variants={wrapperVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-              >
-                {skillsInCategory(categories)}
-              </motion.div>
-            ) : 
-            (<motion.div 
-                className="cp-transition_squares-wrapper"
-                key="squares"
-                variants={wrapperVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-              >
-                {definedCategories(categories)}
-              </motion.div>
-            )
-          }
-        </AnimatePresence>
-      </div>
-    )
+  const data = useStaticQuery(knownTechnologies2Query);
+  console.log("Known technologies query response: ", data)
+  const frontmatter = data.markdownRemark.frontmatter;
+
+  console.log(' Query response data: ', frontmatter)
+  const languageContext = useLanguageContext()
+  const {legend, skills} = languageContext.language === "en"? frontmatter.language.en : frontmatter.language.pl;
+  console.log("Skills: ", {skills})
+  const categories = skills.reduce((acc, curr) => acc.concat(curr.category), [])
+
+  const wrapperVariants = {
+    initial: {
+      clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
+      transition: { duration: .4 }
+    },
+    animate: {
+      clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+      transition: { duration: .4, staggerChildren: .1 }
+    },
+    exit: {
+      clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+      transition: { duration: .4 }
+    }
   }
+  
+  const definedCategories = (categories) => {
+    return categories.map((category, index) => {
+     return  <SkillCategory key={index} category={category} selectingHandler={() => setSelectedSquare(category)}/>
+    });
+  }
+
+  const skillsInCategory = (skills) => {
+    return skills.map((skill, index) => {
+      return <Skills items={skill.items} key={index} category={skills.category} legend={legend} closeHandler= {() => setSelectedSquare(null)}/>
+    })
+  }
+
+  return (
+    <div className={`cp-transition cp-transition__container`}>
+      <AnimatePresence exitBeforeEnter initial={false}>
+        {selectedSquare
+          ? (<motion.div
+              className={`card card_wrapper`}
+              key="card"
+              variants={wrapperVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              {skillsInCategory(categories)}
+            </motion.div>
+          ) :
+          (<motion.div
+              className="cp-transition_squares-wrapper"
+              key="squares"
+              variants={wrapperVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              {definedCategories(categories)}
+            </motion.div>
+          )
+        }
+      </AnimatePresence>
+    </div>
+  )
+}
 
   const Skills = ({items, category, legend, closeHandler}) => {
     return (
@@ -119,7 +124,7 @@ const Skills2 = () => {
         <div className="card_header">
           <h2>{category}</h2>
           <button onClick={closeHandler}>
-            <X size={"4rem"}/>
+            <X size={"4rem"}/>""
           </button>
         </div>
         <div className="card_content">
@@ -156,8 +161,7 @@ const Skills2 = () => {
           className={"square"} 
           onClick={() => selectingHandler()}
           variants={animationVariants}
-          transition={transition}
-      >
+          transition={transition}>
         <motion.header 
           style={{display: "flex", justifyContent:"center", alignItems: "center", border: "2px solid #000", fontWeight: "500", fontFamily: "Inter"}}>
             {category}

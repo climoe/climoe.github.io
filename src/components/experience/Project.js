@@ -5,9 +5,8 @@ import { Technology } from "./Technology";
 import Colors from "../common/Colors";
 import { print } from "../common/MediaQueries";
 
-export const Project = ({name, details, role, technologies}) => {
 
-    const ProjectStyle = styled.section`
+const ProjectStyle = styled.section`
  
         padding-left: .5rem;
         padding-right: .5rem;
@@ -17,28 +16,28 @@ export const Project = ({name, details, role, technologies}) => {
             page-break-inside: avoid;
         `}
     `;
-    
-    const ProjectName = styled.h5`
+
+const ProjectName = styled.h5`
         font-size: 1.6rem;
         font-weight: 500;
         margin-bottom: 0;
     `;
 
-    const ProjectDetails = styled.article`
-        font-size: 1.4rem;
-        font-weight: 300;
-        color: ${Colors.GREY};
-        
-    `;
-    
-    const ProjectRole = styled.article`
+const ProjectDetails = styled.article`
         font-size: 1.4rem;
         font-weight: 300;
         color: ${Colors.GREY};
         
     `;
 
-    const ProjectTechnologies = styled.p`
+const ProjectRole = styled.article`
+        font-size: 1.4rem;
+        font-weight: 300;
+        color: ${Colors.GREY};
+        
+    `;
+
+const ProjectTechnologies = styled.p`
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
@@ -49,6 +48,7 @@ export const Project = ({name, details, role, technologies}) => {
             page-break-inside: avoid;
         `}
     `;
+export const Project = ({name, details, role, technologies}) => {
 
     return (
         <ProjectStyle>

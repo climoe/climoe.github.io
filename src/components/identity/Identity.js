@@ -1,25 +1,100 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage }  from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from "styled-components";
 import { At, PhoneCall, LinkedinLogo, TwitterLogo, GithubLogo} from "phosphor-react";
 
 import { useLanguageContext } from "../context/LanguageContext";
 import { FlexColumnSection, FlexColumnDiv, GridSection} from "../common/FlexBox";
-import { Header2, Header3, Paragraph } from "../common/Typography";
+import { Header2, Header3 } from "../common/Typography";
 import Colors from "../common/Colors";
 import { print } from "../common/MediaQueries";
 
 import Pin from "../../static/images/location.inline.svg";
 
-const Personal = ({personal, image, id}) => {
-    
-    const StyledPersonal = styled(FlexColumnSection)`
-        flex: 1 0 50%;
-        align-items: center;
-    `;
-    
-    const StyledName = styled(Header2)`
+
+const identityQuery = graphql`
+    query AvatarAndIdentity {
+        filename: file(relativePath: {eq: "social.jpg"}) {
+            childImageSharp{
+                gatsbyImageData(
+                    placeholder: BLURRED
+                    formats: [AUTO]
+                )                   
+            }
+        }
+        
+        markdownRemark(frontmatter: {id: {eq: "personal"}}) {
+            frontmatter {
+                id
+                language {
+                    pl {
+                        contact {
+                            header
+                            mail
+                            phone
+                        }
+                        about {
+                            header
+                            content
+                        }
+                        personal {
+                            position
+                            name
+                            country
+                            city
+                        }
+                        social{
+                            header
+                            accounts{
+                              url
+                            }
+                        }    
+                        sentence {
+                            header
+                            content
+                        }
+                    }
+                    en {
+                        contact {
+                            header
+                            mail
+                            phone
+                        }
+                        about {
+                            header
+                            content
+                        }
+                        personal {
+                            position
+                            name
+                            country
+                            city
+                        }
+                        social{
+                            header
+                            accounts{
+                              url
+                            }  
+                        }                    
+                        sentence {
+                            header
+                            content
+                        }
+                    }
+                }                      
+            }              
+        }   
+    }
+`;
+
+
+const StyledPersonal = styled(FlexColumnSection)`
+    flex: 1 0 50%;
+    align-items: center;
+`;
+
+const StyledName = styled(Header2)`
         align-self: center;
         font-weight: 900;
         
@@ -31,13 +106,13 @@ const Personal = ({personal, image, id}) => {
         }
     `;
 
-    const StyledAvatar = styled.div`
+const StyledAvatar = styled.div`
         display: inline-block;
         align-self: center;
         position: relative;
     `;
 
-    const AvatarBackground = styled.div`
+const AvatarBackground = styled.div`
         position: absolute;
         top: 0;
         right: 0;
@@ -49,7 +124,7 @@ const Personal = ({personal, image, id}) => {
         transform: translateX(8%);
     `;
 
-    const StyledLocation = styled.div`
+const StyledLocation = styled.div`
         display: inline-flex;
         width: auto;
         background-color: ${Colors.DARKEST};
@@ -57,40 +132,41 @@ const Personal = ({personal, image, id}) => {
 
     `;
 
-    const StyledPinDiv = styled.span`
+const StyledPinDiv = styled.span`
         border-color: ${Colors.WHITE};
-        border-right: 6px;
         border: 0 solid ${Colors.WHITE};
         padding: .5rem .5rem .5rem 1.25rem; 
     `;
 
-    const StyledPin = styled.span`
+const StyledPin = styled.span`
 
         display: inline-block;
         width: 2rem;
         height: 2rem;
     `;
 
-    const StyledCity = styled.span`
+const StyledCity = styled.span`
         font-size: 2.25rem;
         color: ${Colors.WHITE};
         font-weight: 500;
         padding: .5rem 1.25rem .5rem .5rem;
     `;
 
-    const imageStyle = {
-        width:"15rem", 
-        height:"15rem", 
-        borderRadius: "50%",
-        borderStyle: "solid"
-    }    
+const imageStyle = {
+  width:"15rem",
+  height:"15rem",
+  borderRadius: "50%",
+  borderStyle: "solid"
+}
+
+const Personal = ({personal, image, id}) => {
 
     return (
         <StyledPersonal id={id}>
             <StyledName>{personal.name}<span> |{personal.position}</span></StyledName>
             <StyledAvatar>
                 <AvatarBackground/>
-                <GatsbyImage style={imageStyle} fadeIn={true} alt={"Avatar image"} loading={"eager"} fixed={image?.childImageSharp?.gatsbyImageData} />
+                <GatsbyImage style={imageStyle} fadeIn={true} alt={"Avatar image"} loading={"eager"} image={image} />
             </StyledAvatar>
             <StyledLocation>
                 <StyledPinDiv>
@@ -104,9 +180,7 @@ const Personal = ({personal, image, id}) => {
     );
 }
 
-const Contact = ({contact, socialAccounts}) => {
-    
-    const StyledContact = styled(FlexColumnDiv)`
+const StyledContact = styled(FlexColumnDiv)`
         
         align-self: start;
 
@@ -127,17 +201,17 @@ const Contact = ({contact, socialAccounts}) => {
         }
     `;
 
-    const StyledIcon = styled.span`
+const StyledIcon = styled.span`
         display: inline-flex;
 
     `;
-    const StyledMedium = styled.p`
+const StyledMedium = styled.p`
 
         align-self: center;
         display: inline-flex;
     `;
 
-    const AccesibilityStyle = styled(FlexColumnDiv)`
+const AccesibilityStyle = styled(FlexColumnDiv)`
 
         align-self: center;
         display: flex;
@@ -146,9 +220,10 @@ const Contact = ({contact, socialAccounts}) => {
 
         text-align: center;
         font-weight: 500;
-        box-align: initial;
     `;
 
+
+const Contact = ({contact, socialAccounts}) => {
 
     const openInNewTab = (url) => {
         const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
@@ -187,9 +262,7 @@ const Contact = ({contact, socialAccounts}) => {
 }
 
 
-const About = ({about}) => {
-    
-    const StyledAbout = styled(FlexColumnDiv)`
+const StyledAbout = styled(FlexColumnDiv)`
             
         align-content: flex-start;
         justify-content: center;
@@ -212,6 +285,8 @@ const About = ({about}) => {
 
     `;
 
+const About = ({about}) => {
+
     return (
         <StyledAbout>
             <Header2>{about.header}</Header2>
@@ -222,49 +297,46 @@ const About = ({about}) => {
 
 
 
-const LifeSentence = ({sentence, printing}) => {
+// const LifeSentence = ({sentence, printing}) => {
+//
+//     const ItalicParagraph = styled(Paragraph)`
+//         margin-top: .5rem;
+//         font-size: 1.6rem;
+//         font-style: italic;
+//         font-weight: 300;
+//         text-align: center;
+//     `;
+//
+//     const StyledLifeSentence = styled.div`
+//
+//         grid-column: 1 / span 2;
+//         grid-row:  3 / 4;
+//
+//         display: ${props => props.printing === true ? "none;" :"flex;"};
+//
+//         ${print`
+//             overflow: hidden;
+//             height: 0;
+//         `}
+//
+//         flex-direction: column;
+//         align-items: center;
+//
+//         h2 {
+//             font-weight: 500;
+//             margin-bottom: 1rem;
+//         }
+//     `;
+//
+//     return(
+//         <StyledLifeSentence printing={printing}>
+//             <Header2>{sentence.header}</Header2>
+//             <ItalicParagraph>{sentence.content}</ItalicParagraph>
+//         </StyledLifeSentence>
+//     )
+// }
 
-    const ItalicParagraph = styled(Paragraph)`
-        margin-top: .5rem;
-        font-size: 1.6rem;
-        font-style: italic;
-        font-weight: 300;
-        text-align: center;
-    `;
-
-    const StyledLifeSentence = styled.div`
-
-        grid-column: 1 / span 2;
-        grid-row:  3 / 4;
-
-        display: ${props => props.printing === true ? "none;" :"flex;"};
-
-        ${print`
-            overflow: hidden;
-            height: 0;
-        `}
-
-        flex-direction: column;
-        align-items: center;
-
-        h2 {
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-    `;
-    
-    return(
-        <StyledLifeSentence printing={printing}>
-            <Header2>{sentence.header}</Header2>
-            <ItalicParagraph>{sentence.content}</ItalicParagraph>
-        </StyledLifeSentence>
-    )
-}
-
-export const Identity = () => {
-    
-    
-    const IdentityStyle = styled.div`
+const IdentityStyle = styled.div`
         display: block;
         margin-top: 4rem;
         
@@ -274,83 +346,13 @@ export const Identity = () => {
         `} 
     `;
 
-    const identityQuery = graphql`
-        query AvatarAndIdentity {
-            file(relativePath: {regex: "images//social.jpg/"}) {
-                childImageSharp{
-                    fixed{
-                        src
-                    }                 
-                }
-            }
-            markdownRemark(frontmatter: {id: {eq: "personal"}}) {
-                frontmatter {
-                    id
-                    language {
-                        pl {
-                            contact {
-                                header
-                                mail
-                                phone
-                            }
-                            about {
-                                header
-                                content
-                            }
-                            personal {
-                                position
-                                name
-                                country
-                                city
-                            }
-                            social{
-                                header
-                                accounts{
-                                  url
-                                }
-                            }    
-                            sentence {
-                                header
-                                content
-                            }
-                        }
-                        en {
-                            contact {
-                                header
-                                mail
-                                phone
-                            }
-                            about {
-                                header
-                                content
-                            }
-                            personal {
-                                position
-                                name
-                                country
-                                city
-                            }
-                            social{
-                                header
-                                accounts{
-                                  url
-                                }  
-                            }                    
-                            sentence {
-                                header
-                                content
-                            }
-                        }
-                    }                      
-                }              
-            }   
-        }
-    `;
+export const Identity = () => {
 
     const languageContext = useLanguageContext()
     const data  = useStaticQuery(identityQuery);
+    console.log("Identity data query response: ", data)
     const { contact, about, personal, social} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;
-    const  image  = data.file;
+    const  image  = getImage(data.filename);
     return (
         <IdentityStyle>
             <GridSection>

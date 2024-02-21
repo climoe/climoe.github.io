@@ -1,5 +1,5 @@
 import React from "react";
-export function Head() {
+const Head = () => {
     return (
         <>
             <html lang={"en"}/>
@@ -8,3 +8,5 @@ export function Head() {
         </>
     )
 }
+
+export default Head;

@@ -62,42 +62,44 @@ const LifetimeEventStyle = styled.ul`
     }
 `;
 
-export const Education = () => {
-    const lifeTimeEventsQuery = graphql`
-      query LifeTimeEvents{
-        markdownRemark(frontmatter: {id: {eq: "lifetime"}}) {
-          frontmatter {
-            id
-            language {
-              pl  {
-                title
-                events {
-                  time{
-                    from 
-                    to
-                  }
-                  title
-                  description
-                }	
+const lifeTimeEventsQuery = graphql`
+  query LifeTimeEvents{
+    markdownRemark(frontmatter: {id: {eq: "lifetime"}}) {
+      frontmatter {
+        id
+        language {
+          pl  {
+            title
+            events {
+              time{
+                from 
+                to
               }
-              en  {
-                title
-                events {
-                  time{
-                    from 
-                    to
-                  }
-                  title
-                  description
-                }	
-              }
- 
-            }
+              title
+              description
+            }	
           }
+          en  {
+            title
+            events {
+              time{
+                from 
+                to
+              }
+              title
+              description
+            }	
+          }
+
         }
-      }  
-    `;
-  
+      }
+    }
+  }  
+`;
+
+
+export const Education = () => {
+
     const data  = useStaticQuery(lifeTimeEventsQuery)
     const languageContext = useLanguageContext()
     const {title, events} = languageContext.language === "en"? data.markdownRemark.frontmatter.language.en : data.markdownRemark.frontmatter.language.pl;

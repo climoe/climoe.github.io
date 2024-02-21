@@ -2,12 +2,11 @@ import React, { useEffect, useState }  from 'react';
 import styled from 'styled-components';
 
 import Colors from '../components/common/Colors';
-import PageStructure from '../components/layout/Layout';
+import {PageStructure} from '../components/layout/Layout';
 
 import { IntroSection } from '../components/section/IntroSection';
 import { CareerSection } from '../components/section/CareerSection';
 import { AnimatedSection } from '../components/section/AnimatedSection';
-import { TitleQuestion } from '../components/content/TitleQuestion';
 import { MainTitle } from '../components/content/MainTitle';
 import { Education } from '../components/education/Education';
 import { FlexRowSection } from '../components/common/FlexBox';
@@ -17,22 +16,14 @@ import Dev from '../components/content/Dev';
 import Consult from '../components/content/Consult';
 import Analyze from '../components/content/Analyze';
 import { Identity } from '../components/identity/Identity';
-import { Skills } from '../components/skills/Skills';
-import { Experience } from '../components/experience/Experience';
 import { CourseList } from '../components/courses/CoursesList';
 import Navbar from '../components/navbar/Navbar';
 import Preloader from '../components/common/Preloader';
-import LayoutCards from '../components/experimental/cardlayout/LayoutCards';
-import { ViteSection } from '../components/section/ViteSection';
-import Experience2 from '../components/experience/Experience2';
-import Skills2 from '../components/skills/Skills2';
+import Experience from '../components/experience/Experience';
+import Skills from '../components/skills/Skills';
 
 
-const Hompage = () => {
-
-    const [loaded, isLoaded] = useState(false)
-
-    const StyledHompage = styled.div`
+const StyledHompage = styled.div`
 
         position: relative;
         margin: auto;
@@ -46,10 +37,14 @@ const Hompage = () => {
         background-image: linear-gradient(315deg, rgb(217, 228, 245) 0%, rgb(245, 227, 230) 74%);
     `;
 
+const Hompage = () => {
+
+    const [loaded, isLoaded] = useState(false)
+
     useEffect(() => {
         setTimeout(() => {
             isLoaded(true)
-        }, 3000)
+        }, 2000)
     }, []);
 
     return (
@@ -71,21 +66,18 @@ const Hompage = () => {
                         <Identity printing={false}/>
                     </AnimatedSection>
                     <AnimatedSection>
-                        <Experience2/>
+                        <Experience/>
                     </AnimatedSection>             
                     <AnimatedSection>
                         <Consult/>
                         <Education/>
                     </AnimatedSection>
                     <AnimatedSection>
-                        <Skills2/>
+                        <Skills/>
                         <Analyze/>
                     </AnimatedSection>
                     <AnimatedSection>
                         <CourseList/>
-                    </AnimatedSection>
-                    <AnimatedSection>
-                        <TitleQuestion/>
                     </AnimatedSection>
                 </CareerSection>
             </PageStructure>

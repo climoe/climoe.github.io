@@ -39,7 +39,7 @@ const FooterWrapper = styled.div`
 `;  
 
 
-export const Footer = () => {
+export const Footer = ({handlePrint}) => {
   
   return (
     <FooterWrapper>
@@ -48,7 +48,8 @@ export const Footer = () => {
           Content made with <HeartStraight size={"2rem"} color={`${Colors.PINK}`}/> and <Atom size= {"2rem"} color="#38ACF5"/> 
         </ContentBy>
         <Copyright>
-          ©climoe 2022. All rights reserved.
+          ©climoe 2024. All rights reserved.
+          <Printer size={"2rem"} color={`${Colors.PINK}`} weight="duotone" onClick={handlePrint}/>
         </Copyright>
       </Content>
     </FooterWrapper>)

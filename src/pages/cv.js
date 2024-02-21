@@ -11,10 +11,10 @@ import GlobalStyles from "../components/common/GlobalStyles";
 
 import { CourseList } from "../components/courses/CoursesList";
 import { Education } from "../components/education/Education";
-import { Experience } from "../components/experience/Experience";
-import { Identity } from "../components/identity/Identity";
-import { Skills } from "../components/skills/Skills";
-import {Head} from "../components/common/Head";
+import Experience  from "../components/experience/Experience";
+import {Identity } from "../components/identity/Identity";
+import Skills  from "../components/skills/Skills";
+import Head  from "../components/common/Head";
 
 
 const Printable = styled.main`
@@ -83,7 +83,8 @@ const CV = () => {
                         <CourseList/>
                         <ProcessingAgree> 
                             <span>
-                                "I agree to the processing by Online Solutions Sp. z o.o. my personal data contained in my CV for the recruitment process and further recruitment processes"    
+                                "I consent to the processing by Cognizant Tech Solutions my personal data included in my CV for the purposes of the recruitment process and further recruitment processes"
+                                {/*„Wyrażam zgodę na przetwarzanie przez Scalo Sp. z o. o. moich danych osobowych zawartych w moim CV dla potrzeb procesu rekrutacji i dalszych procesów rekrutacyjnych”*/}
                             </span>
                         </ProcessingAgree>
                     </Printable>
