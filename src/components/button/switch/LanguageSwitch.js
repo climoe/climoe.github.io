@@ -28,7 +28,7 @@ export const LanguageSwitch = ({sticky}) => {
                 style={{ justifyContent: isEn ? 'flex-end' : 'flex-start' }}
                 onClick={toggleSwitch}
                 onKeyDown={toggleSwitch}
-                tabIndex={0}>
+                tabIndex={0}>""
                 <motion.div 
                     layout 
                     className="handle"

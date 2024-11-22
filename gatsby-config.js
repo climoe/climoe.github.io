@@ -3,7 +3,6 @@ module.exports = {
     title: 'Kamil Klimczak - CV Portfolio'
   },
   flags: {
-    FAST_REFRESH: true,
     FAST_DEV: true
   },
   plugins: [

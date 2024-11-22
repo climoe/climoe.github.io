@@ -42,8 +42,6 @@ const StyledNavbar = styled.nav`
     }  
 `;
 
-
-
 const Navbar = () => {
 
     const elementRef = useRef(null)

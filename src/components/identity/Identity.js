@@ -166,7 +166,7 @@ const Personal = ({personal, image, id}) => {
             <StyledName>{personal.name}<span> |{personal.position}</span></StyledName>
             <StyledAvatar>
                 <AvatarBackground/>
-                <GatsbyImage style={imageStyle} fadeIn={true} alt={"Avatar image"} loading={"eager"} image={image} />
+                <GatsbyImage style={imageStyle} fadein="true" alt={"Avatar image"} loading={"eager"} image={image} />
             </StyledAvatar>
             <StyledLocation>
                 <StyledPinDiv>
@@ -254,7 +254,6 @@ const Contact = ({contact, socialAccounts}) => {
             <AccesibilityStyle>
                 <LinkedinLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[0].url)}/>
                 <TwitterLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[1].url)}/>
-                {/* <MediumLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[2].url)}/> */}
                 <GithubLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[3].url)}/>
             </AccesibilityStyle>
         </StyledContact>
@@ -295,46 +294,6 @@ const About = ({about}) => {
     )
 }
 
-
-
-// const LifeSentence = ({sentence, printing}) => {
-//
-//     const ItalicParagraph = styled(Paragraph)`
-//         margin-top: .5rem;
-//         font-size: 1.6rem;
-//         font-style: italic;
-//         font-weight: 300;
-//         text-align: center;
-//     `;
-//
-//     const StyledLifeSentence = styled.div`
-//
-//         grid-column: 1 / span 2;
-//         grid-row:  3 / 4;
-//
-//         display: ${props => props.printing === true ? "none;" :"flex;"};
-//
-//         ${print`
-//             overflow: hidden;
-//             height: 0;
-//         `}
-//
-//         flex-direction: column;
-//         align-items: center;
-//
-//         h2 {
-//             font-weight: 500;
-//             margin-bottom: 1rem;
-//         }
-//     `;
-//
-//     return(
-//         <StyledLifeSentence printing={printing}>
-//             <Header2>{sentence.header}</Header2>
-//             <ItalicParagraph>{sentence.content}</ItalicParagraph>
-//         </StyledLifeSentence>
-//     )
-// }
 
 const IdentityStyle = styled.div`
         display: block;

@@ -65,7 +65,8 @@ language: {
             {
                 name: "A DDD and Clean Architecture approach to discovering the business rules of complex domains",
                 description: "How to discover what rules govern in complex domain exploring based on real customer project",
-                owner: "by Bottega IT Minds."
+                owner: "by Bottega IT Minds.",
+                realized: true
             },
             {
                 name: "Starter Pack for Team or Technology Leader",

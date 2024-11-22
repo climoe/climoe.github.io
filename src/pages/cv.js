@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from 'react';
 import styled from "styled-components";
 import { Printer } from "phosphor-react";
 import { useReactToPrint } from 'react-to-print';
@@ -15,6 +15,8 @@ import Experience  from "../components/experience/Experience";
 import {Identity } from "../components/identity/Identity";
 import Skills  from "../components/skills/Skills";
 import Head  from "../components/common/Head";
+import ActionButton from '../components/button/action/ActionButton';
+import DefaultInput from '../components/field/DefaultInput';
 
 
 const Printable = styled.main`
@@ -60,13 +62,17 @@ const pageStyle = `
 const CV = () => {
 
     const printRef = useRef();
-
+    const [companyName, setCompanyName]  = useState("")
     const useHandlePrint = () => useReactToPrint({
         content: () => printRef.current,
         pageStyle:  () => pageStyle,
         copyStyles: true,
         documentTitle: 'CV - Kamil Klimczak' 
     })
+
+    const handleChangeCompanyName = (event) => {
+        setCompanyName(event.target.value)
+    }
 
     return (
         <>
@@ -83,12 +89,12 @@ const CV = () => {
                         <CourseList/>
                         <ProcessingAgree> 
                             <span>
-                                "I consent to the processing by Cognizant Tech Solutions my personal data included in my CV for the purposes of the recruitment process and further recruitment processes"
-                                {/*„Wyrażam zgodę na przetwarzanie przez Scalo Sp. z o. o. moich danych osobowych zawartych w moim CV dla potrzeb procesu rekrutacji i dalszych procesów rekrutacyjnych”*/}
+                                "I consent to the processing by {companyName} my personal data included in my CV for the purposes of the recruitment process and further recruitment processes"
                             </span>
                         </ProcessingAgree>
                     </Printable>
-                </LayoutWithRef> 
+                </LayoutWithRef>
+                <DefaultInput value={companyName} onChange={handleChangeCompanyName}/>
                 <Printer size={"2rem"} color={`${Colors.PINK}`} weight="duotone" onClick={useHandlePrint()}/>
             </LanguageContextProvider>
         </>

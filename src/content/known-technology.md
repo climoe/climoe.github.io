@@ -15,8 +15,8 @@ language: {
                     },
                     {              
                         name: "Kotlin",
-                        rate: 3,
-                        description: "Regularny" 
+                        rate: 4,
+                        description: "Zaawansowany" 
                     },
                     {
                         name: "SQL",
@@ -211,8 +211,8 @@ language: {
                     },
                     {              
                         name: "Kotlin",
-                        rate: 3,
-                        description: "Regular" 
+                        rate: 4,
+                        description: "Advanced" 
                     },
                     {
                         name: "SQL",

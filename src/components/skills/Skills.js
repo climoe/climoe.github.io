@@ -123,13 +123,13 @@ const Skills = () => {
         <ViteSection id="technology" title={description}>
             <SkillsStyle>
                 <CategoryGridStyle>
-                {skills.map((skill, index) => {
+                {skills.map((skill, index1) => {
                     return (
-                        <CategoryStyle>
-                            <SkillsCategory key={index}>{skill.category}</SkillsCategory>
-                            <SkillsGridStyle>
-                                {skill.items.map((item, index) => {
-                                    return <SkillRating skillName={item.name} skillRate={item.rate} skillDesc={item.description} key={index}/>;
+                        <CategoryStyle key={skill.category}>
+                            <SkillsCategory key={index1}>{skill.category}</SkillsCategory>
+                            <SkillsGridStyle key={skill.category}>
+                                {skill.items.map((item, index2) => {
+                                    return <SkillRating skillName={item.name} skillRate={item.rate} skillDesc={item.description} key={index2}/>;
                                 })}
                             </SkillsGridStyle>
                         </CategoryStyle>                        

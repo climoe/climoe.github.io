@@ -7,10 +7,56 @@ language: {
     experience: [
       {
         time: {
-          from: "03.2023",
+          from: "06.2024",
           to: "present"
         },
-        position: Team Leader/Senior Kotlin Developer,
+        position: Senior Kotlin/Java Developer (DB Schenker),
+        projects: [
+          {
+            name: "Application supporting logistics solutions for transshipment terminals",
+            description: "Project for the largest german logistics carrier. Support and development of customer needs in the field of handling terminal transshipments of logistics shipments in land transport. Optimization of route selection and loading in order to reduce costs and provide the best service to the carrier's customers.",
+            role: "1/4 backend developers | Optimizing the containerization process - refactoring and performance | Code review | Development of new Spring Boot 3 application requirements in Kotlin|",
+            technology: [
+              {
+                name: "Java 17/21"
+              },
+              {
+                name: "Kotlin 2.0"
+              },
+              {
+                name: "Spring Boot 3"
+              },
+              {
+                name: "Apache Kafka"
+              },
+              {
+                name: "Clean Architecture"
+              },
+              {
+                name: "Docker"
+              },
+              {
+                name: "Kubernetes"
+              },
+              {
+                name: "Testcontainers"
+              },
+              {
+                name: "JUnit/Mockito/Kotest",   
+              },
+              {
+                name: "AWS (ECS, EKS, S3)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        time: {
+          from: "03.2023",
+          to: "05.2024"
+        },
+        position: Team Leader/Senior Kotlin Developer (GOD Gmbh),
         projects: [
           {
             name: "Diagnostic system reporting work of separate modules in vehicle (cars and autonomous)",
@@ -62,7 +108,7 @@ language: {
           from: "05.2022",
           to: "03.2023"
         },
-        position: Senior Java/Kotlin Developer,
+        position: Senior Java/Kotlin Developer (Unit4),
         projects: [
           {
             name: "Migrating HR project for customer cloud platform (AWS -> Azure)",
@@ -105,7 +151,7 @@ language: {
           from: "10.2021",
           to: "03.2022"
         },
-        position: JavaScript Developer,
+        position: JavaScript Developer (NFBS Consulting),
         projects: [
           {
             name: "eCommerce project for fashion industry for consulting group NFBS (Paris located).",
@@ -309,8 +355,54 @@ language: {
     experience: [
       {
         time: {
-          from: "03.2023",
+          from: "06.2024",
           to: "do teraz"
+        },
+        position: Senior Kotlin/Java Developer (DB Schenker),
+        projects: [
+          {
+            name: "Aplikacja wspierająca rozwiazania logistyczne na terminala przeładunkowych",
+            description: "Projekt dla największego  niemieckiego przewoźnika logistycznego. Wspracie i rozwój potrzeb klienta w zakresie obsługi przeładunków terminalowych przesyłek logistycznych w transporcie lądowym. Optymalizacja wyboru tras i załadunku w celu zmniejszenia kosztów i najlepszej obsługi klientów przewoźnika.",
+            role: "1/4 deweloperów backend  | Optymalizacja procesu konteneryzacji  - refactoring i wydajność | Przegląd kodu  | Development nowych wymagań aplikacji Spring Boot 3  w Kotlinie|",
+            technology: [
+              {
+                name: "Java 17/21"
+              },
+              {
+                name: "Kotlin 2.0"
+              },
+              {
+                name: "Spring Boot 3"
+              },
+              {
+                name: "Apache Kafka"
+              },
+              {
+                name: "Clean Architecture"
+              },
+              {
+                name: "Docker"
+              },
+              {
+                name: "Kubernetes"
+              },
+              {
+                name: "Testcontainers"
+              },
+              {
+                name: "JUnit/Mockito/Kotest",   
+              },
+              {
+                name: "AWS (ECS, EKS, S3)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        time: {
+          from: "03.2023",
+          to: "05.2024"
         },
         position: Team Leader/Senior Kotlin Developer (GOD Gmbh),
         projects: [
@@ -364,7 +456,7 @@ language: {
           from: "05.2022",
           to: "03.2023"
         },
-        position: Senior Java/Kotlin Developer (Spyrosoft),
+        position: Senior Java/Kotlin Developer (Unit4),
         projects: [
           {
             name: "Migracja projektu HR na platformę chmurową klienta (AWS -> Azure)",
