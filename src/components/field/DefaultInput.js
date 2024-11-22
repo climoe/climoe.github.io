@@ -1,10 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import Inter from '../../static/fonts/inter/Inter.ttf';
 
 const DefaultInputStyle = styled.input`
+
+    @font-face {
+        font-family: 'Inter';
+        src: url('${Inter}');
+    }
+
     border: 2px black solid;
-    border-radius: 45%;
-    padding: 10px;
+    line-height: 2em;
+    font-size: 1.4em;
+    margin-bottom: 1.4em;
 `;
 
 const DefaultInput = ({onChange, value}) => {
