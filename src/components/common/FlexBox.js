@@ -52,7 +52,14 @@ export const FlexRow = styled.section`
     align-items: center;
 
     justify-content: space-around;
-`;    
+`;
+
+export const FlexRowCenter = styled.section`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+`;
 
 export const FlexRowReverse = styled(FlexRow)`
     

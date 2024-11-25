@@ -9,10 +9,12 @@ const DefaultInputStyle = styled.input`
         src: url('${Inter}');
     }
 
-    border: 2px black solid;
+    border-radius: 4px;
+    border-color: white;
     line-height: 2em;
     font-size: 1.4em;
-    margin-bottom: 1.4em;
+    margin: .4em .8em;
+    
 `;
 
 const DefaultInput = ({onChange, value}) => {
