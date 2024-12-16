@@ -16,6 +16,7 @@ import {Identity } from "../components/identity/Identity";
 import Skills  from "../components/skills/Skills";
 import Head  from "../components/common/Head";
 import DefaultInput from '../components/field/DefaultInput';
+import { FlexRowCenter } from '../components/common/FlexBox';
 
 
 const Printable = styled.main`
@@ -55,7 +56,7 @@ const pageStyle = `
     @page:first{
         margin-top: 0;
     }
-`; 
+`;
 
 
 const CV = () => {
@@ -77,6 +78,10 @@ const CV = () => {
         <>
             <GlobalStyles/>
             <Head/>
+            <FlexRowCenter>
+                <DefaultInput value={companyName} onChange={handleChangeCompanyName}/>
+                <Printer size={"4rem"} color={`${Colors.PINK}`}  weight="duotone" onClick={useHandlePrint()}/>
+            </FlexRowCenter>
             <LanguageContextProvider>
                 <LayoutWithRef ref={printRef}>
                     <Printable>
@@ -93,8 +98,6 @@ const CV = () => {
                         </ProcessingAgree>
                     </Printable>
                 </LayoutWithRef>
-                <DefaultInput value={companyName} onChange={handleChangeCompanyName}/>
-                <Printer size={"2rem"} color={`${Colors.PINK}`} weight="duotone" onClick={useHandlePrint()}/>
             </LanguageContextProvider>
         </>
     )

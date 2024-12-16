@@ -20,26 +20,32 @@
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-remark": "^6.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
-    "gh-pages": "^6.1.1",
+    "gh-pages": "^6.2.0",
     "minimatch": "^9.0.3",
     "path": "^0.12.7",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.5.3",
-    "react-to-print": "^2.14.15",
     "react-refresh": "0.14.2",
+    "react-to-print": "^2.14.15",
     "styled-components": "^6.1.8"
   },
   "keywords": [
     "gatsby"
   ],
+  "env": {
+    "accessToken": "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",
+    "userPath": "climoe",
+    "repoName": "climoe.github.io"
+  },
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
     "clean": "gatsby clean",
     "build": "gatsby build",
-    "deploy": "gatsby build && gh-pages -d public -b source",
+    "artifact": "gatsby clean && gatsby build",
+    "publish" : "gh-pages -d public -b source --repo https://git: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@github.com/climoe/climoe.github.io.git",
     "prettier-format": "prettier --write 'src/components/**/*.js'",
     "prettier-check": "prettier --check 'src/components/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
