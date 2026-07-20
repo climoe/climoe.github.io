@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 import { ViteSection } from "../section/ViteSection";
 import { Project } from "./Project";
-import Colors from "../common/Colors";
-import { print } from "../common/MediaQueries";
+import Colors from "../common/colors";
+import { print } from "../common/media-queries";
 import { useLanguageContext } from "../context/LanguageContext";
 
 
@@ -24,9 +24,10 @@ const experienceQuery = graphql`
                                 from
                                 to
                             }
-                            position
+                            company
                             projects{
                                 name
+                                position
                                 description
                                 role
                                 technology{
@@ -42,9 +43,10 @@ const experienceQuery = graphql`
                                 from
                                 to
                             }
-                            position
+                            company
                             projects{
                                 name
+                                position
                                 description
                                 role
                                 technology{
@@ -105,7 +107,7 @@ const ExperienceStyle = styled.ul`
         }
     }
 
-    .position {
+    .company {
         padding: 0 1.5rem 1.5rem 1.5rem;
         position: relative;
 
@@ -140,10 +142,10 @@ const Experience = () => {
                 { return (
                     <motion.li whileTap={{scale: 0.95}} key={index}>
                         <time>{exp.time.from} - {exp.time.to}</time> 
-                        <span className="position">
-                            <strong>{exp.position}</strong>
+                        <span className="company">
+                            <strong>{exp.company}</strong>
                             { exp.projects.map((p, index) => 
-                                {return <Project name={p.name} details={p.description} role={p.role} technologies={p.technology} key={index}/>}
+                                {return <Project name={p.name} position={p.position} details={p.description} role={p.role} technologies={p.technology} key={index}/>}
                             )}
                         </span>
                   </motion.li>)  

@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import { media, print } from "../common/MediaQueries";
+import { media, print } from "../common/media-queries";
 
-import ConsultSvg from "../../static/images/consult.inline.svg";
+import ConsultSvg from "../../public/images/consult.inline.svg";
 
 
 const StyledConsult = styled.div`

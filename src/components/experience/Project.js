@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Technology } from "./Technology";
 
-import Colors from "../common/Colors";
-import { print } from "../common/MediaQueries";
+import Colors from "../common/colors";
+import { print } from "../common/media-queries";
 
 
 const ProjectStyle = styled.section`
@@ -21,6 +21,13 @@ const ProjectName = styled.h5`
         font-size: 1.6rem;
         font-weight: 500;
         margin-bottom: 0;
+    `;
+
+const ProjectPosition = styled.h5`
+        font-size: 1.4rem;
+        font-weight: 300;
+        margin-bottom: 0;
+        margin-top: .8rem;
     `;
 
 const ProjectDetails = styled.article`
@@ -48,11 +55,12 @@ const ProjectTechnologies = styled.p`
             page-break-inside: avoid;
         `}
     `;
-export const Project = ({name, details, role, technologies}) => {
+export const Project = ({name, position, details, role, technologies}) => {
 
     return (
         <ProjectStyle>
             <ProjectName>{name}</ProjectName>
+            <ProjectPosition>{position}</ProjectPosition>
             <ProjectDetails>{details}</ProjectDetails>
             <ProjectRole>{role}</ProjectRole>
             <ProjectTechnologies>

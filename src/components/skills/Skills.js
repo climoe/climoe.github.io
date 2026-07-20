@@ -5,14 +5,14 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import { SkillRating } from "./SkillRating";
 import { ViteSection } from "../section/ViteSection";
-import Colors from "../common/Colors";
-import { media, print } from "../common/MediaQueries";
+import Colors from "../common/colors";
+import { media, print } from "../common/media-queries";
 import { useLanguageContext } from "../context/LanguageContext";
 
 
 const SkillsStyle = styled.div`
 
-    page-break-inside:  avoid;
+    page-break-inside:  auto;
     ${print`
             font-size: 1rem !important;
         `}

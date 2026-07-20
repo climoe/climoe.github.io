@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Loader from '../../static/images/loader.inline.svg'
+import Loader from '../../public/images/loader.inline.svg'
 
 const LoaderWrapper = styled.section`
 

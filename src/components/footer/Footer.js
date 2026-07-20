@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Atom, HeartStraight, Printer } from 'phosphor-react';
+import { AtomIcon, HeartStraightIcon, PrinterIcon } from '@phosphor-icons/react';
 
-import { contentMax } from '../common/Mixins';
-import { media } from '../common/MediaQueries';
-import Colors from '../common/Colors';
+import { contentMax } from '../common/mixins';
+import { media } from '../common/media-queries';
+import Colors from '../common/colors';
 
-import waves from '../../static/images/waves.svg';
+import waves from '../../public/images/waves.svg';
 
 const Copyright = styled.p`
   text-align: center;
@@ -45,11 +45,11 @@ export const Footer = ({handlePrint}) => {
     <FooterWrapper>
       <Content>
         <ContentBy align="right" >
-          Content made with <HeartStraight size={"2rem"} color={`${Colors.PINK}`}/> and <Atom size= {"2rem"} color="#38ACF5"/> 
+          Content made with <HeartStraightIcon size={"2rem"} color={`${Colors.PINK}`}/> and <AtomIcon size= {"2rem"} color="#38ACF5"/>
         </ContentBy>
         <Copyright>
-          ©climoe 2024. All rights reserved.
-          <Printer size={"2rem"} color={`${Colors.PINK}`} weight="duotone" onClick={handlePrint}/>
+          ©climoe 2026. All rights reserved.
+          <PrinterIcon size={"2rem"} color={`${Colors.PINK}`} weight="duotone" onClick={handlePrint}/>
         </Copyright>
       </Content>
     </FooterWrapper>)

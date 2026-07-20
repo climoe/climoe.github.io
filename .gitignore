@@ -1,6 +1,6 @@
 nvm node_modules/
 public/
-.cache/
+.next/
 /node_modules/.cache/gh-pages/git@github.com!climoe!climoe.github.io.git/
 /.idea/.gitignore
 /.idea/codeStyles/codeStyleConfig.xml

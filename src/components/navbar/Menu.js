@@ -2,8 +2,8 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-import  Colors  from "../common/Colors";
-import { print } from "../common/MediaQueries";
+import  Colors  from "../common/colors";
+import { print } from "../common/media-queries";
 import { Identity } from "../identity/Identity";
 
 const StyledMenu = styled.div`

@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
-import Head from '../common/Head.js';
+import Head from '../common/head.tsx';
 
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
-import GlobalStyles from '../common/GlobalStyles';
+import GlobalStyles from '../common/global-styles';
 import { LanguageContextProvider } from '../context/LanguageContext';
 
 

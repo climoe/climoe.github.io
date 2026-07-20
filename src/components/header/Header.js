@@ -2,7 +2,7 @@ import React from 'react';
 import { TerminalWindow } from 'phosphor-react'
 import styled  from 'styled-components';
 
-import Colors from '../common/Colors';
+import Colors from '../common/colors';
 
 const HeaderStyle = styled.div`
     position: absolute;
@@ -22,7 +22,7 @@ const Logo = styled.a`
     height: 6.4rem;
     margin: 1rem; 
     border-radius: 50%;
-    background: linear-gradient(90deg, #FF6633 0%, #FF33CC 100%);
+    background: linear-gradient(90deg, #FF33CC 0%, #793BEEFF 100%);
     color: ${Colors.DARKEST};
     cursor: pointer;
     text-decoration: none;

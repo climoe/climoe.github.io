@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Inter from '../../static/fonts/inter/Inter.ttf';
+import Inter from '../../public/fonts/inter/Inter.ttf';
 
 const DefaultInputStyle = styled.input`
 

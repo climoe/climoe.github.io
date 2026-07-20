@@ -1,8 +1,8 @@
 import React, {useCallback, useState} from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { GlobeHemisphereWest, Translate } from "phosphor-react";
+import { GlobeHemisphereWestIcon, TranslateIcon } from "@phosphor-icons/react";
 
-import { LanguageContextProvider, useLanguageContext } from "../../context/LanguageContext";
+import { LanguageContextProvider, useLanguageContext } from "@/components/context/LanguageContext";
 
 import "./styles.scss"
 
@@ -28,7 +28,7 @@ export const LanguageSwitch = ({sticky}) => {
                 style={{ justifyContent: isEn ? 'flex-end' : 'flex-start' }}
                 onClick={toggleSwitch}
                 onKeyDown={toggleSwitch}
-                tabIndex={0}>""
+                tabIndex={0}>
                 <motion.div 
                     layout 
                     className="handle"
@@ -43,8 +43,8 @@ export const LanguageSwitch = ({sticky}) => {
                             transition={{ duration: .2 }}
                         >
                         {isEn ?  
-                            <GlobeHemisphereWest size={"3rem"}/> :
-                            <Translate size={"3rem"}/> }
+                            <GlobeHemisphereWestIcon size={"3rem"}/> :
+                            <TranslateIcon size={"3rem"}/> }
                         </motion.i>
                     </AnimatePresence>
                 </motion.div>

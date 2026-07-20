@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 import { useLanguageContext } from "../context/LanguageContext";
-import Colors from "../common/Colors";
+import Colors from "../common/colors";
 import { ViteSection } from "../section/ViteSection";
 
 const LifetimeEventStyle = styled.ul`

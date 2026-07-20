@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import Colors from "../common/Colors";
+import Colors from "../common/colors";
 
 const TechnologyStyle = styled.span`
     
-        border: 1px solid ${Colors.PINK};
+        border: 1px solid ${Colors.PURPLE};
         border-radius: 1rem;
         font-size: 1.2rem;
         font-weight: 500;

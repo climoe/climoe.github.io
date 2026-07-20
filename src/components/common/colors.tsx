@@ -7,6 +7,7 @@ const Colors = {
     DARKER: '#6a5750',
     DARKEST: '#30231d',
     PINK: '#ff33cc',
+    PURPLE: '#793BEEFF',
     PINK_LIGHTER: '#ff8ae2',
     ORANGE: '#ff6633', 
     ORANGE_LIGHTER: '#ff9c7a',

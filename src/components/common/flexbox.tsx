@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { media } from './MediaQueries'
+import { media } from './media-queries'
 
-import Colors from './Colors'
+import Colors from './colors'
 
 export const FlexRowSection = styled.section`
     

@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import { media, print } from "../common/MediaQueries" 
+import { media, print } from "../common/media-queries"
 
-import DevSvg from "../../static/images/dev.inline.svg"
+import DevSvg from "../../public/images/dev.inline.svg"
 
 const StyledDev = styled.div`
     flex: 1 1 50%;

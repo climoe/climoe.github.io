@@ -1,11 +1,11 @@
 import React from "react";
 import { CircleWavy } from "phosphor-react";
 
-import Colors from "../common/Colors";
+import Colors from "../common/colors";
 
 export const DotsRating = ({range}) => {
     
-    const pinkColor = `${Colors.PINK}`;
+    const pinkColor = `${Colors.PURPLE}`;
     const greyColor = `${Colors.GREY}`;
     return (
         <div>

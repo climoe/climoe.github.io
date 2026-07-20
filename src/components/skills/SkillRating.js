@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 import { DotsRating } from "./DotsRating";
-import Colors from "../common/Colors";
-import { print } from "../common/MediaQueries"
+import Colors from "../common/colors";
+import { print } from "../common/media-queries"
 
 
 const SkillRatingStyle = styled.article`

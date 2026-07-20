@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import Inter from '../../static/fonts/inter/Inter.ttf';
+import { createGlobalStyle } from  'styled-components';
+import Inter from '@/public/fonts/inter/Inter.ttf';
 
 const GlobalStyles = createGlobalStyle`
   

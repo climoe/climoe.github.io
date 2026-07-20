@@ -5,12 +5,12 @@ import styled from "styled-components";
 import { At, PhoneCall, LinkedinLogo, TwitterLogo, GithubLogo} from "phosphor-react";
 
 import { useLanguageContext } from "../context/LanguageContext";
-import { FlexColumnSection, FlexColumnDiv, GridSection} from "../common/FlexBox";
-import { Header2, Header3 } from "../common/Typography";
-import Colors from "../common/Colors";
-import { print } from "../common/MediaQueries";
+import { FlexColumnSection, FlexColumnDiv, GridSection} from "../common/flexbox";
+import { Header2, Header3 } from "../common/typography";
+import Colors from "../common/colors";
+import { print } from "../common/media-queries";
 
-import Pin from "../../static/images/location.inline.svg";
+import Pin from "../../public/images/location.inline.svg";
 
 
 const identityQuery = graphql`
@@ -119,7 +119,7 @@ const AvatarBackground = styled.div`
         bottom: 0;
         left: 0;
         border-radius: 50%;
-        background: linear-gradient(90deg, #FF6633 0%, #FF33CC 100%);
+        background: linear-gradient(90deg, #FF33CC  0%, #793BEEFF 100%);
         z-index: 0;
         transform: translateX(8%);
     `;
@@ -240,21 +240,21 @@ const Contact = ({contact, socialAccounts}) => {
             <Header2>{contact.header}</Header2>
             <StyledMedium>
                 <StyledIcon>
-                    <At size={"2.4rem"} color={"#FF33CC"} weight="duotone"/>
+                    <At size={"2.4rem"} color={`${Colors.PURPLE}`} weight="duotone"/>
                 </StyledIcon>
                 {contact.mail}
             </StyledMedium>
             <StyledMedium>
                 <StyledIcon>
-                    <PhoneCall size={"2.4rem"} color={"#FF33CC"} weight="duotone"/>
+                    <PhoneCall size={"2.4rem"} color={`${Colors.PURPLE}`} weight="duotone"/>
                 </StyledIcon>
                 {contact.phone}
             </StyledMedium>
             <Header2>{socialAccounts.header}</Header2>
             <AccesibilityStyle>
-                <LinkedinLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[0].url)}/>
-                <TwitterLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[1].url)}/>
-                <GithubLogo size={"3rem"} color={`${Colors.PINK}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[3].url)}/>
+                <LinkedinLogo size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[0].url)}/>
+                <TwitterLogo size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[1].url)}/>
+                <GithubLogo size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[3].url)}/>
             </AccesibilityStyle>
         </StyledContact>
     )
@@ -305,7 +305,7 @@ const IdentityStyle = styled.div`
         `} 
     `;
 
-export const Identity = () => {
+export const  Identity = () => {
 
     const languageContext = useLanguageContext()
     const data  = useStaticQuery(identityQuery);

@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { CheckCircle, Hourglass } from "phosphor-react";
 
-import Colors from "../common/Colors";
-import { print } from "../common/MediaQueries"
+import Colors from "../common/colors";
+import { print } from "../common/media-queries"
 
 const CourseStyle = styled.article`
         display: flex;
@@ -48,8 +48,8 @@ export const Course = ({ name, owner, description, realized}) => {
     return (
         <CourseStyle>
             {realized === true ? 
-                <CourseRealization><CheckCircle size={"2rem"} color={`${Colors.PINK}`}/></CourseRealization> : 
-                <CourseRealization><Hourglass size={"2rem"} color={`${Colors.PINK}`}/></CourseRealization>
+                <CourseRealization><CheckCircle size={"2rem"} color={`${Colors.PURPLE}`}/></CourseRealization> :
+                <CourseRealization><Hourglass size={"2rem"} color={`${Colors.PURPLE}`}/></CourseRealization>
             }
             <CourseName>
                 {name} - 

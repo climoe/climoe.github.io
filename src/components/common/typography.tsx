@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Colors from '../common/Colors'
+import Colors from '@/components/common/colors'
 
 
 export const Sizes = {

@@ -2,7 +2,7 @@ import * as React from "react";
 import  styled  from "styled-components";
 import { UserCircle } from "phosphor-react";
 
-import Colors from "../common/Colors";
+import Colors from "../common/colors";
 
 const Button = styled.button`
     justify-self: flex-end;

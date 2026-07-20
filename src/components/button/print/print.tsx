@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Colors from '../../common/Colors';
+import Colors from '@/components/common/colors';
 
 const Print = styled.button`
 
@@ -26,7 +26,7 @@ const Print = styled.button`
   background-color: ${props => (props.scrolled ? `${Colors.WHITE};` : 'transparent')};
   animation: ${props => (props.scrolled ? 'fadein' : 'fadeout')} 0.2s;
   border-radius: 3rem;
-  border: 1px solid ${Colors.PINK};
+  border: 1px solid ${Colors.PURPLE};
 
 `;
 

@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import styled from "styled-components";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
-import Colors from "../common/Colors";
+import Colors from "../common/colors";
 import { LanguageSwitch } from "../button/switch/LanguageSwitch";
 import useSticky from "./use-sticky";
 
