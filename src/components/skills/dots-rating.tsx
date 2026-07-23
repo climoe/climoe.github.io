@@ -1,0 +1,20 @@
+import React from "react";
+import { CircleWavyIcon } from "@phosphor-icons/react";
+
+import Colors from "../common/colors";
+
+export const DotsRating = ({range}) => {
+    
+    const pinkColor = `${Colors.PURPLE}`;
+    const greyColor = `${Colors.GREY}`;
+    return (
+        <div>
+            {[...Array(range)].map((item, index) => {
+                return <CircleWavyIcon size={"1rem"} color={pinkColor} weight="duotone" key= {index}/>}
+            )}
+            {[...Array(5 - range)].map((item, index) => {
+                return <CircleWavyIcon size={"1rem"} color={greyColor} weight="duotone" key= {5-index}/>}
+            )}
+        </div>
+    )
+}

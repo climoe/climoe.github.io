@@ -2,25 +2,25 @@ import React, { useEffect, useState }  from 'react';
 import styled from 'styled-components';
 
 import Colors from '@/components/common/colors';
-import {PageStructure} from '@/components/layout/Layout';
+import {PageStructure} from '@/components/layout/layout';
 
-import { IntroSection } from '@/components/section/IntroSection';
-import { CareerSection } from '@/components/section/CareerSection';
-import { AnimatedSection } from '@/components/section/AnimatedSection';
-import { MainTitle } from '@/components/content/MainTitle';
-import { Education } from '@/components/education/Education';
+import { IntroSection } from '@/components/section/intro-section';
+import { CareerSection } from '@/components/section/carrier-section';
+import { AnimatedSection } from '@/components/section/animated-section';
+import { MainTitle } from '@/components/content/main-title';
+import { Education } from '@/components/education/education';
 import { FlexRowSection } from '@/components/common/flexbox';
 
 
-import Dev from '@/components/content/Dev';
-import Consult from '@/components/content/Consult';
-import Analyze from '@/components/content/Analyze';
-import { Identity } from '@/components/identity/Identity';
-import { CourseList } from '@/components/courses/CoursesList';
-import Navbar from '@/components/navbar/Navbar';
+import Dev from '@/components/content/dev';
+import Consult from '@/components/content/consult';
+import Analyze from '@/components/content/analyze';
+import { Identity } from '@/components/identity/identity';
+import { CourseList } from '@/components/courses/course-list';
+import Navbar from '@/components/navbar/navbar';
 import Preloader from '@/components/common/preloader';
-import Experience from '@/components/experience/Experience';
-import Skills from '@/components/skills/Skills';
+import Experience from '@/components/experience/experience';
+import Skills from '@/components/skills/skills';
 
 
 const StyledHompage = styled.div`

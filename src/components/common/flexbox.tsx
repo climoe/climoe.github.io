@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { media } from './media-queries'
+import styled, {css}   from 'styled-components'
+import { mediaQueries } from './media-queries'
 
 import Colors from './colors'
 
@@ -12,11 +12,12 @@ export const FlexRowSection = styled.section`
     justify-content: space-around;
     margin: 1rem 4rem;
 
-    ${media.tablet`
-        margin: 4rem 4rem;
-        flex-direction: column;
-    `};
-
+    @media (max-width: '${mediaQueries.tablet}') {
+        ${css`
+            margin: 4rem 4rem;
+            flex-direction: column;
+        `}
+    }
 `;
 
 export const FlexColumnSection = styled.section`

@@ -3,19 +3,19 @@ import styled from 'styled-components';
 import { PrinterIcon } from '@phosphor-icons/react';
 import { useReactToPrint } from 'react-to-print';
 
-import { LanguageContextProvider } from '@/components/context/LanguageContext';
-import { LanguageSwitch } from '@/components/button/switch/LanguageSwitch';
+import { LanguageContextProvider } from '@/components/context/language-context';
+import { LanguageSwitch } from '@/components/button/switch/language-switch';
 
 import Colors from '@/components/common/colors';
 import GlobalStyles from '@/components/common/global-styles';
 
-import { CourseList } from '@/components/courses/CoursesList';
-import { Education } from '@/components/education/Education';
-import Experience from '@/components/experience/Experience';
-import { Identity } from '@/components/identity/Identity';
-import Skills from '@/components/skills/Skills';
+import { CourseList } from '@/components/courses/course-list';
+import { Education } from '@/components/education/education';
+import Experience from '@/components/experience/experience';
+import { Identity } from '@/components/identity/identity';
+import Skills from '@/components/skills/skills';
 import Head from '@/components/common/head';
-import DefaultInput from '@/components/field/DefaultInput';
+import DefaultInput from '@/components/field/default-input';
 import { FlexRowCenter } from '@/components/common/flexbox';
 
 
@@ -77,9 +77,9 @@ const CV = () => {
             <Skills />
             <CourseList />
             <ProcessingAgree>
-                            <span>
-                                "I consent to the processing by {companyName} my personal data included in my CV for the purposes of the recruitment process and further recruitment processes"
-                            </span>
+                <span>
+                      "I consent to the processing by {companyName} my personal data included in my CV for the purposes of the recruitment process and further recruitment processes"
+                </span>
             </ProcessingAgree>
           </Printable>
         </LayoutWithRef>

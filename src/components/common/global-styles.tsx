@@ -1,11 +1,14 @@
 import { createGlobalStyle } from  'styled-components';
-import Inter from '@/public/fonts/inter/Inter.ttf';
+import localFont from 'next/font/local'
+
+const font = localFont({
+  src: '@/public/fonts/inter/Inter.ttf',
+})
 
 const GlobalStyles = createGlobalStyle`
   
   @font-face {
-    font-family: 'Inter';
-    src: url('${Inter}'); 
+    font-family: '${font.className}';
   }
 
   html {

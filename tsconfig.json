@@ -1,19 +1,21 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "baseUrl": "src/",
     "paths": {
+      "@/*": [
+        "./src/*"
+      ],
       "@/styles/*": [
-        "styles/*"
+        "./src/styles/*"
       ],
       "@/components/*": [
-        "components/*"
+        "./src/components/*"
       ],
-      "@/contetnt/*": [
-        "content/*"
+      "@/content/*": [
+        "./src/content/*"
       ],
       "@/public/*": [
-        "public/*"
+        "./src/public/*"
       ]
     },
     "lib": [
@@ -29,15 +31,6 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
-    "include": [
-      "next-env.d.ts",
-      ".next/types/**/*.ts",
-      "**/*.ts",
-      "**/*.tsx"
-    ],
-    "exclude": [
-      "node_modules"
-    ],
     "strict": false,
     "incremental": true,
     "resolveJsonModule": true,
@@ -48,13 +41,23 @@
       }
     ]
   },
+  "mdx": {
+    "plugins": [
+      "remark-frontmatter",
+      "remark-frontmatter-mdx",
+    ]
+  },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
+    "./src/types/*",
     "**/*.mts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "**/*.mdx",
+    ""
+
   ],
   "exclude": [
     "node_modules"

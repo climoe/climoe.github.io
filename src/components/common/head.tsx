@@ -1,5 +1,5 @@
 import React from "react";
-const Head = () => {
+export const Head = () => {
     return (
         <>
             <html lang={"en"}/>

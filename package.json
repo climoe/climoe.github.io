@@ -4,9 +4,14 @@
   "version": "3.0.0",
   "author": "Kamil Klimczak <climoe.github.io>",
   "dependencies": {
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^16.2.10",
     "@phosphor-icons/react": "^2.1.10",
+    "@types/mdx": "^2.0.14",
     "@types/node": "^26.1.1",
     "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "babel-plugin-styled-components": "^2.3.0",
     "framer-motion": "^12.42.2",
     "gh-pages": "^6.3.0",
@@ -18,6 +23,9 @@
     "react-intersection-observer": "^10.1.0",
     "react-refresh": "0.14.2",
     "react-to-print": "^3.3.0",
+    "remark-frontmatter": "^5.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-mdx-frontmatter": "^5.2.0",
     "styled-components": "^6.4.3"
   },
   "keywords": [

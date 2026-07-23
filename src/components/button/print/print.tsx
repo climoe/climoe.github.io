@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import Colors from '@/components/common/colors';
 
-const Print = styled.button`
+export interface ScrollableProps {
+  scrolled: boolean;
+}
+
+const Print = styled.button<ScrollableProps>`
 
   display: flex;
   visibility: ${props => (props.scrolled ? 'visible;' : 'hidden;')};
