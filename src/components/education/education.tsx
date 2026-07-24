@@ -91,7 +91,7 @@ type EducationProps = {
   }
 }
 
-export const Education = async () => {
+const Education = async () => {
 
     const languageContext = useLanguageContext()
     const metadata:  EducationProps = await loadFrontmatter(MDXFilesPath.LifeTime)
@@ -111,3 +111,5 @@ export const Education = async () => {
 
     );
 }
+
+export default Education;

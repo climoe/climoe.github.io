@@ -1,5 +1,4 @@
 nvm node_modules/
-public/
 .next/
 node_modules/
 .idea/

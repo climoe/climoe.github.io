@@ -9,10 +9,10 @@ import { LanguageSwitch } from '@/components/button/switch/language-switch';
 import Colors from '@/components/common/colors';
 import GlobalStyles from '@/components/common/global-styles';
 
-import { CourseList } from '@/components/courses/course-list';
-import { Education } from '@/components/education/education';
+import CourseList  from '@/components/courses/course-list';
+import Education from '@/components/education/education';
 import Experience from '@/components/experience/experience';
-import { Identity } from '@/components/identity/identity';
+import Identity from '@/components/identity/identity';
 import Skills from '@/components/skills/skills';
 import Head from '@/components/common/head';
 import DefaultInput from '@/components/field/default-input';

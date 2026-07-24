@@ -1,24 +1,22 @@
-import {read} from 'to-vfile'
-import {matter} from 'vfile-matter'
-
+import { promises as fs } from 'fs';
+import * as matter from 'gray-matter';
 
 import { compile } from '@mdx-js/mdx'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 
-const relativePath = 'src/compoenents';
+const relativePath = './src/public/content';
 
 export const MDXFilesPath  = {
-  Courses :  `${relativePath}/courses.mdx`,
-  Experience: `${relativePath}/experience.mdx`,
-  Technology: `${relativePath}/known-technology.mdx`,
-  LifeTime: `${relativePath}/lifetime-events.mdx`,
-  MainTitle: `${relativePath}/main-title.mdx`,
-  Personal: `${relativePath}/personal.mdx`,
-  SocialAccounts: `${relativePath}/social-accounts.mdx`,
+  Courses :  `${relativePath}/courses/courses.mdx`,
+  Experience: `${relativePath}/experience/experience.mdx`,
+  LifeTime: `${relativePath}/lifetime/lifetime-events.mdx`,
+  MainTitle: `${relativePath}/main/main-title.mdx`,
+  Personal: `${relativePath}/personal/personal.mdx`,
+  Technology: `${relativePath}/technology/known-technology.mdx`,
 }
 
-const loadDataFrom = async (path: string) => await compile(await read(path), {
+const loadDataFrom = async (path: string) => await compile(await fs.readFile(path), {
   jsx: true,
   remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter]
 })

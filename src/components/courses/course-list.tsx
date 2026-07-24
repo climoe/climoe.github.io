@@ -40,21 +40,22 @@ type CourseListProps = {
     }
   }
 
+const CourseList = async () => {
+  const languageContext = useLanguageContext()
+  const metadata: CourseListProps = await loadFrontmatter(MDXFilesPath.Courses);
+  const {label, items} = languageContext.language === "en"? metadata.language.en : metadata.language.pl;
 
-export const CourseList = async () => {
-    const languageContext = useLanguageContext()
-    const metadata: CourseListProps = await loadFrontmatter(MDXFilesPath.Courses);
-    const {label, items} = languageContext.language === "en"? metadata.language.en : metadata.language.pl;
 
+  return (
+      <ViteSection id="courses" title= {label}>
+          <CourseListStyle>
+              {items.map((item, index) => {
+                  return <Course name={item.name} owner={item.owner} description={item.description} realized={item.realized} key={index}/>
+              })}
+          </CourseListStyle>
+      </ViteSection>
 
-    return (
-        <ViteSection id="courses" title= {label}>
-            <CourseListStyle>                
-                {items.map((item, index) => {
-                    return <Course name={item.name} owner={item.owner} description={item.description} realized={item.realized} key={index}/>
-                })}
-            </CourseListStyle>
-        </ViteSection>
-        
-    )
+  )
 }
+
+export default CourseList;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled,  {css} from "styled-components";
-import {frontMatter as metadata} from "@/content/technology/known-technology.mdx";
 
+import loadFrontmatter, { MDXFilesPath } from '@/content/content-loading';
 
 import { SkillRating } from "@/components/skills/skill-rating";
 import { ViteSection } from "@/components/section/vite-section";
@@ -92,9 +92,40 @@ const SkillsLegend = styled.p`
     }
 `;
 
-const Skills = () => {
+type SkillsProps = {
+  id: string,
+  language: {
+  pl: {
+    description: string,
+    legend: string,
+    skills: {
+      category: string,
+      items: {
+        name: string,
+        rate: number,
+        description: string,
+      }[]
+    }[]
+  },
+  en: {
+    description: string,
+    legend: string,
+    skills: {
+      category: string,
+      items: {
+        name: string,
+        rate: number,
+        description: string,
+      }[]
+    }[]
+  }
+  }
+}
+
+const Skills = async () => {
 
     const languageContext = useLanguageContext()
+    const metadata: SkillsProps = await loadFrontmatter(MDXFilesPath.Technology)
     const {description, legend, skills} = languageContext.language === "en"? metadata.language.en : metadata.language.pl;
 
     return (

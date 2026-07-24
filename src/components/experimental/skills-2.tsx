@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { motion, AnimatePresence, Transition } from 'framer-motion';
-import {frontMatter as metadata}  from "@/content/technology/known-technology.mdx";
+import {frontMatter as metadata}  from "@/public/content/technology/known-technology.mdx";
 import { XIcon} from '@phosphor-icons/react';
 
 import { useLanguageContext } from '@/components/context/language-context';

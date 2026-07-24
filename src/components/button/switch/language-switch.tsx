@@ -4,8 +4,7 @@ import { GlobeHemisphereWestIcon, TranslateIcon } from "@phosphor-icons/react";
 
 import {useLanguageContext, LanguageContextProvider} from "@/components/context/language-context";
 
-import "./styles.scss"
-
+import languageSwitch from './language-switch.module.scss';
 
 export const LanguageSwitch = ({sticky}) => {
     
@@ -22,7 +21,7 @@ export const LanguageSwitch = ({sticky}) => {
         <LanguageContextProvider>
             <div
                 role={"button"}
-                className={"switch-container"}
+                className={languageSwitch['switchContainer']}
                 data-sticky={sticky}
                 data-darkmode={isEn}
                 style={{ justifyContent: isEn ? 'flex-end' : 'flex-start' }}

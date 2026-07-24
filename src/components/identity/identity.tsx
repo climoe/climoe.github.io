@@ -228,10 +228,10 @@ const IdentityStyle = styled.div`
            margin: 0;
            padding: 0; 
         `} 
-    `;
+`;
 
 type IdentityProps = {
-  id : string,
+  id: string,
   description: string,
   language: {
     en: {
@@ -245,7 +245,7 @@ type IdentityProps = {
         header: string,
         content: string
       }
-      contact:{
+      contact: {
         header: string,
         mail: string,
         phone: string
@@ -263,37 +263,37 @@ type IdentityProps = {
     }
     pl: {
       personal: {
-      name: string,
-      position: string,
-      city: string,
-      country: string
-    }
-    about: {
-      header: string,
-      content: string
-    }
-    contact:{
-      header: string,
-      mail: string,
-      phone: string
-    }
-    social: {
-      header: string
-    }
-    accounts: {
-      url: string
-    }[]
-    sentence: {
-      header: string,
-      content: string
+        name: string,
+        position: string,
+        city: string,
+        country: string
+      }
+      about: {
+        header: string,
+        content: string
+      }
+      contact: {
+        header: string,
+        mail: string,
+        phone: string
+      }
+      social: {
+        header: string
+      }
+      accounts: {
+        url: string
+      }[]
+      sentence: {
+        header: string,
+        content: string
+      }
     }
   }
 }
 
-export const Identity = async () => {
-
+const Identity = async () => {
     const languageContext = useLanguageContext()
-    const metadata = await loadFrontmatter(MDXFilesPath.Personal)
+    const metadata: IdentityProps = await loadFrontmatter(MDXFilesPath.Personal)
     const { contact, about, personal, social} = languageContext.language === "en"? metadata.language.en : metadata.language.pl;
     return (
         <IdentityStyle>
@@ -305,3 +305,4 @@ export const Identity = async () => {
         </IdentityStyle>
     )
 }
+export default Identity;

@@ -26,6 +26,7 @@
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.1",
     "remark-mdx-frontmatter": "^5.2.0",
+    "sass": "^1.101.7",
     "styled-components": "^6.4.3",
     "to-vfile": "^8.0.0",
     "vfile-matter": "^5.0.1"

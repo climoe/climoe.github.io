@@ -1,15 +1,15 @@
 import createMDX from '@next/mdx'
+import remarkFrontmatter from 'remark-frontmatter'
+
 
 const nextConfig = {
-  // Allow .mdx extensions for files
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-  // Optionally, add any other Next.js config below
 }
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: ['remark-gfm'],
+    remarkPlugins: ["remarkFrontmatter"],
     rehypePlugins: [],
   },
 });

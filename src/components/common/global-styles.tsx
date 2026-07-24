@@ -1,14 +1,11 @@
 import { createGlobalStyle } from  'styled-components';
-import localFont from 'next/font/local'
+import Inter from 'next/font/google'
 
-const font = localFont({
-  src: '@/public/fonts/inter/Inter.ttf',
-})
 
 const GlobalStyles = createGlobalStyle`
   
   @font-face {
-    font-family: '${font.className}';
+    font-family: $Inter;
   }
 
   html {
@@ -20,7 +17,7 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
 
     @media screen and (max-width: 20em){
-      font-size: 0%;
+      font-size: 0;
     }
 
     @media screen and (min-width: 20em ) and (max-width: 30em) {// to 480px -> sphone
