@@ -35,6 +35,7 @@
     "incremental": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "outDir": "./dist",
     "plugins": [
       {
         "name": "next"
@@ -55,8 +56,7 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.mdx",
-    ""
+    "**/*.mdx"
 
   ],
   "exclude": [

@@ -1,5 +1,5 @@
 import React from "react";
-import {frontMatter as metadata}  from "@/content/courses/courses.mdx";
+import loadFrontmatter, { MDXFilesPath } from '@/content/content-loading';
 import styled from "styled-components";
 
 import { useLanguageContext } from "../context/language-context";
@@ -16,7 +16,7 @@ const CourseListStyle = styled.ul`
 
     `;
 
-interface CourseListProps {
+type CourseListProps = {
   id: string,
   language: {
     pl: {
@@ -43,6 +43,7 @@ interface CourseListProps {
 
 export const CourseList = async () => {
     const languageContext = useLanguageContext()
+    const metadata: CourseListProps = await loadFrontmatter(MDXFilesPath.Courses);
     const {label, items} = languageContext.language === "en"? metadata.language.en : metadata.language.pl;
 
 

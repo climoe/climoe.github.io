@@ -1,5 +1,5 @@
 import  React  from "react";
-import  { frontMatter as metadata}  from "@/content/main/main-title.mdx";
+import loadFrontmatter, { MDXFilesPath } from '@/content/content-loading';
 import  styled , { css }  from "styled-components";
 import  Colors  from "@/components/common/colors";
 
@@ -27,11 +27,29 @@ const StyledMainTitle = styled.p`
     }
 `;
 
+type LanguageProps = {
+  en: {
+    first: string,
+    second: string
+  }
+  pl: {
+    first: string,
+    second: string
+  }
+}
+
+type MainTitleProps = {
+  id: string,
+  language: LanguageProps,
+}
+
+
     
-export const MainTitle = () => {
+export const MainTitle = async () => {
 
 
     const languageContext = useLanguageContext()
+    const metadata: MainTitleProps = await loadFrontmatter(MDXFilesPath.MainTitle)
     const { first, second} = languageContext.language === "en"? metadata.language.en : metadata.language.pl;
 
     return (

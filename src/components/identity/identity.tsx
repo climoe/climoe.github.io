@@ -1,9 +1,8 @@
 import React from "react";
-import {frontMatter as metadata} from "@/content/personal/personal.mdx";
 import Image from 'next/image';
 import styled from "styled-components";
 import { AtIcon, PhoneCallIcon, LinkedinLogoIcon, TwitterLogoIcon, GithubLogoIcon} from "@phosphor-icons/react";
-
+import loadFrontmatter, { MDXFilesPath } from '@/content/content-loading';
 import { useLanguageContext } from "@/components/context/language-context";
 import { FlexColumnSection, FlexColumnDiv, GridSection} from "@/components/common/flexbox";
 import { Header2, Header3 } from "@/components/common/typography";
@@ -231,9 +230,70 @@ const IdentityStyle = styled.div`
         `} 
     `;
 
-export const  Identity = () => {
+type IdentityProps = {
+  id : string,
+  description: string,
+  language: {
+    en: {
+      personal: {
+        name: string,
+        position: string,
+        city: string,
+        country: string
+      }
+      about: {
+        header: string,
+        content: string
+      }
+      contact:{
+        header: string,
+        mail: string,
+        phone: string
+      }
+      social: {
+        header: string
+      }
+      accounts: {
+        url: string
+      }[]
+      sentence: {
+        header: string,
+        content: string
+      }
+    }
+    pl: {
+      personal: {
+      name: string,
+      position: string,
+      city: string,
+      country: string
+    }
+    about: {
+      header: string,
+      content: string
+    }
+    contact:{
+      header: string,
+      mail: string,
+      phone: string
+    }
+    social: {
+      header: string
+    }
+    accounts: {
+      url: string
+    }[]
+    sentence: {
+      header: string,
+      content: string
+    }
+  }
+}
+
+export const Identity = async () => {
 
     const languageContext = useLanguageContext()
+    const metadata = await loadFrontmatter(MDXFilesPath.Personal)
     const { contact, about, personal, social} = languageContext.language === "en"? metadata.language.en : metadata.language.pl;
     return (
         <IdentityStyle>

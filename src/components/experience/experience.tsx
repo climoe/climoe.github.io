@@ -1,8 +1,7 @@
 import React from "react";
-import {frontMatter as metadata} from "@/content/experience/experience.mdx";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-
+import loadFrontmatter, { MDXFilesPath } from '@/content/content-loading';
 import { ViteSection } from "../section/vite-section";
 import { Project } from "./project";
 import Colors from "../common/colors";
@@ -77,11 +76,56 @@ const ExperienceStyle = styled.ul`
     
 `;
 
+type ExperienceProps = {
+  id: string,
+  description: string
+  language: {
+    pl: {
+      label: string
+      experience: {
+        time: {
+          from: string,
+          to: string,
+        }
+        company: string,
+        projects: {
+          name: string,
+          description: string,
+          position: string,
+          role: string
+          technology: {
+            name: string
+          }[]
+        }[]
+      }[]
+    },
+    en: {
+      label: string
+      experience: {
+        time: {
+          from: string,
+          to: string,
+        }
+        company: string,
+        projects: {
+          name: string,
+          position: string,
+          description: string,
+          role: string
+          technology: {
+            name: string
+          }[]
+        }[]
+      }[]
+    },
+  }
+}
 
-const Experience = () => {
+
+const Experience = async () => {
 
     const languageContext = useLanguageContext()
-
+    const metadata: ExperienceProps = await  loadFrontmatter(MDXFilesPath.Experience)
     const {label, experience} = languageContext.language  === "en" ?  metadata.language.en : metadata.language.pl
 
     return (

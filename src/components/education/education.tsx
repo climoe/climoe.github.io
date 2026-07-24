@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import {frontMatter as metadata} from "@/content/lifetime/lifetime-events.mdx"
+
+import loadFrontmatter, { MDXFilesPath } from '@/content/content-loading';
 
 import { useLanguageContext } from "../context/language-context";
 import Colors from "../common/colors";
@@ -62,10 +63,38 @@ const LifetimeEventStyle = styled.ul`
     }
 `;
 
+type EducationProps = {
+  id: string,
+  language: {
+    pl: {
+      title: string
+      events: {
+        time: {
+          from: string,
+            to: string,
+        }
+        title
+        description: string
+      }[]
+    },
+    en: {
+      title: string
+      events: {
+        time: {
+          from: string,
+          to: string,
+        }
+        title
+        description: string
+      }[]
+    }
+  }
+}
 
-export const Education = () => {
+export const Education = async () => {
 
     const languageContext = useLanguageContext()
+    const metadata:  EducationProps = await loadFrontmatter(MDXFilesPath.LifeTime)
     const {title, events} = languageContext.language === "en"? metadata.language.en : metadata.language.pl;
     return (
         <ViteSection id="education" title={title}>
