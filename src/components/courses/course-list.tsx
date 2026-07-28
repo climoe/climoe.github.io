@@ -1,50 +1,24 @@
-import React from "react";
-import loadFrontmatter, { MDXFilesPath } from '@/content/content-loading';
+'use client'
+
+import React, { JSX, useContext } from 'react';
 import styled from "styled-components";
 
-import { useLanguageContext } from "../context/language-context";
+import { LanguageContext } from "../context/language-context";
 import { ViteSection } from "../section/vite-section";
 import { Course } from "./course";
-
+import { ReturnProps, CourseListProps } from '@/lib/content-loading/content-types';
 
 
 const CourseListStyle = styled.ul`
-
         list-style: none;
         margin-bottom: .8rem;
         padding-inline-start: 0;
-
     `;
 
-type CourseListProps = {
-  id: string,
-  language: {
-    pl: {
-      label: string
-      items: {
-        name: string
-        description: string
-        owner: string
-        realized: string
-      }[]
-    },
-      en: {
-        label: string
-        items: {
-          name: string
-          description: string
-          owner: string
-          realized: string
-        }[]
-      }
-    }
-  }
-
-const CourseList = async () => {
-  const languageContext = useLanguageContext()
-  const metadata: CourseListProps = await loadFrontmatter(MDXFilesPath.Courses);
-  const {label, items} = languageContext.language === "en"? metadata.language.en : metadata.language.pl;
-
+export default function CourseList(courses: ReturnProps<CourseListProps>): JSX.Element {
+  const languageContext = useContext(LanguageContext)
+  const { frontmatter } =  courses
+  const { label, items } = languageContext.language === "en"? frontmatter.language.en : frontmatter.language.pl;
 
   return (
       <ViteSection id="courses" title= {label}>
@@ -58,4 +32,3 @@ const CourseList = async () => {
   )
 }
 
-export default CourseList;

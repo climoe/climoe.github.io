@@ -1,21 +1,21 @@
-import React, {useEffect} from "react";
+'use client'
+
+import React, { useEffect } from "react";
 import styled, { css } from 'styled-components';
 import { useAnimation, motion, Variants } from 'framer-motion';
 import { useInView } from "react-intersection-observer";
 
-import { mediaQueries} from '../common/media-queries';
+import { mediaQueries } from '../common/media-queries';
 
 
 const AnimatedSectionStyle = styled.div`
-
   margin: 0;
-
-
-    @media (max-width: '${mediaQueries.tablet}') {
-        ${css`
-            margin: 0 0 2rem;
-        `}
-    }
+  
+  @media (max-width: '${mediaQueries.tablet}') {
+    ${css`
+        margin: 0 0 2rem;
+    `}
+  }
 
   .controls{
     display: flex;
@@ -25,7 +25,7 @@ const AnimatedSectionStyle = styled.div`
     @media (max-width: '${mediaQueries.tablet}') {
       ${css`
           flex-direction: column;
-    `}
+      `}
     }
   }
     

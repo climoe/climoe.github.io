@@ -29,7 +29,7 @@ const Logo = styled.a`
     animation: rotate 0.7s ease-in-out 0.5s;
   `;
 
-const Header = () => {
+const Hero = () => {
   return (
     <HeaderStyle>
       <Logo href="/">
@@ -39,4 +39,4 @@ const Header = () => {
   );
 }
 
-export default Header;
+export default Hero;

@@ -1,12 +1,13 @@
-import React from "react";
+'use client'
+
+import React, { JSX, use, useContext } from 'react';
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import loadFrontmatter, { MDXFilesPath } from '@/content/content-loading';
-
-import { useLanguageContext } from "../context/language-context";
+import { LanguageContext } from "../context/language-context";
 import Colors from "../common/colors";
 import { ViteSection } from "../section/vite-section";
+import type { ReturnProps, EducationProps } from '@/lib/content-loading/content-types';
 
 const LifetimeEventStyle = styled.ul`
   
@@ -63,39 +64,11 @@ const LifetimeEventStyle = styled.ul`
     }
 `;
 
-type EducationProps = {
-  id: string,
-  language: {
-    pl: {
-      title: string
-      events: {
-        time: {
-          from: string,
-            to: string,
-        }
-        title
-        description: string
-      }[]
-    },
-    en: {
-      title: string
-      events: {
-        time: {
-          from: string,
-          to: string,
-        }
-        title
-        description: string
-      }[]
-    }
-  }
-}
+export default function Education(education: ReturnProps<EducationProps>): JSX.Element {
 
-const Education = async () => {
-
-    const languageContext = useLanguageContext()
-    const metadata:  EducationProps = await loadFrontmatter(MDXFilesPath.LifeTime)
-    const {title, events} = languageContext.language === "en"? metadata.language.en : metadata.language.pl;
+    const languageContext = useContext(LanguageContext)
+    const { frontmatter } = education
+    const {title, events} = languageContext.language === "en"? frontmatter.language.en : frontmatter.language.pl;
     return (
         <ViteSection id="education" title={title}>
           <LifetimeEventStyle>
@@ -108,8 +81,5 @@ const Education = async () => {
               }  
           </LifetimeEventStyle>
         </ViteSection>
-
     );
 }
-
-export default Education;

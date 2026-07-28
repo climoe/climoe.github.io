@@ -21,6 +21,6 @@ export const mediaQueries = {
 export const print = (...args : Interpolation<NoInfer<object>>[]) =>
   css`
     @media print {  
-      ${css(null, ...args)}
+      ${css({},...args)}
     }
   `

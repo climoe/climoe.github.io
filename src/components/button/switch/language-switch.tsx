@@ -1,24 +1,24 @@
-import React, {useCallback, useState} from "react";
+'use client'
+
+import React, {useCallback, useState, useContext } from "react";
+
 import { AnimatePresence, motion } from "framer-motion";
 import { GlobeHemisphereWestIcon, TranslateIcon } from "@phosphor-icons/react";
-
-import {useLanguageContext, LanguageContextProvider} from "@/components/context/language-context";
-
+import { LanguageContext } from "@/components/context/language-context";
 import languageSwitch from './language-switch.module.scss';
-
 export const LanguageSwitch = ({sticky}) => {
     
     const [isEn, setIsEn] = useState(true);
-    const languageContext = useLanguageContext();
+    const languageContext = useContext(LanguageContext);
 
     const toggleSwitch = useCallback(() => {
             setIsEn(!isEn); 
-            languageContext.updateLanguage()
+            languageContext.switch(languageContext.language)
         },[isEn, languageContext]
     )
 
     return (
-        <LanguageContextProvider>
+        <LanguageContext value={languageContext}>
             <div
                 role={"button"}
                 className={languageSwitch['switchContainer']}
@@ -48,6 +48,6 @@ export const LanguageSwitch = ({sticky}) => {
                     </AnimatePresence>
                 </motion.div>
             </div>   
-        </LanguageContextProvider>
+        </LanguageContext>
     )
 }

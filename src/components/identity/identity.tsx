@@ -1,9 +1,11 @@
-import React from "react";
+'use client'
+
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import styled from "styled-components";
 import { AtIcon, PhoneCallIcon, LinkedinLogoIcon, TwitterLogoIcon, GithubLogoIcon} from "@phosphor-icons/react";
-import loadFrontmatter, { MDXFilesPath } from '@/content/content-loading';
-import { useLanguageContext } from "@/components/context/language-context";
+
+import { LanguageContext } from "@/components/context/language-context";
 import { FlexColumnSection, FlexColumnDiv, GridSection} from "@/components/common/flexbox";
 import { Header2, Header3 } from "@/components/common/typography";
 import Colors from "@/components/common/colors";
@@ -11,7 +13,7 @@ import { print } from "@/components/common/media-queries";
 
 import Pin from "@/public/images/location.inline.svg";
 import avatar from "@/public/images/social.jpg";
-
+import type { IdentityProps, ReturnProps } from '@/lib/content-loading/content-types';
 
 
 const StyledPersonal = styled(FlexColumnSection)`
@@ -230,71 +232,10 @@ const IdentityStyle = styled.div`
         `} 
 `;
 
-type IdentityProps = {
-  id: string,
-  description: string,
-  language: {
-    en: {
-      personal: {
-        name: string,
-        position: string,
-        city: string,
-        country: string
-      }
-      about: {
-        header: string,
-        content: string
-      }
-      contact: {
-        header: string,
-        mail: string,
-        phone: string
-      }
-      social: {
-        header: string
-      }
-      accounts: {
-        url: string
-      }[]
-      sentence: {
-        header: string,
-        content: string
-      }
-    }
-    pl: {
-      personal: {
-        name: string,
-        position: string,
-        city: string,
-        country: string
-      }
-      about: {
-        header: string,
-        content: string
-      }
-      contact: {
-        header: string,
-        mail: string,
-        phone: string
-      }
-      social: {
-        header: string
-      }
-      accounts: {
-        url: string
-      }[]
-      sentence: {
-        header: string,
-        content: string
-      }
-    }
-  }
-}
-
-const Identity = async () => {
-    const languageContext = useLanguageContext()
-    const metadata: IdentityProps = await loadFrontmatter(MDXFilesPath.Personal)
-    const { contact, about, personal, social} = languageContext.language === "en"? metadata.language.en : metadata.language.pl;
+export default function Identity(identity: ReturnProps<IdentityProps>)  {
+    const languageContext = useContext(LanguageContext)
+    const { frontmatter } = identity
+    const { contact, about, personal, social} = languageContext.language === "en"? frontmatter.language.en : frontmatter.language.pl;
     return (
         <IdentityStyle>
             <GridSection>
@@ -305,4 +246,3 @@ const Identity = async () => {
         </IdentityStyle>
     )
 }
-export default Identity;

@@ -1,13 +1,14 @@
-import React, { useEffect, useState }  from 'react';
+
+import React, { Suspense }  from 'react';
 import styled from 'styled-components';
 
 import Colors from '@/components/common/colors';
-import {PageStructure} from '@/components/layout/layout';
+import PageLayout from '@/app/layout';
 
 import { IntroSection } from '@/components/section/intro-section';
 import { CareerSection } from '@/components/section/carrier-section';
 import { AnimatedSection } from '@/components/section/animated-section';
-import { MainTitle } from '@/components/content/main-title';
+import  MainTitle  from '@/components/content/main-title';
 import Education  from '@/components/education/education';
 import { FlexRowSection } from '@/components/common/flexbox';
 
@@ -21,9 +22,10 @@ import Navbar from '@/components/navbar/navbar';
 import Preloader from '@/components/common/preloader';
 import Experience from '@/components/experience/experience';
 import Skills from '@/components/skills/skills';
+import { getMainTitleData, getAllCourses, getAllEducationEvents, getAllExperiences, getPersonalData,  getTechnologySkills } from '@/lib/content-loading/content-loading';
 
 
-const StyledHompage = styled.div`
+const StyledHomepage = styled.div`
 
     position: relative;
     margin: auto;
@@ -36,53 +38,48 @@ const StyledHompage = styled.div`
     background-image: linear-gradient(315deg, rgb(217, 228, 245) 0%, rgb(245, 227, 230) 74%);
 `;
 
-const Hompage = () => {
+const Homepage = async () => {
 
-    const [loaded, isLoaded] = useState(false)
-
-    useEffect(() => {
-        setTimeout(() => {
-            isLoaded(true)
-        }, 2000)
-    }, []);
+    const mainTitle  = await getMainTitleData()
+    const courses  =  await getAllCourses()
+    const experiences =  await getAllExperiences()
+    const educations  = await getAllEducationEvents()
+    const personal  = await getPersonalData()
+    const skills = await getTechnologySkills()
 
     return (
-        <>
-        {!loaded ? (
-        <Preloader/>
-        ):(
-        <StyledHompage>
-            <PageStructure>
+      <Suspense fallback={<Preloader/>}>
+            <StyledHomepage>
+            <PageLayout>
                 <IntroSection>
                     <FlexRowSection>
-                        <MainTitle/>
+                        <MainTitle main={mainTitle}/>
                         <Dev/>                        
                     </FlexRowSection>
                 </IntroSection>
                 <Navbar/>
                 <CareerSection>
                     <AnimatedSection>
-                        <Identity/>
+                        <Identity personal={personal}/>
                     </AnimatedSection>
                     <AnimatedSection>
-                        <Experience/>
+                        <Experience exp={experiences} />
                     </AnimatedSection>             
                     <AnimatedSection>
                         <Consult/>
-                        <Education/>
+                        <Education education={educations}/>
                     </AnimatedSection>
                     <AnimatedSection>
-                        <Skills/>
+                        <Skills skillset={skills} />
                         <Analyze/>
                     </AnimatedSection>
                     <AnimatedSection>
-                        <CourseList/>
+                        <CourseList courses={courses}/>
                     </AnimatedSection>
                 </CareerSection>
-            </PageStructure>
-        </StyledHompage>
-        )}
-        </>
+            </PageLayout>
+        </StyledHomepage>
+      </Suspense>
     )
 }
-export default Hompage;
+export default Homepage;

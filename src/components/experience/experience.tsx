@@ -1,12 +1,15 @@
-import React from "react";
+'use client'
+
+import React, { JSX, useContext } from 'react';
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import loadFrontmatter, { MDXFilesPath } from '@/content/content-loading';
+
 import { ViteSection } from "../section/vite-section";
 import { Project } from "./project";
 import Colors from "../common/colors";
 import { print } from "../common/media-queries";
-import { useLanguageContext } from "../context/language-context";
+import { LanguageContext } from '../context/language-context';
+import type { ReturnProps, ExperienceListProps} from '@/lib/content-loading/content-types';
 
 
 
@@ -76,57 +79,12 @@ const ExperienceStyle = styled.ul`
     
 `;
 
-type ExperienceProps = {
-  id: string,
-  description: string
-  language: {
-    pl: {
-      label: string
-      experience: {
-        time: {
-          from: string,
-          to: string,
-        }
-        company: string,
-        projects: {
-          name: string,
-          description: string,
-          position: string,
-          role: string
-          technology: {
-            name: string
-          }[]
-        }[]
-      }[]
-    },
-    en: {
-      label: string
-      experience: {
-        time: {
-          from: string,
-          to: string,
-        }
-        company: string,
-        projects: {
-          name: string,
-          position: string,
-          description: string,
-          role: string
-          technology: {
-            name: string
-          }[]
-        }[]
-      }[]
-    },
-  }
-}
 
+export default function Experience(exp: ReturnProps<ExperienceListProps>): JSX.Element  {
 
-const Experience = async () => {
-
-    const languageContext = useLanguageContext()
-    const metadata: ExperienceProps = await  loadFrontmatter(MDXFilesPath.Experience)
-    const {label, experience} = languageContext.language  === "en" ?  metadata.language.en : metadata.language.pl
+    const languageContext = useContext(LanguageContext)
+    const { frontmatter } = exp
+    const { label, experience} = languageContext.language === "en" ?  frontmatter.language.en : frontmatter.language.pl
 
     return (
         <ViteSection id="experience" title={label}>
@@ -148,4 +106,3 @@ const Experience = async () => {
          </ViteSection>
     )
 }
-export default Experience;

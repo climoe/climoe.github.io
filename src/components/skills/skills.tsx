@@ -1,14 +1,15 @@
-import React from "react";
+'use client'
+
+import React, { JSX, useContext } from 'react';
 import styled,  {css} from "styled-components";
 
-import loadFrontmatter, { MDXFilesPath } from '@/content/content-loading';
-
-import { SkillRating } from "@/components/skills/skill-rating";
-import { ViteSection } from "@/components/section/vite-section";
-import Colors from "@/components/common/colors";
 import { mediaQueries} from "@/components/common/media-queries";
-import { useLanguageContext } from "@/components/context/language-context";
+import { LanguageContext } from "@/components/context/language-context";
 
+import Colors from "@/components/common/colors";
+import { ViteSection } from "@/components/section/vite-section";
+import { SkillRating } from "@/components/skills/skill-rating";
+import { ReturnProps, SkillsProps } from '@/lib/content-loading/content-types';
 
 const SkillsStyle = styled.div`
 
@@ -92,41 +93,11 @@ const SkillsLegend = styled.p`
     }
 `;
 
-type SkillsProps = {
-  id: string,
-  language: {
-  pl: {
-    description: string,
-    legend: string,
-    skills: {
-      category: string,
-      items: {
-        name: string,
-        rate: number,
-        description: string,
-      }[]
-    }[]
-  },
-  en: {
-    description: string,
-    legend: string,
-    skills: {
-      category: string,
-      items: {
-        name: string,
-        rate: number,
-        description: string,
-      }[]
-    }[]
-  }
-  }
-}
+export default function Skills(skillset: ReturnProps<SkillsProps>): JSX.Element {
 
-const Skills = async () => {
-
-    const languageContext = useLanguageContext()
-    const metadata: SkillsProps = await loadFrontmatter(MDXFilesPath.Technology)
-    const {description, legend, skills} = languageContext.language === "en"? metadata.language.en : metadata.language.pl;
+    const languageContext = useContext(LanguageContext)
+    const { frontmatter } = skillset
+    const { description, legend, skills } = languageContext.language === "en"? frontmatter.language.en : frontmatter.language.pl;
 
     return (
         <ViteSection id="technology" title={description}>
@@ -149,5 +120,3 @@ const Skills = async () => {
         </ViteSection>
     )
 }
-
-export default Skills;

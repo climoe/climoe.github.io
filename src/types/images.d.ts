@@ -17,7 +17,6 @@ declare module '*.webp' {
   export default content;
 }
 
-// For Next.js static imports:
 declare module '*.png' {
   import { StaticImageData } from 'next/image';
   const content: StaticImageData;

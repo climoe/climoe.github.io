@@ -1,9 +1,11 @@
-import  React  from "react";
-import loadFrontmatter, { MDXFilesPath } from '@/content/content-loading';
+'use client'
+
+import React, { JSX, use, useContext } from 'react';
 import  styled , { css }  from "styled-components";
 import  Colors  from "@/components/common/colors";
 
-import { useLanguageContext } from "@/components/context/language-context";
+import { LanguageContext } from "@/components/context/language-context";
+import { LanguageProps, ReturnProps } from '@/lib/content-loading/content-types';
 
 const StyledMainTitle = styled.p`
     
@@ -27,30 +29,11 @@ const StyledMainTitle = styled.p`
     }
 `;
 
-type LanguageProps = {
-  en: {
-    first: string,
-    second: string
-  }
-  pl: {
-    first: string,
-    second: string
-  }
-}
+export default function MainTitle(main: ReturnProps<LanguageProps>): JSX.Element {
 
-type MainTitleProps = {
-  id: string,
-  language: LanguageProps,
-}
-
-
-    
-export const MainTitle = async () => {
-
-
-    const languageContext = useLanguageContext()
-    const metadata: MainTitleProps = await loadFrontmatter(MDXFilesPath.MainTitle)
-    const { first, second} = languageContext.language === "en"? metadata.language.en : metadata.language.pl;
+    const languageContext = useContext(LanguageContext)
+    const { frontmatter } = main;
+    const { first, second }  = languageContext.language === "en"? frontmatter.language.en : frontmatter.language.pl;
 
     return (
         <StyledMainTitle>

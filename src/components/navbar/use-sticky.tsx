@@ -1,6 +1,8 @@
-import { useEffect, useState, useCallback } from "react"
+'use client'
 
-const useSticky = (ref) => {
+import React, { useEffect, useState, useCallback } from 'react'
+
+const useSticky = (ref: React.RefObject<any>) => {
   
     const [isSticky, setSticky] = useState(false)
     const element = ref
