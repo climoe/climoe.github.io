@@ -52,9 +52,9 @@ export const PageLayout = ({ children }) : React.ReactNode => {
 
   return (
     <LanguageContext value={language}>
-      <Head/>
-      <GlobalStyles />
       <Hero/>
+      <GlobalStyles/>
+      <Head/>
       <LayoutWithRef ref={componentRef}>
          {children}
       </LayoutWithRef>

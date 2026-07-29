@@ -17,30 +17,36 @@ module.exports = {
   logging: {
     browserToTerminal: true,
   },
-  webpack(config) {
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.(".svg")
-    );
-
-    config.module.rules.push(
-      {
-        ...fileLoaderRule,
-        test: /\.svg$/i,
-        resourceQuery: /url/,
+  turbopack: {
+    rules: {
+      // '*' will match all file paths, but we restrict where our
+      // rule runs with a condition.
+      '*': {
+        condition: {
+          all: [
+            // 'foreign' is a built-in condition.
+            { not: 'foreign' },
+            // 'path' can be a RegExp or a glob string. A RegExp matches
+            // anywhere in the full project-relative file path.
+            { path: /^img\/[0-9]{3}\// },
+            {
+              any: [
+                { path: '*.svg' },
+                // 'query' matches anywhere in the full query string,
+                // which can be empty, or start with `?`.
+                { query: /[?&]svgr(?=&|$)/ },
+                // 'content' is always a RegExp, and can match
+                // anywhere in the file.
+                { content: /\<svg\W/ },
+              ],
+            },
+          ],
+        },
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
       },
-
-      {
-        test: /\.svg$/i,
-        issuer: fileLoaderRule.issuer,
-        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] },
-        use: ["@svgr/webpack"],
-      }
-    );
-
-    fileLoaderRule.exclude = /\.svg$/i;
-
-    return config;
-  }
+    },
+  },
 }
 
 // Merge MDX config with Next.js config

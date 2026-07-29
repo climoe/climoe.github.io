@@ -33,7 +33,6 @@ export default function MainTitle(main: ReturnProps<LanguageProps>): JSX.Element
 
     const languageContext = useContext(LanguageContext)
     const { first, second }  = languageContext.language === "en" ? main.frontmatter.language.en : main.frontmatter.language.pl;
-    console.log("First", first)
 
     return (
         <StyledMainTitle>

@@ -47,18 +47,10 @@ const Homepage = async () => {
     const personal  = await getPersonalData()
     const skills = await getTechnologySkills()
 
-    console.log("Main Title - ", mainTitle)
-    console.log("Main Title PL Data - ", mainTitle.frontmatter)
-    console.log("Courses - ", courses)
-    console.log("Courses PL - ", courses.frontmatter.language.en.items)
-    console.log("Experience - ", experiences)
-    console.log("Education - ", educations)
-    console.log("Personal - ", personal)
-    console.log("Skills - ", skills)
 
     return (
       <Suspense fallback={<Preloader/>}>
-            <StyledHomepage>
+        <StyledHomepage>
             <PageLayout>
                 <IntroSection>
                     <FlexRowSection>
