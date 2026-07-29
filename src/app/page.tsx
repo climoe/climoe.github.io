@@ -47,34 +47,43 @@ const Homepage = async () => {
     const personal  = await getPersonalData()
     const skills = await getTechnologySkills()
 
+    console.log("Main Title - ", mainTitle)
+    console.log("Main Title PL Data - ", mainTitle.frontmatter)
+    console.log("Courses - ", courses)
+    console.log("Courses PL - ", courses.frontmatter.language.en.items)
+    console.log("Experience - ", experiences)
+    console.log("Education - ", educations)
+    console.log("Personal - ", personal)
+    console.log("Skills - ", skills)
+
     return (
       <Suspense fallback={<Preloader/>}>
             <StyledHomepage>
             <PageLayout>
                 <IntroSection>
                     <FlexRowSection>
-                        <MainTitle main={mainTitle}/>
+                        <MainTitle {...mainTitle}/>
                         <Dev/>                        
                     </FlexRowSection>
                 </IntroSection>
                 <Navbar/>
                 <CareerSection>
                     <AnimatedSection>
-                        <Identity personal={personal}/>
+                        <Identity {...personal} />
                     </AnimatedSection>
                     <AnimatedSection>
-                        <Experience exp={experiences} />
+                        <Experience {...experiences} />
                     </AnimatedSection>             
                     <AnimatedSection>
                         <Consult/>
-                        <Education education={educations}/>
+                        <Education {...educations}/>
                     </AnimatedSection>
                     <AnimatedSection>
-                        <Skills skillset={skills} />
+                        <Skills {...skills} />
                         <Analyze/>
                     </AnimatedSection>
                     <AnimatedSection>
-                        <CourseList courses={courses}/>
+                        <CourseList {...courses}/>
                     </AnimatedSection>
                 </CareerSection>
             </PageLayout>

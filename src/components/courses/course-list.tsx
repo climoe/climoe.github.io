@@ -17,8 +17,7 @@ const CourseListStyle = styled.ul`
 
 export default function CourseList(courses: ReturnProps<CourseListProps>): JSX.Element {
   const languageContext = useContext(LanguageContext)
-  const { frontmatter } =  courses
-  const { label, items } = languageContext.language === "en"? frontmatter.language.en : frontmatter.language.pl;
+  const { label, items } = languageContext.language === "en"? courses.frontmatter.language.en : courses.frontmatter.language.pl;
 
   return (
       <ViteSection id="courses" title= {label}>

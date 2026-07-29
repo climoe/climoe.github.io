@@ -2,7 +2,7 @@
 id: "experience"
 description: "Projects realized through years in commercial side"
 language:
-  - en:
+  en:
     label: "Experience"
     experience:
       - time:
@@ -147,7 +147,7 @@ language:
             - name: "Oracle SQL"
             - name: "JBPM4"
             - name: "IBM MQ"
-  - pl:
+  pl:
     label: "Doświadczenie"
     experience:
     - time:

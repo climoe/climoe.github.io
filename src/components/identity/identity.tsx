@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useContext } from 'react';
+import React, { JSX, useContext } from 'react';
 import Image from 'next/image';
 import styled from "styled-components";
 import { AtIcon, PhoneCallIcon, LinkedinLogoIcon, TwitterLogoIcon, GithubLogoIcon} from "@phosphor-icons/react";
@@ -232,10 +232,9 @@ const IdentityStyle = styled.div`
         `} 
 `;
 
-export default function Identity(identity: ReturnProps<IdentityProps>)  {
+export default function Identity(identity: ReturnProps<IdentityProps>): JSX.Element  {
     const languageContext = useContext(LanguageContext)
-    const { frontmatter } = identity
-    const { contact, about, personal, social} = languageContext.language === "en"? frontmatter.language.en : frontmatter.language.pl;
+    const { contact, about, personal, social} = languageContext.language === "en"? identity.frontmatter.language.en : identity.frontmatter.language.pl;
     return (
         <IdentityStyle>
             <GridSection>

@@ -96,8 +96,7 @@ const SkillsLegend = styled.p`
 export default function Skills(skillset: ReturnProps<SkillsProps>): JSX.Element {
 
     const languageContext = useContext(LanguageContext)
-    const { frontmatter } = skillset
-    const { description, legend, skills } = languageContext.language === "en"? frontmatter.language.en : frontmatter.language.pl;
+    const { description, legend, skills } = languageContext.language === "en"? skillset.frontmatter.language.en : skillset.frontmatter.language.pl;
 
     return (
         <ViteSection id="technology" title={description}>

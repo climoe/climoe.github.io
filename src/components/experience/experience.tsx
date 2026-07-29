@@ -83,8 +83,7 @@ const ExperienceStyle = styled.ul`
 export default function Experience(exp: ReturnProps<ExperienceListProps>): JSX.Element  {
 
     const languageContext = useContext(LanguageContext)
-    const { frontmatter } = exp
-    const { label, experience} = languageContext.language === "en" ?  frontmatter.language.en : frontmatter.language.pl
+    const { label, experience} = languageContext.language === "en" ?  exp.frontmatter.language.en : exp.frontmatter.language.pl
 
     return (
         <ViteSection id="experience" title={label}>

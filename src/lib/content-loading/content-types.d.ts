@@ -153,6 +153,7 @@ export type IdentityProps = {
       }
     }
   },
+  identity?: ReturnProps<IdentityProps>
 }
 
 export type SkillsProps = {
