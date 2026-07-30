@@ -2,9 +2,9 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-import  Colors  from "../common/colors";
-import { print } from "../common/media-queries";
-import { Identity } from "../identity/identity";
+import  Colors  from "@/components/common/colors";
+import { print } from "@/components/common/media-queries";
+import  Identity  from "@/components/identity/identity";
 
 const StyledMenu = styled.div`
     margin: 10rem 5rem 0;
@@ -35,7 +35,7 @@ const variants = {
 export const Menu = () => (
   <StyledMenu>
     <motion.ul style={style} variants={variants}>
-      <Identity/>
+      {/*<Identity/>*/}
     </motion.ul>
   </StyledMenu>
 );

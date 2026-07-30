@@ -1,9 +1,9 @@
-import React, { ComponentPropsWithRef, useRef, useState } from 'react';
+import React, { ComponentPropsWithRef, useContext, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { PrinterIcon } from '@phosphor-icons/react';
 import { useReactToPrint } from 'react-to-print';
 
-import { LanguageContextProvider } from '@/components/context/language-context';
+import  LanguageContext  from '@/components/context/language-context';
 import { LanguageSwitch } from '@/components/button/switch/language-switch';
 
 import Colors from '@/components/common/colors';
@@ -17,6 +17,13 @@ import Skills from '@/components/skills/skills';
 import Head from '@/components/common/head';
 import DefaultInput from '@/components/field/default-input';
 import { FlexRowCenter } from '@/components/common/flexbox';
+import {
+  getAllCourses,
+  getAllEducationEvents,
+  getAllExperiences,
+  getPersonalData,
+  getTechnologySkills
+} from '@/lib/content-loading/content-loading';
 
 
 const Printable = styled.main`
@@ -45,10 +52,11 @@ function LayoutWithRef(props: ComponentPropsWithRef<"div">) {
   }
 
 
-const CV = () => {
+const CV = async () => {
 
   const printRef = useRef<HTMLDivElement>(null);
   const [companyName, setCompanyName] = useState('');
+  const language = useContext(LanguageContext);
   const useHandlePrint = () => useReactToPrint({
     contentRef:  printRef,
     pageStyle:  '@page {\n        size: A4;\n        margin: .5in 0 .5in !important;\n    }\n\n    @page:first{\n        margin-top: 0;\n    }',
@@ -59,6 +67,12 @@ const CV = () => {
     setCompanyName(event.target.value);
   };
 
+  const courses  =  await getAllCourses()
+  const experiences =  await getAllExperiences()
+  const educations  = await getAllEducationEvents()
+  const personal  = await getPersonalData()
+  const skills = await getTechnologySkills()
+
   return (
     <>
       <GlobalStyles />
@@ -67,15 +81,15 @@ const CV = () => {
         <DefaultInput value={companyName} onChange={handleChangeCompanyName} />
         <PrinterIcon size={'4rem'} color={`${Colors.PURPLE}`} weight="duotone" onClick={useHandlePrint()} />
       </FlexRowCenter>
-      <LanguageContextProvider>
+      <LanguageContext value={language}>
         <LayoutWithRef ref={printRef}>
           <Printable>
             <LanguageSwitch sticky={true} />
-            <Identity />
-            <Experience />
-            <Education />
-            <Skills />
-            <CourseList />
+            <Identity {...personal}/>
+            <Experience {...experiences} />
+            <Education {...educations}/>
+            <Skills {...skills} />
+            <CourseList {...courses}/>
             <ProcessingAgree>
                 <span>
                       "I consent to the processing by {companyName} my personal data included in my CV for the purposes of the recruitment process and further recruitment processes"
@@ -83,7 +97,7 @@ const CV = () => {
             </ProcessingAgree>
           </Printable>
         </LayoutWithRef>
-      </LanguageContextProvider>
+      </LanguageContext>
     </>
   );
 };

@@ -2,11 +2,11 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { AtomIcon, HeartStraightIcon, PrinterIcon } from '@phosphor-icons/react';
 
-import { contentMax } from '../common/mixins';
-import { mediaQueries } from '../common/media-queries';
-import Colors from '../common/colors';
+import { contentMax } from '@/components/common/mixins';
+import { mediaQueries } from '@/components/common/media-queries';
+import Colors from '@/components/common/colors';
 
-import waves from '../../public/images/waves.svg';
+import waves from '@/public/images/waves.svg';
 
 const Copyright = styled.p`
   text-align: center;

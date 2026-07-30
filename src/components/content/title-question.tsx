@@ -1,8 +1,8 @@
 import  React  from "react";
 import  styled  from "styled-components";
 
-import  Colors  from "../common/colors";
-import { print } from "../common/media-queries";
+import  Colors  from "@/components/common/colors";
+import { print } from "@/components/common/media-queries";
 
 const TitleQuestionStyle = styled.div`
     

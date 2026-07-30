@@ -1,9 +1,9 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import {mediaQueries} from '../common/media-queries';
+import {mediaQueries} from '@/components/common/media-queries';
 
-import AnalyzeSvg from '../../public/images/analyze.inline.svg';
+import AnalyzeSvg from '@/public/images/analyze.svg';
 
 const StyledAnalyzed = styled.div`
     flex: 1 1 50%;

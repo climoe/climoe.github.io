@@ -2,7 +2,7 @@ import * as React from "react";
 import  styled  from "styled-components";
 import { UserCircleIcon } from "@phosphor-icons/react";
 
-import Colors from "../common/colors";
+import Colors from "@/components/common/colors";
 import { ScrollableProps } from '@/components/button/print/print';
 
 const Button = styled.button<ScrollableProps>`

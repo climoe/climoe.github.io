@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 import { useAnimation, motion, Variants } from 'framer-motion';
 import { useInView } from "react-intersection-observer";
 
-import { mediaQueries } from '../common/media-queries';
+import { mediaQueries } from '@/components/common/media-queries';
 
 
 const AnimatedSectionStyle = styled.div`

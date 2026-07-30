@@ -4,9 +4,9 @@ import React, { JSX, useContext } from 'react';
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import { LanguageContext } from "../context/language-context";
-import Colors from "../common/colors";
-import { ViteSection } from "../section/vite-section";
+import { LanguageContext } from "@/components/context/language-context";
+import Colors from "@/components/common/colors";
+import { ViteSection } from "@/components/section/vite-section";
 import type { ReturnProps, EducationProps } from '@/lib/content-loading/content-types';
 
 const LifetimeEventStyle = styled.ul`

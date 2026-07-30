@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import { DotsRating } from "./dots-rating";
-import Colors from "../common/colors";
-import { print } from "../common/media-queries"
+import { DotsRating } from "@/components/skills/dots-rating";
+import Colors from "@/components/common/colors";
+import { print } from "@/components/common/media-queries"
 
 
 const SkillRatingStyle = styled.article`

@@ -1,7 +1,7 @@
 import React from "react";
 import styled, {css} from "styled-components";
 
-import {mediaQueries} from '../common/media-queries';
+import {mediaQueries} from '@/components/common/media-queries';
 
 const StyledViteSection = styled.section`
     display: flex;

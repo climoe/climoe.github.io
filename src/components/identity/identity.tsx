@@ -11,7 +11,7 @@ import { Header2, Header3 } from "@/components/common/typography";
 import Colors from "@/components/common/colors";
 import { print } from "@/components/common/media-queries";
 
-import Pin from "@/public/images/location.inline.svg";
+import Pin from "@/public/images/location.svg";
 import avatar from "@/public/images/social.jpg";
 import type { IdentityProps, ReturnProps } from '@/lib/content-loading/content-types';
 

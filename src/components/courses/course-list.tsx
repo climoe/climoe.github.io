@@ -3,9 +3,9 @@
 import React, { JSX, useContext } from 'react';
 import styled from "styled-components";
 
-import { LanguageContext } from "../context/language-context";
-import { ViteSection } from "../section/vite-section";
-import { Course } from "./course";
+import { LanguageContext } from "@/components/context/language-context";
+import { ViteSection } from "@/components/section/vite-section";
+import { Course } from "@/components/courses/course";
 import { ReturnProps, CourseListProps } from '@/lib/content-loading/content-types';
 
 

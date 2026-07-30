@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Colors from "../common/colors";
+import Colors from "@/components/common/colors";
 
 const TechnologyStyle = styled.span`
     

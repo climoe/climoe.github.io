@@ -4,9 +4,9 @@ import {frontMatter as metadata}  from "@/public/content/technology/known-techno
 import { XIcon} from '@phosphor-icons/react';
 
 import { useLanguageContext } from '@/components/context/language-context';
-import { SkillRating } from "../skills/skill-rating";
+import { SkillRating } from "@/components/skills/skill-rating";
 
-import "../clippath/styles.scss"
+import "@/components/experimental/clippath/styles.scss"
 
 
 const Skills2 = () => {

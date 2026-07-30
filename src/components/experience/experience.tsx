@@ -4,11 +4,11 @@ import React, { JSX, useContext } from 'react';
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import { ViteSection } from "../section/vite-section";
-import { Project } from "./project";
-import Colors from "../common/colors";
-import { print } from "../common/media-queries";
-import { LanguageContext } from '../context/language-context';
+import { ViteSection } from "@/components/section/vite-section";
+import { Project } from "@/components/experience/project";
+import Colors from "@/components/common/colors";
+import { print } from "@/components/common/media-queries";
+import { LanguageContext } from '@/components/context/language-context';
 import type { ReturnProps, ExperienceListProps} from '@/lib/content-loading/content-types';
 
 

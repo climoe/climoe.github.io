@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import "./styles.scss"
-import { ViteSection } from '../../section/vite-section';
+import { ViteSection } from '@/components/section/vite-section';
 
 const cards = [1, 2, 3, 4];
 

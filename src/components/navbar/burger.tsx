@@ -3,10 +3,10 @@ import { useRef } from "react";
 import { motion, useCycle, Variants } from 'framer-motion';
 import styled, { css } from "styled-components";
 
-import { useDimensions } from "./use-dimensions";
-import { MenuToggle } from "./manu-toggle";
-import { Menu } from "./menu";
-import { mediaQueries } from "../common/media-queries";
+import { useDimensions } from "@/components/navbar/use-dimensions";
+import { MenuToggle } from "@/components/navbar/manu-toggle";
+import { Menu } from "@/components/navbar/menu";
+import { mediaQueries } from "@/components/common/media-queries";
 
 
 const StyledOptionDiv = styled.div`

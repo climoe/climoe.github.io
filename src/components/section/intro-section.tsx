@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-import Colors from "../common/colors";
-import { print } from "../common/media-queries";
-import { Header1, LargeParagraph } from "../common/typography";
+import Colors from "@/components/common/colors";
+import { print } from "@/components/common/media-queries";
+import { Header1, LargeParagraph } from "@/components/common/typography";
 
-import splash from "../../public/images/splash.svg"
+import splash from "@/public/images/splash.svg"
 
 export const IntroSection = styled.section`
 

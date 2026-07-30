@@ -4,8 +4,8 @@ import React, { useRef } from "react";
 import styled from "styled-components";
 import Link  from "next/link";
 
-import Colors from "../common/colors";
-import { LanguageSwitch } from "../button/switch/language-switch";
+import Colors from "@/components/common/colors";
+import { LanguageSwitch } from "@/components/button/switch/language-switch";
 import useSticky from "./use-sticky";
 
 export interface StickyProps {

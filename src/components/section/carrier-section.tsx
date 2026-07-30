@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import { print } from "../common/media-queries"
+import { print } from "@/components/common/media-queries"
 
-import splash2 from "../../public/images/splash2.svg"
+import splash2 from "@/public/images/splash2.svg"
 
 
 export const CareerSection = styled.section`

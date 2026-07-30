@@ -2,7 +2,7 @@ import React from 'react';
 import { TerminalWindowIcon } from '@phosphor-icons/react'
 import styled  from 'styled-components';
 
-import Colors from '../common/colors';
+import Colors from '@/components/common/colors';
 
 const HeaderStyle = styled.div`
     position: absolute;

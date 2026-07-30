@@ -13,3 +13,5 @@ export const LanguageContext =
         switch: (language: string) => language === "en" ? "pl" : "en"
       });
 
+export default LanguageContext;
+
