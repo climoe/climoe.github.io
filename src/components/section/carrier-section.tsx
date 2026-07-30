@@ -2,12 +2,9 @@ import styled from "styled-components";
 
 import { print } from "@/components/common/media-queries"
 
-import splash2 from "@/public/images/splash2.svg"
-
-
 export const CareerSection = styled.section`
 
-  background-image: url("${splash2}");
+  background-image: url("${'@/public/images/splash2.svg'}");
   background-size: contain;
   background-position: right center;
   background-repeat: no-repeat;

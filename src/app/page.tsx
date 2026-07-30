@@ -23,6 +23,8 @@ import Preloader from '@/components/common/preloader';
 import Experience from '@/components/experience/experience';
 import Skills from '@/components/skills/skills';
 import { getMainTitleData, getAllCourses, getAllEducationEvents, getAllExperiences, getPersonalData,  getTechnologySkills } from '@/lib/content-loading/content-loading';
+import Head from '@/components/common/head';
+import GlobalStyles from '@/components/common/global-styles';
 
 
 const StyledHomepage = styled.div`
@@ -49,7 +51,9 @@ const Homepage = async () => {
 
 
     return (
-      <Suspense fallback={<Preloader/>}>
+    <Suspense fallback={<Preloader/>}>
+        <Head/>
+        <GlobalStyles/>
         <StyledHomepage>
             <PageLayout>
                 <IntroSection>

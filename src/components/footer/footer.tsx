@@ -6,7 +6,6 @@ import { contentMax } from '@/components/common/mixins';
 import { mediaQueries } from '@/components/common/media-queries';
 import Colors from '@/components/common/colors';
 
-import waves from '@/public/images/waves.svg';
 
 const Copyright = styled.p`
   text-align: center;
@@ -28,7 +27,7 @@ const Content = styled.div`
 `;
 
 const FooterWrapper = styled.div`
-  background-image: url('${waves}');
+  background-image: url("${'@/public/images/waves.svg'}");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;

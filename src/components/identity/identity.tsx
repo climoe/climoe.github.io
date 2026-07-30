@@ -1,6 +1,6 @@
 'use client'
 
-import React, { JSX, useContext } from 'react';
+import React, { CSSProperties, JSX, useContext } from 'react';
 import Image from 'next/image';
 import styled from "styled-components";
 import { AtIcon, PhoneCallIcon, LinkedinLogoIcon, TwitterLogoIcon, GithubLogoIcon} from "@phosphor-icons/react";
@@ -12,8 +12,14 @@ import Colors from "@/components/common/colors";
 import { print } from "@/components/common/media-queries";
 
 import Pin from "@/public/images/location.svg";
-import avatar from "@/public/images/social.jpg";
-import type { IdentityProps, ReturnProps } from '@/lib/content-loading/content-types';
+
+import type {
+  IdentityProps,
+  ReturnProps,
+  SocialProps,
+  ContactProps,
+  AccountProps
+} from '@/lib/content-loading/content-types';
 
 
 const StyledPersonal = styled(FlexColumnSection)`
@@ -79,7 +85,7 @@ const StyledCity = styled.span`
         padding: .5rem 1.25rem .5rem .5rem;
     `;
 
-const imageStyle = {
+const imageStyle: CSSProperties = {
   width:"15rem",
   height:"15rem",
   borderRadius: "50%",
@@ -93,7 +99,7 @@ const Personal = ({personal, id}) => {
             <StyledName>{personal.name}<span> |{personal.position}</span></StyledName>
             <StyledAvatar>
                 <AvatarBackground/>
-                  <Image src={avatar} style={imageStyle} alt={"Avatar image"} loading={"eager"}/>
+                  <Image src={"./src/public/images/avatar.jpg"} style={imageStyle} alt={"Avatar image"} loading={"eager"}/>
             </StyledAvatar>
             <StyledLocation>
                 <StyledPinDiv>
@@ -150,7 +156,12 @@ const AccessibilityStyle = styled(FlexColumnDiv)`
     `;
 
 
-const Contact = ({contact, socialAccounts}) => {
+function Contact(contact: ContactProps, social: SocialProps, accounts: AccountProps[]): JSX.Element {
+
+    console.log("Contact: ", contact)
+    console.log("Social: ", social)
+    console.log("Accounts: ", accounts)
+
 
     const openInNewTab = (url) => {
         const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
@@ -177,11 +188,11 @@ const Contact = ({contact, socialAccounts}) => {
                 </StyledIcon>
                 {contact.phone}
             </StyledMedium>
-            <Header2>{socialAccounts.header}</Header2>
+            <Header2>{social.header}</Header2>
             <AccessibilityStyle>
-                <LinkedinLogoIcon size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[0].url)}/>
-                <TwitterLogoIcon size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[1].url)}/>
-                <GithubLogoIcon size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(socialAccounts.accounts[3].url)}/>
+                <LinkedinLogoIcon size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(accounts[0].url)}/>
+                <TwitterLogoIcon size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(accounts[1].url)}/>
+                <GithubLogoIcon size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(accounts[3].url)}/>
             </AccessibilityStyle>
         </StyledContact>
     )
@@ -234,13 +245,11 @@ const IdentityStyle = styled.div`
 
 export default function Identity(identity: ReturnProps<IdentityProps>): JSX.Element  {
     const languageContext = useContext(LanguageContext)
-    const { contact, about, personal, social} = languageContext.language === "en"? identity.frontmatter.language.en : identity.frontmatter.language.pl;
+    const { personal : p, about: a, contact: c, social: s, accounts: ac} = languageContext.language === "en"? identity.frontmatter.language.en : identity.frontmatter.language.pl;
     return (
         <IdentityStyle>
             <GridSection>
-                    <Personal id="about" personal={personal}/>
-                    <Contact contact={contact} socialAccounts={social}/>
-                    <About about={about}/>
+                    <Personal id="about" personal={p}/>
             </GridSection>
         </IdentityStyle>
     )

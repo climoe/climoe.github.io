@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
-
-import myIcon from '@/public/images/loader.svg'
+import Loader from '@/public/images/loader.svg'
 
 const LoaderWrapper = styled.section`
 
@@ -23,7 +22,7 @@ const Preloader = () => {
     return (
         <LoaderWrapper>
             <LoaderStyle>
-               <Image src={myIcon} alt="my icon" />;
+               <Loader/>;
             </LoaderStyle>
         </LoaderWrapper>
     )

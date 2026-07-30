@@ -1,3 +1,5 @@
+'use client'
+
 import React, { ComponentPropsWithRef, useContext, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { PrinterIcon } from '@phosphor-icons/react';

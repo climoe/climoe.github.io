@@ -9,7 +9,7 @@ import { LanguageSwitch } from "@/components/button/switch/language-switch";
 import useSticky from "./use-sticky";
 
 export interface StickyProps {
-  sticky: boolean;
+  sticky: string;
 }
 
 const StyledNavbar = styled.nav<StickyProps>`
@@ -31,8 +31,8 @@ const StyledNavbar = styled.nav<StickyProps>`
     padding: 3rem;
     margin: 5rem 0;
 
-    background-color: ${props => props.sticky === true ? Colors.WHITE : 'transparent'};
-    border-bottom: ${props => props.sticky === true ? `1px solid ${Colors.LIGHT_GREY}` : 'transparent'};
+    background-color: ${props => props.sticky === 'true' ? Colors.WHITE : 'transparent'};
+    border-bottom: ${props => props.sticky === 'true' ? `1px solid ${Colors.LIGHT_GREY}` : 'transparent'};
      
     animation: moveDown 0.5s ease-in-out;
 
@@ -51,11 +51,12 @@ const StyledNavbar = styled.nav<StickyProps>`
 const Navbar = () => {
 
     const elementRef = useRef(null)
-    const isSticky = useSticky(elementRef)
+    const isSticky: boolean = useSticky(elementRef)
+    const sticky = isSticky.toString();
     
 
     return (
-        <StyledNavbar ref={elementRef} sticky={isSticky}>
+        <StyledNavbar ref={elementRef} sticky={sticky}>
                 <li><Link href="/#about" title="About"/></li>
                 <li><Link href="/#experience" title="Career"/></li>
                 <li><Link href="/#education" title="Eductaion"/></li>

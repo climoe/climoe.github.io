@@ -60,7 +60,7 @@
     "@types/react-dom": "19.2.3",
     "prettier": "^2.4.1",
     "svg-inline-loader": "^0.8.2",
-    "typescript": "7.0.2"
+    "typescript": "^6.0.3"
   },
   "repository": {
     "type": "git",

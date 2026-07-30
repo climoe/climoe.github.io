@@ -94,66 +94,58 @@ export type LanguageProps = {
   }
 }
 
+export type PersonalProps = {
+  name: string,
+  position: string,
+  city: string,
+  country: string
+}
+
+export type AboutProps = {
+  header: string,
+  content: string
+}
+
+export type ContactProps =  {
+  header: string,
+  mail: string,
+  phone: string
+}
+
+export type SocialProps = {
+  header: string
+}
+
+export type AccountProps = {
+  url: string
+}
+
+export type SentenceProps = {
+  header: string,
+  content: string
+}
+
 export type IdentityProps = {
   id: string,
   description: string,
   language: {
     en: {
-      personal: {
-        name: string,
-        position: string,
-        city: string,
-        country: string
-      }
-      about: {
-        header: string,
-        content: string
-      }
-      contact: {
-        header: string,
-        mail: string,
-        phone: string
-      }
-      social: {
-        header: string
-      }
-      accounts: {
-        url: string
-      }[]
-      sentence: {
-        header: string,
-        content: string
-      }
-    }
+      personal: PersonalProps,
+      about: AboutProps,
+      contact: ContactProps,
+      social: SocialProps,
+      accounts: AccountProps[],
+      sentence: SentenceProps
+    },
     pl: {
-      personal: {
-        name: string,
-        position: string,
-        city: string,
-        country: string
-      }
-      about: {
-        header: string,
-        content: string
-      }
-      contact: {
-        header: string,
-        mail: string,
-        phone: string
-      }
-      social: {
-        header: string
-      }
-      accounts: {
-        url: string
-      }[]
-      sentence: {
-        header: string,
-        content: string
-      }
+      personal: PersonalProps,
+      about: AboutProps,
+      contact: ContactProps,
+      social: SocialProps,
+      accounts: AccountProps[],
+      sentence: SentenceProps
     }
   },
-  identity?: ReturnProps<IdentityProps>
 }
 
 export type SkillsProps = {
