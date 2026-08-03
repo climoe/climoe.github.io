@@ -9,6 +9,7 @@
     "@next/mdx": "^16.2.10",
     "@phosphor-icons/react": "^2.1.10",
     "@svgr/webpack": "^8.1.0",
+    "@tailwindcss/postcss": "^4.3.3",
     "babel-plugin-styled-components": "^2.3.0",
     "framer-motion": "^12.42.2",
     "gh-pages": "^6.3.0",
@@ -16,6 +17,7 @@
     "minimatch": "10.2.5",
     "next": "^16.2.10",
     "path": "^0.12.7",
+    "postcss": "^8.5.25",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-intersection-observer": "^10.1.0",
@@ -25,7 +27,8 @@
     "remark-gfm": "^4.0.1",
     "remark-mdx-frontmatter": "^5.2.0",
     "sass": "^1.101.7",
-    "styled-components": "^6.4.3"
+    "styled-components": "^6.4.3",
+    "tailwindcss": "^4.3.3"
   },
   "keywords": [
     "nextjs",

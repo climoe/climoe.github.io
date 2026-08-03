@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@layer print {
+    @page {
+        size: A4;
+        margin: .5in 0 .5in !important;
+    }
+
+    @page:first {
+        margin-top: 0;
+    }
+}
