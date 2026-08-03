@@ -4,5 +4,10 @@ import TSESLint from 'typescript-eslint';
 
 export default defineConfig({
   files: ['**/*.{js,ts}'],
-  extends: [js.configs.recommended, TSESLint.configs.recommended],
+  basePath: './src/*',
+  extends: [
+    js.configs.recommended,
+    TSESLint.configs.recommendedTypeChecked,
+    TSESLint.configs.stylisticTypeChecked
+  ]
 });
