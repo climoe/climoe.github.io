@@ -51,14 +51,17 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/mdx": "^2.0.14",
     "@types/node": "26.1.1",
+    "@types/prettier": "^2.7.3",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
-    "@types/mdx": "^2.0.14",
-    "@types/prettier": "^2.7.3",
+    "eslint": "^10.8.0",
     "prettier": "^2.8.8",
     "svg-inline-loader": "^0.8.2",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.65.0"
   },
   "repository": {
     "type": "git",
