@@ -1,6 +1,6 @@
 'use client'
 
-import React, { JSX, useContext } from 'react';
+import React, { JSX, use, useContext } from 'react';
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -64,10 +64,11 @@ const LifetimeEventStyle = styled.ul`
     }
 `;
 
-export default function Education(education: ReturnProps<EducationProps>): JSX.Element {
+export default function Education({education} : { education: Promise<ReturnProps<EducationProps>>}): JSX.Element {
 
     const languageContext = useContext(LanguageContext)
-    const {title, events} = languageContext.language === "en"? education.frontmatter.language.en : education.frontmatter.language.pl;
+    const edu = use(education)
+    const {title, events} = languageContext.language === "en"? edu.frontmatter.language.en : edu.frontmatter.language.pl;
     return (
         <ViteSection id="education" title={title}>
           <LifetimeEventStyle>

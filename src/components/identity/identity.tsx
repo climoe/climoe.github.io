@@ -1,6 +1,6 @@
 'use client'
 
-import React, { CSSProperties, JSX, useContext } from 'react';
+import React, { CSSProperties, JSX, use, useContext } from 'react';
 import Image from 'next/image';
 import styled from "styled-components";
 import { AtIcon, PhoneCallIcon, LinkedinLogoIcon, TwitterLogoIcon, GithubLogoIcon} from "@phosphor-icons/react";
@@ -12,6 +12,7 @@ import Colors from "@/components/common/colors";
 import { print } from "@/components/common/media-queries";
 
 import Pin from "@/public/images/location.svg";
+import social from '@/public/images/social.jpg';
 
 import type {
   IdentityProps,
@@ -53,8 +54,8 @@ const AvatarBackground = styled.div`
         left: 0;
         border-radius: 50%;
         background: linear-gradient(90deg, #FF33CC  0%, #793BEEFF 100%);
-        z-index: 0;
-        transform: translateX(8%);
+        z-index: -1;
+        transform: translateX(10%);
     `;
 
 const StyledLocation = styled.div`
@@ -89,7 +90,8 @@ const imageStyle: CSSProperties = {
   width:"15rem",
   height:"15rem",
   borderRadius: "50%",
-  borderStyle: "solid"
+  borderStyle: "solid",
+  zIndex: 5
 }
 
 const Personal = ({personal, id}) => {
@@ -99,7 +101,7 @@ const Personal = ({personal, id}) => {
             <StyledName>{personal.name}<span> |{personal.position}</span></StyledName>
             <StyledAvatar>
                 <AvatarBackground/>
-                  <Image src={"./src/public/images/avatar.jpg"} style={imageStyle} alt={"Avatar image"} loading={"eager"}/>
+                  <Image src={social} width={150} height={150} style={imageStyle} alt={"Avatar image"} loading={"eager"}/>
             </StyledAvatar>
             <StyledLocation>
                 <StyledPinDiv>
@@ -156,7 +158,7 @@ const AccessibilityStyle = styled(FlexColumnDiv)`
     `;
 
 
-function Contact(contact: ContactProps, social: SocialProps, accounts: AccountProps[]): JSX.Element {
+function Contact({contact, social, accounts}): JSX.Element {
 
     console.log("Contact: ", contact)
     console.log("Social: ", social)
@@ -192,7 +194,7 @@ function Contact(contact: ContactProps, social: SocialProps, accounts: AccountPr
             <AccessibilityStyle>
                 <LinkedinLogoIcon size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(accounts[0].url)}/>
                 <TwitterLogoIcon size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(accounts[1].url)}/>
-                <GithubLogoIcon size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(accounts[3].url)}/>
+                <GithubLogoIcon size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(accounts[2].url)}/>
             </AccessibilityStyle>
         </StyledContact>
     )
@@ -243,13 +245,16 @@ const IdentityStyle = styled.div`
         `} 
 `;
 
-export default function Identity(identity: ReturnProps<IdentityProps>): JSX.Element  {
+export default function Identity({ identity } : { identity: Promise<ReturnProps<IdentityProps>>}): JSX.Element  {
     const languageContext = useContext(LanguageContext)
-    const { personal : p, about: a, contact: c, social: s, accounts: ac} = languageContext.language === "en"? identity.frontmatter.language.en : identity.frontmatter.language.pl;
+    const id = use(identity)
+    const { personal : p, about: a, contact: c, social: s, accounts: ac} = languageContext.language === "en"? id.frontmatter.language.en : id.frontmatter.language.pl;
     return (
         <IdentityStyle>
             <GridSection>
                     <Personal id="about" personal={p}/>
+                    <Contact contact={c} social={s} accounts={ac}/>
+                    <About about={a}/>
             </GridSection>
         </IdentityStyle>
     )

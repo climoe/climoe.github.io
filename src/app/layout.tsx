@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ComponentPropsWithoutRef, useContext, useRef, useState } from 'react';
+import React, {ComponentPropsWithRef, useContext, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 
 import { LanguageContext } from '@/components/context/language-context';
@@ -8,22 +8,15 @@ import Hero from '@/components/header/hero';
 import Footer from '@/components/footer/footer';
 
 
-function LayoutWithRef(props: ComponentPropsWithoutRef<'div'>) {
+function LayoutWithRef(props: ComponentPropsWithRef<"div">) {
   return <div {...props}>{props.children}</div>
 }
 
 export function PageLayout({ children }): React.ReactNode {
 
-
-  const [language, setLanguage] = useState<string>('en');
-
-  const updateLanguage = () => {
-    setLanguage(language => language === "en" ? "pl" : "en")
-  };
-
   const languageContext = useContext(LanguageContext)
 
-  const componentRef: React.RefObject<"div"> = useRef<"div">(null)
+  const componentRef = useRef<HTMLDivElement>(null)
   const pageStyle = `
       @page {
         size: A4;
@@ -36,7 +29,7 @@ export function PageLayout({ children }): React.ReactNode {
 `;
 
   const handlePrint = useReactToPrint({
-    contentRef: componentRef.current,
+    contentRef: componentRef,
     pageStyle: pageStyle,
     //copyStyles: true,
     documentTitle: 'CV - Kamil Klimczak'
@@ -52,3 +45,4 @@ export function PageLayout({ children }): React.ReactNode {
     </LanguageContext>
   )
 }
+export default PageLayout;

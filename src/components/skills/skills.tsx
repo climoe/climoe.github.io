@@ -1,6 +1,6 @@
 'use client'
 
-import React, { JSX, useContext } from 'react';
+import React, { JSX, use, useContext } from 'react';
 import styled,  {css} from "styled-components";
 
 import { mediaQueries} from "@/components/common/media-queries";
@@ -93,10 +93,11 @@ const SkillsLegend = styled.p`
     }
 `;
 
-export default function Skills(skillset: ReturnProps<SkillsProps>): JSX.Element {
+export default function Skills({ skillset } : {skillset: Promise<ReturnProps<SkillsProps>>}): JSX.Element {
 
     const languageContext = useContext(LanguageContext)
-    const { description, legend, skills } = languageContext.language === "en"? skillset.frontmatter.language.en : skillset.frontmatter.language.pl;
+    const skill = use(skillset)
+    const { description, legend, skills } = languageContext.language === "en"? skill.frontmatter.language.en : skill.frontmatter.language.pl;
 
     return (
         <ViteSection id="technology" title={description}>

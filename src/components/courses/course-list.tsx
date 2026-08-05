@@ -1,6 +1,6 @@
 'use client'
 
-import React, { JSX, useContext } from 'react';
+import React, { JSX, use, useContext } from 'react';
 import styled from "styled-components";
 
 import { LanguageContext } from "@/components/context/language-context";
@@ -15,9 +15,10 @@ const CourseListStyle = styled.ul`
         padding-inline-start: 0;
     `;
 
-export default function CourseList(courses: ReturnProps<CourseListProps>): JSX.Element {
+export default function CourseList({ courses }:{ courses: Promise<ReturnProps<CourseListProps>>}): JSX.Element {
   const languageContext = useContext(LanguageContext)
-  const { label, items } = languageContext.language === "en"? courses.frontmatter.language.en : courses.frontmatter.language.pl;
+  const c = use(courses)
+  const { label, items } = languageContext.language === "en"? c.frontmatter.language.en : c.frontmatter.language.pl;
 
   return (
       <ViteSection id="courses" title= {label}>

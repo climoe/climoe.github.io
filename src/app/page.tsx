@@ -40,14 +40,14 @@ const StyledHomepage = styled.div`
     background-image: linear-gradient(315deg, rgb(217, 228, 245) 0%, rgb(245, 227, 230) 74%);
 `;
 
-const Homepage = async () => {
+export default async function HomePage()  {
 
-    const mainTitle  = await getMainTitleData()
-    const courses  =  await getAllCourses()
-    const experiences =  await getAllExperiences()
-    const educations  = await getAllEducationEvents()
-    const personal  = await getPersonalData()
-    const skills = await getTechnologySkills()
+    const mainTitle  =  getMainTitleData()
+    const courses  =   getAllCourses()
+    const experiences =   getAllExperiences()
+    const educations  =  getAllEducationEvents()
+    const personal  =  getPersonalData()
+    const skills =  getTechnologySkills()
 
 
     return (
@@ -58,28 +58,28 @@ const Homepage = async () => {
             <PageLayout>
                 <IntroSection>
                     <FlexRowSection>
-                        <MainTitle {...mainTitle}/>
+                        <MainTitle mainTitle = {mainTitle}/>
                         <Dev/>                        
                     </FlexRowSection>
                 </IntroSection>
                 <Navbar/>
                 <CareerSection>
                     <AnimatedSection>
-                        <Identity {...personal} />
+                        <Identity identity={personal} />
                     </AnimatedSection>
                     <AnimatedSection>
-                        <Experience {...experiences} />
+                        <Experience experiences={experiences} />
                     </AnimatedSection>             
                     <AnimatedSection>
                         <Consult/>
-                        <Education {...educations}/>
+                        <Education education={educations}/>
                     </AnimatedSection>
                     <AnimatedSection>
-                        <Skills {...skills} />
+                        <Skills skillset={skills} />
                         <Analyze/>
                     </AnimatedSection>
                     <AnimatedSection>
-                        <CourseList {...courses}/>
+                        <CourseList courses={courses}/>
                     </AnimatedSection>
                 </CareerSection>
             </PageLayout>
@@ -87,4 +87,3 @@ const Homepage = async () => {
       </Suspense>
     )
 }
-export default Homepage;

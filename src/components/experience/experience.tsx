@@ -1,6 +1,6 @@
 'use client'
 
-import React, { JSX, useContext } from 'react';
+import React, { JSX, use, useContext } from 'react';
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -80,15 +80,16 @@ const ExperienceStyle = styled.ul`
 `;
 
 
-export default function Experience(exp: ReturnProps<ExperienceListProps>): JSX.Element  {
+export default function Experience( { experiences } : { experiences: Promise<ReturnProps<ExperienceListProps>>}): JSX.Element  {
 
     const languageContext = useContext(LanguageContext)
-    const { label, experience} = languageContext.language === "en" ?  exp.frontmatter.language.en : exp.frontmatter.language.pl
+    const exp = use(experiences)
+    const { label, experience } = languageContext.language === "en" ?  exp.frontmatter.language.en : exp.frontmatter.language.pl
 
     return (
         <ViteSection id="experience" title={label}>
             <ExperienceStyle>
-              {experience.map((exp, index) => 
+              {experience.map((exp, index) =>
                 { return (
                     <motion.li whileTap={{scale: 0.95}} key={index}>
                         <time>{exp.time.from} - {exp.time.to}</time> 

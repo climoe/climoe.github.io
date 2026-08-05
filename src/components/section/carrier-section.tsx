@@ -10,8 +10,7 @@ export const CareerSection = styled.section`
   background-repeat: no-repeat;
 
   margin: 3rem 2rem 1rem;
-
-
+    
   ${print`
        background: white;
   `}

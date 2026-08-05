@@ -1,6 +1,6 @@
 'use client'
 
-import React, { JSX, useContext } from 'react';
+import React, { JSX, use, useContext } from 'react';
 import  styled , { css }  from "styled-components";
 import  Colors  from "@/components/common/colors";
 
@@ -29,10 +29,11 @@ const StyledMainTitle = styled.p`
     }
 `;
 
-export default function MainTitle(main: ReturnProps<LanguageProps>): JSX.Element {
+export default function MainTitle( { mainTitle}: { mainTitle: Promise<ReturnProps<LanguageProps>>}): JSX.Element {
 
     const languageContext = useContext(LanguageContext)
-    const { first, second }  = languageContext.language === "en" ? main.frontmatter.language.en : main.frontmatter.language.pl;
+    const title = use(mainTitle)
+    const { first, second }  = languageContext.language === "en" ? title.frontmatter.language.en : title.frontmatter.language.pl;
 
     return (
         <StyledMainTitle>

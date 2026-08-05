@@ -1,5 +1,4 @@
 'use client'
-
 import React, { ComponentPropsWithRef, useContext, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { PrinterIcon } from '@phosphor-icons/react';
@@ -19,13 +18,7 @@ import Skills from '@/components/skills/skills';
 import Header from '@/components/common/header';
 import DefaultInput from '@/components/field/default-input';
 import { FlexRowCenter } from '@/components/common/flexbox';
-import {
-  getAllCourses,
-  getAllEducationEvents,
-  getAllExperiences,
-  getPersonalData,
-  getTechnologySkills
-} from '@/lib/content-loading/content-loading';
+import { getAllCourses, getAllEducationEvents, getAllExperiences, getMainTitleData, getPersonalData, getTechnologySkills } from '@/lib/content-loading/content-loading';
 
 
 const Printable = styled.main`
@@ -48,13 +41,12 @@ const ProcessingAgree = styled.section`
 `;
 
 function LayoutWithRef(props: ComponentPropsWithRef<"div">) {
-    return (
-      <div {...props}>
-      </div>)
-  }
+    return (<div {...props}>{props.children}</div>)
+}
 
 
-const CV = async () => {
+
+export default async function CV() {
 
   const printRef = useRef<HTMLDivElement>(null);
   const [companyName, setCompanyName] = useState('');
@@ -65,15 +57,18 @@ const CV = async () => {
     documentTitle: 'CV - Kamil Klimczak'
   });
 
+  const mainTitle  =  getMainTitleData()
+  const courses  =   getAllCourses()
+  const experiences =   getAllExperiences()
+  const educations  =  getAllEducationEvents()
+  const personal  =  getPersonalData()
+  const skills =  getTechnologySkills()
+
+
+
   const handleChangeCompanyName = (event) => {
     setCompanyName(event.target.value);
   };
-
-  const courses  =  await getAllCourses()
-  const experiences =  await getAllExperiences()
-  const educations  = await getAllEducationEvents()
-  const personal  = await getPersonalData()
-  const skills = await getTechnologySkills()
 
   return (
     <>
@@ -87,14 +82,14 @@ const CV = async () => {
         <LayoutWithRef ref={printRef}>
           <Printable>
             <LanguageSwitch sticky={true} />
-            <Identity {...personal}/>
-            <Experience {...experiences} />
-            <Education {...educations}/>
-            <Skills {...skills} />
-            <CourseList {...courses}/>
+            <Identity identity={personal}/>
+            <Experience experiences={experiences} />
+            <Education education={educations}/>
+            <Skills skillset={skills}/>
+            <CourseList courses={courses}/>
             <ProcessingAgree>
                 <span>
-                      "I consent to the processing by {companyName} my personal data included in my CV for the purposes of the recruitment process and further recruitment processes"
+                    "I consent to the processing by my personal data included in my CV for the purposes of the recruitment process and further recruitment processes"
                 </span>
             </ProcessingAgree>
           </Printable>
@@ -103,4 +98,3 @@ const CV = async () => {
     </>
   );
 };
-export default CV;

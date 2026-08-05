@@ -11,8 +11,8 @@
       "@/components/*": [
         "./src/components/*"
       ],
-      "@/content/*": [
-        "./src/content/*"
+      "@/lib/*": [
+        "./src/lib/*"
       ],
       "@/public/*": [
         "./src/public/*"
