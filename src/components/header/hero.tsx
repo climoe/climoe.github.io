@@ -23,7 +23,7 @@ const Logo = styled.a`
     margin: 1rem; 
     border-radius: 50%;
     background: linear-gradient(90deg, #FF33CC 0%, #793BEEFF 100%);
-    color: ${Colors.DARKEST};
+    color: var(--cv-color-darkest);
     cursor: pointer;
     text-decoration: none;
     animation: rotate 0.7s ease-in-out 0.5s;

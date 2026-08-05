@@ -1,37 +1,29 @@
 'use client'
 
-import React, { useContext, useRef, useState } from 'react';
+import React, { ComponentPropsWithoutRef, useContext, useRef, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
 
-import Head from '@/components/common/head';
-import GlobalStyles from '@/components/common/global-styles';
 import { LanguageContext } from '@/components/context/language-context';
 import Hero from '@/components/header/hero';
 import Footer from '@/components/footer/footer';
 
-type DivProps = React.HTMLProps<HTMLDivElement>
 
-const LayoutWithRef =
-  React.forwardRef<HTMLDivElement, DivProps>((props, ref) => {
-  return (
-    <div ref={ref}>
-      {props.children}
-    </div>
-  )
-})
+function LayoutWithRef(props: ComponentPropsWithoutRef<'div'>) {
+  return <div {...props}>{props.children}</div>
+}
 
-export const PageLayout = ({ children }) : React.ReactNode => {
+export function PageLayout({ children }): React.ReactNode {
 
 
-  // const [language, setLanguage] = useState<string>('en');
-  //
-  // const updateLanguage = () => {
-  //   setLanguage(language => language === "en" ? "pl" : "en")
-  // };
+  const [language, setLanguage] = useState<string>('en');
 
-  const language = useContext(LanguageContext)
+  const updateLanguage = () => {
+    setLanguage(language => language === "en" ? "pl" : "en")
+  };
 
-  const componentRef: React.RefObject<any> = useRef<HTMLDivElement>(null)
+  const languageContext = useContext(LanguageContext)
+
+  const componentRef: React.RefObject<"div"> = useRef<"div">(null)
   const pageStyle = `
       @page {
         size: A4;
@@ -44,21 +36,19 @@ export const PageLayout = ({ children }) : React.ReactNode => {
 `;
 
   const handlePrint = useReactToPrint({
-    contentRef:  componentRef.current,
+    contentRef: componentRef.current,
     pageStyle: pageStyle,
     //copyStyles: true,
     documentTitle: 'CV - Kamil Klimczak'
   })
 
   return (
-    <LanguageContext value={language}>
-      <Hero/>
+    <LanguageContext value={languageContext}>
+      <Hero />
       <LayoutWithRef ref={componentRef}>
-         {children}
+        {children}
       </LayoutWithRef>
       <Footer handlePrint={handlePrint} />
     </LanguageContext>
   )
-};
-
-export default PageLayout;
+}

@@ -3,7 +3,7 @@ import React, { Suspense }  from 'react';
 import styled from 'styled-components';
 
 import Colors from '@/components/common/colors';
-import PageLayout from '@/app/layout';
+import { PageLayout } from '@/app/layout';
 
 import { IntroSection } from '@/components/section/intro-section';
 import { CareerSection } from '@/components/section/carrier-section';
@@ -23,7 +23,7 @@ import Preloader from '@/components/common/preloader';
 import Experience from '@/components/experience/experience';
 import Skills from '@/components/skills/skills';
 import { getMainTitleData, getAllCourses, getAllEducationEvents, getAllExperiences, getPersonalData,  getTechnologySkills } from '@/lib/content-loading/content-loading';
-import Head from '@/components/common/head';
+import Head from '@/components/common/header';
 import GlobalStyles from '@/components/common/global-styles';
 
 

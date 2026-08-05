@@ -16,7 +16,7 @@ import Education from '@/components/education/education';
 import Experience from '@/components/experience/experience';
 import Identity from '@/components/identity/identity';
 import Skills from '@/components/skills/skills';
-import Head from '@/components/common/head';
+import Header from '@/components/common/header';
 import DefaultInput from '@/components/field/default-input';
 import { FlexRowCenter } from '@/components/common/flexbox';
 import {
@@ -78,7 +78,7 @@ const CV = async () => {
   return (
     <>
       <GlobalStyles />
-      <Head />
+      <Header />
       <FlexRowCenter>
         <DefaultInput value={companyName} onChange={handleChangeCompanyName} />
         <PrinterIcon size={'4rem'} color={`${Colors.PURPLE}`} weight="duotone" onClick={useHandlePrint()} />

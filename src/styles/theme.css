@@ -1,0 +1,64 @@
+@import "tailwindcss";
+@import "base.css";
+
+@layer theme {
+
+    @font-face {
+        font-family: var(--cv-font-family);
+    }
+
+    html {
+
+        /* 62,5% * 16px -> 1rem - 10px -*/
+        font-size: 62.5%;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+
+        @media screen and (max-width: 20em){
+            font-size: 0;
+        }
+
+        /*  * ---> 480px -> small phone (35% * 16px -> 1rem - 5,6px) */
+        @media screen and (min-width: 20em ) and (max-width: 30em) {
+            font-size: 35%
+        }
+
+        /* 480px <---> 650px -> phone (50% * 16px -> 1rem - 8px) */
+        @media screen and (min-width: 30em) and (max-width: 40em){
+            font-size: 50%;
+        }
+
+        /* 650px <---> 900px -> tablet (62.5% * 16px -> 1rem - 10px) */
+        @media screen and (min-width: 40em) and (max-width: 56.25em){
+            font-size: 62.5%;
+        }
+
+        /* 900px <---> 1200px -> laptop (62.5% * 16px -> 1rem - 10px) */
+        @media screen and (min-width: 56.25em) and (max-width: 75em) {
+            font-size: 62.5%;
+        }
+
+        /* 1200px ---> * - desktop (75% * 16px -> 1rem - 12px) */
+        @media screen and (min-width: 75em){
+            font-size: 75%;
+        }
+
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+
+        box-sizing: var(--cv-box-sizing);
+        height: 100%;
+        font-size: var(--cv-font-size-default);
+
+        font-family: var(--cv-font-family), sans-serif;
+        background-color: var(--cv-color-white);
+    }
+
+
+}

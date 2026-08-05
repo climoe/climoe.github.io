@@ -1,7 +1,6 @@
 import styled, {css}   from 'styled-components'
 import { mediaQueries } from './media-queries'
 
-import Colors from './colors'
 
 export const FlexRowSection = styled.section`
     
@@ -83,7 +82,7 @@ export const GridSection = styled.section`
 export const StyledParagraph = styled.p`
     
     font-size: 1.6rem;
-    color: ${Colors.DARKEST};
+    color: var(--cv-color-darkest);
     font-weight: 300;
     text-align: left;
 
