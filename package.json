@@ -10,6 +10,7 @@
     "@phosphor-icons/react": "^2.1.10",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4.3.3",
+    "@thadathilsinan/cssvar": "^1.0.0",
     "babel-plugin-styled-components": "^2.3.0",
     "framer-motion": "^12.42.2",
     "gh-pages": "^6.3.0",
@@ -28,8 +29,8 @@
     "remark-mdx-frontmatter": "^5.2.0",
     "sass": "^1.101.7",
     "styled-components": "^6.4.3",
-    "tailwindcss": "^4.3.3",
-    "svg-inline-loader": "^0.8.2"
+    "svg-inline-loader": "^0.8.2",
+    "tailwindcss": "^4.3.3"
   },
   "keywords": [
     "nextjs",

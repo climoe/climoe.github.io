@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Technology } from "./technology";
 
-import Colors from "@/components/common/colors";
 import { print } from "@/components/common/media-queries";
 
 
@@ -33,14 +32,14 @@ const ProjectPosition = styled.h5`
 const ProjectDetails = styled.article`
         font-size: 1.4rem;
         font-weight: 300;
-        color: ${Colors.GREY};
+        color: var(--cv-color-grey);
         
     `;
 
 const ProjectRole = styled.article`
         font-size: 1.4rem;
         font-weight: 300;
-        color: ${Colors.GREY};
+        color: var(--cv-color-grey);
         
     `;
 

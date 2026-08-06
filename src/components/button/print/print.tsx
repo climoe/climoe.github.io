@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Colors from '@/components/common/colors';
 
 export interface ScrollableProps {
   scrolled: boolean;
@@ -22,15 +21,14 @@ const Print = styled.button<ScrollableProps>`
   padding: 0.5rem 1rem;
   font-size: 1.6rem;
   font-weight: 500;
-  font-family: 'Inter';
 
   cursor: pointer;
-  color: ${Colors.DARKEST};
+  color: var(--cv-color-darkest);
 
-  background-color: ${props => (props.scrolled ? `${Colors.WHITE};` : 'transparent')};
+  background-color: ${props => (props.scrolled ? "var(--cv-color-darkest)" : 'transparent')};
   animation: ${props => (props.scrolled ? 'fadein' : 'fadeout')} 0.2s;
   border-radius: 3rem;
-  border: 1px solid ${Colors.PURPLE};
+  border: 1px solid var(--cv-color-purple);
 
 `;
 

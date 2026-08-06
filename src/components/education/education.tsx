@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 import { LanguageContext } from "@/components/context/language-context";
-import Colors from "@/components/common/colors";
 import { ViteSection } from "@/components/section/vite-section";
 import type { ReturnProps, EducationProps } from '@/lib/content-loading/content-types';
 
@@ -18,7 +17,7 @@ const LifetimeEventStyle = styled.ul`
 
     li {
         display: flex; 
-        color: ${Colors.DARKEST};
+        color: var(--cv-color-darkest);
     }
 
     time { 
@@ -28,7 +27,7 @@ const LifetimeEventStyle = styled.ul`
       font-size: 1.4rem;
       text-orientation: sideways;       
       padding-right: 1rem;
-      border-right: .2rem ${Colors.DARKEST} solid ;
+      border-right: .2rem var(--cv-color-darkest) solid ;
 
       &::after {
         content: "";
@@ -38,8 +37,8 @@ const LifetimeEventStyle = styled.ul`
         top: 0;
         transform: translateX(60%);
         border-radius: 50%;
-        background: ${Colors.DARKEST};
-        border: .3rem ${Colors.DARKEST} solid;
+        background: var(--cv-color-darkest);
+        border: .3rem var(--cv-color-darkest) solid;
         width: .5em;
         height: .5em;                
       }

@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
-import Colors from "@/components/common/colors";
 import { print } from "@/components/common/media-queries";
 import { Header1, LargeParagraph } from "@/components/common/typography";
 
 export const IntroSection = styled.section`
 
-    //height: 80vh;
     padding: 10rem 0;
     margin: 0 auto;
 
@@ -16,7 +14,7 @@ export const IntroSection = styled.section`
     background-repeat: no-repeat;
 
     ${Header1} {
-        color: ${Colors.DARKEST};
+        color: var(--cv-color-darkest);
     }
 
     ${LargeParagraph} {
@@ -24,6 +22,6 @@ export const IntroSection = styled.section`
     }
 
     ${print`
-        background: white;
+        background: var(--cv-color-white);
     `}
 `;

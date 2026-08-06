@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 import { DotsRating } from "@/components/skills/dots-rating";
-import Colors from "@/components/common/colors";
 import { print } from "@/components/common/media-queries"
 
 
@@ -29,7 +28,7 @@ const SkillNameStyle = styled.h5`
 const SkillDescStyle = styled.p`
         font-size: 1.2rem;
         font-weight: 300;
-        color: ${Colors.GREY};
+        color: var(--cv-color-grey);
         margin: 0;
 
         ${print`

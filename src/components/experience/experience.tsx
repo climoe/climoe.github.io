@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 
 import { ViteSection } from "@/components/section/vite-section";
 import { Project } from "@/components/experience/project";
-import Colors from "@/components/common/colors";
 import { print } from "@/components/common/media-queries";
 import { LanguageContext } from '@/components/context/language-context';
 import type { ReturnProps, ExperienceListProps} from '@/lib/content-loading/content-types';
@@ -26,7 +25,7 @@ const ExperienceStyle = styled.ul`
 
     li {
         display: flex; 
-        color: ${Colors.DARKEST};
+        color: var(--cv-color-darkest);
 
     }
 
@@ -37,7 +36,7 @@ const ExperienceStyle = styled.ul`
         font-size: 1.4rem;           
         font-weight: bold;
         padding-right: 1rem;
-        border-right: .2rem ${Colors.DARKEST} solid;
+        border-right: .2rem var(--cv-color-darkest) solid;
         ${print`
             margin-left: 0;
             padding-left: 0;
@@ -52,8 +51,8 @@ const ExperienceStyle = styled.ul`
             top: 0;
             transform: translateX(60%);
             border-radius: 50%;
-            background: ${Colors.DARKEST};
-            border: .3rem ${Colors.DARKEST} solid;
+            background: var(--cv-color-darkest);
+            border: .3rem var(--cv-color-darkest) solid;
             width: .5em;
             height: .5em;                
         }

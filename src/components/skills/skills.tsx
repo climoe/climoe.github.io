@@ -6,7 +6,6 @@ import styled,  {css} from "styled-components";
 import { mediaQueries} from "@/components/common/media-queries";
 import { LanguageContext } from "@/components/context/language-context";
 
-import Colors from "@/components/common/colors";
 import { ViteSection } from "@/components/section/vite-section";
 import { SkillRating } from "@/components/skills/skill-rating";
 import { ReturnProps, SkillsProps } from '@/lib/content-loading/content-types';
@@ -67,7 +66,7 @@ const CategoryStyle = styled.section`
 
 const SkillsCategory = styled.h4`
     font-size: 1rem;
-    color: ${Colors.GREY};
+    color: var(--cv-color-grey);
     margin: 1.5rem 0 0;
     padding-left: 1rem;
     page-break-inside: avoid;
@@ -85,7 +84,7 @@ const SkillsCategory = styled.h4`
 const SkillsLegend = styled.p`
     font-size: 1.2rem;
     font-weight: 300;
-    color: ${Colors.GREY};
+    color: var(--cv-color-grey);
     @media print {
         ${css`
             font-size: 1rem;
@@ -93,7 +92,7 @@ const SkillsLegend = styled.p`
     }
 `;
 
-export default function Skills({ skillset } : {skillset: Promise<ReturnProps<SkillsProps>>}): JSX.Element {
+export default function Skills({ skillset } : { skillset: Promise<ReturnProps<SkillsProps>>}): JSX.Element {
 
     const languageContext = useContext(LanguageContext)
     const skill = use(skillset)

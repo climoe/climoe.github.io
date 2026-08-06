@@ -1,26 +1,20 @@
 'use client'
 
-import React, { CSSProperties, JSX, use, useContext } from 'react';
+import React, { CSSProperties, JSX, use, useContext} from 'react';
 import Image from 'next/image';
 import styled from "styled-components";
+import CssVar from "@thadathilsinan/cssvar";
 import { AtIcon, PhoneCallIcon, LinkedinLogoIcon, TwitterLogoIcon, GithubLogoIcon} from "@phosphor-icons/react";
 
 import { LanguageContext } from "@/components/context/language-context";
 import { FlexColumnSection, FlexColumnDiv, GridSection} from "@/components/common/flexbox";
 import { Header2, Header3 } from "@/components/common/typography";
-import Colors from "@/components/common/colors";
 import { print } from "@/components/common/media-queries";
 
 import Pin from "@/public/images/location.svg";
 import social from '@/public/images/social.jpg';
 
-import type {
-  IdentityProps,
-  ReturnProps,
-  SocialProps,
-  ContactProps,
-  AccountProps
-} from '@/lib/content-loading/content-types';
+import type { IdentityProps, ReturnProps} from '@/lib/content-loading/content-types';
 
 
 const StyledPersonal = styled(FlexColumnSection)`
@@ -53,7 +47,7 @@ const AvatarBackground = styled.div`
         bottom: 0;
         left: 0;
         border-radius: 50%;
-        background: linear-gradient(90deg, #FF33CC  0%, #793BEEFF 100%);
+        background: linear-gradient(90deg, var(--cv-color-pink)  0%, var(--cv-color-purple) 100%);
         z-index: -1;
         transform: translateX(10%);
     `;
@@ -61,14 +55,14 @@ const AvatarBackground = styled.div`
 const StyledLocation = styled.div`
         display: inline-flex;
         width: auto;
-        background-color: ${Colors.DARKEST};
+        background-color: var(--cv-color-darkest);
         margin-top: 2.5rem;
 
     `;
 
 const StyledPinDiv = styled.span`
-        border-color: ${Colors.WHITE};
-        border: 0 solid ${Colors.WHITE};
+        border-color: var(--cv-color-white);
+        border: 0 solid var(--cv-color-white);
         padding: .5rem .5rem .5rem 1.25rem; 
     `;
 
@@ -81,7 +75,7 @@ const StyledPin = styled.span`
 
 const StyledCity = styled.span`
         font-size: 2.25rem;
-        color: ${Colors.WHITE};
+        color: var(--cv-color-white);
         font-weight: 500;
         padding: .5rem 1.25rem .5rem .5rem;
     `;
@@ -98,10 +92,10 @@ const Personal = ({personal, id}) => {
 
     return (
         <StyledPersonal id={id}>
-            <StyledName>{personal.name}<span> |{personal.position}</span></StyledName>
+            <StyledName>{personal.name}<span> | {personal.position}</span></StyledName>
             <StyledAvatar>
                 <AvatarBackground/>
-                  <Image src={social} width={150} height={150} style={imageStyle} alt={"Avatar image"} loading={"eager"}/>
+                  <Image src={social} width={200} height={200} style={imageStyle} alt={"Avatar image"} loading={"eager"}/>
             </StyledAvatar>
             <StyledLocation>
                 <StyledPinDiv>
@@ -160,11 +154,6 @@ const AccessibilityStyle = styled(FlexColumnDiv)`
 
 function Contact({contact, social, accounts}): JSX.Element {
 
-    console.log("Contact: ", contact)
-    console.log("Social: ", social)
-    console.log("Accounts: ", accounts)
-
-
     const openInNewTab = (url) => {
         const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
@@ -172,7 +161,10 @@ function Contact({contact, social, accounts}): JSX.Element {
 
     const onClickUrl = (url) => {
         return () => openInNewTab(url)
-    }  
+    }
+
+    const pink = new CssVar().get("--cv-color-pink");
+    const purple = new CssVar().get("--cv-color-purple");
 
 
     return (
@@ -180,21 +172,21 @@ function Contact({contact, social, accounts}): JSX.Element {
             <Header2>{contact.header}</Header2>
             <StyledMedium>
                 <StyledIcon>
-                    <AtIcon size={"2.4rem"} color={`${Colors.PURPLE}`} weight="duotone"/>
+                    <AtIcon size={"2.4rem"} color={pink} weight="duotone"/>
                 </StyledIcon>
                 {contact.mail}
             </StyledMedium>
             <StyledMedium>
                 <StyledIcon>
-                    <PhoneCallIcon size={"2.4rem"} color={`${Colors.PURPLE}`} weight="duotone"/>
+                    <PhoneCallIcon size={"2.4rem"} color={purple} weight="duotone"/>
                 </StyledIcon>
                 {contact.phone}
             </StyledMedium>
             <Header2>{social.header}</Header2>
             <AccessibilityStyle>
-                <LinkedinLogoIcon size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(accounts[0].url)}/>
-                <TwitterLogoIcon size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(accounts[1].url)}/>
-                <GithubLogoIcon size={"3rem"} color={`${Colors.PURPLE}`} weight="duotone" onClick={onClickUrl(accounts[2].url)}/>
+                <LinkedinLogoIcon size={"3rem"} color={purple} weight="duotone" onClick={onClickUrl(accounts[0].url)}/>
+                <TwitterLogoIcon size={"3rem"} color={purple} weight="duotone" onClick={onClickUrl(accounts[1].url)}/>
+                <GithubLogoIcon size={"3rem"} color={purple} weight="duotone" onClick={onClickUrl(accounts[2].url)}/>
             </AccessibilityStyle>
         </StyledContact>
     )

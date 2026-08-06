@@ -1,12 +1,11 @@
 import React from "react";
 import { CircleWavyIcon } from "@phosphor-icons/react";
-
-import Colors from "@/components/common/colors";
+import CssVar from '@thadathilsinan/cssvar';
 
 export const DotsRating = ({range}) => {
     
-    const pinkColor = `${Colors.PURPLE}`;
-    const greyColor = `${Colors.GREY}`;
+    const pinkColor = new CssVar().get("--cv-color-pink")
+    const greyColor = new CssVar().get("--cv-color-grey");
     return (
         <div>
             {[...Array(range)].map((item, index) => {

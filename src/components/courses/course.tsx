@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import CssVar from '@thadathilsinan/cssvar';
 import { CheckCircleIcon, HourglassIcon } from "@phosphor-icons/react";
-
-import colors from "@/components/common/colors";
-import {print}  from "@/components/common/media-queries";
+import { print }  from "@/components/common/media-queries";
 
 const CourseStyle = styled.article`
         display: flex;
@@ -37,7 +36,7 @@ const CourseOwner = styled.span`
     `;
 
 const CourseRealization = styled.i`
-        border: 1px ${colors.GREEN_LIGHTER};
+        border: 1px var(--cv-color-green-lighter);
         font-size: 2rem;
         margin-bottom: .8rem;
     `
@@ -45,11 +44,13 @@ const CourseRealization = styled.i`
 
 export const Course = ({ name, owner, description, realized}) => {
 
+    const cssVar = new CssVar();
+    const purple = cssVar.get("--cv-color-purple")
     return (
         <CourseStyle>
             {realized === true ? 
-                <CourseRealization><CheckCircleIcon size={"2rem"} color={`${colors.PURPLE}`}/></CourseRealization> :
-                <CourseRealization><HourglassIcon size={"2rem"} color={`${colors.PURPLE}`}/></CourseRealization>
+                <CourseRealization><CheckCircleIcon size={"2rem"} color={purple}/></CourseRealization> :
+                <CourseRealization><HourglassIcon size={"2rem"} color={purple}/></CourseRealization>
             }
             <CourseName>
                 {name} - 

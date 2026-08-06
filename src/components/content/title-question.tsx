@@ -1,7 +1,6 @@
 import  React  from "react";
 import  styled  from "styled-components";
 
-import  Colors  from "@/components/common/colors";
 import { print } from "@/components/common/media-queries";
 
 const TitleQuestionStyle = styled.div`
@@ -21,7 +20,7 @@ const TitleQuestionStyle = styled.div`
         
         width: 70rem;
         font-weight: 100;
-        color: ${Colors.DARKEST};
+        color: var(--cv-color-darkest);
     }
 
     .message {
@@ -31,11 +30,11 @@ const TitleQuestionStyle = styled.div`
         overflow: hidden;
         
         position: absolute;
-        top: 0rem;
+        top: 0;
         left: 42rem;
         
         font-weight: 900;
-        color: ${Colors.DARKEST};
+        color: var(--cv-color-darkest);
         background: linear-gradient(90deg, #FF6633 0%, #FF33CC 100%);
         
         animation: openclose 5s ease-in-out infinite;

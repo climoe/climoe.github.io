@@ -4,7 +4,6 @@ import React, { useRef } from "react";
 import styled from "styled-components";
 import Link  from "next/link";
 
-import Colors from "@/components/common/colors";
 import { LanguageSwitch } from "@/components/button/switch/language-switch";
 import useSticky from "./use-sticky";
 
@@ -31,13 +30,13 @@ const StyledNavbar = styled.nav<StickyProps>`
     padding: 3rem;
     margin: 5rem 0;
 
-    background-color: ${props => props.sticky === 'true' ? Colors.WHITE : 'transparent'};
-    border-bottom: ${props => props.sticky === 'true' ? `1px solid ${Colors.LIGHT_GREY}` : 'transparent'};
+    background-color: ${props => props.sticky === 'true' ? `var(--cv-color-white)` : 'transparent'};
+    border-bottom: ${props => props.sticky === 'true' ? `1px solid var(--cv-color-light-grey)` : 'transparent'};
      
     animation: moveDown 0.5s ease-in-out;
 
     & a {
-        color: ${Colors.DARKEST};
+        color: var(--cv-color-darkest);
         padding: .4rem;
         margin-right: .8rem;
         font-size: 2.4rem;
@@ -50,7 +49,7 @@ const StyledNavbar = styled.nav<StickyProps>`
 
 const Navbar = () => {
 
-    const elementRef = useRef(null)
+    const elementRef = useRef<HTMLElement>(null)
     const isSticky: boolean = useSticky(elementRef)
     const sticky = isSticky.toString();
     

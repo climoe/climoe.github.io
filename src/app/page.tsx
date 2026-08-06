@@ -2,8 +2,7 @@
 import React, { Suspense }  from 'react';
 import styled from 'styled-components';
 
-import Colors from '@/components/common/colors';
-import { PageLayout } from '@/app/layout';
+import  PageLayout  from '@/app/layout';
 
 import { IntroSection } from '@/components/section/intro-section';
 import { CareerSection } from '@/components/section/carrier-section';
@@ -23,8 +22,6 @@ import Preloader from '@/components/common/preloader';
 import Experience from '@/components/experience/experience';
 import Skills from '@/components/skills/skills';
 import { getMainTitleData, getAllCourses, getAllEducationEvents, getAllExperiences, getPersonalData,  getTechnologySkills } from '@/lib/content-loading/content-loading';
-import Head from '@/components/common/header';
-import GlobalStyles from '@/components/common/global-styles';
 
 
 const StyledHomepage = styled.div`
@@ -32,7 +29,7 @@ const StyledHomepage = styled.div`
     position: relative;
     margin: auto;
     max-width: 140rem;
-    background-color: ${Colors.WHITE};
+    background-color: var(--cv-color-white);
     z-index: 0;
     box-shadow: 0 0.0625rem 0.25rem 0 rgba(61, 66, 80, 0.18);
 
@@ -52,14 +49,12 @@ export default async function HomePage()  {
 
     return (
     <Suspense fallback={<Preloader/>}>
-        <Head/>
-        <GlobalStyles/>
-        <StyledHomepage>
-            <PageLayout>
+        <PageLayout>
+            <StyledHomepage>
                 <IntroSection>
                     <FlexRowSection>
                         <MainTitle mainTitle = {mainTitle}/>
-                        <Dev/>                        
+                        <Dev/>
                     </FlexRowSection>
                 </IntroSection>
                 <Navbar/>
@@ -69,7 +64,7 @@ export default async function HomePage()  {
                     </AnimatedSection>
                     <AnimatedSection>
                         <Experience experiences={experiences} />
-                    </AnimatedSection>             
+                    </AnimatedSection>
                     <AnimatedSection>
                         <Consult/>
                         <Education education={educations}/>
@@ -82,8 +77,8 @@ export default async function HomePage()  {
                         <CourseList courses={courses}/>
                     </AnimatedSection>
                 </CareerSection>
-            </PageLayout>
-        </StyledHomepage>
+            </StyledHomepage>
+        </PageLayout>
       </Suspense>
     )
 }

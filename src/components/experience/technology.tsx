@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import Colors from "@/components/common/colors";
 
 const TechnologyStyle = styled.span`
     
-        border: 1px solid ${Colors.PURPLE};
+        border: 1px solid var(--cv-color-purple);
         border-radius: 1rem;
         font-size: 1.2rem;
         font-weight: 500;

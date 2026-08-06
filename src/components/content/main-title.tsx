@@ -2,7 +2,6 @@
 
 import React, { JSX, use, useContext } from 'react';
 import  styled , { css }  from "styled-components";
-import  Colors  from "@/components/common/colors";
 
 import { LanguageContext } from "@/components/context/language-context";
 import { LanguageProps, ReturnProps } from '@/lib/content-loading/content-types';
@@ -12,14 +11,14 @@ const StyledMainTitle = styled.p`
     margin-top: 2rem;
     font-size: 5rem;
     overflow: hidden;
-    color: ${Colors.DARKEST};
+    color: var(--cv-color-darkest);
     font-weight: 500;
     flex: 1 1 50%;
 
     span  {
         font-size: 5rem;
         font-weight: 500;
-        background: linear-gradient(90deg, #FF33CC 0%, #793BEEFF 100%);
+        background: linear-gradient(90deg, var(--cv-color-pink) 0%, var(--cv-color-purple-darker) 100%);
     }
 
     @media print {
@@ -37,7 +36,7 @@ export default function MainTitle( { mainTitle}: { mainTitle: Promise<ReturnProp
 
     return (
         <StyledMainTitle>
-            {first}<span>{second}</span>
+            {first} <span> {second}</span>
         </StyledMainTitle>
     );
 };

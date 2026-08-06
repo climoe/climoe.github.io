@@ -6,13 +6,15 @@ import { useReactToPrint } from 'react-to-print';
 import { LanguageContext } from '@/components/context/language-context';
 import Hero from '@/components/header/hero';
 import Footer from '@/components/footer/footer';
+import Header from '@/components/common/header';
+import GlobalStyles from '@/components/common/global-styles';
 
 
 function LayoutWithRef(props: ComponentPropsWithRef<"div">) {
   return <div {...props}>{props.children}</div>
 }
 
-export function PageLayout({ children }): React.ReactNode {
+export default function PageLayout({ children }): React.ReactNode {
 
   const languageContext = useContext(LanguageContext)
 
@@ -36,13 +38,18 @@ export function PageLayout({ children }): React.ReactNode {
   })
 
   return (
-    <LanguageContext value={languageContext}>
-      <Hero />
-      <LayoutWithRef ref={componentRef}>
-        {children}
-      </LayoutWithRef>
-      <Footer handlePrint={handlePrint} />
-    </LanguageContext>
+      <html lang="en">
+          <body>
+            <LanguageContext value={languageContext}>
+            <Header/>
+            <GlobalStyles/>
+            <Hero/>
+            <LayoutWithRef ref={componentRef}>
+              {children}
+            </LayoutWithRef>
+            <Footer handlePrint={handlePrint} />
+            </LanguageContext>
+          </body>
+      </html>
   )
 }
-export default PageLayout;

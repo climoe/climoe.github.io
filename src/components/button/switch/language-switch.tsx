@@ -5,7 +5,7 @@ import React, {useCallback, useState, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { GlobeHemisphereWestIcon, TranslateIcon } from "@phosphor-icons/react";
 import { LanguageContext } from "@/components/context/language-context";
-import languageSwitch from './language-switch.module.scss';
+import languageSwitch from './language-switch.module.css';
 export const LanguageSwitch = ({sticky}) => {
     
     const [isEn, setIsEn] = useState(true);
@@ -30,11 +30,11 @@ export const LanguageSwitch = ({sticky}) => {
                 tabIndex={0}>
                 <motion.div 
                     layout 
-                    className="handle"
+                    className={languageSwitch['handle']}
                     data-sticky={sticky} >
                     <AnimatePresence initial={false}>
                         <motion.i
-                            className={'icon'}
+                            className={languageSwitch['icon']}
                             key={isEn ? 'en' : 'pl'}
                             initial={{ y: -30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
