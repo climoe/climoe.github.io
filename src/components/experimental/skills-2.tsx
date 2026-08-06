@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, { useContext, useState } from 'react';
 import { motion, AnimatePresence, Transition } from 'framer-motion';
 import {frontMatter as metadata}  from "@/public/content/technology/known-technology.mdx";
 import { XIcon} from '@phosphor-icons/react';
 
-import { useLanguageContext } from '@/components/context/language-context';
+import  LanguageContext  from '@/components/context/language-context';
 import { SkillRating } from "@/components/skills/skill-rating";
 
 import "@/components/experimental/clippath/styles.scss"
@@ -12,9 +12,8 @@ import "@/components/experimental/clippath/styles.scss"
 const Skills2 = () => {
 
   const [selectedSquare, setSelectedSquare] = useState(null);
-  const languageContext = useLanguageContext()
+  const languageContext = useContext(LanguageContext)
   const {legend, skills} = languageContext.language === "en"? metadata.language.en : metadata.language.pl;
-  console.log("Skills: ", {skills})
   const categories = skills.reduce((acc, curr) => acc.concat(curr.category), [])
 
   const wrapperVariants = {
