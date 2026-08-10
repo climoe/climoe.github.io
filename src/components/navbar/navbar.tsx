@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
 import React, { useRef } from "react";
 import styled from "styled-components";
-import Link  from "next/link";
+import Link from "next/link";
 
 import { LanguageSwitch } from "@/components/button/switch/language-switch";
 import useSticky from "./use-sticky";
@@ -12,58 +12,68 @@ export interface StickyProps {
 }
 
 const StyledNavbar = styled.nav<StickyProps>`
-    
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 99;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 99;
 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    list-style-type: none;
+  font-weight: 500;
 
-    font-weight: 500;
+  padding: 3rem;
+  margin: 5rem 0;
 
-    padding: 3rem;
-    margin: 5rem 0;
+  background-color: ${(props) =>
+    props.sticky === "true" ? `var(--cv-color-white)` : "transparent"};
+  border-bottom: ${(props) =>
+    props.sticky === "true"
+      ? `1px solid var(--cv-color-light-grey)`
+      : "transparent"};
 
-    background-color: ${props => props.sticky === 'true' ? `var(--cv-color-white)` : 'transparent'};
-    border-bottom: ${props => props.sticky === 'true' ? `1px solid var(--cv-color-light-grey)` : 'transparent'};
-     
-    animation: moveDown 0.5s ease-in-out;
+  animation: moveDown 0.5s ease-in-out;
 
-    & a {
-        color: var(--cv-color-darkest);
-        padding: .4rem;
-        margin-right: .8rem;
-        font-size: 2.4rem;
-        
-        border-style: none;
-        text-decoration: none;
-        cursor: pointer;
-    }  
+  & a {
+    color: var(--cv-color-darkest);
+    padding: 0.4rem;
+    margin-right: 0.8rem;
+    font-size: 2.4rem;
+
+    border-style: none;
+    text-decoration: none;
+    cursor: pointer;
+  }
 `;
 
 const Navbar = () => {
+  const elementRef = useRef<HTMLElement>(null);
+  const isSticky: boolean = useSticky(elementRef);
+  const sticky = isSticky.toString();
 
-    const elementRef = useRef<HTMLElement>(null)
-    const isSticky: boolean = useSticky(elementRef)
-    const sticky = isSticky.toString();
-    
-
-    return (
-        <StyledNavbar ref={elementRef} sticky={sticky}>
-                <li><Link href="/#about" title="About"/></li>
-                <li><Link href="/#experience" title="Career"/></li>
-                <li><Link href="/#education" title="Eductaion"/></li>
-                <li><Link href="/#technology" title="Technology"/></li>
-                <li><Link href="/#courses" title="Courses"/></li>
-                <LanguageSwitch sticky={isSticky}/>
-        </StyledNavbar>
-    )
-}
+  return (
+    <StyledNavbar ref={elementRef} sticky={sticky}>
+      <li>
+        <Link href="/#about" title="About" />
+      </li>
+      <li>
+        <Link href="/#experience" title="Career" />
+      </li>
+      <li>
+        <Link href="/#education" title="Eductaion" />
+      </li>
+      <li>
+        <Link href="/#technology" title="Technology" />
+      </li>
+      <li>
+        <Link href="/#courses" title="Courses" />
+      </li>
+      <LanguageSwitch sticky={isSticky} />
+    </StyledNavbar>
+  );
+};
 
 export default Navbar;

@@ -1,0 +1,9 @@
+@layer components {
+	.dev-style {
+		@apply flex min-h-25rem self-center pt-1rem;
+		@apply print:hidden;
+		@apply tablet:flex-[1_0_50%] tablet:min-h-35rem tablet:min-w-55rem;
+		@apply phone:flex-[1_0_50%] phone:min-h-30rem phone:min-w-50rem;
+		@apply sphone:hidden;
+	}
+}

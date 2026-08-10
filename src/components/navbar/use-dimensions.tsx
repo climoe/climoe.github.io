@@ -12,6 +12,5 @@ export const useDimensions = (reference) => {
     dimensions.current.height = reference.current.offsetHeight;
   }, [reference]);
 
-
   return dimensions.current;
 };

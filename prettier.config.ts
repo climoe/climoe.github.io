@@ -4,9 +4,11 @@ const config: Config = {
   trailingComma: "none",
   semi: true,
   singleQuote: true,
-  tabWidth: 4,
+  jsxSingleQuote: true,
+  bracketSpacing: true,
   useTabs: true,
-  printWidth: 120
+  tabWidth: 4,
+  printWidth: 120,
 };
 
 export default config;

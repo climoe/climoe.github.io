@@ -1,24 +1,19 @@
-import React, { useState } from 'react';
-import { motion, AnimateSharedLayout } from 'framer-motion';
-import "./styles.scss"
+import React, { useState } from "react";
+import { AnimateSharedLayout, motion } from "framer-motion";
+import "./styles.scss";
 
-const menuItems = ['Lorem', 'ipsum', 'dolor', 'sit'];
+const menuItems = ["Lorem", "ipsum", "dolor", "sit"];
 
 const MenuItem = ({ text, selected, onClick }) => (
-  <motion.div 
-    className="menu-item" 
-    onClick={onClick} 
-    animate={{ opacity: selected ? 1 : .5}}
+  <motion.div
+    className="menu-item"
+    onClick={onClick}
+    animate={{ opacity: selected ? 1 : 0.5 }}
   >
     {text}
-    {selected && (
-      <motion.div 
-        className="underline" 
-        layoutId="underline" 
-      />
-    )}
+    {selected && <motion.div className="underline" layoutId="underline" />}
   </motion.div>
-)
+);
 export const UnderlinedMenu = () => {
   const [selected, setSelected] = useState(0);
   return (
@@ -26,15 +21,15 @@ export const UnderlinedMenu = () => {
       <div className="wrapper">
         <AnimateSharedLayout>
           {menuItems.map((el, i) => (
-            <MenuItem 
-              text={el} 
+            <MenuItem
+              text={el}
               key={i}
               selected={selected === i}
               onClick={() => setSelected(i)}
-            /> 
+            />
           ))}
         </AnimateSharedLayout>
       </div>
     </div>
-  )
-}
+  );
+};

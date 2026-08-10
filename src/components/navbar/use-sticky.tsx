@@ -1,24 +1,22 @@
-'use client'
+"use client";
 
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useCallback, useEffect, useState } from "react";
 
 const useSticky = (ref: React.RefObject<any>) => {
-  
-    const [isSticky, setSticky] = useState(false)
-    const element = ref
-    
-    const stickyHandler = useCallback(() => {
-            
-        const scrollY = window.scrollY
-        const elementPosition = element.current.offsetTop
-        scrollY > elementPosition ? setSticky(true) : setSticky(false)
-    }, [element])
+  const [isSticky, setSticky] = useState(false);
+  const element = ref;
 
-    useEffect(() => {
-        window.addEventListener("scroll", stickyHandler)
-    }, [stickyHandler])
+  const stickyHandler = useCallback(() => {
+    const scrollY = window.scrollY;
+    const elementPosition = element.current.offsetTop;
+    scrollY > elementPosition ? setSticky(true) : setSticky(false);
+  }, [element]);
 
-    return isSticky;
-}
+  useEffect(() => {
+    window.addEventListener("scroll", stickyHandler);
+  }, [stickyHandler]);
+
+  return isSticky;
+};
 
 export default useSticky;

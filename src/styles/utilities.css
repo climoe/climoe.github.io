@@ -1,0 +1,122 @@
+@layer utilities {
+	@keyframes fade-in {
+		from {
+			background-color: transparent;
+		}
+		to {
+			background-color: var(--cv-color-white);
+		}
+	}
+
+	@keyframes fade-out {
+		from {
+			background-color: var(--cv-color-white);
+		}
+		to {
+			background-color: transparent;
+		}
+	}
+
+	@keyframes open-close {
+
+		0% {
+			top: 0;
+			width: 0;
+		}
+
+		5% {
+			width: 0;
+		}
+
+		15% {
+			width: 12rem;
+			text-indent: .8rem;
+		}
+
+		30% {
+			top: 0;
+			width: 12rem;
+		}
+
+		33% {
+			top: 0;
+			width: 0;
+		}
+
+		35% {
+			top: 0;
+			width: 0;
+		}
+
+		38% {
+			top: -4.4rem;
+			width: 0;
+		}
+
+		48% {
+			top: -4.4rem;
+			width: 15rem;
+			text-indent: .8rem;
+		}
+
+		63% {
+			top: -4.4rem;
+			width: 15rem;
+		}
+
+		66% {
+			top: -4.4rem;
+			width: 0;
+		}
+
+		68% {
+			top: -4.4rem;
+			width: 0;
+		}
+
+		71% {
+			top: -8.8rem;
+			width: 0;
+		}
+
+		81% {
+			top: -8.8rem;
+			width: 14rem;
+			text-indent: .8rem;
+		}
+
+		96% {
+			top: -8.8rem;
+			width: 14rem;
+		}
+
+		99% {
+			top: -8.8rem;
+			width: 0;
+			text-indent: .8rem;
+		}
+
+		100% {
+			top: 0;
+			width: 0;
+		}
+	}
+
+	@keyframes move-down {
+		from {
+			transform: translateY(-5rem);
+		}
+		to {
+			transform: translateY(0rem);
+		}
+	}
+
+	@keyframes rotate {
+		0% {
+			transform: rotateY(360deg);
+		}
+		100% {
+			transform: rotateY(0);
+		}
+	}
+}

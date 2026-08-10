@@ -1,14 +1,12 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export interface ScrollableProps {
   scrolled: boolean;
 }
 
 const Print = styled.button<ScrollableProps>`
-
   display: flex;
-  visibility: ${props => (props.scrolled ? 'visible;' : 'hidden;')};
-  
+  visibility: ${(props) => (props.scrolled ? "visible;" : "hidden;")};
 
   align-items: center;
   align-self: center;
@@ -25,11 +23,11 @@ const Print = styled.button<ScrollableProps>`
   cursor: pointer;
   color: var(--cv-color-darkest);
 
-  background-color: ${props => (props.scrolled ? "var(--cv-color-darkest)" : 'transparent')};
-  animation: ${props => (props.scrolled ? 'fadein' : 'fadeout')} 0.2s;
+  background-color: ${(props) =>
+    props.scrolled ? "var(--cv-color-darkest)" : "transparent"};
+  animation: ${(props) => (props.scrolled ? "fadein" : "fadeout")} 0.2s;
   border-radius: 3rem;
   border: 1px solid var(--cv-color-purple);
-
 `;
 
 export default Print;

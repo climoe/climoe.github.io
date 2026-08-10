@@ -1,121 +1,130 @@
-'use client'
+"use client";
 
-import React, { JSX, use, useContext } from 'react';
-import styled,  {css} from "styled-components";
+import React, { JSX, use, useContext } from "react";
+import styled, { css } from "styled-components";
 
-import { mediaQueries} from "@/components/common/media-queries";
+import { mediaQueries } from "@/components/common/media-queries";
 import { LanguageContext } from "@/components/context/language-context";
 
 import { ViteSection } from "@/components/section/vite-section";
 import { SkillRating } from "@/components/skills/skill-rating";
-import { ReturnProps, SkillsProps } from '@/lib/content-loading/content-types';
+import { ReturnProps, SkillsProps } from "@/lib/content-loading/content-types";
 
 const SkillsStyle = styled.div`
+  page-break-inside: auto;
 
-    page-break-inside:  auto;
-    
-    @media print {
-        ${css`
-            font-size: 1rem !important;
-        `}
-    }
-
+  @media print {
+    ${css`
+      font-size: 1rem !important;
+    `}
+  }
 `;
 
 const SkillsGridStyle = styled.section`
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    column-gap: 0;
-    row-gap: 0.2rem;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  column-gap: 0;
+  row-gap: 0.2rem;
 
-    @media (max-width: '${mediaQueries.mlaptop}') {
-        ${css`
-            grid-template-columns: 20% 20% 20% 20% 20%;
+  @media (max-width: "${mediaQueries.laptop}") {
+    ${css`
+      grid-template-columns: 20% 20% 20% 20% 20%;
+    `}
+  }
 
-        `}
-    }
+  @media (max-width: "${mediaQueries.tablet}") {
+    ${css`
+      grid-template-columns: 25% 25% 25% 25%;
+    `}
+  }
 
-    @media (max-width: '${mediaQueries.tablet}') {
-        ${css`
-            grid-template-columns: 25% 25% 25% 25%;
-
-        `}
-    }
-
-    @media print {
-        ${css`
-            grid-template-columns: 15% 15% 15% 15% 15% 15%;
-            column-gap: .2rem;
-            row-gap: .2rem;
-        `}
-    }
+  @media print {
+    ${css`
+      grid-template-columns: 15% 15% 15% 15% 15% 15%;
+      column-gap: 0.2rem;
+      row-gap: 0.2rem;
+    `}
+  }
 `;
 
 const CategoryGridStyle = styled.section`
-    display: grid;
-    grid-template-columns: 100%;
-    padding: 0;
-    margin: 0;
+  display: grid;
+  grid-template-columns: 100%;
+  padding: 0;
+  margin: 0;
 `;
 
 const CategoryStyle = styled.section`
-    padding:0;
-    margin: 0;
-    page-break-inside: avoid;
+  padding: 0;
+  margin: 0;
+  page-break-inside: avoid;
 `;
 
 const SkillsCategory = styled.h4`
-    font-size: 1rem;
-    color: var(--cv-color-grey);
-    margin: 1.5rem 0 0;
-    padding-left: 1rem;
-    page-break-inside: avoid;
+  font-size: 1rem;
+  color: var(--cv-color-grey);
+  margin: 1.5rem 0 0;
+  padding-left: 1rem;
+  page-break-inside: avoid;
 
-
-    @media print {
-        ${css`
-            font-size: 1.2rem;
-            margin: 1rem 0 0;
-            padding-left: 0.5rem;
-        `}
-    }
+  @media print {
+    ${css`
+      font-size: 1.2rem;
+      margin: 1rem 0 0;
+      padding-left: 0.5rem;
+    `}
+  }
 `;
 
 const SkillsLegend = styled.p`
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: var(--cv-color-grey);
-    @media print {
-        ${css`
-            font-size: 1rem;
-        `}
-    }
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--cv-color-grey);
+  @media print {
+    ${css`
+      font-size: 1rem;
+    `}
+  }
 `;
 
-export default function Skills({ skillset } : { skillset: Promise<ReturnProps<SkillsProps>>}): JSX.Element {
+export default function Skills({
+  skillset,
+}: {
+  skillset: Promise<ReturnProps<SkillsProps>>;
+}): JSX.Element {
+  const languageContext = useContext(LanguageContext);
+  const skill = use(skillset);
+  const { description, legend, skills } =
+    languageContext.language === "en"
+      ? skill.frontmatter.language.en
+      : skill.frontmatter.language.pl;
 
-    const languageContext = useContext(LanguageContext)
-    const skill = use(skillset)
-    const { description, legend, skills } = languageContext.language === "en"? skill.frontmatter.language.en : skill.frontmatter.language.pl;
-
-    return (
-        <ViteSection id="technology" title={description}>
-            <SkillsStyle>
-                <CategoryGridStyle>
-                {skills.map((skill, index1) => {
+  return (
+    <ViteSection id="technology" title={description}>
+      <SkillsStyle>
+        <CategoryGridStyle>
+          {skills.map((skill, index1) => {
+            return (
+              <CategoryStyle key={skill.category}>
+                <SkillsCategory key={index1}>{skill.category}</SkillsCategory>
+                <SkillsGridStyle key={skill.category}>
+                  {skill.items.map((item, index2) => {
                     return (
-                        <CategoryStyle key={skill.category}>
-                            <SkillsCategory key={index1}>{skill.category}</SkillsCategory>
-                            <SkillsGridStyle key={skill.category}>
-                                {skill.items.map((item, index2) => {
-                                    return <SkillRating skillName={item.name} skillRate={item.rate} skillDesc={item.description} key={index2}/>;
-                                })}
-                            </SkillsGridStyle>
-                        </CategoryStyle>                        
-                )})}
-                </CategoryGridStyle>
-                <SkillsLegend>{legend}</SkillsLegend>
-            </SkillsStyle>
-        </ViteSection>
-    )
+                      <SkillRating
+                        skillName={item.name}
+                        skillRate={item.rate}
+                        skillDesc={item.description}
+                        key={index2}
+                      />
+                    );
+                  })}
+                </SkillsGridStyle>
+              </CategoryStyle>
+            );
+          })}
+        </CategoryGridStyle>
+        <SkillsLegend>{legend}</SkillsLegend>
+      </SkillsStyle>
+    </ViteSection>
+  );
 }

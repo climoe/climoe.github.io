@@ -1,107 +1,121 @@
-'use client'
+"use client";
 
-import React, { JSX, use, useContext } from 'react';
+import React, { JSX, use, useContext } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
 import { ViteSection } from "@/components/section/vite-section";
 import { Project } from "@/components/experience/project";
 import { print } from "@/components/common/media-queries";
-import { LanguageContext } from '@/components/context/language-context';
-import type { ReturnProps, ExperienceListProps} from '@/lib/content-loading/content-types';
-
-
+import { LanguageContext } from "@/components/context/language-context";
+import type {
+  ExperienceListProps,
+  ReturnProps,
+} from "@/lib/content-loading/content-types";
 
 const ExperienceStyle = styled.ul`
+  font-size: 1.8rem;
+  padding-left: 0;
+  margin-top: 0;
 
-    font-size: 1.8rem;
-    padding-left: 0;
-    margin-top: 0;
-    
-    ${print`
+  ${print`
         padding-left: 0;
         margin-top: 0;
     `}
 
-    li {
-        display: flex; 
-        color: var(--cv-color-darkest);
+  li {
+    display: flex;
+    color: var(--cv-color-darkest);
+  }
 
-    }
-
-    time { 
-        position: relative;
-        writing-mode: vertical-rl;
-        text-orientation: sideways; 
-        font-size: 1.4rem;           
-        font-weight: bold;
-        padding-right: 1rem;
-        border-right: .2rem var(--cv-color-darkest) solid;
-        ${print`
+  time {
+    position: relative;
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding-right: 1rem;
+    border-right: 0.2rem var(--cv-color-darkest) solid;
+    ${print`
             margin-left: 0;
             padding-left: 0;
             padding-right: 1rem;
         `}
 
-        &::after {
-            content: "";
-            position: absolute; 
-            z-index: 2;
-            right: 0;
-            top: 0;
-            transform: translateX(60%);
-            border-radius: 50%;
-            background: var(--cv-color-darkest);
-            border: .3rem var(--cv-color-darkest) solid;
-            width: .5em;
-            height: .5em;                
-        }
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      top: 0;
+      transform: translateX(60%);
+      border-radius: 50%;
+      background: var(--cv-color-darkest);
+      border: 0.3rem var(--cv-color-darkest) solid;
+      width: 0.5em;
+      height: 0.5em;
     }
+  }
 
-    .company {
-        padding: 0 1.5rem 1.5rem 1.5rem;
-        position: relative;
+  .company {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    position: relative;
 
-        &::before {
-            content: "";
-            position: absolute;
-            z-index: 1;
-            left: 0;
-            height: 100%;
-        }
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      height: 100%;
     }
+  }
 
-    strong {
-        display: inline-block;
-        font-weight: 500;
-    }
-    
+  strong {
+    display: inline-block;
+    font-weight: 500;
+  }
 `;
 
+export default function Experience({
+  experiences,
+}: {
+  experiences: Promise<ReturnProps<ExperienceListProps>>;
+}): JSX.Element {
+  const languageContext = useContext(LanguageContext);
+  const exp = use(experiences);
+  const { label, experience } =
+    languageContext.language === "en"
+      ? exp.frontmatter.language.en
+      : exp.frontmatter.language.pl;
 
-export default function Experience( { experiences } : { experiences: Promise<ReturnProps<ExperienceListProps>>}): JSX.Element  {
-
-    const languageContext = useContext(LanguageContext)
-    const exp = use(experiences)
-    const { label, experience } = languageContext.language === "en" ?  exp.frontmatter.language.en : exp.frontmatter.language.pl
-
-    return (
-        <ViteSection id="experience" title={label}>
-            <ExperienceStyle>
-              {experience.map((exp, index) =>
-                { return (
-                    <motion.li whileTap={{scale: 0.95}} key={index}>
-                        <time>{exp.time.from} - {exp.time.to}</time> 
-                        <span className="company">
-                            <strong>{exp.company}</strong>
-                            { exp.projects.map((p, index) => 
-                                {return <Project name={p.name} position={p.position} details={p.description} role={p.role} technologies={p.technology} key={index}/>}
-                            )}
-                        </span>
-                  </motion.li>)  
-                })
-              }  
-            </ExperienceStyle>
-         </ViteSection>
-    )
+  return (
+    <ViteSection id="experience" title={label}>
+      <ExperienceStyle>
+        {experience.map((exp, index) => {
+          return (
+            <motion.li whileTap={{ scale: 0.95 }} key={index}>
+              <time>
+                {exp.time.from} - {exp.time.to}
+              </time>
+              <span className="company">
+                <strong>{exp.company}</strong>
+                {exp.projects.map((p, index) => {
+                  return (
+                    <Project
+                      name={p.name}
+                      position={p.position}
+                      details={p.description}
+                      role={p.role}
+                      technologies={p.technology}
+                      key={index}
+                    />
+                  );
+                })}
+              </span>
+            </motion.li>
+          );
+        })}
+      </ExperienceStyle>
+    </ViteSection>
+  );
 }

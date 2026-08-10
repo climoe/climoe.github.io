@@ -1,26 +1,17 @@
-import { css, Interpolation } from 'styled-components';
-
-
-type FixedSizeName = 'desktop' | 'xlaptop' | 'mlaptop' | 'laptop' | 'tablet'| 'phone' | 'sphone' | 'sphone2' | 'xsphone';
-type FixedSizeValue = 1880 | 1700 | 1500 | 1200 | 900 | 650 | 480 | 400 | 320;
-
+import { css, Interpolation } from "styled-components";
 
 export const mediaQueries = {
-    desktop: `${1880 / 16}em`,
-    xlaptop: `${1700 / 16}em`,
-    mlaptop: `${1500 / 16}em`,
-    laptop: `${1200 / 16}em`,
-    tablet: `${900 / 16}em`,
-    phone: `${650 / 16}em`,
-    sphone: `${480 / 16}em`,
-    sphone2: `${400 / 16}em`,
-    xsphone: `${320 / 16}em`
- }
+  laptop: `${1500 / 16}em`, //93.75em
+  tablet: `${900 / 16}em`, //56.25em
+  phone: `${650 / 16}em`, //40.625em
+  sphone: `${480 / 16}em`, //30em
+  sphone2: `${400 / 16}em`, //25em
+  xsphone: `${320 / 16}em`, //20
+};
 
-
-export const print = (...args : Interpolation<NoInfer<object>>[]) =>
+export const print = (...args: Interpolation<NoInfer<object>>[]) =>
   css`
-    @media print {  
-      ${css({},...args)}
+    @media print {
+      ${css({}, ...args)}
     }
-  `
+  `;
