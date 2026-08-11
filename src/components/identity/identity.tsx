@@ -76,6 +76,8 @@ const StyledLocation = styled.div`
 `;
 
 const StyledPinDiv = styled.span`
+  width: 2rem;
+  height: 2rem;
   border-color: var(--cv-color-white);
   border: 0 solid var(--cv-color-white);
   padding: 0.5rem 0.5rem 0.5rem 1.25rem;

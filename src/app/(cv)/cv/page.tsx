@@ -1,5 +1,5 @@
 import React from "react";
-import "../globals.css";
+import "@/styles/stylesheet.css";
 
 import { LanguageSwitch } from "@/components/button/switch/language-switch";
 import CourseList from "@/components/courses/course-list";

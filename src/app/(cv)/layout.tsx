@@ -4,10 +4,11 @@ import React, { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 
 import { FlexRowCenter } from "@/components/common/flexbox";
-import DefaultInput from "@/components/field/default-input";
+import { Input } from "@/components/ui/input";
 import { PrinterIcon } from "@phosphor-icons/react";
 import styled from "styled-components";
 import Colors from "@/components/common/colors";
+import "@/styles/stylesheet.css";
 
 const Printable = styled.main`
   margin: 0;
@@ -56,7 +57,11 @@ export function CVLayout({ children }): React.ReactNode {
   return (
     <>
       <FlexRowCenter>
-        <DefaultInput value={companyName} onChange={handleChangeCompanyName} />
+        <Input
+          placeholder="Enter company name"
+          value={companyName}
+          onChange={handleChangeCompanyName}
+        />
         <PrinterIcon
           size={"4rem"}
           color={Colors.DARK}

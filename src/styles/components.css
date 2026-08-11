@@ -1,3 +1,4 @@
+/* COMPONENTS LAYER */
 @layer components {
 	.dev-style {
 		@apply flex min-h-25rem self-center pt-1rem;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Colors from "@/components/common/colors";
 
 const DefaultInputStyle = styled.input`
   @font-face {
@@ -7,7 +8,7 @@ const DefaultInputStyle = styled.input`
   }
 
   border-radius: 4px;
-  border-color: white;
+  border-color: ${Colors.GREY};
   line-height: 2em;
   font-size: 1.4em;
   margin: 0.4em 0.8em;

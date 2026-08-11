@@ -1,6 +1,5 @@
 /* BASE LAYER */
 @layer base {
-
 	@font-face {
 		font-family: var(--cv-font-family);
 	}
@@ -57,4 +56,13 @@
 		font-family: var(--cv-font-family), sans-serif;
 		background-color: var(--cv-color-white);
 	}
+
+
+	/* CUSTOM VARIANTS OF MEDIA SCREEN */
+	@custom-variant laptop (@media(max-width: var(--cv-size-laptop)));
+	@custom-variant tablet (@media(max-width: var(--cv-size-tablet)));
+	@custom-variant phone (@media(max-width: var(--cv-size-phone)));
+	@custom-variant smphone (@media(max-width: var(--cv-size-smphone)));
+	@custom-variant xsmphone (@media(max-width: var(--cv-size-xsmphone)));
+	@custom-variant xxsmphone (@media(max-width: var(--cv-size-xxsmphone)));
 }

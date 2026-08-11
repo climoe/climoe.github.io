@@ -1,13 +1,13 @@
 "use client";
 
-import "./globals.css";
 import React, { ComponentPropsWithRef, useContext, useRef } from "react";
 import { useReactToPrint } from "react-to-print";
-
 import { LanguageContext } from "@/components/context/language-context";
+
 import Hero from "@/components/header/hero";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/common/header";
+import "@/styles/stylesheet.css";
 
 function LayoutWithRef(props: ComponentPropsWithRef<"div">) {
   return <div {...props}>{props.children}</div>;
@@ -41,6 +41,7 @@ export default function PageLayout({ children }): React.ReactNode {
         <LanguageContext value={languageContext}>
           <Header />
           <Hero />
+          {children}
           <LayoutWithRef ref={componentRef}>{children}</LayoutWithRef>
           <Footer handlePrint={handlePrint} />
         </LanguageContext>
