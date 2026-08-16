@@ -50,6 +50,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "clear": "rm -rf ./.next",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

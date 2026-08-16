@@ -1,33 +1,33 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export interface ScrollableProps {
-  scrolled: boolean;
+	scrolled: boolean;
 }
 
 const Print = styled.button<ScrollableProps>`
-  display: flex;
-  visibility: ${(props) => (props.scrolled ? "visible;" : "hidden;")};
+	display: flex;
+	visibility: ${(props) => (props.scrolled ? 'visible;' : 'hidden;')};
 
-  align-items: center;
-  align-self: center;
-  align-content: center;
-  justify-content: space-around;
-  text-align: center;
+	align-items: center;
+	align-self: center;
+	align-content: center;
+	justify-content: space-around;
+	text-align: center;
 
-  height: 6rem;
-  width: 8rem;
-  padding: 0.5rem 1rem;
-  font-size: 1.6rem;
-  font-weight: 500;
+	height: 6rem;
+	width: 8rem;
+	padding: 0.5rem 1rem;
+	font-size: 1.6rem;
+	font-weight: 500;
 
-  cursor: pointer;
-  color: var(--cv-color-darkest);
+	cursor: pointer;
+	color: var(--color-darkest);
 
-  background-color: ${(props) =>
-    props.scrolled ? "var(--cv-color-darkest)" : "transparent"};
-  animation: ${(props) => (props.scrolled ? "fadein" : "fadeout")} 0.2s;
-  border-radius: 3rem;
-  border: 1px solid var(--cv-color-purple);
+	background-color: ${(props) =>
+		props.scrolled ? 'var(--cv-color-darkest)' : 'transparent'};
+	animation: ${(props) => (props.scrolled ? 'fadein' : 'fadeout')} 0.2s;
+	border-radius: 3rem;
+	border: 1px solid var(--color-purple);
 `;
 
 export default Print;

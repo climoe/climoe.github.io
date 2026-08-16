@@ -1,0 +1,99 @@
+@reference '../../styles/global.css';
+
+@layer identity {
+
+    /* section */
+    .identity-personal {
+        @apply flex-[1_0_1/2] flex-col items-center justify-between;
+
+    }
+
+    /* h2 */
+    .identity-name {
+        @apply text-l text-darkest font-black text-center self-center;
+
+            .span {
+                @apply inline-block font-light;
+            }
+
+    }
+    /* div */
+    .identity-avatar {
+        @apply inline-block relative self-center;
+    }
+
+    /* div */
+    .identity-avatar-container {
+        @apply absolute top-0 right-0 bottom-0 left-0 rounded-[50%] bg-linear-90 from-pink from-0% to-purple to-100% z-[-1] translate-x-1/10;
+    }
+
+    /* div */
+    .identity-location {
+        @apply inline-flex w-auto bg-darkest mt-10;
+    }
+
+    /* span */
+    .identity-pin-container {
+        @apply w-8 h-8 bg-white border-0 border-solid p-[0.5rem_0.5rem_0.5rem_1.25rem];
+    }
+
+    /* span */
+    .identity-pin {
+        @apply inline-block w-8 h-8;
+    }
+
+    /* span */
+    .identity-city {
+        @apply text-[2.25rem] text-white font-medium p-[0.5rem_1.25rem_0.5rem_0.5rem];
+    }
+
+    /* section */
+    .identity-contact {
+        @apply flex flex-col self-start justify-start items-center;
+
+        h2 {
+            @apply font-black self-center;
+        }
+
+        h3 {
+            @apply mt-4 ml-4 font-light
+        }
+    }
+
+    /* span */
+    .identity-contact-icon {
+        @apply inline-flex
+    }
+
+    /* p */
+    .identity-medium {
+        @apply self-center inline-flex;
+    }
+
+    /* section */
+    .identity-accessibility {
+        @apply flex flex-row items-center justify-between self-center text-center;
+    }
+
+    /* div */
+    .identity-about {
+        @apply flex flex-col items-center  content-start justify-center col-[1/span_2] grid-rows-[2/3];
+
+        h3 {
+            @apply mt-4 ml-4 indent-10 font-light;
+        }
+
+        h2 {
+            @apply font-black mt-4;
+        }
+    }
+
+    /* div */
+    .identity {
+        @apply block mt-16;
+
+        @media print {
+            @apply m-0 p-0;
+        }
+    }
+}

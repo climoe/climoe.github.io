@@ -1,10 +1,10 @@
-import React from "react";
-import DevSvg from "@/public/images/dev.svg";
+import React from 'react';
+import DevSvg from '@/public/images/dev.svg';
 
 export default function Dev() {
-  return (
-    <div className={"dev-style"}>
-      <DevSvg />
-    </div>
-  );
+	return (
+		<div className={'dev-style'}>
+			<DevSvg />
+		</div>
+	);
 }

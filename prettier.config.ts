@@ -12,6 +12,7 @@ const config: Config = {
 	objectWrap: 'collapse',
 	bracketSameLine: true,
 	arrowParens: 'always',
+	experimentalTernaries: true,
 };
 
 export default config;

@@ -1,16 +1,16 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { print } from "@/components/common/media-queries";
+import { print } from '@/components/common/media-queries';
 
 export const CareerSection = styled.section`
-  background-image: src("../../public/images/splash2.svg");
-  background-size: contain;
-  background-position: right center;
-  background-repeat: no-repeat;
+	background-image: src('../../public/images/splash2.svg');
+	background-size: contain;
+	background-position: right center;
+	background-repeat: no-repeat;
 
-  margin: 3rem 2rem 1rem;
+	margin: 3rem 2rem 1rem;
 
-  ${print`
+	${print`
        background: white;
   `}
 `;

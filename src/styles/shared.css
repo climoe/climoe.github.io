@@ -1,0 +1,79 @@
+/*!**/
+/*	Shared definitions*/
+/*	of classes used by another*/
+/*	classes*/
+/**!*/
+
+@layer shared {
+
+	/* section */
+	.row-flex-section {
+		@apply flex flex-row items-end justify-around m-[1rem_4rem];
+		@apply print:m-[4rem_4rem] print:flex-col;
+	}
+
+	/* section */
+	.column-flex-section {
+		@apply flex flex-col items-center justify-between;
+	}
+
+	/* div */
+	.column-flex-div {
+		@apply flex flex-col items-center justify-between;
+	}
+
+	/* section */
+	.row-flex {
+		@apply flex flex-row items-center justify-around;
+	}
+
+	/* section */
+	.row-flex-center {
+		@apply flex flex-row items-center justify-center;
+	}
+
+	/* section */
+	.row-flex-reverse {
+		@apply flex flex-row-reverse justify-start content-start;
+	}
+
+	/* section */
+	.grid-section {
+		@apply grid grid-cols-[40%_40%] gap-8 justify-items-center justify-center;
+	}
+
+	/* p */
+	.paragraph-small-light {
+		@apply text-s text-darkest font-light text-left m-0 p-0;
+	}
+
+	/* p */
+	.paragraph-small {
+		@apply text-s text-darkest font-medium text-left;
+	}
+
+	/* p */
+	.paragraph-large {
+		@apply text-l text-darkest font-medium text-left;
+	}
+
+	/* h4 */
+	.header-4 {
+		@apply text-s text-darkest font-medium text-left;
+	}
+
+	/* h3 */
+	.header-3 {
+		@apply text-m text-darkest font-medium text-left;
+	}
+
+	/* h2 */
+	.header-2 {
+		@apply text-l text-darkest font-medium text-left;
+	}
+
+	/* h1 */
+	.header-1 {
+		@apply text-xl text-darkest font-medium text-left;
+	}
+}

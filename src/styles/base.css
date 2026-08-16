@@ -1,68 +1,60 @@
-/* BASE LAYER */
+/*
+	Base layer with global definitions
+	of CSS styles
+*/
+
+@theme base {
+    --color-white: rgba(255, 255, 255, 1);
+    --color-light-grey: rgba(229, 218, 218, 1);
+    --color-grey: rgba(150, 158, 164, 1);
+    --color-dark: rgba(181, 163, 151, 1);
+    --color-darkest: rgba(48, 35, 29, 1);
+    --color-pink: rgba(255, 51, 204, 1);
+    --color-purple: rgba(121, 59, 238, 1);
+    --color-purple-darker: rgba(80, 26, 150, 1);
+    --color-blue-dark: rgba(41, 14, 151, 1);
+    --color-green-lighter: rgb(129, 254, 113);
+
+    --font-inter: 'Inter', sans-serif;
+    --box-sizing: border-box;
+    --font-default: 1.4rem;
+
+    --text-s: 1.6rem;
+    --text-m: 2.4rem;
+    --text-l: 3.6rem;
+    --text-xl: 4.8rem;
+
+    --breakpoint-xl: 93.75em;
+    --breakpoint-lg: 56.25em;
+    --breakpoint-md: 40.625em;
+    --breakpoint-sm: 30em;
+    --breakpoint-xs: 25em;
+    --breakpoint-xxs: 20em;
+}
+
+@custom-variant laptop (@media screen and (max-width: 93.75em));
+@custom-variant tablet (@media screen and (max-width: 56.25em and (min-width: 40.625em));
+@custom-variant phone (@media screen and (max-width: 40.625em) and (min-width: 30em));
+@custom-variant smphone (@media screen and (max-width: 30em) and (min-width: 25em));
+@custom-variant xsmphone (@media screen and  (max-width: 25em) and (min-width: 20em));
+@custom-variant xxsmphone (@media screen and (max-width: 20em));
+
+
 @layer base {
-	@font-face {
-		font-family: var(--cv-font-family);
-	}
 
-	html {
+    @font-face {
+        @apply font-inter;
+    }
 
-		/* 62,5% * 16px -> 1rem - 10px -*/
-		font-size: 62.5%;
-		margin: 0;
-		padding: 0;
-		height: 100%;
+    html {
+        /* 62,5% * 16px -> 1rem - 10px -*/
+        @apply text-[62.5%] m-0 p-0 h-full;
+        @apply xxsmphone:text-[20%] xsmphone:text-[35%] smphone:text-[50%] phone:text-[62.5%] tablet:text-[62.5%] laptop:text-[75%];
+        @apply antialiased;
 
-		@media screen and (max-width: 20em) {
-			font-size: 0;
-		}
+    }
 
-		/*  * ---> 480px -> small phone (35% * 16px -> 1rem - 5,6px) */
-		@media screen and (min-width: 20em ) and (max-width: 30em) {
-			font-size: 35%
-		}
-
-		/* 480px <---> 650px -> phone (50% * 16px -> 1rem - 8px) */
-		@media screen and (min-width: 30em) and (max-width: 40em) {
-			font-size: 50%;
-		}
-
-		/* 650px <---> 900px -> tablet (62.5% * 16px -> 1rem - 10px) */
-		@media screen and (min-width: 40em) and (max-width: 56.25em) {
-			font-size: 62.5%;
-		}
-
-		/* 900px <---> 1200px -> laptop (62.5% * 16px -> 1rem - 10px) */
-		@media screen and (min-width: 56.25em) and (max-width: 75em) {
-			font-size: 62.5%;
-		}
-
-		/* 1200px ---> * - desktop (75% * 16px -> 1rem - 12px) */
-		@media screen and (min-width: 75em) {
-			font-size: 75%;
-		}
-
-		-ms-text-size-adjust: 100%;
-		-webkit-text-size-adjust: 100%;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
-
-	body {
-
-		box-sizing: var(--cv-box-sizing);
-		height: 100%;
-		font-size: var(--cv-font-size-default);
-
-		font-family: var(--cv-font-family), sans-serif;
-		background-color: var(--cv-color-white);
-	}
-
-
-	/* CUSTOM VARIANTS OF MEDIA SCREEN */
-	@custom-variant laptop (@media(max-width: var(--cv-size-laptop)));
-	@custom-variant tablet (@media(max-width: var(--cv-size-tablet)));
-	@custom-variant phone (@media(max-width: var(--cv-size-phone)));
-	@custom-variant smphone (@media(max-width: var(--cv-size-smphone)));
-	@custom-variant xsmphone (@media(max-width: var(--cv-size-xsmphone)));
-	@custom-variant xxsmphone (@media(max-width: var(--cv-size-xxsmphone)));
+    body {
+        @apply box-border h-full font-inter bg-white;
+    }
 }
