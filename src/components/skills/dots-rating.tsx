@@ -1,6 +1,6 @@
 import React from 'react';
 import { CircleWavyIcon } from '@phosphor-icons/react';
-import Colors from '@/components/common/colors';
+import Colors from '@/components/shared/colors';
 
 export const DotsRating = ({ range }) => {
 	return (

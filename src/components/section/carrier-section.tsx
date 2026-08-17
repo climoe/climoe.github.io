@@ -1,16 +1,12 @@
-import styled from 'styled-components';
+import React, {JSX} from "react";
+import "./section.module.css";
 
-import { print } from '@/components/common/media-queries';
 
-export const CareerSection = styled.section`
-	background-image: src('../../public/images/splash2.svg');
-	background-size: contain;
-	background-position: right center;
-	background-repeat: no-repeat;
+export default function CarrierSection({props}: {props: React.PropsWithChildren}): JSX.Element {
+    return(
+        <section className={"carrier"}>
+            {props.children}
+        </section>
+    )
+}
 
-	margin: 3rem 2rem 1rem;
-
-	${print`
-       background: white;
-  `}
-`;

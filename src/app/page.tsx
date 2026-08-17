@@ -1,20 +1,21 @@
 import React, { Suspense } from 'react';
 import styled from 'styled-components';
 
-import { IntroSection } from '@/components/section/intro-section';
-import { CareerSection } from '@/components/section/carrier-section';
-import { FlexRowSection } from '@/components/common/flexbox';
+import  IntroSection  from '@/components/section/intro-section';
+import  CareerSection from '@/components/section/carrier-section';
 import { AnimatedSection } from '@/components/section/animated-section';
 
-import MainTitle from '@/components/content/main-title';
+import "../styles/shared.css";
+
+import MainTitle from '@/components/shared/main-title';
 import Education from '@/components/education/education';
-import Dev from '@/components/content/dev';
-import Consult from '@/components/content/consult';
-import Analyze from '@/components/content/analyze';
+import Dev from '@/components/shared/dev';
+import Consult from '@/components/shared/consult';
+import Analyze from '@/components/shared/analyze';
 import Identity from '@/components/identity/identity';
 import CourseList from '@/components/courses/course-list';
 import Navbar from '@/components/navbar/navbar';
-import Preloader from '@/components/common/preloader';
+import Preloader from '@/components/shared/preloader';
 import Experience from '@/components/experience/experience';
 import Skills from '@/components/skills/skills';
 import { getAllCourses, getAllEducationEvents, getAllExperiences, getMainTitleData, getPersonalData, getTechnologySkills } from '@/lib/content-loading/content-loading';
@@ -47,10 +48,10 @@ export default async function HomePage() {
 		<Suspense fallback={<Preloader />}>
 			<StyledHomepage>
 				<IntroSection>
-					<FlexRowSection>
+					<section className={"row-flex-section"}>
 						<MainTitle mainTitle={mainTitle} />
 						<Dev />
-					</FlexRowSection>
+					</section>
 				</IntroSection>
 				<Navbar />
 				<CareerSection>

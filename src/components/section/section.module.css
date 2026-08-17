@@ -1,0 +1,52 @@
+@import "../../styles/global.css";
+
+@layer section {
+
+    /* section */
+    .animated {
+        @apply m-0;
+        @apply tablet:m-[0_0_8];
+        @apply print:m-0;
+
+        .controls {
+            @apply flex flex-row items-start justify-around;
+            @apply tablet:flex-col;
+        }
+    }
+
+    /* section */
+    .carrier {
+        @apply bg-[src(/src/public/images/splash2.svg)] bg-contain bg-top-right bg-no-repeat;
+        @apply m-[12_8_4];
+        @apply print: bg-white;
+    }
+
+    /* section */
+    .intro {
+        @apply p-[40_0] m-[0_auto];
+        @apply bg-[src(/src/public/images/splash.svg)] bg-contain bg-top-right bg-no-repeat;
+        @apply print:bg-white;
+
+        h1 {
+            @apply text-[4.8rem] text-darkest font-medium text-left;
+        }
+
+        p {
+            @apply text-[1.2rem] text-darkest font-light text-left p-[0_3rem];
+        }
+    }
+
+    /* section */
+    .vite {
+        @apply flex-[1_0_1/2] flex-col m-[0_4rem] mt-16 p-8 bg-white backdrop-blur-10 rounded-[.8rem];
+        @apply teblet: mt-8 tablet:flex-[1_1_100%];
+        @apply print: mt-0 p-0;
+        @apply hover: bg-white;
+
+    }
+
+    /* h1 */
+    .vite-title {
+        @apply mt-4 leading-[1.2] mb-4 text-16 font-medium break-inside-avoid;
+    }
+}

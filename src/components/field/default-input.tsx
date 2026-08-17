@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Colors from '@/components/common/colors';
+import Colors from '@/components/shared/colors';
 
 const DefaultInputStyle = styled.input`
 	@font-face {

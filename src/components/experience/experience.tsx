@@ -1,76 +1,13 @@
 'use client';
 
 import React, { JSX, use, useContext } from 'react';
-import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { ViteSection } from '@/components/section/vite-section';
 import { Project } from '@/components/experience/project';
-import { print } from '@/components/common/media-queries';
 import { LanguageContext } from '@/components/context/language-context';
 import type { ExperienceListProps, ReturnProps } from '@/lib/content-loading/content-types';
 
-const ExperienceStyle = styled.ul`
-    font-size: 1.8rem;
-    padding-left: 0;
-    margin-top: 0;
-
-    ${print`
-        padding-left: 0;
-        margin-top: 0;
-    `}
-    li {
-        display: flex;
-        color: var(--color-darkest);
-    }
-
-    time {
-        position: relative;
-        writing-mode: vertical-rl;
-        text-orientation: sideways;
-        font-size: 1.4rem;
-        font-weight: bold;
-        padding-right: 1rem;
-        border-right: 0.2rem var(--color-darkest) solid;
-
-        ${print`
-            margin-left: 0;
-            padding-left: 0;
-            padding-right: 1rem;
-        `}
-        &::after {
-            content: '';
-            position: absolute;
-            z-index: 2;
-            right: 0;
-            top: 0;
-            transform: translateX(60%);
-            border-radius: 50%;
-            background: var(--color-darkest);
-            border: 0.3rem var(--color-darkest) solid;
-            width: 0.5em;
-            height: 0.5em;
-        }
-    }
-
-    .company {
-        padding: 0 1.5rem 1.5rem 1.5rem;
-        position: relative;
-
-        &::before {
-            content: '';
-            position: absolute;
-            z-index: 1;
-            left: 0;
-            height: 100%;
-        }
-    }
-
-    strong {
-        display: inline-block;
-        font-weight: 500;
-    }
-`;
 
 export default function Experience({
 	experiences
@@ -86,7 +23,7 @@ export default function Experience({
 
 	return (
 		<ViteSection id='experience' title={label}>
-			<ExperienceStyle>
+			<ul>
 				{experience.map((exp, index) => {
 					return (
 						<motion.li whileTap={{ scale: 0.95 }} key={index}>
@@ -111,7 +48,7 @@ export default function Experience({
 						</motion.li>
 					);
 				})}
-			</ExperienceStyle>
+			</ul>
 		</ViteSection>
 	);
 }

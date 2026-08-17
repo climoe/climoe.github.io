@@ -1,0 +1,65 @@
+@import '../../styles/base.css';
+@import '../../styles/shared.css';
+
+@layer shared {
+
+    .analyze {
+        @apply flex-[1_1_50%] min-h-100 self-center mb-8;
+        @apply tablet:flex-[1_0_50%] tablet:min-h-140 min-w-220;
+        @apply phone:flex-[1_0_50%] phone:min-h-140 phone:min-w-220;
+        @apply smphone:hidden;
+        @apply print:hidden;
+    }
+
+
+    .consult {
+        @apply flex-[1_1_50%] min-h-100 self-center mb-10;
+        @apply tablet:flex-[1_1_50%] min-h-140 min-w-220;
+        @apply phone:flex-[1_0_50%] phone:min-h-140 phone:min-w-220;
+        @apply smphone:hidden;
+        @apply print:hidden;
+    }
+
+    .dev {
+        @apply flex min-h-[25rem] self-center pt-[1rem];
+        @apply print:hidden;
+        @apply tablet:flex-[1_0_1/2] tablet:min-h-[35rem] tablet:min-w-[55rem];
+        @apply phone:flex-[1_0_1/2] phone:min-h-[30rem] phone:min-w-[50rem];
+        @apply smphone:hidden;
+    }
+
+    .main-title {
+
+        @apply flex-[1_1_50%] mt-8 text-[5rem] overflow-hidden text-darkest font-medium;
+        @apply print:hidden;
+
+        .span {
+            @apply text-[5rem] font-medium -bg-linear-90 from-pink from-0%  to-purple-darker to-100%;
+        }
+    }
+
+    .preloader {
+        @apply flex w-screen h-screen justify-center align-center;
+
+        div {
+            @apply w-160 h-80;
+        }
+    }
+
+    .title-question {
+        @apply flex items-start justify-start text-m;
+        @apply print:hidden;
+
+        h1 {
+            @apply relative overflow-hidden w-280 font-thin color-darkest;
+        }
+
+        .message {
+            @apply block pl-2 overflow-hidden absolute t-0 l-168 font-black color-darkest bg-linear-90 from-orange from-0% to-pink to-100%;
+            @apply animate-[openclose_5s_ease_in_out_infinite];
+        }
+
+        .word {
+        }
+    }
+}

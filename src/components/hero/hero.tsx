@@ -1,39 +1,15 @@
 import React from 'react';
 import { TerminalWindowIcon } from '@phosphor-icons/react';
-import styled from 'styled-components';
 
-const HeaderStyle = styled.div`
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	max-width: 140rem;
-	margin: auto;
-	height: 8rem;
-	z-index: 2;
-	background-color: transparent;
-`;
-
-const Logo = styled.a`
-    display: inline-block;
-    width: 6.4rem;
-    height: 6.4rem;
-    margin: 1rem;
-    border-radius: 50%;
-    background: linear-gradient(90deg, #ff33cc 0%, #793beeff 100%);
-    color: var(--color-darkest);
-    cursor: pointer;
-    text-decoration: none;
-    animation: rotate 0.7s ease-in-out 0.5s;
-`;
+import "./hero.module.css";
 
 const Hero = () => {
 	return (
-		<HeaderStyle>
-			<Logo href='/'>
+		<div className={"hero"}>
+			<a className={"logo"} href='/'>
 				<TerminalWindowIcon size={'6.4rem'} />
-			</Logo>
-		</HeaderStyle>
+			</a>
+		</div>
 	);
 };
 

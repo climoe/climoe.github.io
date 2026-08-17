@@ -1,62 +1,27 @@
 import React from 'react';
-import styled from 'styled-components';
 import { CheckCircleIcon, HourglassIcon } from '@phosphor-icons/react';
-import { print } from '@/components/common/media-queries';
-import Colors from '../common/colors';
 
-const CourseStyle = styled.article`
-	display: flex;
-	font-size: 1.2rem;
-	font-weight: 500;
-	align-items: flex-end;
+import {useCssVar} from "@/lib/utils/use-others";
 
-	${print`
-        page-break-inside: avoid;
-    `}
-`;
-
-const CourseName = styled.p`
-	font-size: 1.4rem;
-	font-weight: 500;
-	padding-left: 0.8rem;
-`;
-
-const CourseDescription = styled.span`
-	font-size: 1rem;
-	padding-left: 0.8rem;
-	margin-bottom: 1.5rem;
-`;
-
-const CourseOwner = styled.span`
-	font-size: 1rem;
-	font-style: italic;
-	font-weight: bold;
-	padding-left: 0.8rem;
-	margin-bottom: 1.5rem;
-`;
-
-const CourseRealization = styled.i`
-    border: 1px var(--color-green-lighter);
-    font-size: 2rem;
-    margin-bottom: 0.8rem;
-`;
 
 export const Course = ({ name, owner, description, realized }) => {
+
+	const PURPLE = useCssVar('--color-purple');
 	return (
-		<CourseStyle>
+		<article className={"course"}>
 			{realized === true ? (
-				<CourseRealization>
-					<CheckCircleIcon size={'2rem'} color={Colors.PURPLE} />
-				</CourseRealization>
+				<i className={"course-completion"}>
+					<CheckCircleIcon size={'2rem'} color={PURPLE} />
+				</i>
 			) : (
-				<CourseRealization>
-					<HourglassIcon size={'2rem'} color={Colors.PURPLE} />
-				</CourseRealization>
+				<i className={"course-completion"}>
+					<HourglassIcon size={'2rem'} color={PURPLE} />
+				</i>
 			)}
-			<CourseName>
-				{name} -<CourseDescription>{description}</CourseDescription>
-				<CourseOwner>{owner}</CourseOwner>
-			</CourseName>
-		</CourseStyle>
+			<p className={"course-name"}>
+				{name} - <span className={"course-description"}>{description}</span>
+				<span className={"course-owner"}>{owner}</span>
+			</p>
+		</article>
 	);
 };

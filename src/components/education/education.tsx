@@ -1,66 +1,13 @@
 'use client';
 
 import React, { JSX, use, useContext } from 'react';
-import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { LanguageContext } from '@/components/context/language-context';
 import { ViteSection } from '@/components/section/vite-section';
 import type { EducationProps, ReturnProps } from '@/lib/content-loading/content-types';
 
-const LifetimeEventStyle = styled.ul`
-    font-size: 1.6rem;
-    width: 100%;
-    list-style: none;
-    padding-left: 0;
-
-    li {
-        display: flex;
-        color: var(--color-darkest);
-    }
-
-    time {
-        position: relative;
-        font-weight: bold;
-        writing-mode: vertical-rl;
-        font-size: 1.4rem;
-        text-orientation: sideways;
-        padding-right: 1rem;
-        border-right: 0.2rem var(--color-darkest) solid;
-
-        &::after {
-            content: '';
-            position: absolute;
-            z-index: 2;
-            right: 0;
-            top: 0;
-            transform: translateX(60%);
-            border-radius: 50%;
-            background: var(--color-darkest);
-            border: 0.3rem var(--color-darkest) solid;
-            width: 0.5em;
-            height: 0.5em;
-        }
-    }
-
-    span {
-        padding: 0 1.5rem 1.5rem 1.5rem;
-        position: relative;
-
-        &::before {
-            content: '';
-            position: absolute;
-            z-index: 1;
-            left: 0;
-            height: 100%;
-        }
-    }
-
-    strong {
-        display: block;
-        font-weight: 500;
-    }
-`;
+import "./education.module.css";
 
 export default function Education({
 	education
@@ -75,7 +22,7 @@ export default function Education({
 			: edu.frontmatter.language.pl;
 	return (
 		<ViteSection id='education' title={title}>
-			<LifetimeEventStyle>
+			<ul>
 				{events.map((ev, index) => {
 					return (
 						<motion.li whileTap={{ scale: 0.95 }} key={index}>
@@ -89,7 +36,7 @@ export default function Education({
 						</motion.li>
 					);
 				})}
-			</LifetimeEventStyle>
+			</ul>
 		</ViteSection>
 	);
 }

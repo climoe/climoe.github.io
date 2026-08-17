@@ -3,6 +3,7 @@
 /*	of classes used by another*/
 /*	classes*/
 /**!*/
+@import "./base.css";
 
 @layer shared {
 

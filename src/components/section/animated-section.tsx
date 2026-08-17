@@ -1,40 +1,10 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import styled, { css } from 'styled-components';
 import { motion, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-import { mediaQueries } from '@/components/common/media-queries';
-
-const AnimatedSectionStyle = styled.div`
-	margin: 0;
-
-	@media (max-width: '${mediaQueries.tablet}') {
-		${css`
-		margin: 0 0 2rem;
-	`}
-	}
-
-	.controls {
-		display: flex;
-		flex-direction: row;
-		align-items: flex-start;
-		justify-content: space-around;
-
-		@media (max-width: '${mediaQueries.tablet}') {
-			${css`
-			flex-direction: column;
-		`}
-		}
-	}
-
-	@media print {
-		${css`
-		margin: 0;
-	`}
-	}
-`;
+import "./section.module.css";
 
 const squareVariants: Variants = {
 	visible: {
@@ -56,7 +26,7 @@ export function AnimatedSection({ children }) {
 	}, [controls, inView]);
 
 	return (
-		<AnimatedSectionStyle>
+		<section className={"animated"}>
 			<motion.div
 				className='controls'
 				ref={ref}
@@ -65,6 +35,6 @@ export function AnimatedSection({ children }) {
 				variants={squareVariants}>
 				{children}
 			</motion.div>
-		</AnimatedSectionStyle>
+		</section>
 	);
 }

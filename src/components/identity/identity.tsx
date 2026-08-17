@@ -9,7 +9,7 @@ import type { IdentityProps, ReturnProps } from '@/lib/content-loading/content-t
 import { AtIcon, GithubLogoIcon, LinkedinLogoIcon, PhoneCallIcon, TwitterLogoIcon } from '@phosphor-icons/react';
 import Pin from '@/public/images/location.svg';
 import social from '@/public/images/social.jpg';
-import Colors from '@/components/common/colors';
+import Colors from '@/components/shared/colors';
 
 import '@/components/identity/identity.module.css';
 

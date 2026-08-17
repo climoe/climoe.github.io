@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 import { LanguageSwitch } from '@/components/button/switch/language-switch';
-import useSticky from './use-sticky';
+import useSticky from '@/lib/utils/use-sticky';
 
 export interface StickyProps {
 	sticky: string;

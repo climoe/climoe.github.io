@@ -1,0 +1,37 @@
+@import "../../styles/global.css";
+
+@layer education {
+
+    ul {
+        @apply text-[1.6rem] w-full list-none pl-0;
+
+        li {
+            @apply flex color-darkest
+
+        }
+
+        time {
+            @apply relative font-bold vertical-rl text-[1.4rem] text-sideways pr-4;
+            @apply border-r-[.2rem] border-darkest border-solid;
+
+            &::after {
+                @apply content-none absolute top-0 right-0 z-2;
+                @apply translate-x-[60%] rounded-[50%] bg-darkest;
+                @apply border-[0.3rem] border-solid border-darkest w-[.5em] h-[.5em];
+
+            }
+        }
+
+        span {
+            @apply p-[0_1.5rem_1.5rem_1.5rem] relative;
+
+            &::before {
+                @apply content-none absolute z-1 left-0 h-full;
+            }
+        }
+
+        strong {
+            @apply block font-medium;
+        }
+    }
+}

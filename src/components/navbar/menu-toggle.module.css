@@ -1,0 +1,11 @@
+@import "../../styles/global.css";
+
+@custom-variant srolled (&:where([data-scrolled=true], [data-scrolled=true] *));
+
+@layer menu-toggle {
+    .toggle{
+        @apply relative bg-transparent justify-self-end top-0 right-0 outline-none border-none z-5;
+        @apply cursor-pointer w-36 p-0 h-36 rounded-[50%];
+        @apply scrolled:bg-white;
+    }
+}

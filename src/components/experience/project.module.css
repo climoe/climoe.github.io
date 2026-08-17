@@ -1,0 +1,36 @@
+@import "../../styles/global.css";
+
+@layer project {
+
+    /* section */
+    .project {
+        @apply pl-2 pr-2 mt-2;
+        @apply print:break-inside-avoid;
+    }
+
+    /* h5 */
+    .project-name {
+        @apply text-[1.6rem] font-medium mb-0;
+    }
+
+    /* h5 */
+    .project-position {
+        @apply text-[1.4rem] font-light mb-0 mt-[.8rem];
+    }
+
+    /* article */
+    .project-details {
+        @apply text-[1.4rem] font-light text-grey;
+    }
+
+    /* article */
+    .project-role {
+        @apply text-[1.4rem] font-light text-grey;
+    }
+
+    /* p */
+    .project-technologies {
+        @apply flex justify-start flex-wrap mt-2 break-inside-avoid;
+        @apply print:break-inside-avoid;
+    }
+}

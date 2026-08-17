@@ -1,0 +1,58 @@
+@import '../../styles/global.css';
+
+@layer skills {
+
+    /* div */
+    .skills {
+        @apply break-inside-auto;
+        @apply print: text-[1rem_important];
+    }
+
+    /* section */
+    .category {
+        @apply p-0 m-0 break-inside-avoid;
+    }
+
+    /* section */
+    .category-grid {
+       @apply grid grid-cols-[100%] p-0 m-0 break-inside-avoid;
+    }
+
+    /* h4 */
+    .skills-category {
+        @apply text-[1rem] text-grey m-[6_0_0] pl-4 break-inside-avoid;
+        @apply print: text-[1.2rem] m-[4_0_0] pl-2;
+    }
+
+    /* section */
+    .skills-grid {
+        @apply grid grid-cols-5 gap-x-0 gap-y-[.2rem];
+        @apply laptop:grid-cols-5;
+        @apply tablet:grid-cols-4;
+        @apply print:grid-cols-6 gap-x-[.2rem] gap-y-[.2rem];
+    }
+
+    /* p */
+    .skills-legend {
+        @apply text-[1.2rem] font-light text-grey;
+        @apply print: text-[1rem];
+    }
+
+    /* article */
+    .skills-rating {
+        @apply rounded-[3rem] p-[8_4];
+        @apply print: p-[4_2];
+    }
+
+    /* h5 */
+    .skill-name {
+        @apply text-[1.2rem] font-medium m-[0_0_0_1.6];
+        @apply print:text-4 m-[0_0_.8];
+    }
+
+    /* p */
+    .skills-description {
+        @apply text-[1.2rem] font-light text-grey m-0;
+        @apply print:text-[.8rem];
+    }
+}

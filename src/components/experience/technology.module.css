@@ -1,0 +1,10 @@
+@import "../../styles/global.css";
+
+@layer technology {
+
+    /* span */
+    .technology {
+        @apply border border-solid border-purple;
+        @apply rounded-2xl text-[1.2rem] font-medium mr-2 mt-2 p-2 leading-[1.6];
+    }
+}

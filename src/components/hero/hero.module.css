@@ -1,0 +1,15 @@
+@import "../../styles/global.css";
+
+@layer hero {
+
+    /* div */
+    .hero {
+        @apply absolute top-0 left-0 right-0 max-w-560 m-auto h-32 z-2 bg-transparent;
+    }
+
+    /* a */
+    .logo {
+        @apply inline-block w-[6.4rem] h-[6.4rem] m-4 rounded-[50%] bg-linear-90 from-pink from-0% to-purple to-100% text-darkest cursor-pointer no-underline;
+        @apply animation-quick-rotate;
+    }
+}

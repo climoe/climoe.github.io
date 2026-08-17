@@ -1,0 +1,30 @@
+@import "../../styles/global.css";
+
+
+@layer courses {
+    /*  article  */
+    .course {
+        @apply flex text-[1.2rem] font-medium items-end;
+        @apply print: break-inside-avoid;
+    }
+
+    /* p */
+    .course-name {
+        @apply text-[1.4rem] font-medium pl-[.8rem];
+    }
+
+    /* span */
+    .course-description {
+        @apply text-[1rem] pl-[.8rem] mb-6;
+    }
+
+    /* span */
+    .course-owner {
+        @apply text-[1rem] font-italic font-bold pl-[.8rem] mb-6;
+    }
+
+    /* i */
+    .course-completion {
+        @apply border border-green-lighter text-[2rem] mb-[.8rem];
+    }
+}

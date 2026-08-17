@@ -3,11 +3,11 @@
 import React, { useRef, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
 
-import { FlexRowCenter } from '@/components/common/flexbox';
+import { FlexRowCenter } from '@/components/shared/flexbox';
 import { Input } from '@/components/ui/input';
 import { PrinterIcon } from '@phosphor-icons/react';
 import styled from 'styled-components';
-import Colors from '@/components/common/colors';
+import Colors from '@/components/shared/colors';
 
 import '../../styles/global.css';
 

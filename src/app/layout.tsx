@@ -6,7 +6,7 @@ import { LanguageContext } from '@/components/context/language-context';
 
 import Hero from '@/components/hero/hero';
 import Footer from '@/components/footer/footer';
-import Header from '@/components/common/header';
+import Header from '@/components/shared/header';
 
 import '../../src/styles/global.css';
 

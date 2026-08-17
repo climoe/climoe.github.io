@@ -1,91 +1,15 @@
 'use client';
 
 import React, { JSX, use, useContext } from 'react';
-import styled, { css } from 'styled-components';
 
-import { mediaQueries } from '@/components/common/media-queries';
 import { LanguageContext } from '@/components/context/language-context';
 
 import { ViteSection } from '@/components/section/vite-section';
 import { SkillRating } from '@/components/skills/skill-rating';
 import { ReturnProps, SkillsProps } from '@/lib/content-loading/content-types';
 
-const SkillsStyle = styled.div`
-	page-break-inside: auto;
+import "./skills.module.css";
 
-	@media print {
-		${css`
-		font-size: 1rem !important;
-	`}
-	}
-`;
-
-const SkillsGridStyle = styled.section`
-	display: grid;
-	grid-template-columns: 20% 20% 20% 20% 20%;
-	column-gap: 0;
-	row-gap: 0.2rem;
-
-	@media (max-width: '${mediaQueries.laptop}') {
-		${css`
-		grid-template-columns: 20% 20% 20% 20% 20%;
-	`}
-	}
-
-	@media (max-width: '${mediaQueries.tablet}') {
-		${css`
-		grid-template-columns: 25% 25% 25% 25%;
-	`}
-	}
-
-	@media print {
-		${css`
-		grid-template-columns: 15% 15% 15% 15% 15% 15%;
-		column-gap: 0.2rem;
-		row-gap: 0.2rem;
-	`}
-	}
-`;
-
-const CategoryGridStyle = styled.section`
-	display: grid;
-	grid-template-columns: 100%;
-	padding: 0;
-	margin: 0;
-`;
-
-const CategoryStyle = styled.section`
-	padding: 0;
-	margin: 0;
-	page-break-inside: avoid;
-`;
-
-const SkillsCategory = styled.h4`
-    font-size: 1rem;
-    color: var(--color-grey);
-    margin: 1.5rem 0 0;
-    padding-left: 1rem;
-    page-break-inside: avoid;
-
-    @media print {
-        ${css`
-		font-size: 1.2rem;
-		margin: 1rem 0 0;
-		padding-left: 0.5rem;
-	`}
-    }
-`;
-
-const SkillsLegend = styled.p`
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: var(--color-grey);
-    @media print {
-        ${css`
-		font-size: 1rem;
-	`}
-    }
-`;
 
 export default function Skills({
 	skillset
@@ -101,15 +25,15 @@ export default function Skills({
 
 	return (
 		<ViteSection id='technology' title={description}>
-			<SkillsStyle>
-				<CategoryGridStyle>
+			<div className={"skills"}>
+				<section className={"category-grid"}>
 					{skills.map((skill, index1) => {
 						return (
-							<CategoryStyle key={skill.category}>
-								<SkillsCategory key={index1}>
+							<section className={"category"} key={skill.category}>
+								<h4 className={"skills-category"} key={index1}>
 									{skill.category}
-								</SkillsCategory>
-								<SkillsGridStyle key={skill.category}>
+								</h4>
+								<section className={"skills-grid"} key={skill.category}>
 									{skill.items.map((item, index2) => {
 										return (
 											<SkillRating
@@ -120,13 +44,13 @@ export default function Skills({
 											/>
 										);
 									})}
-								</SkillsGridStyle>
-							</CategoryStyle>
+								</section>
+							</section>
 						);
 					})}
-				</CategoryGridStyle>
-				<SkillsLegend>{legend}</SkillsLegend>
-			</SkillsStyle>
+				</section>
+				<p className={"skills-legend"}>{legend}</p>
+			</div>
 		</ViteSection>
 	);
 }

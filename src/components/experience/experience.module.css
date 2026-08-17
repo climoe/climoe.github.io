@@ -1,0 +1,36 @@
+@import "../../styles/global.css";
+
+@layer experience {
+
+    ul {
+        @apply text-[1.8rem] pl-0 mt-0;
+        @apply print:pl-0 print:mt-0;
+
+        li {
+            @apply flex text-darkest;
+        }
+
+        time {
+            @apply relative pr-4 border-r-[.2rem] border-darkest border-solid;
+            @apply text-[1.4rem] font-bold writing-vertical-lr orientation-sideways;
+            @apply print:ml-0 print:pl-0 print:pr-4;
+
+            &::after {
+                @apply content-none absolute z-2 right-0 top-0 translate-x-60% rounded-[50%];
+                @apply bg-darkest border-[.3rem] border-darkest border-solid w-[.5em] h-[.5em];
+            }
+        }
+
+        .company {
+            @apply p-[0_1.5rem_1.5rem_1.5rem] relative;
+
+            &::before {
+                @apply content-none absolute z-1 lwft-0 h-full;
+            }
+        }
+
+        strong {
+            @apply inline-block font-medium;
+        }
+    }
+}
