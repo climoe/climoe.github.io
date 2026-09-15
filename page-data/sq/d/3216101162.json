@@ -1,1 +1,91 @@
-{"data":{"markdownRemark":{"frontmatter":{"id":"courses","language":{"pl":{"label":"Ostatnio realizowane kursy","items":[{"name":"Podejście DDD i Clean Architecture do odkrywania reguł biznesowych złożonych domen","description":"Jak odkryć, jakie zasady rządzą w skomplikowanym eksplorowaniu domen w oparciu o realny projekt klienta","owner":"od Bottega IT Minds.","realized":null},{"name":"Starter Pack dla lider zespołu i lidera technologii","description":"Kompetencje miękkie z metodyką zwinną dla liderów","owner":"od Bottega IT Minds.","realized":true},{"name":"Kubernetes Maestro","description":"od nooba do mistrza konteneryzacji i orkiestracji","owner":"od wkontenerach.pl","realized":true},{"name":"Legacy Fighter","description":"refaktoring projektów legacy w nowoczesnej formie z zastosowaniem DDD, CQRS i czystej architektury","owner":"od devstyle.pl","realized":true},{"name":"DNA (Droga Nowoczesnego Architekta)","description":"rozszerzony program zwiększania praktycznych kompetencji z zakresu szeroko pojętej architektury oprogramowania","owner":"od devstyle.pl","realized":true},{"name":"AWS Zrozum Wszystkie Usługi /AWS Certified Developer - Associate","description":"przekrojowy przegląd najważniejszych i najczęściej wykorzystywanych usług AWS z certyfikacją na poziomie developerskim","owner":"od szkolachmury.pl","realized":true},{"name":"Clean Architecture","description":"budowanie czystych i modularnych aplikacji z wykorzystaniem DDD, CQRS i HA  ","owner":"od sages.pl","realized":true},{"name":"Spring Cloud - architektura mikroserwisów","description":"wykorzystanie rozwiązań biblioteki Spring Cloud w zakresie projektowania systemów rozproszonch (configuration, discovery, api gateway, load balancing, tracing, monitoring, asynch non-blocking communication).","owner":"od sages.pl","realized":true},{"name":"DB Master","description":"optymalna wydajność w projektowaniu i zarządzaniu bazami danych SQL","owner":"od devstyle.pl","realized":true}]},"en":{"label":"Recent courses","items":[{"name":"A DDD and Clean Architecture approach to discovering the business rules of complex domains","description":"How to discover what rules govern in complex domain exploring based on real customer project","owner":"by Bottega IT Minds.","realized":true},{"name":"Starter Pack for Team or Technology Leader","description":"Soft skills with agile methodology for leaders","owner":"by Bottega IT Minds.","realized":true},{"name":"Kubernetes Maestro","description":"from nooby to master in contenerization and orchestration","owner":"by wkontenerach.pl","realized":false},{"name":"Legacy Fighter","description":"refactoring legacy projects in modern way with DDD and CQRS patterns","owner":"by devstyle.pl","realized":true},{"name":"DNA (acronym of polish - The Way of Modern Architect)","description":"advanced agenda about practical raising competences in field of IT architecture","owner":"by devstyle.pl","realized":false},{"name":"AWS - Understand All Services /AWS Certified Developer Associate","description":"cross-functional review of amazon's services and preparation for certification at the development level","owner":"by szkolachmury.pl","realized":true},{"name":"Clean Architecture","description":"building clean boundaries in applications using good practices, DDD approach and hexagonal architecture","owner":"by sages.pl","realized":true},{"name":"Spring Cloud - microservices architecture","description":"application of solutions offered by the Spring Cloud framework - (distributed config, discovery, balancing, gateway, async and non-blocking communication, tracing, observability)","owner":"by sages.pl","realized":true},{"name":"DB Master","description":"mastering database development and management for optimized performance","owner":"by devstyle.pl","realized":true}]}}}}}}
+{
+  "data": {
+    "filename": {
+      "childImageSharp": {
+        "gatsbyImageData": {
+          "layout": "constrained",
+          "placeholder": {
+            "fallback": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAEDBQIE/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAByJvk8YNe4OQf/8QAHBABAAMAAgMAAAAAAAAAAAAAAgEDBAAQERIT/9oACAEBAAEFAiZUsIdZ1Bt0L2nmas/NVmJeavz/AP/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EAB0QAAIBBAMAAAAAAAAAAAAAAAABERATIUEiMTL/2gAIAQEABj8ChdnJUzW5uYPKyzaP/8QAHBABAQACAwEBAAAAAAAAAAAAAREAIRAxQVFx/9oACAEBAAE/IQZ1YrIcE1JSXO17v3zjei6l8ylNAOsVZ+A5/9oADAMBAAIAAwAAABBQxzz/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAdEAEAAgICAwAAAAAAAAAAAAABETEAIRBBUYGh/9oACAEBAAE/EFh1AwQhtTwc9QDpcKVCVUikcNW3k2DFh5w8YkoQF6PWR1NJpfc//9k="
+          },
+          "images": {
+            "fallback": {
+              "src": "/static/e4b20e5e7042e34132e524202d0ddca8/da71f/social.jpg",
+              "srcSet": "/static/e4b20e5e7042e34132e524202d0ddca8/52f60/social.jpg 209w,\n/static/e4b20e5e7042e34132e524202d0ddca8/aeb95/social.jpg 418w,\n/static/e4b20e5e7042e34132e524202d0ddca8/da71f/social.jpg 836w",
+              "sizes": "(min-width: 836px) 836px, 100vw"
+            },
+            "sources": []
+          },
+          "width": 836,
+          "height": 818
+        }
+      }
+    },
+    "markdownRemark": {
+      "frontmatter": {
+        "id": "personal",
+        "language": {
+          "pl": {
+            "contact": {
+              "header": "Kontakt",
+              "mail": "klimczak.kamill@gmail.com",
+              "phone": "+48 509-405-890"
+            },
+            "about": {
+              "header": "O mnie",
+              "content": "Senior Java Developer, ostatnio zapalony miłośnik języka Kotlin. Specjalizuje się w tworzeniu aplikacji webowych w technologiach JVM, ale jestem otwarty na rolę fullstack, gdyż nie są mi obce JS/TS oraz React. Interesuje się również szeroko pojętą architekturą systemów oraz rozwiązaniami chmurowymi. Chciałbym być częścią zespołu, którego członkowie motywują się nawzajem i stosują na co dzień dobre praktyki w wytwarzaniu oprogramowania jak DDD czy Clean Architecture. Zdobytej wiedzy nie zostawiam dla siebie, lubię się nią dzielić z innymi. Programowanie uważam nie tylko za moją pracę, ale też jedno z największych zainteresowań."
+            },
+            "personal": {
+              "position": "Web Developer",
+              "name": "Kamil Klimczak",
+              "country": "Poland",
+              "city": "Wrocław"
+            },
+            "social": {
+              "header": "Konta społecznościowe",
+              "accounts": [
+                { "url": "https://www.linkedin.com/in/kamil-k-a21b55157/" },
+                { "url": "https://twitter.com/laserteg" },
+                { "url": "https://dev.to/climoe" },
+                { "url": "https://github.com/climoe" }
+              ]
+            },
+            "sentence": {
+              "header": "Sentencja życiowa",
+              "content": "Nie staraj się porównywać do innych, staraj się mierzyć postęp jaki zrobiłeś od wczoraj!"
+            }
+          },
+          "en": {
+            "contact": {
+              "header": "Contact details",
+              "mail": "klimczak.kamill@gmail.com",
+              "phone": "+48 509-405-890"
+            },
+            "about": {
+              "header": "About me",
+              "content": "Java/Kotlin Developer on my core, recently AI fanboy. Over 13 years of commercial experience in the IT industry. Open to full-stack roles, as familiar with JS/TS and React/Angular. Also interested in widely understood system architecture and creating solutions in the cloud . A professional career goal is to be more experienced everyday using best practices with spread knowledge-sharing. Considering IT engineering not only as a job, but also as one of greatest interests."
+            },
+            "personal": {
+              "position": "Fullstack Developer",
+              "name": "Kamil Klimczak",
+              "country": "Poland",
+              "city": "Wrocław"
+            },
+            "social": {
+              "header": "Social accounts",
+              "accounts": [
+                { "url": "https://www.linkedin.com/in/kamil-k-a21b55157/" },
+                { "url": "https://twitter.com/laserteg" },
+                { "url": "https://dev.to/climoe" },
+                { "url": "https://github.com/climoe" }
+              ]
+            },
+            "sentence": {
+              "header": "Life sentence",
+              "content": "Don't try to compare to others today, compare to progress you've made from yesterday!"
+            }
+          }
+        }
+      }
+    }
+  }
+}
